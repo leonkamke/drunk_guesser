@@ -17,7 +17,7 @@ class IconButton extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontFamily: "Quicksand",
               fontSize: 15,
               fontWeight: FontWeight.bold,

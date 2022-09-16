@@ -61,6 +61,7 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(20, 40, 20, 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         CustomIconButton.IconButton(
                           text: "Spielregeln",
