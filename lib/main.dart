@@ -1,4 +1,4 @@
-import 'package:drunk_guesser/screens/homescreen.dart';
+import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

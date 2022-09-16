@@ -1,5 +1,5 @@
 import 'package:drunk_guesser/widgets/rounded_button.dart';
-import 'package:flutter/services.dart';
+import 'package:drunk_guesser/widgets/icon_button.dart' as CustomIconButton;
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' as Rive;
 
@@ -50,21 +50,28 @@ class HomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                width: 2000,
-                height: 2000,
-                child: Rive.RiveAnimation.asset('assets/animations/blasen.riv', fit: BoxFit.cover,),
+                child: const Rive.RiveAnimation.asset(
+                  'assets/animations/blasen.riv',
+                  fit: BoxFit.cover,
+                ),
               ),
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 20, 10, 5),
+                    padding: EdgeInsets.fromLTRB(20, 40, 20, 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                            onPressed: () {}, icon: Icon(Icons.account_box)),
-                        IconButton(
-                            onPressed: () {}, icon: Icon(Icons.access_alarm)),
+                        CustomIconButton.IconButton(
+                          text: "Spielregeln",
+                          assetPath: "assets/icons/rules_icon.png",
+                          onTap: () => print("Spielregeln"),
+                        ),
+                        CustomIconButton.IconButton(
+                          text: "Credits",
+                          assetPath: "assets/icons/credits_icon.png",
+                          onTap: () => print("Credits"),
+                        ),
                       ],
                     ),
                   ),
@@ -100,11 +107,21 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(
                               height: displayHeight / 18,
                             ),
-                            RoundedButton(buttonText: "Start"),
+                            const RoundedButton(
+                              buttonText: "Start",
+                              borderRadius: 15,
+                              firstColor: Color(0xE0FFA34B),
+                              secondColor: Color(0xFFCC700F),
+                            ),
                             SizedBox(
                               height: displayHeight / 40,
                             ),
-                            RoundedButton(buttonText: "Sprachen"),
+                            const RoundedButton(
+                              buttonText: "Sprachen",
+                              borderRadius: 15,
+                              firstColor: Color(0xE0FFA34B),
+                              secondColor: Color(0xFFCC700F),
+                            ),
                             SizedBox(
                               height: displayHeight / 9,
                             )

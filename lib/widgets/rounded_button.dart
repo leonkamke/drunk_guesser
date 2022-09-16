@@ -2,10 +2,24 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   final String buttonText;
+  final Color firstColor;
+  final Color secondColor;
+  final double borderRadius;
+
+  /*
+  Good colors:
+
+  Color(0xE0FFA34B),
+  Color(0xFFCC700F),
+
+   */
 
   const RoundedButton({
     super.key,
     required this.buttonText,
+    required this.firstColor,
+    required this.secondColor,
+    required this.borderRadius,
   });
 
   @override
@@ -19,24 +33,25 @@ class RoundedButton extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-                color: Colors.black54, offset: Offset(0, 5), blurRadius: 7)
+                color: Colors.black54, offset: Offset(0, 7), blurRadius: 8)
           ],
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xE0FFA34B),
-              Color(0xFFCC700F),
+              firstColor,
+              secondColor,
             ],
           ),
           //color: Colors.deepPurple.shade300,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             splashFactory: NoSplash.splashFactory,
+            foregroundColor: Colors.black,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(borderRadius),
               //side: const BorderSide(width: 4, color: Color(0x774B3333)),
             ),
             backgroundColor: Colors.transparent,
