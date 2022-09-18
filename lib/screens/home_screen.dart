@@ -50,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Center(
-        child: Container(
+      body:
+        Container(
           width: displayWidth,
           height: displayHeight,
           decoration: backgroundDecoration,
@@ -141,6 +141,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Navigator.of(context).pushNamed("/categories");
                                   },
                                 ),
+                                SizedBox(
+                                  height: displayHeight * 0.03,
+                                ),
+                                RoundedButton(
+                                  buttonText: "Einstellungen",
+                                  borderRadius: 15,
+                                  firstColor: const Color(0xFF5B738F),
+                                  secondColor: const Color(0xFF5B7394),
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed("/settings");
+                                  },
+                                ),
                               ],
                             ),
                           ),
@@ -151,7 +163,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

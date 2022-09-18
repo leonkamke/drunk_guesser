@@ -69,6 +69,7 @@ flutter:
     - assets/animations/blasen.riv
     - assets/icons/rules_icon.png
     - assets/icons/credits_icon.png
+    - assets/images/drunk_guesser_img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
