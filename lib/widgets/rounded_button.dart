@@ -64,13 +64,15 @@ class RoundedButton extends StatelessWidget {
               top: 10,
               bottom: 10,
             ),
-            child: Text(
-              buttonText,
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Quicksand",
-                color: Color(0xFFFFFFFF),
+            child: FittedBox(
+              child: Text(
+                buttonText,
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Quicksand",
+                  color: Color(0xFFFFFFFF),
+                ),
               ),
             ),
           ),

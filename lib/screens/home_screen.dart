@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF3C4D62),
+      Color(0xFF536585),
       Color(0xFF304157),
     ],
   ));
@@ -82,49 +82,49 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                       width: displayWidth * 0.83,
                       child: Card(
-                        color: Color(0xFF80A5D7),
+                        color: const Color(0xFF80A5D7),
                         elevation: 15,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(17)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: displayHeight * 0.05,
-                            ),
-                            const Text(
-                              "DrunkGuesser",
-                              style: TextStyle(
-                                fontSize: 33,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Quicksand",
-                                color: Color(0xFFFFFFFF),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 25),
+                          child: Column(
+                            children: [
+                              const FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: Text(
+                                  "DrunkGuesser",
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Quicksand",
+                                    color: Color(0xFFFFFFFF),
+                                  ),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: displayHeight * 0.07,
-                            ),
-                            Container(
-                                width: displayHeight * 0.7,
-                                height: displayHeight * 0.25,
-                                child: const Rive.RiveAnimation.asset(
-                                  'assets/animations/drunkguesser2.2.riv',
-                                )),
-                            SizedBox(
-                              height: displayHeight * 0.05,
-                            ),
-                            const RoundedButton(
-                              buttonText: "Start",
-                              borderRadius: 15,
-                              firstColor: Color(0xFF5B738F),
-                              secondColor: Color(0xFF5B7394),
-                            ),
-                            SizedBox(
-                              height: displayHeight * 0.09,
-                            )
-                          ],
+                              SizedBox(
+                                height: displayHeight * 0.07,
+                              ),
+                              Container(
+                                  width: displayHeight * 0.7,
+                                  height: displayHeight * 0.25,
+                                  padding: const EdgeInsets.all(5),
+                                  child: const Rive.RiveAnimation.asset(
+                                    'assets/animations/drunkguesser2.2.riv',fit: BoxFit.contain,)),
+                              SizedBox(
+                                height: displayHeight * 0.05,
+                              ),
+                              const RoundedButton(
+                                buttonText: "Start",
+                                borderRadius: 15,
+                                firstColor: Color(0xFF5B738F),
+                                secondColor: Color(0xFF5B7394),
+                              ),
+                            ],
+                          ),
                         ),
                       ))
                 ],
