@@ -49,7 +49,7 @@ class RoundedButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             splashFactory: NoSplash.splashFactory,
-            foregroundColor: Colors.black,
+            foregroundColor: Color(0xFF94BFFF),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               //side: const BorderSide(width: 4, color: Color(0x774B3333)),
@@ -70,7 +70,7 @@ class RoundedButton extends StatelessWidget {
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
-                color: Colors.white,
+                color: Color(0xFFFFFFFF),
               ),
             ),
           ),

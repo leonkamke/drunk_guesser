@@ -23,6 +23,8 @@ class HomeScreen extends StatelessWidget {
       Color(0xFFEAA84A),
       Color(0xFFCC700F),
 
+      good light blue: Color(0xFF63A4E1)
+
    */
 
   var backgroundDecoration = const BoxDecoration(
@@ -30,8 +32,8 @@ class HomeScreen extends StatelessWidget {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFFEAA84A),
-      Color(0xFFCC700F),
+      Color(0xFF3C4D62),
+      Color(0xFF304157),
     ],
   ));
 
@@ -49,12 +51,12 @@ class HomeScreen extends StatelessWidget {
           decoration: backgroundDecoration,
           child: Stack(
             children: [
-              Container(
+              /*Container(
                 child: const Rive.RiveAnimation.asset(
                   'assets/animations/blasen.riv',
                   fit: BoxFit.cover,
                 ),
-              ),
+              ),*/
               Column(
                 children: [
                   Container(
@@ -62,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                         displayWidth * 0.066,
                         displayHeight * 0.06,
                         displayWidth * 0.066,
-                        displayHeight * 0.02),
+                        displayHeight * 0.07),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -83,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   Container(
                       width: displayWidth * 0.83,
                       child: Card(
-                        color: Color(0xE0443E38),
+                        color: Color(0xFF80A5D7),
                         elevation: 15,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(17)),
@@ -98,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                                 fontSize: 33,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "Quicksand",
-                                color: Colors.white,
+                                color: Color(0xFFFFFFFF),
                               ),
                             ),
                             SizedBox(
@@ -108,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                                 width: displayHeight * 0.7,
                                 height: displayHeight * 0.25,
                                 child: const Rive.RiveAnimation.asset(
-                                  'assets/animations/drunkguesser2.1.riv',
+                                  'assets/animations/drunkguesser2.2.riv',
                                 )),
                             SizedBox(
                               height: displayHeight * 0.05,
@@ -116,20 +118,11 @@ class HomeScreen extends StatelessWidget {
                             const RoundedButton(
                               buttonText: "Start",
                               borderRadius: 15,
-                              firstColor: Color(0xE0FFA34B),
-                              secondColor: Color(0xFFCC700F),
+                              firstColor: Color(0xFF5B738F),
+                              secondColor: Color(0xFF5B7394),
                             ),
                             SizedBox(
-                              height: displayHeight * 0.025,
-                            ),
-                            const RoundedButton(
-                              buttonText: "Sprachen",
-                              borderRadius: 15,
-                              firstColor: Color(0xE0FFA34B),
-                              secondColor: Color(0xFFCC700F),
-                            ),
-                            SizedBox(
-                              height: displayHeight * 0.11,
+                              height: displayHeight * 0.09,
                             )
                           ],
                         ),
