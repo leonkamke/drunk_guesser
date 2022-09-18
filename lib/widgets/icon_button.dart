@@ -9,11 +9,14 @@ class IconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         GestureDetector(
-          child: Image.asset(assetPath, scale: 1.3),
           onTap: onTap,
+          child: Image.asset(assetPath, height: displayHeight * 0.045,),
         ),
         Text(
           text,

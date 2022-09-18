@@ -58,7 +58,11 @@ class HomeScreen extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(20, 40, 20, 15),
+                    padding: EdgeInsets.fromLTRB(
+                        displayWidth * 0.066,
+                        displayHeight * 0.06,
+                        displayWidth * 0.066,
+                        displayHeight * 0.02),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -66,18 +70,18 @@ class HomeScreen extends StatelessWidget {
                         CustomIconButton.IconButton(
                           text: "Spielregeln",
                           assetPath: "assets/icons/rules_icon.png",
-                          onTap: () => print("Spielregeln"),
+                          onTap: () => print(displayHeight),
                         ),
                         CustomIconButton.IconButton(
                           text: "Credits",
                           assetPath: "assets/icons/credits_icon.png",
-                          onTap: () => print("Credits"),
+                          onTap: () => print(displayWidth),
                         ),
                       ],
                     ),
                   ),
                   Container(
-                      width: displayWidth / 1.2,
+                      width: displayWidth * 0.83,
                       child: Card(
                         color: Color(0xE0443E38),
                         elevation: 15,
@@ -86,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: displayHeight / 20,
+                              height: displayHeight * 0.05,
                             ),
                             const Text(
                               "DrunkGuesser",
@@ -98,15 +102,16 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: displayHeight / 14,
+                              height: displayHeight * 0.07,
                             ),
                             Container(
-                                width: displayWidth / 1.4,
-                                height: 200,
+                                width: displayHeight * 0.7,
+                                height: displayHeight * 0.25,
                                 child: const Rive.RiveAnimation.asset(
-                                    'assets/animations/drunkguesser2.1.riv')),
+                                  'assets/animations/drunkguesser2.1.riv',
+                                )),
                             SizedBox(
-                              height: displayHeight / 18,
+                              height: displayHeight * 0.05,
                             ),
                             const RoundedButton(
                               buttonText: "Start",
@@ -115,7 +120,7 @@ class HomeScreen extends StatelessWidget {
                               secondColor: Color(0xFFCC700F),
                             ),
                             SizedBox(
-                              height: displayHeight / 40,
+                              height: displayHeight * 0.025,
                             ),
                             const RoundedButton(
                               buttonText: "Sprachen",
@@ -124,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                               secondColor: Color(0xFFCC700F),
                             ),
                             SizedBox(
-                              height: displayHeight / 9,
+                              height: displayHeight * 0.11,
                             )
                           ],
                         ),
