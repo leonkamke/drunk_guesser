@@ -5,6 +5,7 @@ class RoundedButton extends StatelessWidget {
   final Color firstColor;
   final Color secondColor;
   final double borderRadius;
+  final void Function() onTap;
 
   /*
   Good colors:
@@ -20,6 +21,7 @@ class RoundedButton extends StatelessWidget {
     required this.firstColor,
     required this.secondColor,
     required this.borderRadius,
+    required this.onTap,
   });
 
   @override
@@ -49,7 +51,7 @@ class RoundedButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             splashFactory: NoSplash.splashFactory,
-            foregroundColor: Color(0xFF94BFFF),
+            foregroundColor: const Color(0xFF94BFFF),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               //side: const BorderSide(width: 4, color: Color(0x774B3333)),
@@ -58,7 +60,7 @@ class RoundedButton extends StatelessWidget {
             shadowColor: Colors.transparent,
             fixedSize: Size(displayWidth / 2, displayHeight / 14),
           ),
-          onPressed: () {},
+          onPressed: onTap,
           child: Padding(
             padding: const EdgeInsets.only(
               top: 10,

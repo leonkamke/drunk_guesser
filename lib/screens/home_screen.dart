@@ -79,8 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             text: "Spielregeln",
                             assetPath: "assets/icons/rules_icon.png",
                             onTap: () {
-                              // TODO: Navigate to SpielregelnScreen
                               print(displayHeight);
+                              Navigator.of(context).pushNamed("/rules");
                             },
                           ),
                           CustomIconButton.IconButton(
@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               print(displayWidth);
                               // Navigate to CreditsScreen
-                              Navigator.pushNamed(context, '/credits');
+                              Navigator.pushNamed(context, "/credits");
                             },
                           ),
                         ],
@@ -132,11 +132,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   height: displayHeight * 0.05,
                                 ),
-                                const RoundedButton(
+                                RoundedButton(
                                   buttonText: "Start",
                                   borderRadius: 15,
-                                  firstColor: Color(0xFF5B738F),
-                                  secondColor: Color(0xFF5B7394),
+                                  firstColor: const Color(0xFF5B738F),
+                                  secondColor: const Color(0xFF5B7394),
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed("/categories");
+                                  },
                                 ),
                               ],
                             ),
