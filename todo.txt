@@ -1,0 +1,3 @@
+- Work with "Expanded" widget
+- Splashscreen for Android 12
+- Brandtext for splash screen
