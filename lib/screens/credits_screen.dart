@@ -19,18 +19,34 @@ class _CreditsScreenState extends State<CreditsScreen> {
   ));
 
   late Image drunkGuesserImg;
+  late Image homeIcon;
+  late Image mailIcon;
 
   @override
   void initState() {
     super.initState();
-    initialization();
-  }
-
-  void initialization() async {
+    final displayHeight = MediaQuery.of(context).size.height;
     drunkGuesserImg = Image.asset(
       "assets/images/drunk_guesser_img.png",
       fit: BoxFit.contain,
     );
+    homeIcon = Image.asset(
+      "assets/icons/home_icon.png",
+      height: displayHeight * 0.045,
+    );
+    mailIcon = Image.asset(
+      "assets/icons/mail_icon.png",
+      height: displayHeight * 0.045,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    precacheImage(drunkGuesserImg.image, context);
+    precacheImage(homeIcon.image, context);
+    precacheImage(mailIcon.image, context);
   }
 
   @override
@@ -56,10 +72,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    child: Image.asset(
-                      "assets/icons/home_icon.png",
-                      height: displayHeight * 0.045,
-                    ),
+                    child: homeIcon,
                     onTap: () {
                       Navigator.of(context).pop();
                     },
@@ -99,10 +112,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),
-                      Image.asset(
-                        "assets/icons/mail_icon.png",
-                        height: displayHeight * 0.045,
-                      ),
+                      mailIcon,
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),

@@ -1,3 +1,4 @@
 - Work with "Expanded" widget
 - Splashscreen for Android 12
-- Brandtext for splash screen
+- Brandtext for splashscreen
+- Load assets (images) before building screen (precacheImage)
