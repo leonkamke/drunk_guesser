@@ -2,11 +2,17 @@ import 'package:drunk_guesser/screens/credits_screen.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:drunk_guesser/widgets/icon_button.dart' as CustomIconButton;
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rive/rive.dart' as rive;
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   /*
 
   Good colors for background:
@@ -36,6 +42,21 @@ class HomeScreen extends StatelessWidget {
       Color(0xFF304157),
     ],
   ));
+
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    // This is where you can initialize the resources needed by your app while
+    // the splash screen is displayed.  Remove the following example because
+    // delaying the user experience is a bad design practice!
+    // ignore_for_file: avoid_print
+    await Future.delayed(const Duration(milliseconds: 1400));
+    FlutterNativeSplash.remove();
+  }
 
   @override
   Widget build(BuildContext context) {

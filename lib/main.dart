@@ -4,10 +4,12 @@ import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/rules_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
-  //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 }
 
 class MyApp extends StatelessWidget {
@@ -30,26 +32,41 @@ class MyApp extends StatelessWidget {
           return PageRouteBuilder(
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  CreditsScreen(),
+              pageBuilder: (context, animation, secondaryAnimation) => CreditsScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
-                return FadeTransition(opacity: animation, child: child);
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
               },
-              transitionDuration: const Duration(milliseconds: 55),
-              reverseTransitionDuration: const Duration(milliseconds: 55));
+              transitionDuration: const Duration(milliseconds: 180),
+              reverseTransitionDuration: const Duration(milliseconds: 180));
         } else if (settings.name == "/rules") {
           return PageRouteBuilder(
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  const RulesScreen(),
+              const RulesScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
-                return FadeTransition(opacity: animation, child: child);
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
               },
-              transitionDuration: const Duration(milliseconds: 55),
-              reverseTransitionDuration: const Duration(milliseconds: 55));
+              transitionDuration: const Duration(milliseconds: 180),
+              reverseTransitionDuration: const Duration(milliseconds: 180));
         } else if (settings.name == "/categories") {
           return PageRouteBuilder(
               settings: settings,
@@ -95,4 +112,20 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+
+  /*
+  Code for fade - pagetransition:
+
+  return PageRouteBuilder(
+              settings: settings,
+              // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CreditsScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
+   */
 }

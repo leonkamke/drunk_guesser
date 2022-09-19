@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CreditsScreen extends StatelessWidget {
+class CreditsScreen extends StatefulWidget {
   CreditsScreen({Key? key}) : super(key: key);
 
+  @override
+  State<CreditsScreen> createState() => _CreditsScreenState();
+}
+
+class _CreditsScreenState extends State<CreditsScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -12,6 +17,21 @@ class CreditsScreen extends StatelessWidget {
       Color(0xFF304157),
     ],
   ));
+
+  late Image drunkGuesserImg;
+
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    drunkGuesserImg = Image.asset(
+      "assets/images/drunk_guesser_img.png",
+      fit: BoxFit.contain,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +82,7 @@ class CreditsScreen extends StatelessWidget {
                         width: displayHeight * 0.7,
                         height: displayHeight * 0.25,
                         padding: const EdgeInsets.all(20),
-                        child: Image.asset(
-                          "assets/images/drunk_guesser_img.png",
-                          fit: BoxFit.contain,
-                        ),
+                        child: drunkGuesserImg,
                       ),
                       const FittedBox(
                         fit: BoxFit.fitWidth,
