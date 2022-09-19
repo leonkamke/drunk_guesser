@@ -28,14 +28,22 @@ class CreditsScreen extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.fromLTRB(
-                  displayWidth * 0.066,
+                  displayWidth * 0.095,
                   displayHeight * 0.06,
-                  displayWidth * 0.066,
+                  displayWidth * 0.095,
                   displayHeight * 0.038),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  IconButton(onPressed: () => {}, icon: Icon(Icons.home))
+                  GestureDetector(
+                    child: Image.asset(
+                      "assets/icons/home_icon.png",
+                      height: displayHeight * 0.045,
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
                 ],
               ),
             ),
@@ -51,11 +59,14 @@ class CreditsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                          padding: const EdgeInsets.fromLTRB(70, 15, 70, 20),
-                          child: Image.asset(
-                            "assets/images/drunk_guesser_img.png",
-                            fit: BoxFit.contain,
-                          )),
+                        width: displayHeight * 0.7,
+                        height: displayHeight * 0.25,
+                        padding: const EdgeInsets.all(20),
+                        child: Image.asset(
+                          "assets/images/drunk_guesser_img.png",
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                       const FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
@@ -71,8 +82,10 @@ class CreditsScreen extends StatelessWidget {
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),
-                      IconButton(
-                          onPressed: () {}, icon: Icon(Icons.email_rounded)),
+                      Image.asset(
+                        "assets/icons/mail_icon.png",
+                        height: displayHeight * 0.045,
+                      ),
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),

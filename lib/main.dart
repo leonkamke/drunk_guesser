@@ -4,7 +4,6 @@ import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/rules_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +19,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DrunkGuesser',
       home: HomeScreen(),
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: child!,
+        );
+      },
       onGenerateRoute: (settings) {
         if (settings.name == "/credits") {
           return PageRouteBuilder(
@@ -31,8 +36,8 @@ class MyApp extends StatelessWidget {
                   (context, animation, secondaryAnimation, child) {
                 return FadeTransition(opacity: animation, child: child);
               },
-              transitionDuration: const Duration(milliseconds: 110),
-              reverseTransitionDuration: const Duration(milliseconds: 110));
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
         } else if (settings.name == "/rules") {
           return PageRouteBuilder(
               settings: settings,
@@ -43,8 +48,8 @@ class MyApp extends StatelessWidget {
                   (context, animation, secondaryAnimation, child) {
                 return FadeTransition(opacity: animation, child: child);
               },
-              transitionDuration: const Duration(milliseconds: 110),
-              reverseTransitionDuration: const Duration(milliseconds: 110));
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
         } else if (settings.name == "/categories") {
           return PageRouteBuilder(
               settings: settings,

@@ -4,6 +4,7 @@ class IconButton extends StatelessWidget {
   final String text;
   final String assetPath;
   final void Function() onTap;
+  final double borderRadius = 15;
 
   const IconButton(
       {Key? key,
@@ -33,7 +34,7 @@ class IconButton extends StatelessWidget {
                   fontFamily: "Quicksand",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xE0FFFFFF)),
+                  color: Color(0xFFFFFFFF)),
             )
           ],
         ),
