@@ -4,11 +4,17 @@ import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/rules_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  // Splashscreen
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // Only portrait mode
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  // Start App
   runApp(const MyApp());
 }
 
