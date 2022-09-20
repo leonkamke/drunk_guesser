@@ -18,37 +18,6 @@ class _CreditsScreenState extends State<CreditsScreen> {
     ],
   ));
 
-  late Image drunkGuesserImg;
-  late Image homeIcon;
-  late Image mailIcon;
-
-  @override
-  void initState() {
-    super.initState();
-    final displayHeight = MediaQuery.of(context).size.height;
-    drunkGuesserImg = Image.asset(
-      "assets/images/drunk_guesser_img.png",
-      fit: BoxFit.contain,
-    );
-    homeIcon = Image.asset(
-      "assets/icons/home_icon.png",
-      height: displayHeight * 0.045,
-    );
-    mailIcon = Image.asset(
-      "assets/icons/mail_icon.png",
-      height: displayHeight * 0.045,
-    );
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    precacheImage(drunkGuesserImg.image, context);
-    precacheImage(homeIcon.image, context);
-    precacheImage(mailIcon.image, context);
-  }
-
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
@@ -72,7 +41,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    child: homeIcon,
+                    child: Image.asset(
+                      "assets/icons/home_icon.png",
+                      height: displayHeight * 0.045,
+                    ),
                     onTap: () {
                       Navigator.of(context).pop();
                     },
@@ -95,7 +67,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                         width: displayHeight * 0.7,
                         height: displayHeight * 0.25,
                         padding: const EdgeInsets.all(20),
-                        child: drunkGuesserImg,
+                        child: Image.asset(
+                          "assets/images/drunk_guesser_img.png",
+                          fit: BoxFit.contain,
+                        ),
                       ),
                       const FittedBox(
                         fit: BoxFit.fitWidth,
@@ -112,7 +87,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),
-                      mailIcon,
+                      Image.asset(
+                        "assets/icons/mail_icon.png",
+                        height: displayHeight * 0.045,
+                      ),
                       SizedBox(
                         height: displayHeight * 0.02,
                       ),
