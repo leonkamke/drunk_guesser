@@ -149,8 +149,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               RoundedButton(
                                 buttonText: "Start",
                                 borderRadius: 15,
-                                firstColor: const Color(0xFF5B738F),
-                                secondColor: const Color(0xFF5B7394),
+                                firstColor: const Color(0xFFFFFFFF),
+                                secondColor: const Color(0xFFFFFFFF),
                                 onTap: () {
                                   Navigator.of(context)
                                       .pushNamed("/categories");
@@ -162,8 +162,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               RoundedButton(
                                 buttonText: "Einstellungen",
                                 borderRadius: 15,
-                                firstColor: const Color(0xFF5B738F),
-                                secondColor: const Color(0xFF5B7394),
+                                firstColor: const Color(0xFFFFFFFF),
+                                secondColor: const Color(0xFFFFFFFF),
                                 onTap: () {
                                   Navigator.of(context).pushNamed("/settings");
                                 },
