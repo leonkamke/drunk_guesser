@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF5F80C0),
-      Color(0xFF2C60C5),
+      Color(0xFF80A5D7),
+      Color(0xFF5083C4),
     ],
   ));
 
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xFF80A5D7),
+                  color: const Color(0xFF292F38),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: const [
                     BoxShadow(
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Quicksand",
-                              color: Color(0xFFFFFFFF),
+                              color: Color(0xFF80A5D7),
                               shadows: [
                                 Shadow(
                                   offset: Offset(2.2, 3.2),
@@ -152,8 +152,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       RoundedButton(
                         buttonText: "Start",
                         borderRadius: 15,
-                        firstColor: Color(0xFF292F38),
-                        secondColor: Color(0xFF292F38),
+                        firstColor: Color(0xFF80A5D7),
+                        secondColor: Color(0xFF80A5D7),
                         onTap: () {
                           Navigator.of(context).pushNamed("/categories");
                         },
@@ -164,8 +164,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       RoundedButton(
                         buttonText: "Einstellungen",
                         borderRadius: 15,
-                        firstColor: Color(0xFF292F38),
-                        secondColor: Color(0xFF292F38),
+                        firstColor: Color(0xFF80A5D7),
+                        secondColor: Color(0xFF80A5D7),
                         onTap: () {
                           Navigator.of(context).pushNamed("/settings");
                         },
