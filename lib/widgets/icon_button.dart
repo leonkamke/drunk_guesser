@@ -34,7 +34,7 @@ class IconButton extends StatelessWidget {
                   fontFamily: "Quicksand",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFFFFF),
+                  color: Color(0xFF292F38),
                   shadows: [
                     Shadow(
                       offset: Offset(2.2, 3.2),

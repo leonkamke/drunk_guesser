@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   CustomIconButton.IconButton(
                     text: "Spielregeln",
-                    assetPath: "assets/icons/rules_icon.png",
+                    assetPath: "assets/icons/rules_icon_dark.png",
                     onTap: () {
                       print(displayHeight);
                       Navigator.of(context).pushNamed("/rules");
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   CustomIconButton.IconButton(
                     text: "Credits",
-                    assetPath: "assets/icons/credits_icon.png",
+                    assetPath: "assets/icons/credits_icon_dark.png",
                     onTap: () {
                       print(displayWidth);
                       // Navigate to CreditsScreen
@@ -152,8 +152,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       RoundedButton(
                         buttonText: "Start",
                         borderRadius: 15,
-                        firstColor: Color(0xFFFFFFFF),
-                        secondColor: Color(0xFFFFFFFF),
+                        firstColor: Color(0xFF292F38),
+                        secondColor: Color(0xFF292F38),
                         onTap: () {
                           Navigator.of(context).pushNamed("/categories");
                         },
@@ -164,8 +164,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       RoundedButton(
                         buttonText: "Einstellungen",
                         borderRadius: 15,
-                        firstColor: Color(0xFFFFFFFF),
-                        secondColor: Color(0xFFFFFFFF),
+                        firstColor: Color(0xFF292F38),
+                        secondColor: Color(0xFF292F38),
                         onTap: () {
                           Navigator.of(context).pushNamed("/settings");
                         },
