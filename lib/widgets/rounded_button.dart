@@ -32,8 +32,7 @@ class RoundedButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         boxShadow: const [
-          BoxShadow(
-              color: Colors.black54, offset: Offset(0, 7), blurRadius: 8)
+          BoxShadow(color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
         ],
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -71,7 +70,7 @@ class RoundedButton extends StatelessWidget {
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
-                color: Color(0xFF80A5D7),
+                color: Color(0xFF292F38),
               ),
             ),
           ),
