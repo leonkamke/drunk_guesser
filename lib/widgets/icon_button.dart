@@ -21,7 +21,7 @@ class IconButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        color: Color(0x80a5d7),
+        color: const Color(0x80a5d7),
         child: Column(
           children: [
             Image.asset(
@@ -34,7 +34,14 @@ class IconButton extends StatelessWidget {
                   fontFamily: "Quicksand",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFFFFF)),
+                  color: Color(0xFFFFFFFF),
+                  shadows: [
+                    Shadow(
+                      offset: Offset(2.2, 3.2),
+                      blurRadius: 9,
+                      color: Colors.black54,
+                    ),
+                  ]),
             )
           ],
         ),

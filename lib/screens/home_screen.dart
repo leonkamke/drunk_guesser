@@ -69,112 +69,110 @@ class _HomeScreenState extends State<HomeScreen> {
         width: displayWidth,
         height: displayHeight,
         decoration: backgroundDecoration,
-        child: Stack(
+        child: Column(
           children: [
             Container(
-              child: /*const rive.RiveAnimation.asset(
-                  'assets/animations/blasen.riv',
-                  fit: BoxFit.cover,
-                ),
-              ),*/
-                  Column(
+              padding: EdgeInsets.fromLTRB(
+                  displayWidth * 0.066,
+                  displayHeight * 0.06,
+                  displayWidth * 0.066,
+                  displayHeight * 0.07),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.066,
-                        displayHeight * 0.06,
-                        displayWidth * 0.066,
-                        displayHeight * 0.07),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        CustomIconButton.IconButton(
-                          text: "Spielregeln",
-                          assetPath: "assets/icons/rules_icon.png",
-                          onTap: () {
-                            print(displayHeight);
-                            Navigator.of(context).pushNamed("/rules");
-                          },
-                        ),
-                        CustomIconButton.IconButton(
-                          text: "Credits",
-                          assetPath: "assets/icons/credits_icon.png",
-                          onTap: () {
-                            print(displayWidth);
-                            // Navigate to CreditsScreen
-                            Navigator.pushNamed(context, "/credits");
-                          },
-                        ),
-                      ],
-                    ),
+                  CustomIconButton.IconButton(
+                    text: "Spielregeln",
+                    assetPath: "assets/icons/rules_icon.png",
+                    onTap: () {
+                      print(displayHeight);
+                      Navigator.of(context).pushNamed("/rules");
+                    },
                   ),
-                  SizedBox(
-                      width: displayWidth * 0.83,
-                      child: Card(
-                        color: const Color(0xFF80A5D7),
-                        elevation: 15,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(17)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 20, 20, 25),
-                          child: Column(
-                            children: [
-                              const FittedBox(
-                                fit: BoxFit.fitWidth,
-                                child: Text(
-                                  "DrunkGuesser",
-                                  style: TextStyle(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Quicksand",
-                                    color: Color(0xFFFFFFFF),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: displayHeight * 0.07,
-                              ),
-                              Container(
-                                  width: displayHeight * 0.7,
-                                  height: displayHeight * 0.25,
-                                  padding: const EdgeInsets.all(5),
-                                  child: const rive.RiveAnimation.asset(
-                                    'assets/animations/drunkguesser2.2.riv',
-                                    fit: BoxFit.contain,
-                                  )),
-                              SizedBox(
-                                height: displayHeight * 0.05,
-                              ),
-                              RoundedButton(
-                                buttonText: "Start",
-                                borderRadius: 15,
-                                firstColor: const Color(0xFFFFFFFF),
-                                secondColor: const Color(0xFFFFFFFF),
-                                onTap: () {
-                                  Navigator.of(context)
-                                      .pushNamed("/categories");
-                                },
-                              ),
-                              SizedBox(
-                                height: displayHeight * 0.03,
-                              ),
-                              RoundedButton(
-                                buttonText: "Einstellungen",
-                                borderRadius: 15,
-                                firstColor: const Color(0xFFFFFFFF),
-                                secondColor: const Color(0xFFFFFFFF),
-                                onTap: () {
-                                  Navigator.of(context).pushNamed("/settings");
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ))
+                  CustomIconButton.IconButton(
+                    text: "Credits",
+                    assetPath: "assets/icons/credits_icon.png",
+                    onTap: () {
+                      print(displayWidth);
+                      // Navigate to CreditsScreen
+                      Navigator.pushNamed(context, "/credits");
+                    },
+                  ),
                 ],
               ),
             ),
+            Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF80A5D7),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(4, 7),
+                        blurRadius: 10)
+                  ],
+                ),
+                width: displayWidth * 0.83,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 25),
+                  child: Column(
+                    children: [
+                      const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "DrunkGuesser",
+                          style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Quicksand",
+                              color: Color(0xFFFFFFFF),
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(2.2, 3.2),
+                                  blurRadius: 9,
+                                  color: Colors.black54,
+                                ),
+                              ]),
+                        ),
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.07,
+                      ),
+                      Container(
+                          width: displayHeight * 0.7,
+                          height: displayHeight * 0.25,
+                          padding: const EdgeInsets.all(5),
+                          child: const rive.RiveAnimation.asset(
+                            'assets/animations/drunkguesser2.2.riv',
+                            fit: BoxFit.contain,
+                          )),
+                      SizedBox(
+                        height: displayHeight * 0.05,
+                      ),
+                      RoundedButton(
+                        buttonText: "Start",
+                        borderRadius: 15,
+                        firstColor: Color(0xFFFFFFFF),
+                        secondColor: Color(0xFFFFFFFF),
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/categories");
+                        },
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.03,
+                      ),
+                      RoundedButton(
+                        buttonText: "Einstellungen",
+                        borderRadius: 15,
+                        firstColor: Color(0xFFFFFFFF),
+                        secondColor: Color(0xFFFFFFFF),
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/settings");
+                        },
+                      ),
+                    ],
+                  ),
+                ))
           ],
         ),
       ),
