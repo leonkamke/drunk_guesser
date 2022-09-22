@@ -3,3 +3,4 @@
 - Brandtext for splashscreen
 - Load assets (images) before building screen (precacheImage)
 - DrunkGuesser trink animation
+- RevenueCat for inapp purchases
