@@ -123,47 +123,50 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]),
               ),
             ),
-            SizedBox(
-              height: displayHeight * 0.07,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    width: 200,
+                    height: 200,
+                    child: rive.RiveAnimation.asset(
+                      'assets/animations/drunkguesser2.2.riv',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: Container(
-                  width: 200,
-                  height: 200,
-                  child: const rive.RiveAnimation.asset(
-                    'assets/animations/drunkguesser2.2.riv',
-                    fit: BoxFit.contain,
-                  )),
-            ),
-            SizedBox(
-              height: displayHeight * 0.07,
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
-              child: Column(
-                children: [
-                  RoundedButton(
-                    buttonText: "Start",
-                    borderRadius: 15,
-                    firstColor: Color(0xFF292F38),
-                    secondColor: Color(0xFF292F38),
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/categories");
-                    },
-                  ),
-                  SizedBox(
-                    height: displayHeight * 0.03,
-                  ),
-                  RoundedButton(
-                    buttonText: "Einstellungen",
-                    borderRadius: 15,
-                    firstColor: Color(0xFF292F38),
-                    secondColor: Color(0xFF292F38),
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/settings");
-                    },
-                  )
-                ],
+                padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RoundedButton(
+                      buttonText: "Start",
+                      borderRadius: 15,
+                      firstColor: const Color(0xFF292F38),
+                      secondColor: const Color(0xFF292F38),
+                      onTap: () {
+                        Navigator.of(context).pushNamed("/categories");
+                      },
+                    ),
+                    SizedBox(
+                      height: displayHeight * 0.03,
+                    ),
+                    RoundedButton(
+                      buttonText: "Einstellungen",
+                      borderRadius: 15,
+                      firstColor: const Color(0xFF292F38),
+                      secondColor: const Color(0xFF292F38),
+                      onTap: () {
+                        Navigator.of(context).pushNamed("/settings");
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ],
