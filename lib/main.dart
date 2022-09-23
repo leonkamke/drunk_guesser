@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
-              const RulesScreen(),
+                  const RulesScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(1.0, 0.0);
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  const CategoriesScreen(),
+                  CategoriesScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(1.0, 0.0);
@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  const SettingsScreen(),
+                  SettingsScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(1.0, 0.0);
@@ -112,7 +112,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  /*
+/*
   Code for fade - pagetransition:
 
   return PageRouteBuilder(

@@ -1,6 +1,5 @@
-import 'package:drunk_guesser/screens/credits_screen.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
-import 'package:drunk_guesser/widgets/icon_button.dart' as CustomIconButton;
+import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rive/rive.dart' as rive;
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  CustomIconButton.IconButton(
+                  customIconButton.IconButton(
                     text: "Spielregeln",
                     assetPath: "assets/icons/rules_icon_dark.png",
                     onTap: () {
@@ -90,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.of(context).pushNamed("/rules");
                     },
                   ),
-                  CustomIconButton.IconButton(
+                  customIconButton.IconButton(
                     text: "Credits",
                     assetPath: "assets/icons/credits_icon_dark.png",
                     onTap: () {
@@ -130,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     width: 200,
                     height: 200,
-                    child: rive.RiveAnimation.asset(
+                    child: const rive.RiveAnimation.asset(
                       'assets/animations/drunkguesser2.2.riv',
                       fit: BoxFit.contain,
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CreditsScreen extends StatefulWidget {
   CreditsScreen({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FittedBox(
+                  const FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
                       "Credits",
@@ -66,21 +67,21 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
-              child: Container(
-                width: 100,
-                height: 100,
-                child: Image.asset(
-                  "assets/images/drunk_guesser_img.png",
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    child: Image.asset(
+                      "assets/images/drunk_guesser_img.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.05,
+                  ),
                   const FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
@@ -96,12 +97,17 @@ class _CreditsScreenState extends State<CreditsScreen> {
                   SizedBox(
                     height: displayHeight * 0.02,
                   ),
-                  Image.asset(
-                    "assets/icons/mail_icon_dark.png",
-                    height: displayHeight * 0.045,
+                  GestureDetector(
+                    child: Image.asset(
+                      "assets/icons/mail_icon_dark.png",
+                      height: 30,
+                    ),
+                    onTap: () {
+                      sendEmail();
+                    },
                   ),
                   SizedBox(
-                    height: displayHeight * 0.02,
+                    height: displayHeight * 0.05,
                   ),
                   const FittedBox(
                     fit: BoxFit.fitWidth,
@@ -114,6 +120,9 @@ class _CreditsScreenState extends State<CreditsScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.02,
                   ),
                   const Text(
                     "Luca Burg\nLeon Kamke",
@@ -163,5 +172,14 @@ class _CreditsScreenState extends State<CreditsScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> sendEmail() async {
+    const String _emailScheme =
+        "mailto:l.kamke@web.de";
+    final Uri _url = Uri.parse(_emailScheme);
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
   }
 }

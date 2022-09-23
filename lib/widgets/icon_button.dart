@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IconButton extends StatelessWidget {
-  final String text;
+  final String? text;
   final String assetPath;
   final void Function() onTap;
   final double borderRadius = 15;
@@ -29,7 +29,7 @@ class IconButton extends StatelessWidget {
               height: 30,
             ),
             Text(
-              text,
+              text!,
               style: const TextStyle(
                   fontFamily: "Quicksand",
                   fontSize: 15,
