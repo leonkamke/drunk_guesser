@@ -13,8 +13,8 @@ class _CreditsScreenState extends State<CreditsScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF536585),
-      Color(0xFF304157),
+      Color(0xFF80A5D7),
+      Color(0xFF6B9EE3),
     ],
   ));
 
@@ -33,17 +33,31 @@ class _CreditsScreenState extends State<CreditsScreen> {
           children: [
             Container(
               padding: EdgeInsets.fromLTRB(
-                  displayWidth * 0.095,
-                  displayHeight * 0.06,
-                  displayWidth * 0.095,
-                  displayHeight * 0.038),
+                displayWidth * 0.1,
+                displayHeight * 0.06,
+                displayWidth * 0.1,
+                0,
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      "Credits",
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Color(0xFF292F38),
+                        fontFamily: "Quicksand",
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   GestureDetector(
                     child: Image.asset(
-                      "assets/icons/home_icon.png",
-                      height: displayHeight * 0.045,
+                      "assets/icons/home_icon_dark.png",
+                      height: 30,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -52,105 +66,99 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              width: displayWidth * 0.83,
-              child: Card(
-                color: const Color(0xFF80A5D7),
-                elevation: 15,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(17)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 20, 10, 25),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: displayHeight * 0.7,
-                        height: displayHeight * 0.25,
-                        padding: const EdgeInsets.all(20),
-                        child: Image.asset(
-                          "assets/images/drunk_guesser_img.png",
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      const FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          "Kontaktiere uns:",
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: displayHeight * 0.02,
-                      ),
-                      Image.asset(
-                        "assets/icons/mail_icon.png",
-                        height: displayHeight * 0.045,
-                      ),
-                      SizedBox(
-                        height: displayHeight * 0.02,
-                      ),
-                      const FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          "Development:",
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        "Luca Burg\nLeon Kamke",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontFamily: "Quicksand",
-                        ),
-                      ),
-                      SizedBox(
-                        height: displayHeight * 0.1,
-                      ),
-                      GestureDetector(
-                        child: const Text(
-                          "Privacy Policy",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 17,
-                            color: Colors.white,
-                            fontFamily: "Quicksand",
-                          ),
-                        ),
-                        onTap: () {
-                          print("Privacy Policy");
-                        },
-                      ),
-                      GestureDetector(
-                        child: const Text(
-                          "Datenschutzverordnung",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 17,
-                            color: Colors.white,
-                            fontFamily: "Quicksand",
-                          ),
-                        ),
-                        onTap: () {
-                          print("Datenschutzverordnung");
-                        },
-                      ),
-                    ],
-                  ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
+              child: Container(
+                width: 100,
+                height: 100,
+                child: Image.asset(
+                  "assets/images/drunk_guesser_img.png",
+                  fit: BoxFit.contain,
                 ),
               ),
-            )
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      "Kontaktiere uns:",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF292F38),
+                        fontFamily: "Quicksand",
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.02,
+                  ),
+                  Image.asset(
+                    "assets/icons/mail_icon_dark.png",
+                    height: displayHeight * 0.045,
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.02,
+                  ),
+                  const FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      "Development:",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF292F38),
+                        fontFamily: "Quicksand",
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const Text(
+                    "Luca Burg\nLeon Kamke",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF292F38),
+                      fontFamily: "Quicksand",
+                    ),
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.1,
+                  ),
+                ],
+              ),
+            ),
+            GestureDetector(
+              child: const Text(
+                "Privacy Policy",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 17,
+                  color: Color(0xFF292F38),
+                  fontFamily: "Quicksand",
+                ),
+              ),
+              onTap: () {
+                print("Privacy Policy");
+              },
+            ),
+            GestureDetector(
+              child: const Text(
+                "Datenschutzverordnung",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 17,
+                  color: Color(0xFF292F38),
+                  fontFamily: "Quicksand",
+                ),
+              ),
+              onTap: () {
+                print("Datenschutzverordnung");
+              },
+            ),
+            SizedBox(height: displayHeight * 0.05),
           ],
         ),
       ),
