@@ -34,43 +34,30 @@ class RoundedButton extends StatelessWidget {
         boxShadow: const [
           BoxShadow(color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
         ],
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            firstColor,
-            secondColor,
-          ],
-        ),
-        //color: Colors.deepPurple.shade300,
+        color: const Color(0xff292f38),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
-          foregroundColor: const Color(0xFF94BFFF),
+          foregroundColor: const Color(0xFF94BfFF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             //side: const BorderSide(width: 4, color: Color(0x774B3333)),
           ),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          fixedSize: Size(200, 20),
+          fixedSize: const Size(200, 48),
         ),
         onPressed: onTap,
-        child: Padding(
-          padding: const EdgeInsets.only(
-
-          ),
-          child: FittedBox(
-            child: Text(
-              buttonText,
-              style: const TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Quicksand",
-                color: Color(0xFFF6F6F6),
-              ),
+        child: FittedBox(
+          child: Text(
+            buttonText,
+            style: const TextStyle(
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Quicksand",
+              color: Color(0xFFF6F6F6),
             ),
           ),
         ),
