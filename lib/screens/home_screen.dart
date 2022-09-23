@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     end: Alignment.bottomRight,
     colors: [
       Color(0xFF80A5D7),
-      Color(0xFF5083C4),
+      Color(0xFF6B9EE3),
     ],
   ));
 
@@ -73,10 +73,11 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               padding: EdgeInsets.fromLTRB(
-                  displayWidth * 0.066,
-                  displayHeight * 0.06,
-                  displayWidth * 0.066,
-                  displayHeight * 0.07),
+                displayWidth * 0.066,
+                displayHeight * 0.06,
+                displayWidth * 0.066,
+                0,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -101,78 +102,70 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFF292F38),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
+            SizedBox(
+              height: displayHeight * 0.07,
+            ),
+            const FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Text(
+                "DrunkGuesser",
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Quicksand",
+                    color: Color(0xFF292F38),
+                    shadows: [
+                      Shadow(
+                        offset: Offset(2.2, 3.2),
+                        blurRadius: 9,
                         color: Colors.black54,
-                        offset: Offset(4, 7),
-                        blurRadius: 10)
-                  ],
-                ),
-                width: displayWidth * 0.83,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 25),
-                  child: Column(
-                    children: [
-                      const FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          "DrunkGuesser",
-                          style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Quicksand",
-                              color: Color(0xFF80A5D7),
-                              shadows: [
-                                Shadow(
-                                  offset: Offset(2.2, 3.2),
-                                  blurRadius: 9,
-                                  color: Colors.black54,
-                                ),
-                              ]),
-                        ),
                       ),
-                      SizedBox(
-                        height: displayHeight * 0.07,
-                      ),
-                      Container(
-                          width: displayHeight * 0.7,
-                          height: displayHeight * 0.25,
-                          padding: const EdgeInsets.all(5),
-                          child: const rive.RiveAnimation.asset(
-                            'assets/animations/drunkguesser2.2.riv',
-                            fit: BoxFit.contain,
-                          )),
-                      SizedBox(
-                        height: displayHeight * 0.05,
-                      ),
-                      RoundedButton(
-                        buttonText: "Start",
-                        borderRadius: 15,
-                        firstColor: Color(0xFF80A5D7),
-                        secondColor: Color(0xFF80A5D7),
-                        onTap: () {
-                          Navigator.of(context).pushNamed("/categories");
-                        },
-                      ),
-                      SizedBox(
-                        height: displayHeight * 0.03,
-                      ),
-                      RoundedButton(
-                        buttonText: "Einstellungen",
-                        borderRadius: 15,
-                        firstColor: Color(0xFF80A5D7),
-                        secondColor: Color(0xFF80A5D7),
-                        onTap: () {
-                          Navigator.of(context).pushNamed("/settings");
-                        },
-                      ),
-                    ],
+                    ]),
+              ),
+            ),
+            SizedBox(
+              height: displayHeight * 0.07,
+            ),
+            Expanded(
+              child: Container(
+                  width: 200,
+                  height: 200,
+                  child: const rive.RiveAnimation.asset(
+                    'assets/animations/drunkguesser2.2.riv',
+                    fit: BoxFit.contain,
+                  )),
+            ),
+            SizedBox(
+              height: displayHeight * 0.07,
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
+              child: Column(
+                children: [
+                  RoundedButton(
+                    buttonText: "Start",
+                    borderRadius: 15,
+                    firstColor: Color(0xFF292F38),
+                    secondColor: Color(0xFF292F38),
+                    onTap: () {
+                      Navigator.of(context).pushNamed("/categories");
+                    },
                   ),
-                ))
+                  SizedBox(
+                    height: displayHeight * 0.03,
+                  ),
+                  RoundedButton(
+                    buttonText: "Einstellungen",
+                    borderRadius: 15,
+                    firstColor: Color(0xFF292F38),
+                    secondColor: Color(0xFF292F38),
+                    onTap: () {
+                      Navigator.of(context).pushNamed("/settings");
+                    },
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -26,7 +26,7 @@ class IconButton extends StatelessWidget {
           children: [
             Image.asset(
               assetPath,
-              height: displayHeight * 0.045,
+              height: 30,
             ),
             Text(
               text,

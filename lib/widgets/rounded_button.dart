@@ -70,7 +70,7 @@ class RoundedButton extends StatelessWidget {
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
-                color: Color(0xFF292F38),
+                color: Color(0xFFF6F6F6),
               ),
             ),
           ),
