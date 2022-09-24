@@ -34,7 +34,7 @@ class RoundedButton extends StatelessWidget {
         boxShadow: const [
           BoxShadow(color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
         ],
-        color: const Color(0xff292f38),
+        color: firstColor,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: ElevatedButton(
@@ -43,7 +43,6 @@ class RoundedButton extends StatelessWidget {
           foregroundColor: const Color(0xFF94BfFF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
-            //side: const BorderSide(width: 4, color: Color(0x774B3333)),
           ),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,

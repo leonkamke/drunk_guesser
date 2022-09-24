@@ -1,6 +1,6 @@
 - Work with "Expanded" widget
 - Splashscreen for Android 12
 - Brandtext for splashscreen
-- Load assets (images) before building screen (precacheImage)
 - DrunkGuesser trink animation
 - RevenueCat for inapp purchases
+- In RulesScreen: Do something if text does not fit into the expanded widget

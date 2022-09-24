@@ -1,3 +1,5 @@
+import 'package:drunk_guesser/widgets/category_card.dart';
+import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -5,13 +7,18 @@ class CategoriesScreen extends StatelessWidget {
 
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color(0xFF80A5D7),
-          Color(0xFF6B9EE3),
-        ],
-      ));
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF80A5D7),
+      Color(0xFF6B9EE3),
+    ],
+  ));
+
+  CategoryCard testCard = CategoryCard(
+      name: "Zufall (kostenlos)",
+      description: "Mischung aus 6 Kategorien",
+      iconPath: "assets/categories_icons/random_icon.png");
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +38,7 @@ class CategoriesScreen extends StatelessWidget {
                 displayWidth * 0.1,
                 displayHeight * 0.06,
                 displayWidth * 0.1,
-                0,
+                displayHeight * 0.035,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,15 +68,39 @@ class CategoriesScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 150,
-              height: 150,
-              child: Image.asset(
-                "assets/images/drunk_guesser_img.png",
-                fit: BoxFit.contain,
+            Expanded(
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                children: [
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                  testCard,
+                ],
               ),
             ),
-            SizedBox(height: displayHeight * 0.05,)
+            Container(
+              width: displayWidth,
+              height: displayHeight * 0.1,
+              color: const Color(0xff292f38),
+              child: Center(
+                child: StartButton(
+                  onTap: () => print("start the game"),
+                ),
+              ),
+            ),
           ],
         ),
       ),

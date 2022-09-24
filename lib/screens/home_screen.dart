@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Quicksand",
-                    color: Color(0xFF292F38),
+                    color: Color(0xFFFFFFFF),
                     shadows: [
                       Shadow(
                         offset: Offset(2.2, 3.2),
