@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.1.5
   carousel_slider: ^4.1.1
   dots_indicator: ^2.1.0
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,8 @@ flutter:
     - assets/icons/rules_icon_dark.png
     - assets/icons/credits_icon_dark.png
     - assets/categories_icons/random_icon.png
+    - assets/categories_icons/google_icon.png
+    - assets/categories_icons/nature_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

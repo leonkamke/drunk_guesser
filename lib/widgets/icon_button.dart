@@ -35,13 +35,13 @@ class IconButton extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF292F38),
-                  shadows: [
+                  /*shadows: [
                     Shadow(
                       offset: Offset(2.2, 3.2),
                       blurRadius: 9,
                       color: Colors.black54,
                     ),
-                  ]),
+                  ]*/),
             )
           ],
         ),

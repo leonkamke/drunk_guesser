@@ -48,7 +48,7 @@ class _RulesScreenState extends State<RulesScreen> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const FittedBox(
                     fit: BoxFit.fitWidth,
@@ -63,9 +63,10 @@ class _RulesScreenState extends State<RulesScreen> {
                     ),
                   ),
                   GestureDetector(
-                    child: Image.asset(
-                      "assets/icons/home_icon_dark.png",
-                      height: 30,
+                    child: const Icon(
+                      Icons.home_rounded,
+                      size: 45,
+                      color: Color(0xFF292F38),
                     ),
                     onTap: () {
                       Navigator.of(context).pop();

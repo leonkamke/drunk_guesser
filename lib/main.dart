@@ -66,18 +66,10 @@ class MyApp extends StatelessWidget {
                   CategoriesScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
-                const begin = Offset(1.0, 0.0);
-                const end = Offset.zero;
-                const curve = Curves.ease;
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
+                return FadeTransition(opacity: animation, child: child);
               },
-              transitionDuration: const Duration(milliseconds: 180),
-              reverseTransitionDuration: const Duration(milliseconds: 180));
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
         } else if (settings.name == "/settings") {
           return PageRouteBuilder(
               settings: settings,
@@ -86,18 +78,10 @@ class MyApp extends StatelessWidget {
                   SettingsScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
-                const begin = Offset(1.0, 0.0);
-                const end = Offset.zero;
-                const curve = Curves.ease;
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
+                return FadeTransition(opacity: animation, child: child);
               },
-              transitionDuration: const Duration(milliseconds: 180),
-              reverseTransitionDuration: const Duration(milliseconds: 180));
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
         }
         return null;
       },
@@ -118,5 +102,27 @@ class MyApp extends StatelessWidget {
               },
               transitionDuration: const Duration(milliseconds: 55),
               reverseTransitionDuration: const Duration(milliseconds: 55));
+
+   Swipe transition:
+
+   return PageRouteBuilder(
+              settings: settings,
+              // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CategoriesScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+              transitionDuration: const Duration(milliseconds: 180),
+              reverseTransitionDuration: const Duration(milliseconds: 180));
    */
 }

@@ -2,6 +2,9 @@ import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
 
+import '../models/category.dart';
+import '../models/category_data.dart';
+
 class CategoriesScreen extends StatelessWidget {
   CategoriesScreen({Key? key}) : super(key: key);
 
@@ -14,11 +17,6 @@ class CategoriesScreen extends StatelessWidget {
       Color(0xFF6B9EE3),
     ],
   ));
-
-  CategoryCard testCard = CategoryCard(
-      name: "Zufall (kostenlos)",
-      description: "Mischung aus 6 Kategorien",
-      iconPath: "assets/categories_icons/random_icon.png");
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class CategoriesScreen extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const FittedBox(
                     fit: BoxFit.fitWidth,
@@ -57,9 +55,10 @@ class CategoriesScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    child: Image.asset(
-                      "assets/icons/home_icon_dark.png",
-                      height: 30,
+                    child: const Icon(
+                      Icons.home_rounded,
+                      size: 45,
+                      color: Color(0xFF292F38),
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -71,29 +70,25 @@ class CategoriesScreen extends StatelessWidget {
             Expanded(
               child: ListView(
                 physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 children: [
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
-                  testCard,
+                  CategoryCard(category: Categories.zufall),
+                  CategoryCard(category: Categories.natur),
+                  CategoryCard(category: Categories.google),
+                  CategoryCard(category: Categories.zufall),
+                  CategoryCard(category: Categories.natur),
+                  CategoryCard(category: Categories.google),
+                  CategoryCard(category: Categories.zufall),
+                  CategoryCard(category: Categories.natur),
+                  CategoryCard(category: Categories.google),
+                  CategoryCard(category: Categories.zufall),
+                  CategoryCard(category: Categories.natur),
+                  CategoryCard(category: Categories.google),
                 ],
               ),
             ),
             Container(
               width: displayWidth,
-              height: displayHeight * 0.1,
+              height: displayHeight * 0.09,
               color: const Color(0xff292f38),
               child: Center(
                 child: StartButton(
