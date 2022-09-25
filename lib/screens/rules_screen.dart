@@ -20,7 +20,11 @@ class _RulesScreenState extends State<RulesScreen> {
     ],
   ));
 
-  double pageindex = 0;
+  double pageindex = 0.0;
+
+  void _updatePosition(double position) {
+    setState(() => pageindex = position);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +75,7 @@ class _RulesScreenState extends State<RulesScreen> {
               ),
             ),
             Expanded(
+              /*
                 child: ListView.builder(
                     physics: const PageScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -93,7 +98,7 @@ class _RulesScreenState extends State<RulesScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: displayHeight * 0.03),
+                            SizedBox(height: displayHeight * 0.03,),
                             Text(
                               items[index],
                               style: const TextStyle(
@@ -105,28 +110,78 @@ class _RulesScreenState extends State<RulesScreen> {
                           ],
                         ),
                       );
-                    })
-                /*
+                    })*/
+
               child: CarouselSlider(
-                options: CarouselOptions(
-                  viewportFraction: 1.0,
-                  enlargeCenterPage: false,
-                  // autoPlay: false,
-                ),
-                items: [1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                          width: 800,
-                          decoration: BoxDecoration(color: Colors.amber),
-                          child: Text(
-                            'text $i',
-                            style: TextStyle(fontSize: 16.0),
-                          ));
-                    },
-                  );
-                }).toList(),*/
-                /*
+                  options: CarouselOptions(
+                      viewportFraction: 1.0,
+                      height: double.infinity,
+                      // autoPlay: false,
+                      onPageChanged: (index, _) {
+                        setState(() {
+                          pageindex = index.toDouble();
+                          print(pageindex);
+                        });
+                      }),
+                  items: [
+                    Container(
+                      width: displayWidth,
+                      padding: EdgeInsets.fromLTRB(
+                          displayWidth * 0.1, 0, displayWidth * 0.1, 0),
+                      child: ListView(
+                        children: [
+                          const Text(
+                            "Spielstart",
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 25,
+                              color: Color(0xff292f38),
+                              fontFamily: "Quicksand",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: displayHeight * 0.03),
+                          Text(
+                            spielStartText,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFF292F38),
+                              fontFamily: "Quicksand",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: displayWidth,
+                      padding: EdgeInsets.fromLTRB(
+                          displayWidth * 0.1, 0, displayWidth * 0.1, 0),
+                      child: ListView(
+                        children: [
+                          const Text(
+                            "Spielablauf",
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 25,
+                              color: Color(0xFF292F38),
+                              fontFamily: "Quicksand",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: displayHeight * 0.03),
+                          Text(
+                            spielAblaufText_1 + spielAblaufText_2,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFF292F38),
+                              fontFamily: "Quicksand",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]
+                  /*
               child: ListView(
                 physics: const PageScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -217,9 +272,10 @@ class _RulesScreenState extends State<RulesScreen> {
                   ),
                 ],
               ),*/
-                ),
+                  ),
+            ),
             DotsIndicator(
-              dotsCount: items.length,
+              dotsCount: 2,
               position: pageindex,
             ),
             Container(
@@ -245,10 +301,12 @@ class _RulesScreenState extends State<RulesScreen> {
   final String spielAblaufText_2 =
       "Durch ein Klicken auf den Bildschirm, wird die Lösung angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, trinkt!\n\nDurch ein weiters Klicken wird die nächste Frage angezeigt usw.\n\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\n Viel Spaß beim Spielen!";
 
-  final List<String> items = [
-    "Um ein Spiel zu starten, wählt ihr zu Beginn die Kategorien aus mit denen ihr spielen wollt (manche kostenpflichtig).\n\nDanach klickt ihr Start um das Spiel zu starten.",
-    "Das Spiel kann mit beliebig vielen Leuten gespielt werden.\n\nEs werden nacheinander die Fragen auf dem Bildschirm angezeigt, die der Fragensteller vorließt.\n\nJeder Spieler schreibt seine Antwort auf (zum Beispiel in eine Notiz-App). Durch ein Klicken auf den Bildschirm, wird die Lösung angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, trinkt!\n\nDurch ein weiters Klicken wird die nächste Frage angezeigt usw.\n\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\n Viel Spaß beim Spielen!"
-  ];
+  final Map<String, String> items = {
+    "Spielstart":
+        "Um ein Spiel zu starten, wählt ihr zu Beginn die Kategorien aus mit denen ihr spielen wollt (manche kostenpflichtig).\n\nDanach klickt ihr Start um das Spiel zu starten.",
+    "Spielablauf":
+        "Das Spiel kann mit beliebig vielen Leuten gespielt werden.\n\nEs werden nacheinander die Fragen auf dem Bildschirm angezeigt, die der Fragensteller vorließt.\n\nJeder Spieler schreibt seine Antwort auf (zum Beispiel in eine Notiz-App). Durch ein Klicken auf den Bildschirm, wird die Lösung angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, trinkt!\n\nDurch ein weiters Klicken wird die nächste Frage angezeigt usw.\n\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\n Viel Spaß beim Spielen!"
+  };
 
   final List<String> items_ueberschrift = ["Spielstart", "Spielablauf"];
 }
