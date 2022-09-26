@@ -41,6 +41,8 @@ dependencies:
   carousel_slider: ^4.1.1
   dots_indicator: ^2.1.0
   auto_size_text: ^3.0.0
+  sqflite: ^2.1.0
+  path: ^1.8.2
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +86,17 @@ flutter:
     - assets/categories_icons/random_icon.png
     - assets/categories_icons/google_icon.png
     - assets/categories_icons/nature_icon.png
+    - assets/categories_icons/history_icon.png
+    - assets/categories_icons/tech_icon.png
+    - assets/categories_icons/price_icon.png
+    - assets/categories_icons/media_icon.png
+    - assets/categories_icons/space_icon.png
+    - assets/categories_icons/sports_icon.png
+    - assets/categories_icons/18plus_icon.png
+    - assets/categories_icons/geography_icon.png
+    - assets/categories_icons/geography_icon.png
+    - assets/categories_icons/music_icon.png
+    - database/drunk_guesser_db.db
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

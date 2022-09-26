@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
@@ -5,9 +6,17 @@ import 'package:flutter/material.dart';
 import '../models/category.dart';
 import '../models/category_data.dart';
 
-class CategoriesScreen extends StatelessWidget {
-  CategoriesScreen({Key? key}) : super(key: key);
+class CategoriesScreen extends StatefulWidget {
+  CategoriesScreen({Key? key}) : super(key: key) {
+    // load purchased from device sqlite database
+    // sort category_cards
+  }
 
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -17,6 +26,15 @@ class CategoriesScreen extends StatelessWidget {
       Color(0xFF6B9EE3),
     ],
   ));
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    for (Category c in Categories.categoryList) {
+      DrunkGuesserDB.categoryPurchased(c).then((value) => c.purchased = value);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,23 +86,43 @@ class CategoriesScreen extends StatelessWidget {
               ),
             ),
             Expanded(
+              child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return CategoryCard(
+                        category: Categories.categoryList[index]);
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Color(0x9e292f38),
+                      thickness: 2,
+                      height: 5,
+                      indent: displayWidth * 0.05,
+                      endIndent: displayWidth * 0.05,
+                    );
+                    // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
+                  },
+                  itemCount: Categories.categoryList.length),
+              /*
               child: ListView(
                 physics: const BouncingScrollPhysics(),
                 children: [
                   CategoryCard(category: Categories.zufall),
                   CategoryCard(category: Categories.natur),
                   CategoryCard(category: Categories.google),
-                  CategoryCard(category: Categories.zufall),
-                  CategoryCard(category: Categories.natur),
-                  CategoryCard(category: Categories.google),
-                  CategoryCard(category: Categories.zufall),
-                  CategoryCard(category: Categories.natur),
-                  CategoryCard(category: Categories.google),
-                  CategoryCard(category: Categories.zufall),
-                  CategoryCard(category: Categories.natur),
-                  CategoryCard(category: Categories.google),
+                  CategoryCard(category: Categories.geschichte),
+                  CategoryCard(category: Categories.technik),
+                  CategoryCard(category: Categories.preise),
+                  CategoryCard(category: Categories.medien),
+                  CategoryCard(category: Categories.weltall),
+                  CategoryCard(category: Categories.sport),
+                  CategoryCard(category: Categories.unnuetzes_wissen),
+                  CategoryCard(category: Categories.eightteen_plus),
+                  CategoryCard(category: Categories.geographie),
+                  CategoryCard(category: Categories.mensch),
+                  CategoryCard(category: Categories.musik),
                 ],
-              ),
+              ),*/
             ),
             Container(
               width: displayWidth,
@@ -92,7 +130,7 @@ class CategoriesScreen extends StatelessWidget {
               color: const Color(0xff292f38),
               child: Center(
                 child: StartButton(
-                  onTap: () => print("start the game"),
+                  onTap: () => startGame(),
                 ),
               ),
             ),
@@ -100,5 +138,13 @@ class CategoriesScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void startGame() {
+    print("start the game");
+    // iterate over all categoryCards and check which are selected
+    // -> load this categories for game
+    // push GameScreen
+    DrunkGuesserDB.deleteDB();
   }
 }
