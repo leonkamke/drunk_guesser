@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   customIconButton.IconButton(
-                    text: "Spielregeln",
+                    text: "Anleitung",
                     assetPath: "assets/icons/rules_icon_dark.png",
                     onTap: () {
                       print(displayHeight);

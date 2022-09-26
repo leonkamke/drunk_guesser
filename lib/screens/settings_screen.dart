@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../database/drunk_guesser_db.dart';
 import '../widgets/rounded_button.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -72,8 +73,10 @@ class SettingsScreen extends StatelessWidget {
                     borderRadius: 15,
                     firstColor: const Color(0xFF292F38),
                     secondColor: const Color(0xFF292F38),
-                    onTap: () {
+                    onTap: () async {
                       print("leave a comment for the app");
+                      print(await DrunkGuesserDB.getAssetVersion());
+                      print(await DrunkGuesserDB.getLocalVersion());
                     },
                   ),
                   SizedBox(

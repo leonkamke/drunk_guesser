@@ -97,4 +97,23 @@ class DrunkGuesserDB {
         .first
         .purchased = true;
   }
+
+  static Future<int> getAssetVersion() async {
+    var assetDB = await openDatabase(join("database", dbName));
+    var output = await assetDB.rawQuery("PRAGMA user_version");
+    print(output);
+    return output.first["user_version"] as int;
+  }
+
+  static Future<int> getLocalVersion() async {
+    await initDatabase();
+    var output = await db.rawQuery("PRAGMA user_version");
+    print(output);
+    return output.first["user_version"] as int;
+  }
+
+  /*
+  To set user_version use the following query:
+    PRAGMA user_version = 1
+   */
 }

@@ -33,21 +33,18 @@ class ShopButton extends StatefulWidget {
 }
 
 class _ShopButtonState extends State<ShopButton> {
-
-
   @override
   Widget build(BuildContext context) {
     if (widget.selected) {
       return Container(
         decoration: BoxDecoration(
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
-          ],
-          color: const Color(0xFF444E5A),
-          borderRadius: widget.borderRadius,
-          border: Border.all(color: Color(0xfffff8b9), width: 3.5)
-        ),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+            ],
+            color: const Color(0xFF444E5A),
+            borderRadius: widget.borderRadius,
+            border: Border.all(color: Color(0xfffff8b9), width: 3.5)),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             splashFactory: NoSplash.splashFactory,

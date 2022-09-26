@@ -96,7 +96,7 @@ class _ShopScreenState extends State<ShopScreen> {
                             selectedButton = 0;
                             buttonText = "Weiter";
                             text =
-                                "Kaufe dir eine einzelne Kategorie für 0,69€";
+                                "Kaufe dir eine einzelne Kategorie für 0,69€ + keine Werbung";
                           },
                         );
                       }),
@@ -116,7 +116,7 @@ class _ShopScreenState extends State<ShopScreen> {
                             selectedButton = 1;
                             buttonText = "Kaufen";
                             text =
-                                "Kaufe dir die Vollversion (alle Kategorien) für 4,99€";
+                                "Kaufe dir die Vollversion (alle Kategorien) für 4,99€ + keine Werbung";
                           },
                         );
                       }),
@@ -135,7 +135,7 @@ class _ShopScreenState extends State<ShopScreen> {
                           () {
                             selectedButton = 2;
                             buttonText = "Weiter";
-                            text = "Kaufe dir ein Bundle deiner Wahl";
+                            text = "Wähle das Bundle mit den Kategorien die dir am besten gefallen + keine Werbung";
                           },
                         );
                       }),
