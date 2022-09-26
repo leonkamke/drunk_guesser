@@ -1,8 +1,12 @@
+import 'package:drunk_guesser/database/drunk_guesser_db.dart';
+import 'package:drunk_guesser/models/category_data.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rive/rive.dart' as rive;
+
+import '../models/category.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -53,6 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // the splash screen is displayed.  Remove the following example because
     // delaying the user experience is a bad design practice!
     // ignore_for_file: avoid_print
+    for (Category category in Categories.categoryList) {
+      category.setPurchased();
+    }
     await Future.delayed(const Duration(milliseconds: 1400));
     FlutterNativeSplash.remove();
   }

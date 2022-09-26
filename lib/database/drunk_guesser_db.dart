@@ -6,6 +6,7 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:io';
 
 import '../models/category.dart';
+import '../models/category_data.dart';
 
 class DrunkGuesserDB {
   static const String dbName = "drunk_guesser_db.db";
@@ -65,11 +66,13 @@ class DrunkGuesserDB {
     // notifyListeners();
    */
 
+  /*
+  Lookup in the local database whether the Category category is purchased
+   */
   static Future<bool> categoryPurchased(Category category) async {
     await initDatabase();
     // var x = await db.rawQuery("SELECT ${category.name} FROM Purchased");
-    var output = await db
-        .rawQuery("SELECT ${category.dbName} FROM Purchased");
+    var output = await db.rawQuery("SELECT ${category.dbName} FROM Purchased");
     print(output);
     // db.close();
     bool purchased = false;
@@ -83,5 +86,15 @@ class DrunkGuesserDB {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, dbName);
     await deleteDatabase(path);
+  }
+
+
+  static Future<void> purchaseCategory(Category category) async {
+    await initDatabase();
+    await db.rawQuery("UPDATE Purchased SET ${category.dbName} = 1");
+    Categories.categoryList
+        .where((element) => element.name == category.name)
+        .first
+        .purchased = true;
   }
 }

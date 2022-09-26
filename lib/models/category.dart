@@ -18,11 +18,13 @@ class Category {
     required this.dbName,
     this.purchased = false,
   }) {
-    // look in database if this category is purchased
-    isPurchased();
+    setPurchased();
   }
 
-  Future<void> isPurchased() async {
+  /*
+  Sets the purchased attribute with a lookup in the database
+   */
+  Future<void> setPurchased() async {
     purchased = await DrunkGuesserDB.categoryPurchased(this);
   }
 

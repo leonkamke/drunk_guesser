@@ -30,10 +30,27 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   @override
   void initState() {
+    super.initState();
     // TODO: implement initState
     for (Category c in Categories.categoryList) {
-      DrunkGuesserDB.categoryPurchased(c).then((value) => c.purchased = value);
+      c.setPurchased();
     }
+    // sort CategoryList (purchased categories first)
+    sortCategoryCards();
+  }
+
+  void sortCategoryCards() {
+    setState(() {
+      Categories.categoryList.sort((a, b) {
+        if (a.purchased == true && b.purchased == false) {
+          return -11;
+        } else if (a.purchased == false && b.purchased == true) {
+          return 1;
+        } else {
+          return 0;
+        }
+      },);
+    });
   }
 
   @override
@@ -103,26 +120,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
                   itemCount: Categories.categoryList.length),
-              /*
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  CategoryCard(category: Categories.zufall),
-                  CategoryCard(category: Categories.natur),
-                  CategoryCard(category: Categories.google),
-                  CategoryCard(category: Categories.geschichte),
-                  CategoryCard(category: Categories.technik),
-                  CategoryCard(category: Categories.preise),
-                  CategoryCard(category: Categories.medien),
-                  CategoryCard(category: Categories.weltall),
-                  CategoryCard(category: Categories.sport),
-                  CategoryCard(category: Categories.unnuetzes_wissen),
-                  CategoryCard(category: Categories.eightteen_plus),
-                  CategoryCard(category: Categories.geographie),
-                  CategoryCard(category: Categories.mensch),
-                  CategoryCard(category: Categories.musik),
-                ],
-              ),*/
             ),
             Container(
               width: displayWidth,
