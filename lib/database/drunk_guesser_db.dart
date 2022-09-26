@@ -98,18 +98,18 @@ class DrunkGuesserDB {
         .purchased = true;
   }
 
+  /*
   static Future<int> getAssetVersion() async {
-    var assetDB = await openDatabase(join("database", dbName));
-    var output = await assetDB.rawQuery("PRAGMA user_version");
-    print(output);
-    return output.first["user_version"] as int;
-  }
+    print(await databaseExists("database/${dbName}"));
+    var assetDB = await openDatabase("database/${dbName}");
+    print(await assetDB.getVersion());
+    print(await assetDB.rawQuery("select * from purchased"));
+    return await assetDB.getVersion();
+  }*/
 
   static Future<int> getLocalVersion() async {
     await initDatabase();
-    var output = await db.rawQuery("PRAGMA user_version");
-    print(output);
-    return output.first["user_version"] as int;
+    return await db.getVersion();
   }
 
   /*

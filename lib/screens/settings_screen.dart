@@ -75,8 +75,7 @@ class SettingsScreen extends StatelessWidget {
                     secondColor: const Color(0xFF292F38),
                     onTap: () async {
                       print("leave a comment for the app");
-                      print(await DrunkGuesserDB.getAssetVersion());
-                      print(await DrunkGuesserDB.getLocalVersion());
+                      await DrunkGuesserDB.getLocalVersion();
                     },
                   ),
                   SizedBox(
