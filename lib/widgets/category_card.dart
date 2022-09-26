@@ -122,7 +122,7 @@ class _CategoryCardState extends State<CategoryCard> {
       return Container();
     } else {
       return GestureDetector(
-        onTap: () => selectLock(),
+        onTap: () => selectLock(context),
         child: Container(
           padding: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.07),
@@ -155,9 +155,10 @@ class _CategoryCardState extends State<CategoryCard> {
     }
   }
 
-  void selectLock() async {
-    print("Purchase " + widget.category.name);
-    await DrunkGuesserDB.purchaseCategory(widget.category);
-    setState(() {});
+  void selectLock(BuildContext context) async {
+    print("Open Shop");
+    Navigator.of(context).pushReplacementNamed("/shop");
+    // await DrunkGuesserDB.purchaseCategory(widget.category);
+    // setState(() {});
   }
 }
