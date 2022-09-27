@@ -69,6 +69,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           children: [
             Container(
               decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0)),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black54,
@@ -114,6 +119,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             ),
             Expanded(
               child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return CategoryCard(
@@ -143,18 +149,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               ),
               width: displayWidth,
               height: displayHeight * 0.09,
-              child: const Center(
-                //child: StartButton(
-                // onTap: () => startGame(),
-                //),
-                child: Text(
-                  "Start",
-                  style: TextStyle(
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Quicksand",
-                    color: Color(0xFFF6F6F6),
-                  ),
+              child: Center(
+                child: StartButton(
+                  onTap: () => startGame(),
                 ),
               ),
             ),

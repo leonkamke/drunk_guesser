@@ -73,7 +73,6 @@ class _CategoryCardState extends State<CategoryCard> {
                         children: [
                           Text(
                             widget.category.name,
-
                             style: const TextStyle(
                               color: Color(0xFF292F38),
                               fontSize: 17,

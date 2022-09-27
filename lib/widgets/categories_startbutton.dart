@@ -17,7 +17,7 @@ class StartButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          backgroundColor: const Color(0xff444e5a),
+          backgroundColor: const Color(0xff80a5d7),
           shadowColor: Colors.black,
           elevation: 7
         ),

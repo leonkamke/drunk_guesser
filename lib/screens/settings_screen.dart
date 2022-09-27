@@ -30,15 +30,29 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0, 3),
+                      blurRadius: 6)
+                ],
+                color: Color(0xFF292F38),
+              ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
-                displayHeight * 0.06,
+                displayHeight * 0.05,
                 displayWidth * 0.1,
-                0,
+                displayHeight * 0.025,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const FittedBox(
                     fit: BoxFit.fitWidth,
@@ -46,16 +60,17 @@ class SettingsScreen extends StatelessWidget {
                       "Einstellungen",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xFF292F38),
+                        color: Color(0xffffffff),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   GestureDetector(
-                    child: Image.asset(
-                      "assets/icons/home_icon_dark.png",
-                      height: 30,
+                    child: const Icon(
+                      Icons.home_rounded,
+                      size: 45,
+                      color: Color(0xffffffff),
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
