@@ -1,4 +1,5 @@
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:drunk_guesser/models/category_data.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
@@ -41,8 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF80A5D7),
-      Color(0xFF6B9EE3),
+      AppColors.background_1,
+      AppColors.background_2,
     ],
   ));
 
@@ -119,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Quicksand",
-                    color: Color(0xFFFFFFFF),
+                    color: AppColors.text_1,
                     shadows: [
                       Shadow(
                         offset: Offset(2.2, 3.2),
@@ -153,8 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Start",
                       borderRadius: 15,
-                      firstColor: const Color(0xFF292F38),
-                      secondColor: const Color(0xFF292F38),
+                      firstColor: AppColors.buttonBackground,
+                      secondColor: AppColors.buttonBackground,
                       onTap: () {
                         Navigator.of(context).pushNamed("/categories");
                       },
@@ -165,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Einstellungen",
                       borderRadius: 15,
-                      firstColor: const Color(0xFF292F38),
-                      secondColor: const Color(0xFF292F38),
+                      firstColor: AppColors.buttonBackground,
+                      secondColor: AppColors.buttonBackground,
                       onTap: () {
                         Navigator.of(context).pushNamed("/settings");
                       },
