@@ -91,7 +91,7 @@ class _RulesScreenState extends State<RulesScreen> {
                   Container(
                     width: displayWidth,
                     padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.1, 0, displayWidth * 0.1, 0),
+                        displayWidth * 0.1, 0, displayWidth * 0.05, 0),
                     child: RawScrollbar(
                       thumbColor: const Color(0x52292f38),
                       radius: const Radius.circular(20),
@@ -125,7 +125,7 @@ class _RulesScreenState extends State<RulesScreen> {
                   Container(
                     width: displayWidth,
                     padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.1, 0, displayWidth * 0.1, 0),
+                        displayWidth * 0.1, 0, displayWidth * 0.05, 0),
                     child: RawScrollbar(
                       thumbColor: Color(0x52292f38),
                       radius: const Radius.circular(20),

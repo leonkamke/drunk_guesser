@@ -27,7 +27,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     ],
   ));
 
-
   @override
   void initState() {
     super.initState();
@@ -41,15 +40,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   void sortCategoryCards() {
     setState(() {
-      Categories.categoryList.sort((a, b) {
-        if (a.purchased == true && b.purchased == false) {
-          return -11;
-        } else if (a.purchased == false && b.purchased == true) {
-          return 1;
-        } else {
-          return 0;
-        }
-      },);
+      Categories.categoryList.sort(
+        (a, b) {
+          if (a.purchased == true && b.purchased == false) {
+            return -11;
+          } else if (a.purchased == false && b.purchased == true) {
+            return 1;
+          } else {
+            return 0;
+          }
+        },
+      );
     });
   }
 
@@ -67,11 +68,20 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Column(
           children: [
             Container(
+              decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0, 3),
+                      blurRadius: 6)
+                ],
+                color: Color(0xff292f38),
+              ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
-                displayHeight * 0.06,
+                displayHeight * 0.05,
                 displayWidth * 0.1,
-                displayHeight * 0.035,
+                displayHeight * 0.025,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,7 +93,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       "Kategorien",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xFF292F38),
+                        color: Color(0xffffffff),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -93,7 +103,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: Color(0xFF292F38),
+                      color: Color(0xffffffff),
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -122,13 +132,23 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   itemCount: Categories.categoryList.length),
             ),
             Container(
+              decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0, -3),
+                      blurRadius: 6)
+                ],
+                color: const Color(0xff292f38),
+              ),
               width: displayWidth,
               height: displayHeight * 0.09,
-              color: const Color(0xff292f38),
+
               child: Center(
                 child: StartButton(
                   onTap: () => startGame(),
                 ),
+                //child: Text("Start"),
               ),
             ),
           ],
