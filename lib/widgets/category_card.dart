@@ -251,7 +251,7 @@ class _CategoryCardState extends State<CategoryCard> {
 
   void selectLock(BuildContext context) async {
     print("Open Shop");
-    Navigator.of(context).pushReplacementNamed("/shop");
+    Navigator.of(context).pushNamed("/shop");
     // await DrunkGuesserDB.purchaseCategory(widget.category);
     // setState(() {});
   }
