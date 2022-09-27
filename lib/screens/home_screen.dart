@@ -42,8 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      AppColors.background_1,
-      AppColors.background_2,
+      AppColors.backgroundHomeScreen_1,
+      AppColors.backgroundHomeScreen_2,
     ],
   ));
 
