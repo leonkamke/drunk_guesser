@@ -145,6 +145,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       radius: const Radius.circular(20),
                       thickness: 5,
                       child: ListView(
+                        padding: EdgeInsets.fromLTRB(0, displayHeight*0.05, 0, displayHeight*0.05),
                         physics: const BouncingScrollPhysics(),
                         children: [
                           const Text(
@@ -173,24 +174,38 @@ class _RulesScreenState extends State<RulesScreen> {
                 ],
               ),
             ),
-            DotsIndicator(
-              dotsCount: 2,
-              position: pageindex,
-              decorator: const DotsDecorator(
-                activeSize: Size(12, 12),
-                size: Size(8, 8),
-                color: Color(0x52292f38), // Inactive color
-                activeColor: Color(0xff292f38),
+            Container(
+              height: 40,
+              width: displayWidth,
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0, -3),
+                      blurRadius: 6)
+                ],
+                color: Color(0xFF292F38),
+              ),
+              child: DotsIndicator(
+                dotsCount: 2,
+                position: pageindex,
+                decorator: const DotsDecorator(
+                  activeSize: Size(12, 12),
+                  size: Size(8, 8),
+                  color: Color(0x83ffffff), // Inactive color
+                  activeColor: Color(0xffffffff),
+                ),
               ),
             ),
-            Container(
+
+            /*Container(
               width: 150,
               height: 150,
               child: Image.asset(
                 "assets/images/drunk_guesser_img.png",
                 fit: BoxFit.contain,
               ),
-            ),
+            ),*/
           ],
         ),
       ),
