@@ -13,11 +13,11 @@ class StartButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
           fixedSize: const Size(110, 40),
-          foregroundColor: const Color(0xFF94BfFF),
+          foregroundColor: const Color(0xFF989898),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          backgroundColor: const Color(0xff80a5d7),
+          backgroundColor: const Color(0xFFF6F6F6),
           shadowColor: Colors.black,
           elevation: 7
         ),
@@ -29,7 +29,7 @@ class StartButton extends StatelessWidget {
               fontSize: 21,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: Color(0xFFF6F6F6),
+              color: Color(0xFF292F38),
             ),
           ),
         ),

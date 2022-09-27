@@ -63,7 +63,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Credits",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xffffffff),
+                        color: Color(0xFF292F38),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
