@@ -108,37 +108,14 @@ class _RulesScreenState extends State<RulesScreen> {
                 ],
               ),
             ),
-            Container(
-              height: 40,
-              width: displayWidth,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, -3),
-                      blurRadius: 6)
-                ],
-                color: Color(0xFF292F38),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                  Container(
-                    child: Text("   @DrunkGuesser", style: TextStyle(color: Color(0xffffffff), fontSize: 8, fontFamily: "Quicksand", ),),
-                  ),
-                  DotsIndicator(
-                    dotsCount: 2,
-                    position: pageindex,
-                    decorator: const DotsDecorator(
-                      activeSize: Size(12, 12),
-                      size: Size(8, 8),
-                      color: Color(0x83ffffff), // Inactive color
-                      activeColor: Color(0xffffffff),
-                    ),
-                  ),
-                  Container(child: Text("   @DrunkGuesser", style: TextStyle(color: Colors.transparent,fontSize: 8,fontFamily: "Quicksand",), ),),
-                ],
+            DotsIndicator(
+              dotsCount: 2,
+              position: pageindex,
+              decorator: const DotsDecorator(
+                activeSize: Size(12, 12),
+                size: Size(8, 8),
+                color: Color(0x83ffffff), // Inactive color
+                activeColor: Color(0xffffffff),
               ),
             ),
           ],

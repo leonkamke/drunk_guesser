@@ -184,26 +184,6 @@ class _CreditsScreenState extends State<CreditsScreen> {
               },
             ),
             SizedBox(height: displayHeight * 0.05),
-            Container(
-              height: 40,
-              width: displayWidth,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, -3),
-                      blurRadius: 6)
-                ],
-                color: Color(0xFF292F38),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    child: Text("   @DrunkGuesser", style: TextStyle(color: Color(0xffffffff), fontSize: 9,fontFamily: "Quicksand",),),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),

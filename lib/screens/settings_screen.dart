@@ -129,13 +129,6 @@ class SettingsScreen extends StatelessWidget {
                 ],
                 color: Color(0xFF292F38),
               ),
-              child: Row(
-                children: [
-                  Container(
-                    child: Text("   @DrunkGuesser", style: TextStyle(color: Color(0xffffffff), fontSize: 9,fontFamily: "Quicksand",),),
-                  ),
-                ],
-              ),
             ),
           ],
         ),
