@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(
                       Icons.description_rounded,
                       size: 35,
-                      color: AppColors.buttonBackground,
+                      color: AppColors.buttonHomeScreenBackground,
                     ),
                     onTap: () {
                       print(displayHeight);
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(
                       Icons.info_rounded,
                       size: 35,
-                      color: AppColors.buttonBackground,
+                      color: AppColors.buttonHomeScreenBackground,
                     ),
                     onTap: () {
                       print(displayWidth);
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Quicksand",
-                    color: AppColors.text_1,
+                    color: AppColors.drunkguesserSchrift,
                     shadows: [
                       Shadow(
                         offset: Offset(2.2, 3.2),
@@ -162,8 +162,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Start",
                       borderRadius: 15,
-                      firstColor: AppColors.buttonBackground,
-                      secondColor: AppColors.buttonBackground,
+                      firstColor: AppColors.buttonHomeScreenBackground,
+                      secondColor: AppColors.buttonHomeScreenBackground,
                       onTap: () {
                         Navigator.of(context).pushNamed("/categories");
                       },
@@ -174,8 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Einstellungen",
                       borderRadius: 15,
-                      firstColor: AppColors.buttonBackground,
-                      secondColor: AppColors.buttonBackground,
+                      firstColor: AppColors.buttonHomeScreenBackground,
+                      secondColor: AppColors.buttonHomeScreenBackground,
                       onTap: () {
                         Navigator.of(context).pushNamed("/settings");
                       },

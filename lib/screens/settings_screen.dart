@@ -61,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                       "Einstellungen",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.text_1,
+                        color: AppColors.schriftFarbe_hell,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -71,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.text_1,
+                      color: AppColors.schriftFarbe_hell,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -87,8 +87,8 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Bewerten",
                     borderRadius: 15,
-                    firstColor: const Color(0xFF292F38),
-                    secondColor: const Color(0xFF292F38),
+                    firstColor: AppColors.buttonHomeScreenBackground,
+                    secondColor: AppColors.buttonHomeScreenBackground,
                     onTap: () async {
                       print("leave a comment for the app");
                       await DrunkGuesserDB.getLocalVersion();
@@ -100,8 +100,8 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Teilen",
                     borderRadius: 15,
-                    firstColor: AppColors.text_2,
-                    secondColor: AppColors.text_2,
+                    firstColor: AppColors.buttonHomeScreenBackground,
+                    secondColor: AppColors.buttonHomeScreenBackground,
                     onTap: () {
                       print("Share app");
                     },

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/app_colors.dart';
+
 class IconButton extends StatelessWidget {
   final String? text;
   final Icon icon;
@@ -31,7 +33,7 @@ class IconButton extends StatelessWidget {
                   fontFamily: "Quicksand",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF292F38),
+                  color: AppColors.buttonHomeScreenBackground,
                   /*shadows: [
                     Shadow(
                       offset: Offset(2.2, 3.2),

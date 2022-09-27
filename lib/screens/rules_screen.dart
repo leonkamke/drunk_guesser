@@ -71,7 +71,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       "Anleitung",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.text_1,
+                        color: AppColors.schriftFarbe_hell,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -81,7 +81,7 @@ class _RulesScreenState extends State<RulesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.text_1,
+                      color: AppColors.schriftFarbe_hell,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -160,7 +160,7 @@ class _RulesScreenState extends State<RulesScreen> {
               style: const TextStyle(
                 decoration: TextDecoration.underline,
                 fontSize: 26,
-                color: AppColors.text_2,
+                color: AppColors.schriftFarbe_dunkel,
                 fontFamily: "Quicksand",
                 fontWeight: FontWeight.bold,
               ),
@@ -170,7 +170,7 @@ class _RulesScreenState extends State<RulesScreen> {
               text,
               style: const TextStyle(
                 fontSize: 20,
-                color: AppColors.text_2,
+                color: AppColors.schriftFarbe_dunkel,
                 fontFamily: "Quicksand",
               ),
             ),

@@ -46,7 +46,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       offset: Offset(0, 3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
@@ -64,7 +64,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Credits",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.text_1,
+                        color: AppColors.schriftFarbe_hell,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -74,7 +74,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.text_1,
+                      color: AppColors.schriftFarbe_hell,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -105,7 +105,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Kontaktiere uns:",
                       style: TextStyle(
                         fontSize: 23,
-                        color: AppColors.text_2,
+                        color: AppColors.schriftFarbe_dunkel,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -132,7 +132,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Development:",
                       style: TextStyle(
                         fontSize: 23,
-                        color: Color(0xFF292F38),
+                        color: AppColors.schriftFarbe_dunkel,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -146,7 +146,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 19,
-                      color: AppColors.text_2,
+                      color: AppColors.schriftFarbe_dunkel,
                       fontFamily: "Quicksand",
                     ),
                   ),
@@ -162,7 +162,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: AppColors.text_2,
+                  color: AppColors.schriftFarbe_dunkel,
                   fontFamily: "Quicksand",
                 ),
               ),
@@ -176,7 +176,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: AppColors.text_2,
+                  color: AppColors.schriftFarbe_dunkel,
                   fontFamily: "Quicksand",
                 ),
               ),

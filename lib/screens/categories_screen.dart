@@ -99,7 +99,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       "Kategorien",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.text_1,
+                        color: AppColors.schriftFarbe_hell,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -109,7 +109,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.text_1,
+                      color: AppColors.schriftFarbe_hell,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();

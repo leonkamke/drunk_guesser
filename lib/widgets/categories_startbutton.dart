@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/app_colors.dart';
+
 class StartButton extends StatelessWidget {
   final void Function() onTap;
   const StartButton({Key? key, required this.onTap}) : super(key: key);
@@ -17,7 +19,7 @@ class StartButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          backgroundColor: const Color(0xFFF6F6F6),
+          backgroundColor: AppColors.schriftFarbe_hell,
           shadowColor: Colors.black,
           elevation: 7
         ),
@@ -29,7 +31,7 @@ class StartButton extends StatelessWidget {
               fontSize: 21,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: Color(0xFF292F38),
+              color: AppColors.schriftFarbe_dunkel,
             ),
           ),
         ),

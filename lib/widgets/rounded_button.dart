@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/app_colors.dart';
+
 class RoundedButton extends StatelessWidget {
   final String buttonText;
   final Color firstColor;
@@ -56,7 +58,7 @@ class RoundedButton extends StatelessWidget {
               fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: Color(0xFFF6F6F6),
+              color: AppColors.schriftFarbe_dunkel,
             ),
           ),
         ),
