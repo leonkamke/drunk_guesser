@@ -148,11 +148,7 @@ class _CategoryCardState extends State<CategoryCard> {
                                 blurRadius: 6)
                           ],
                         ),
-                        child: Image.asset(
-                          widget.category.iconPath,
-                          height: 10,
-                          fit: BoxFit.contain,
-                        ),
+                        child: setImageTransparent(),
                       ),
                       SizedBox(
                         width: displayWidth * 0.05,
@@ -165,7 +161,7 @@ class _CategoryCardState extends State<CategoryCard> {
                             Text(
                               widget.category.name,
                               style: const TextStyle(
-                                color: Color(0xFF292F38),
+                                color: Color(0x52292F38),
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "Quicksand",
@@ -175,7 +171,7 @@ class _CategoryCardState extends State<CategoryCard> {
                               maxLines: 3,
                               widget.category.description,
                               style: const TextStyle(
-                                color: Color(0xFF292F38),
+                                color: Color(0x52292F38),
                                 fontSize: 11,
                                 // fontWeight: FontWeight.bold,
                                 fontFamily: "Quicksand",
@@ -208,6 +204,35 @@ class _CategoryCardState extends State<CategoryCard> {
     }
   }
 
+  Widget setImageTransparent() {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+
+    return ShaderMask(
+      shaderCallback: (rect) {
+        return LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Colors.black.withOpacity(0.09),
+            Colors.black.withOpacity(0.15),
+            Colors.black.withOpacity(0.15),
+            Colors.black.withOpacity(0.09),
+            // <-- change this opacity
+            // Colors.transparent // <-- you might need this if you want full transparency at the edge
+          ],
+          stops: [0.0, 0.5, 0.55, 1.0,], //<-- the gradient is interpolated, and these are where the colors above go into effect (that's why there are two colors repeated)
+        ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+      },
+      blendMode: BlendMode.dstIn,
+      child: Image.asset(
+        widget.category.iconPath,
+        height: 10,
+        fit: BoxFit.contain,
+      ),
+    );
+  }
+
   Widget getLockContainer() {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
@@ -224,13 +249,9 @@ class _CategoryCardState extends State<CategoryCard> {
               vertical: 3, horizontal: displayWidth * 0.03),
           height: displayHeight * 0.105,
           width: displayWidth * 1,
-          /*decoration: BoxDecoration(
-            color: Color(0x96292F38),
-            borderRadius: BorderRadius.circular(15),
-          ),*/
           child: const Icon(
             Icons.lock_outline_rounded,
-            size: 30,
+            size: 40,
           ),
         ),
       );
