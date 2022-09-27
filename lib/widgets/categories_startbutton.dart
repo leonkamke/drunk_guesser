@@ -31,7 +31,7 @@ class StartButton extends StatelessWidget {
               fontSize: 21,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: AppColors.schriftFarbe_dunkel,
+              color: AppColors.schriftFarbe_startbutton,
             ),
           ),
         ),

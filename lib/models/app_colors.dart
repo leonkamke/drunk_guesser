@@ -36,5 +36,6 @@ class AppColors {
   static const Color schriftFarbe_category = Color(0xffffffff);
   static const Color iconBackground = Color(0xffffffff);
   static const Color categoryDivider = Color(0xff06283d);
+  static const Color schriftFarbe_startbutton = Color(0xff06283d);
 
 }
