@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   customIconButton.IconButton(
                     text: "Anleitung",
                     icon: const Icon(
-                      Icons.description,
+                      Icons.description_rounded,
                       size: 35,
                       color: AppColors.buttonBackground,
                     ),
