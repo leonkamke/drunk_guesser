@@ -91,7 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   customIconButton.IconButton(
                     text: "Anleitung",
-                    assetPath: "assets/icons/rules_icon_dark.png",
+                    icon: const Icon(
+                      Icons.description,
+                      size: 35,
+                      color: AppColors.buttonBackground,
+                    ),
                     onTap: () {
                       print(displayHeight);
                       Navigator.of(context).pushNamed("/rules");
@@ -99,7 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   customIconButton.IconButton(
                     text: "Credits",
-                    assetPath: "assets/icons/credits_icon_dark.png",
+                    icon: const Icon(
+                      Icons.info_rounded,
+                      size: 35,
+                      color: AppColors.buttonBackground,
+                    ),
                     onTap: () {
                       print(displayWidth);
                       // Navigate to CreditsScreen

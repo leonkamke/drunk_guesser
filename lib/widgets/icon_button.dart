@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class IconButton extends StatelessWidget {
   final String? text;
-  final String assetPath;
+  final Icon icon;
   final void Function() onTap;
   final double borderRadius = 15;
 
   const IconButton(
       {Key? key,
       required this.text,
-      required this.assetPath,
+      required this.icon,
       required this.onTap})
       : super(key: key);
 
@@ -24,10 +24,7 @@ class IconButton extends StatelessWidget {
         color: const Color(0x80a5d7),
         child: Column(
           children: [
-            Image.asset(
-              assetPath,
-              height: 30,
-            ),
+            icon,
             Text(
               text!,
               style: const TextStyle(
