@@ -117,19 +117,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: displayHeight * 0.05,),
-            Container(
-              height: 40,
-              width: displayWidth,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, -3),
-                      blurRadius: 6)
-                ],
-                color: Color(0xFF292F38),
-              ),
-            ),
+
           ],
         ),
       ),
