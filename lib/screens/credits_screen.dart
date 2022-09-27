@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,8 +15,8 @@ class _CreditsScreenState extends State<CreditsScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF80A5D7),
-      Color(0xFF6B9EE3),
+      AppColors.background_1,
+      AppColors.background_2,
     ],
   ));
 
@@ -63,7 +64,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Credits",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xffffffff),
+                        color: AppColors.text_1,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -73,7 +74,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: Color(0xffffffff),
+                      color: AppColors.text_1,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -104,7 +105,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Kontaktiere uns:",
                       style: TextStyle(
                         fontSize: 23,
-                        color: Color(0xFF292F38),
+                        color: AppColors.text_2,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -145,7 +146,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 19,
-                      color: Color(0xFF292F38),
+                      color: AppColors.text_2,
                       fontFamily: "Quicksand",
                     ),
                   ),
@@ -161,7 +162,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: Color(0xFF292F38),
+                  color: AppColors.text_2,
                   fontFamily: "Quicksand",
                 ),
               ),
@@ -175,7 +176,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: Color(0xFF292F38),
+                  color: AppColors.text_2,
                   fontFamily: "Quicksand",
                 ),
               ),

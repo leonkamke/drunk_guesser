@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/app_colors.dart';
 import '../database/drunk_guesser_db.dart';
 import '../widgets/rounded_button.dart';
 
@@ -11,8 +12,8 @@ class SettingsScreen extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          Color(0xFF80A5D7),
-          Color(0xFF6B9EE3),
+          AppColors.background_1,
+          AppColors.background_2,
         ],
       ));
 
@@ -42,7 +43,7 @@ class SettingsScreen extends StatelessWidget {
                       offset: Offset(0, 3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
@@ -60,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                       "Einstellungen",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xffffffff),
+                        color: AppColors.text_1,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -70,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: Color(0xffffffff),
+                      color: AppColors.text_1,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -99,8 +100,8 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Teilen",
                     borderRadius: 15,
-                    firstColor: const Color(0xFF292F38),
-                    secondColor: const Color(0xFF292F38),
+                    firstColor: AppColors.text_2,
+                    secondColor: AppColors.text_2,
                     onTap: () {
                       print("Share app");
                     },

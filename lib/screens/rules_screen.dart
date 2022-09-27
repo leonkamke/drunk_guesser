@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class RulesScreen extends StatefulWidget {
@@ -15,8 +16,8 @@ class _RulesScreenState extends State<RulesScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF80A5D7),
-      Color(0xFF6B9EE3),
+      AppColors.background_1,
+      AppColors.background_2,
     ],
   ));
 
@@ -52,7 +53,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       offset: Offset(0, 3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
@@ -70,7 +71,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       "Anleitung",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xffffffff),
+                        color: AppColors.text_1,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -80,7 +81,7 @@ class _RulesScreenState extends State<RulesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: Color(0xffffffff),
+                      color: AppColors.text_1,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -118,7 +119,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       offset: Offset(0, -3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               child: DotsIndicator(
                 dotsCount: 2,
@@ -159,7 +160,7 @@ class _RulesScreenState extends State<RulesScreen> {
               style: const TextStyle(
                 decoration: TextDecoration.underline,
                 fontSize: 26,
-                color: Color(0xff292f38),
+                color: AppColors.text_2,
                 fontFamily: "Quicksand",
                 fontWeight: FontWeight.bold,
               ),
@@ -169,7 +170,7 @@ class _RulesScreenState extends State<RulesScreen> {
               text,
               style: const TextStyle(
                 fontSize: 20,
-                color: Color(0xFF292F38),
+                color: AppColors.text_2,
                 fontFamily: "Quicksand",
               ),
             ),
