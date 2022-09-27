@@ -63,7 +63,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Credits",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xFF292F38),
+                        color: Color(0xffffffff),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -87,6 +87,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
+                    margin: EdgeInsets.fromLTRB(0, displayHeight*0.04, 0, 0),
                     width: 100,
                     height: 100,
                     child: Image.asset(
@@ -102,7 +103,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     child: Text(
                       "Kontaktiere uns:",
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 23,
                         color: Color(0xFF292F38),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
@@ -122,14 +123,14 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     },
                   ),
                   SizedBox(
-                    height: displayHeight * 0.05,
+                    height: displayHeight * 0.03,
                   ),
                   const FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
                       "Development:",
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 23,
                         color: Color(0xFF292F38),
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
@@ -143,7 +144,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     "Luca Burg\nLeon Kamke",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 19,
                       color: Color(0xFF292F38),
                       fontFamily: "Quicksand",
                     ),
@@ -183,6 +184,26 @@ class _CreditsScreenState extends State<CreditsScreen> {
               },
             ),
             SizedBox(height: displayHeight * 0.05),
+            Container(
+              height: 40,
+              width: displayWidth,
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0, -3),
+                      blurRadius: 6)
+                ],
+                color: Color(0xFF292F38),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    child: Text("   @DrunkGuesser", style: TextStyle(color: Color(0xffffffff), fontSize: 9,fontFamily: "Quicksand",),),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -53,7 +53,7 @@ class RoundedButton extends StatelessWidget {
           child: Text(
             buttonText,
             style: const TextStyle(
-              fontSize: 21,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
               color: Color(0xFFF6F6F6),

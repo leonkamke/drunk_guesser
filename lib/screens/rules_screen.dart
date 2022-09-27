@@ -102,75 +102,9 @@ class _RulesScreenState extends State<RulesScreen> {
                       });
                     }),
                 items: [
-                  Container(
-                    width: displayWidth,
-                    padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.1, 0, displayWidth * 0.05, 0),
-                    child: RawScrollbar(
-                      thumbColor: const Color(0x52292f38),
-                      radius: const Radius.circular(20),
-                      thickness: 5,
-                      child: ListView(
-                        physics: const BouncingScrollPhysics(),
-                        children: [
-                          const Text(
-                            "Spielstart",
-                            style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 25,
-                              color: Color(0xff292f38),
-                              fontFamily: "Quicksand",
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: displayHeight * 0.03),
-                          Text(
-                            spielStartText,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Color(0xFF292F38),
-                              fontFamily: "Quicksand",
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: displayWidth,
-                    padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.1, 0, displayWidth * 0.05, 0),
-                    child: RawScrollbar(
-                      thumbColor: Color(0x52292f38),
-                      radius: const Radius.circular(20),
-                      thickness: 5,
-                      child: ListView(
-                        padding: EdgeInsets.fromLTRB(0, displayHeight*0.05, 0, displayHeight*0.05),
-                        physics: const BouncingScrollPhysics(),
-                        children: [
-                          const Text(
-                            "Spielablauf",
-                            style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 25,
-                              color: Color(0xFF292F38),
-                              fontFamily: "Quicksand",
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: displayHeight * 0.03),
-                          Text(
-                            spielAblaufText_1 + spielAblaufText_2,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Color(0xFF292F38),
-                              fontFamily: "Quicksand",
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  oneSlider("Spielstart", spielStartText),
+                  oneSlider(
+                      "Spielablauf", spielAblaufText_1 + spielAblaufText_2),
                 ],
               ),
             ),
@@ -186,26 +120,69 @@ class _RulesScreenState extends State<RulesScreen> {
                 ],
                 color: Color(0xFF292F38),
               ),
-              child: DotsIndicator(
-                dotsCount: 2,
-                position: pageindex,
-                decorator: const DotsDecorator(
-                  activeSize: Size(12, 12),
-                  size: Size(8, 8),
-                  color: Color(0x83ffffff), // Inactive color
-                  activeColor: Color(0xffffffff),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  Container(
+                    child: Text("   @DrunkGuesser", style: TextStyle(color: Color(0xffffffff), fontSize: 8, fontFamily: "Quicksand", ),),
+                  ),
+                  DotsIndicator(
+                    dotsCount: 2,
+                    position: pageindex,
+                    decorator: const DotsDecorator(
+                      activeSize: Size(12, 12),
+                      size: Size(8, 8),
+                      color: Color(0x83ffffff), // Inactive color
+                      activeColor: Color(0xffffffff),
+                    ),
+                  ),
+                  Container(child: Text("   @DrunkGuesser", style: TextStyle(color: Colors.transparent,fontSize: 8,fontFamily: "Quicksand",), ),),
+                ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
 
-            /*Container(
-              width: 150,
-              height: 150,
-              child: Image.asset(
-                "assets/images/drunk_guesser_img.png",
-                fit: BoxFit.contain,
+  Widget oneSlider(String ueberschrift, String text) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      width: displayWidth,
+      padding:
+          EdgeInsets.fromLTRB(displayWidth * 0.1, 0, displayWidth * 0.05, 0),
+      child: RawScrollbar(
+        thumbColor: const Color(0x52292f38),
+        radius: const Radius.circular(20),
+        thickness: 5,
+        child: ListView(
+          padding: EdgeInsets.fromLTRB(
+              0, displayHeight * 0.05, 0, displayHeight * 0.05),
+          physics: const BouncingScrollPhysics(),
+          children: [
+            Text(
+              ueberschrift,
+              style: const TextStyle(
+                decoration: TextDecoration.underline,
+                fontSize: 26,
+                color: Color(0xff292f38),
+                fontFamily: "Quicksand",
+                fontWeight: FontWeight.bold,
               ),
-            ),*/
+            ),
+            SizedBox(height: displayHeight * 0.03),
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Color(0xFF292F38),
+                fontFamily: "Quicksand",
+              ),
+            ),
           ],
         ),
       ),
