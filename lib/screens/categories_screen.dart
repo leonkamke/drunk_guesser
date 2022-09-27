@@ -68,14 +68,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
-                boxShadow: const [
+              decoration: const BoxDecoration(
+                boxShadow: [
                   BoxShadow(
                       color: Colors.black54,
                       offset: Offset(0, 3),
                       blurRadius: 6)
                 ],
-                color: Color(0xff292f38),
+                color: Color(0xFF292F38),
               ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
@@ -132,23 +132,30 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   itemCount: Categories.categoryList.length),
             ),
             Container(
-              decoration: BoxDecoration(
-                boxShadow: const [
+              decoration: const BoxDecoration(
+                boxShadow: [
                   BoxShadow(
                       color: Colors.black54,
                       offset: Offset(0, -3),
                       blurRadius: 6)
                 ],
-                color: const Color(0xff292f38),
+                color: Color(0xFF292F38),
               ),
               width: displayWidth,
               height: displayHeight * 0.09,
-
-              child: Center(
-                child: StartButton(
-                  onTap: () => startGame(),
+              child: const Center(
+                //child: StartButton(
+                // onTap: () => startGame(),
+                //),
+                child: Text(
+                  "Start",
+                  style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Quicksand",
+                    color: Color(0xFFF6F6F6),
+                  ),
                 ),
-                //child: Text("Start"),
               ),
             ),
           ],

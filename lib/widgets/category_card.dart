@@ -34,7 +34,7 @@ class _CategoryCardState extends State<CategoryCard> {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
-                    vertical: 3, horizontal: displayWidth * 0.07),
+                    vertical: 3, horizontal: displayWidth * 0.03),
                 margin: EdgeInsets.symmetric(
                     vertical: 3, horizontal: displayWidth * 0.03),
                 height: displayHeight * 0.105,
@@ -44,9 +44,9 @@ class _CategoryCardState extends State<CategoryCard> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 50,
-                      height: 50,
-                      padding: const EdgeInsets.all(3),
+                      width: 70,
+                      height: 70,
+                      padding: const EdgeInsets.all(7),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: const Color(0xff444e5a),
@@ -63,9 +63,11 @@ class _CategoryCardState extends State<CategoryCard> {
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             widget.category.name,
+
                             style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
