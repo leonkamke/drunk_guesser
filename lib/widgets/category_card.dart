@@ -49,7 +49,13 @@ class _CategoryCardState extends State<CategoryCard> {
                       padding: const EdgeInsets.all(7),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: const Color(0xff444e5a),
+                        color: const Color(0xFFF6F6F6),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black54,
+                              offset: Offset(0, 3),
+                              blurRadius: 6)
+                        ],
                       ),
                       child: Image.asset(
                         widget.category.iconPath,
@@ -69,6 +75,7 @@ class _CategoryCardState extends State<CategoryCard> {
                             widget.category.name,
 
                             style: const TextStyle(
+                              color: Color(0xFF292F38),
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Quicksand",
@@ -78,6 +85,7 @@ class _CategoryCardState extends State<CategoryCard> {
                             maxLines: 3,
                             widget.category.description,
                             style: const TextStyle(
+                              color: Color(0xFF292F38) ,
                               fontSize: 11,
                               // fontWeight: FontWeight.bold,
                               fontFamily: "Quicksand",
