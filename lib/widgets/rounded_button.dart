@@ -58,7 +58,7 @@ class RoundedButton extends StatelessWidget {
               fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: AppColors.schriftFarbe_dunkel,
+              color: AppColors.buttonHomeScreenSchrift,
             ),
           ),
         ),
