@@ -21,13 +21,13 @@ class AppColors {
 */
 
   //Background
-  static const Color background_1 = Color(0xFF89BBFF);
-  static const Color background_2 = Color(0xFF5D98FF);
+  static const Color background_1 = Color(0xFF79D6E7);
+  static const Color background_2 = Color(0xFF21ADDC);
   //appbar
   static const Color appbarBackground = Color(0xff06283d);
   //Homescreen
   static const Color buttonHomeScreenBackground = Color(0xffffffff);
-  static const Color buttonHomeScreenSchrift = Color(0xff5d98ff);
+  static const Color buttonHomeScreenSchrift = Color(0xff21addc);
   static const Color drunkguesserSchrift = Color(0xffffffff);
   //schrift
   static const Color schriftFarbe_hell = Color(0xffffffff);
