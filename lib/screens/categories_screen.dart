@@ -3,6 +3,7 @@ import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
 
+import '../models/app_colors.dart';
 import '../models/category.dart';
 import '../models/category_data.dart';
 
@@ -22,8 +23,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF80A5D7),
-      Color(0xFF6B9EE3),
+      AppColors.background_1,
+      AppColors.background_2,
     ],
   ));
 
@@ -80,7 +81,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       offset: Offset(0, 3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               padding: EdgeInsets.fromLTRB(
                 displayWidth * 0.1,
@@ -98,7 +99,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       "Kategorien",
                       style: TextStyle(
                         fontSize: 30,
-                        color: Color(0xffffffff),
+                        color: AppColors.text_1,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -108,7 +109,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: Color(0xffffffff),
+                      color: AppColors.text_1,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -127,7 +128,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
-                      color: Color(0x9e292f38),
+                      color: AppColors.categoryDivider,
                       thickness: 2,
                       height: 5,
                       indent: displayWidth * 0.05,
@@ -145,7 +146,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       offset: Offset(0, -3),
                       blurRadius: 6)
                 ],
-                color: Color(0xFF292F38),
+                color: AppColors.appbarBackground,
               ),
               width: displayWidth,
               height: displayHeight * 0.09,

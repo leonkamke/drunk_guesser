@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../models/category.dart';
@@ -46,7 +47,7 @@ class _CategoryCardState extends State<CategoryCard> {
                     padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: const Color(0xFFF6F6F6),
+                      color: AppColors.iconBackground,
                       boxShadow: const [
                         BoxShadow(
                             color: Colors.black54,
@@ -71,7 +72,7 @@ class _CategoryCardState extends State<CategoryCard> {
                         Text(
                           widget.category.name,
                           style: const TextStyle(
-                            color: Color(0xFF292F38),
+                            color: AppColors.text_2,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -81,7 +82,7 @@ class _CategoryCardState extends State<CategoryCard> {
                           maxLines: 3,
                           widget.category.description,
                           style: const TextStyle(
-                            color: Color(0xFF292F38),
+                            color: AppColors.text_2,
                             fontSize: 11,
                             // fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -140,7 +141,7 @@ class _CategoryCardState extends State<CategoryCard> {
                         padding: const EdgeInsets.all(7),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: const Color(0xFFF6F6F6),
+                          color: AppColors.iconBackground,
                           boxShadow: const [
                             BoxShadow(
                                 color: Colors.black54,

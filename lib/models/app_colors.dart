@@ -12,5 +12,7 @@ class AppColors {
 
   static const Color iconBackground = Color(0xffffffff);
 
+  static const Color categoryDivider = Color(0x9e292f38);
+
 
 }
