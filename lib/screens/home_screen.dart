@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(
                       Icons.description_rounded,
                       size: 35,
-                      color: AppColors.buttonHomeScreenBackground,
+                      color: AppColors.anleitung_icon,
                     ),
                     onTap: () {
                       print(displayHeight);
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(
                       Icons.info_rounded,
                       size: 35,
-                      color: AppColors.buttonHomeScreenBackground,
+                      color: AppColors.credits_icon,
                     ),
                     onTap: () {
                       print(displayWidth);
