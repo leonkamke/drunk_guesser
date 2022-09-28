@@ -43,8 +43,7 @@ class _ShopButtonState extends State<ShopButton> {
                   color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
             ],
             color: const Color(0xFF444E5A),
-            borderRadius: widget.borderRadius,
-            border: Border.all(color: Color(0xfffff8b9), width: 3.5)),
+            borderRadius: widget.borderRadius,),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             splashFactory: NoSplash.splashFactory,

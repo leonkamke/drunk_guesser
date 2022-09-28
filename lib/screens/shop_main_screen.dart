@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/shop_button.dart';
 
-class ShopScreen extends StatefulWidget {
-  ShopScreen({Key? key}) : super(key: key);
+class ShopMainScreen extends StatefulWidget {
+  ShopMainScreen({Key? key}) : super(key: key);
 
   @override
-  State<ShopScreen> createState() => _ShopScreenState();
+  State<ShopMainScreen> createState() => _ShopMainScreenState();
 }
 
-class _ShopScreenState extends State<ShopScreen> {
+class _ShopMainScreenState extends State<ShopMainScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -171,6 +171,7 @@ class _ShopScreenState extends State<ShopScreen> {
                           offset: Offset(3, 6),
                           blurRadius: 6)
                     ],
+                    border: Border.all(color: Color(0xfffff8b9), width: 3.5),
                     color: Color(0xFF444E5A),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -185,7 +186,7 @@ class _ShopScreenState extends State<ShopScreen> {
                       shadowColor: Colors.transparent,
                       fixedSize: const Size(270, 70),
                     ),
-                    onPressed: () => print("buy"),
+                    onPressed: () => buy(context),
                     child: FittedBox(
                       child: Text(
                         buttonText,
@@ -239,8 +240,16 @@ class _ShopScreenState extends State<ShopScreen> {
     );
   }
 
-  void buy() {
-    print("Buy");
+  void buy(BuildContext context) {
+    if (selectedButton == 0) {        // Einzelne Kategorien
+      print("buy single category");
+      Navigator.of(context).pushReplacementNamed("/shop_category");
+    } else if (selectedButton == 1) { // Vollversion
+      print("buy fullversion");
+      // TODO: Use RevenueCat for the transaction
+    } else {                          // Bundles
+      print("buy bundle");
+    }
   }
 
   List<Widget> getImages(BuildContext context) {

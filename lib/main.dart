@@ -3,7 +3,8 @@ import 'package:drunk_guesser/screens/credits_screen.dart';
 import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/rules_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
-import 'package:drunk_guesser/screens/shop_screen.dart';
+import 'package:drunk_guesser/screens/shop_categories_screen.dart';
+import 'package:drunk_guesser/screens/shop_main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -83,12 +84,12 @@ class MyApp extends StatelessWidget {
               },
               transitionDuration: const Duration(milliseconds: 55),
               reverseTransitionDuration: const Duration(milliseconds: 55));
-        } else if (settings.name == "/shop") {
+        } else if (settings.name == "/shop_main") {
           return PageRouteBuilder(
               settings: settings,
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  ShopScreen(),
+                  ShopMainScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(0.0, 1.0);
@@ -103,6 +104,18 @@ class MyApp extends StatelessWidget {
               },
               transitionDuration: const Duration(milliseconds: 200),
               reverseTransitionDuration: const Duration(milliseconds: 200));
+        } else if (settings.name == "/shop_category") {
+          return PageRouteBuilder(
+              settings: settings,
+              // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  ShopCategoriesScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
         }
         return null;
       },
