@@ -184,7 +184,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                       ),
                       backgroundColor: Color(0xFF444E5A),
                       shadowColor: Colors.transparent,
-                      fixedSize: const Size(270, 70),
+                      fixedSize: Size(displayWidth * 0.66, displayHeight * 0.098),
                     ),
                     onPressed: () => buy(context),
                     child: FittedBox(

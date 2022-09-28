@@ -33,8 +33,11 @@ class ShopButton extends StatefulWidget {
 }
 
 class _ShopButtonState extends State<ShopButton> {
+
   @override
   Widget build(BuildContext context) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
     if (widget.selected) {
       return Container(
         decoration: BoxDecoration(
@@ -55,7 +58,7 @@ class _ShopButtonState extends State<ShopButton> {
             ),
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
-            fixedSize: const Size(270, 70),
+            fixedSize: Size(displayWidth * 0.66, displayHeight * 0.092),
           ),
           onPressed: widget.onTap,
           child: FittedBox(
@@ -87,7 +90,7 @@ class _ShopButtonState extends State<ShopButton> {
             ),
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
-            fixedSize: const Size(270, 70),
+            fixedSize: Size(displayWidth * 0.66, displayHeight * 0.092),
           ),
           onPressed: widget.onTap,
           child: FittedBox(
