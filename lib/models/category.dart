@@ -8,6 +8,7 @@ class Category {
   final String iconPath;
   final String dbName;
   final List<Color> colors;
+  bool selected = false;
 
   /*
   If false then the card is grey, and has a lock in front of it.

@@ -132,12 +132,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   separatorBuilder: (context, index) {
                     return Divider(
                       color: AppColors.categoryDivider,
-                      thickness: 2,
-                      height: 5,
+                      thickness: 1.5,
+                      height: 23,
                       indent: displayWidth * 0.05,
                       endIndent: displayWidth * 0.05,
                     );
-                    // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
                   itemCount: categories.length),
             ),

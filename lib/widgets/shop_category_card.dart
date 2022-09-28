@@ -20,7 +20,6 @@ class ShopCategoryCard extends StatelessWidget {
             EdgeInsets.symmetric(vertical: 3, horizontal: displayWidth * 0.03),
         margin:
             EdgeInsets.symmetric(vertical: 3, horizontal: displayWidth * 0.03),
-        height: displayHeight * 0.105,
         decoration: BoxDecoration(
           color: const Color(0xff444e5a),
           borderRadius: BorderRadius.circular(15),
