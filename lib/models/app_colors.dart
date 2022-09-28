@@ -108,26 +108,55 @@ class AppColors {
   static const Color schriftFarbe_startbutton = Color(0xffffffff);
 */
 
+
 //Background
-  static const Color background_1 = Color(0xFF434852);
-  static const Color background_2 = Color(0xFF26282B);
+  static const Color background_1 = Color(0xffe5e7f3);
+  static const Color background_2 = Color(0xFFE5E7F3);
 //appbar
-  static const Color appbarBackground = Color(0xff26282b);
+  static const Color appbarBackground = Color(0xff8088e1);
 //Homescreen
   static const Color drunkguesserSchrift = Color(0xffffffff);
   static const Color homescreen_icons = Color(0xffffffff);
-  static const Color startButtonBackground = Color(0xffffff);
-  static const Color startButtonText = Color(0xffffff);
-  static const Color settingsButtonBackground = Color(0xffffff);
-  static const Color settingsButtonText = Color(0xffffff);
-  static const Color backgroundHomeScreen_1 = Color(0xff515259);
-  static const Color backgroundHomeScreen_2 = Color(0xff26272a);
+  static const Color startButtonBackground = Color(0xff282f39);
+  static const Color startButtonText = Color(0xffffffff);
+  static const Color settingsButtonBackground = Color(0xffffffff);
+  static const Color settingsButtonText = Color(0xff1e1f21);
+  static const Color backgroundHomeScreen_1 = Color(0xff8088e1);
+  static const Color backgroundHomeScreen_2 = Color(0xff7976c3);
 //schrift
-  static const Color schriftFarbe_hell = Color(0xff90b8f8);
-  static const Color schriftFarbe_dunkel = Color(0xff645caa);
-//Category
-  static const Color schriftFarbe_category = Color(0xfff1f1f1);
-  static const Color iconBackground = Color(0xffe8e8e8);
-  static const Color categoryDivider = Color(0xffffffff);
-  static const Color schriftFarbe_startbutton = Color(0xff26282b);
+  static const Color schriftFarbe_hell = Color(0xff282f39);
+  static const Color schriftFarbe_dunkel = Color(0xffffffff);
+//Categories
+  static const Color schirftFarbeCards = Color(0xff54546b);
+  static const Color appBarText = Color(0xffffffff);
+  static const Color iconBackground = Color(0xffffffff);
+  static const Color categoryDivider = Color(0xff54546b);
+  static const Color schriftFarbe_startbutton = Color(0xffffffff);
+
+
+/*
+//Background
+  static const Color background_1 = Color(0xff77a2da);
+  static const Color background_2 = Color(0xFF77A2DA);
+//appbar
+  static const Color appbarBackground = Color(0xff282f39);
+//Homescreen
+  static const Color drunkguesserSchrift = Color(0xffffffff);
+  static const Color homescreen_icons = Color(0xffffffff);
+  static const Color startButtonBackground = Color(0xff282f39);
+  static const Color startButtonText = Color(0xffffffff);
+  static const Color settingsButtonBackground = Color(0xffffffff);
+  static const Color settingsButtonText = Color(0xff282f39);
+  static const Color backgroundHomeScreen_1 = Color(0xff77adf8);
+  static const Color backgroundHomeScreen_2 = Color(0xff6c9ee3);
+//schrift
+  static const Color schriftFarbe_hell = Color(0xff7aa3db);
+  static const Color schriftFarbe_dunkel = Color(0xffffffff);
+//Categories
+  static const Color schirftFarbeCards = Color(0xff282f39);
+  static const Color appBarText = Color(0xffe5e5e5);
+  static const Color iconBackground = Color(0xffe5e5e5);
+  static const Color categoryDivider = Color(0xff282f39);
+  static const Color schriftFarbe_startbutton = Color(0xffffffff);
+*/
 }
