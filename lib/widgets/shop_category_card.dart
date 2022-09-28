@@ -78,7 +78,6 @@ class ShopCategoryCard extends StatelessWidget {
                 style: TextStyle(
                   color: Color(0xfffff8c0),
                   fontWeight: FontWeight.bold,
-                  fontFamily: "Quicksand",
                   fontSize: 18,
                 ),
               ),
@@ -92,4 +91,5 @@ class ShopCategoryCard extends StatelessWidget {
   void buyCategory() {
     print("Buy category ${category.name}");
   }
+
 }

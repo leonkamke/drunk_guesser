@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
+import '../models/category.dart';
 import '../models/category_data.dart';
 import '../widgets/shop_category_card.dart';
 
-class ShopCategoriesScreen extends StatelessWidget {
+class ShopCategoriesScreen extends StatefulWidget {
   ShopCategoriesScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ShopCategoriesScreen> createState() => _ShopCategoriesScreenState();
+}
+
+class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -16,6 +22,21 @@ class ShopCategoriesScreen extends StatelessWidget {
       Color(0xFFFFF6C6),
     ],
   ));
+
+  late List<Category> categories;
+
+  @override
+  void initState() {
+    super.initState();
+    // TODO: implement initState
+    for (Category c in Categories.categoryList) {
+      c.setPurchased();
+    }
+    categories = [...Categories.categoryList];
+
+    // delete already purchased categories
+    categories.removeWhere((category) => category.purchased == true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +92,11 @@ class ShopCategoriesScreen extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ShopCategoryCard(
-                        category: Categories.categoryList[index]);
+                        category: categories[index]);
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
-                      color: AppColors.categoryDivider,
+                      color: const Color(0xff292f38),
                       thickness: 2,
                       height: 16,
                       indent: displayWidth * 0.05,
@@ -83,7 +104,7 @@ class ShopCategoriesScreen extends StatelessWidget {
                     );
                     // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
-                  itemCount: Categories.categoryList.length),
+                  itemCount: categories.length),
             ),
           ],
         ),

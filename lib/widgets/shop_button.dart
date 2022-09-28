@@ -42,7 +42,7 @@ class _ShopButtonState extends State<ShopButton> {
             BoxShadow(
                 color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
           ],
-          border: Border.all(color: Color(0xfffff8b9), width: 3.5),
+          border: Border.all(color: const Color(0xfffff8b9), width: 3.5),
           color: const Color(0xFF444E5A),
           borderRadius: widget.borderRadius,
         ),
@@ -75,7 +75,7 @@ class _ShopButtonState extends State<ShopButton> {
       return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.transparent, width: 3.5),
-          color: Color(0x89444E5A),
+          color: const Color(0x89444E5A),
           borderRadius: widget.borderRadius,
         ),
         child: ElevatedButton(

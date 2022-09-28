@@ -28,6 +28,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     ],
   ));
 
+  late List<Category> categories;
+
   @override
   void initState() {
     super.initState();
@@ -35,16 +37,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     for (Category c in Categories.categoryList) {
       c.setPurchased();
     }
+    categories = [...Categories.categoryList];
     // sort CategoryList (purchased categories first)
     sortCategoryCards();
   }
 
   void sortCategoryCards() {
     setState(() {
-      Categories.categoryList.sort(
+      categories.sort(
         (a, b) {
           if (a.purchased == true && b.purchased == false) {
-            return -11;
+            return -1;
           } else if (a.purchased == false && b.purchased == true) {
             return 1;
           } else {
@@ -124,7 +127,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return CategoryCard(
-                        category: Categories.categoryList[index]);
+                        category: categories[index]);
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
@@ -136,7 +139,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     );
                     // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
-                  itemCount: Categories.categoryList.length),
+                  itemCount: categories.length),
             ),
             Container(
               decoration: const BoxDecoration(
