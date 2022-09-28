@@ -136,6 +136,10 @@ class AppColors {
   static const Color dotColor_Active = Color(0xff282f39);
   static const Color dotColor_Inactive = Color(0xFF54546B);
 
+  //Game
+  static const Color gameCard = Color(0xff282f39);
+
+
 
 
 /*
