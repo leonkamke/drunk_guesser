@@ -145,8 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    width: 200,
-                    height: 200,
+                    width: displayWidth * 0.46,
+                    height: displayWidth * 0.46,
                     child: const rive.RiveAnimation.asset(
                       'assets/animations/drunkguesser2.2.riv',
                       fit: BoxFit.contain,
