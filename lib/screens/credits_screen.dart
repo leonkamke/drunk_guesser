@@ -64,7 +64,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Credits",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.schriftFarbe_hell,
+                        color: AppColors.appBarText,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -74,7 +74,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.schriftFarbe_hell,
+                      color: AppColors.appBarText,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -105,7 +105,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Kontaktiere uns:",
                       style: TextStyle(
                         fontSize: 23,
-                        color: AppColors.schriftFarbe_dunkel,
+                        color: AppColors.schriftFarbeCards,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -132,7 +132,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       "Development:",
                       style: TextStyle(
                         fontSize: 23,
-                        color: AppColors.schriftFarbe_dunkel,
+                        color: AppColors.schriftFarbeCards,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -146,7 +146,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 19,
-                      color: AppColors.schriftFarbe_dunkel,
+                      color: AppColors.schriftFarbeCards,
                       fontFamily: "Quicksand",
                     ),
                   ),
@@ -162,7 +162,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: AppColors.schriftFarbe_dunkel,
+                  color: AppColors.schriftFarbeCards,
                   fontFamily: "Quicksand",
                 ),
               ),
@@ -176,7 +176,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontSize: 17,
-                  color: AppColors.schriftFarbe_dunkel,
+                  color: AppColors.schriftFarbeCards,
                   fontFamily: "Quicksand",
                 ),
               ),

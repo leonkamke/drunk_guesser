@@ -61,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                       "Einstellungen",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.schriftFarbe_hell,
+                        color: AppColors.appBarText,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -71,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.schriftFarbe_hell,
+                      color: AppColors.appBarText,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -87,9 +87,9 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Bewerten",
                     borderRadius: 15,
-                    firstColor: AppColors.settingsButtonBackground,
-                    secondColor: AppColors.settingsButtonBackground,
-                    textColor: AppColors.settingsButtonText,
+                    firstColor: AppColors.appbarBackground,
+                    secondColor: AppColors.appbarBackground,
+                    textColor: AppColors.appBarText,
                     onTap: () async {
                       print("leave a comment for the app");
                       await DrunkGuesserDB.getLocalVersion();
@@ -101,9 +101,9 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Teilen",
                     borderRadius: 15,
-                    firstColor: AppColors.settingsButtonBackground,
-                    secondColor: AppColors.settingsButtonBackground,
-                    textColor: AppColors.settingsButtonText,
+                    firstColor: AppColors.appbarBackground,
+                    secondColor: AppColors.appbarBackground,
+                    textColor: AppColors.appBarText,
                     onTap: () {
                       print("Share app");
                     },

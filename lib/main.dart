@@ -1,7 +1,7 @@
 import 'package:drunk_guesser/screens/categories_screen.dart';
 import 'package:drunk_guesser/screens/credits_screen.dart';
 import 'package:drunk_guesser/screens/home_screen.dart';
-import 'package:drunk_guesser/screens/rules_screen.dart';
+import 'package:drunk_guesser/screens/anleitung_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:drunk_guesser/screens/shop_categories_screen.dart';
 import 'package:drunk_guesser/screens/shop_main_screen.dart';

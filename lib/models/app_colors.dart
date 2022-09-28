@@ -127,11 +127,15 @@ class AppColors {
   static const Color schriftFarbe_hell = Color(0xff282f39);
   static const Color schriftFarbe_dunkel = Color(0xffffffff);
 //Categories
-  static const Color schirftFarbeCards = Color(0xff54546b);
+  static const Color schriftFarbeCards = Color(0xff54546b);
   static const Color appBarText = Color(0xffffffff);
   static const Color iconBackground = Color(0xffffffff);
   static const Color categoryDivider = Color(0xff54546b);
   static const Color schriftFarbe_startbutton = Color(0xffffffff);
+  //Anleitung
+  static const Color dotColor_Active = Color(0xff282f39);
+  static const Color dotColor_Inactive = Color(0xFF54546B);
+
 
 
 /*

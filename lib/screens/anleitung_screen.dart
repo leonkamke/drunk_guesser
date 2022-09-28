@@ -71,7 +71,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       "Anleitung",
                       style: TextStyle(
                         fontSize: 30,
-                        color: AppColors.schriftFarbe_hell,
+                        color: AppColors.appBarText,
                         fontFamily: "Quicksand",
                         fontWeight: FontWeight.bold,
                       ),
@@ -81,7 +81,7 @@ class _RulesScreenState extends State<RulesScreen> {
                     child: const Icon(
                       Icons.home_rounded,
                       size: 45,
-                      color: AppColors.schriftFarbe_hell,
+                      color: AppColors.appBarText,
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
@@ -127,8 +127,8 @@ class _RulesScreenState extends State<RulesScreen> {
                 decorator: const DotsDecorator(
                   activeSize: Size(12, 12),
                   size: Size(8, 8),
-                  color: Color(0x83ffffff), // Inactive color
-                  activeColor: Color(0xffffffff),
+                  color: AppColors.dotColor_Inactive, // Inactive color
+                  activeColor: AppColors.dotColor_Active,
                 ),
               ),
             ),
@@ -160,7 +160,7 @@ class _RulesScreenState extends State<RulesScreen> {
               style: const TextStyle(
                 decoration: TextDecoration.underline,
                 fontSize: 26,
-                color: AppColors.schriftFarbe_dunkel,
+                color: AppColors.schriftFarbeCards,
                 fontFamily: "Quicksand",
                 fontWeight: FontWeight.bold,
               ),
@@ -170,7 +170,7 @@ class _RulesScreenState extends State<RulesScreen> {
               text,
               style: const TextStyle(
                 fontSize: 20,
-                color: AppColors.schriftFarbe_dunkel,
+                color: AppColors.schriftFarbeCards,
                 fontFamily: "Quicksand",
               ),
             ),
