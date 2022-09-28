@@ -132,6 +132,7 @@ class AppColors {
   static const Color iconBackground = Color(0xffffffff);
   static const Color categoryDivider = Color(0xff54546b);
   static const Color schriftFarbe_startbutton = Color(0xffffffff);
+  static const Color schriftFarbeCardsTransparent = Color(0x5254546b);
   //Anleitung
   static const Color dotColor_Active = Color(0xff282f39);
   static const Color dotColor_Inactive = Color(0xFF54546B);

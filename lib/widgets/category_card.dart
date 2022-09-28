@@ -145,7 +145,7 @@ class _CategoryCardState extends State<CategoryCard> {
                             Text(
                               widget.category.name,
                               style: const TextStyle(
-                                color: AppColors.schriftFarbeCards,
+                                color: AppColors.schriftFarbeCardsTransparent,
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "Quicksand",
@@ -155,7 +155,7 @@ class _CategoryCardState extends State<CategoryCard> {
                               maxLines: 3,
                               widget.category.description,
                               style: const TextStyle(
-                                color: AppColors.schriftFarbeCards,
+                                color: AppColors.schriftFarbeCardsTransparent,
                                 fontSize: 11,
                                 // fontWeight: FontWeight.bold,
                                 fontFamily: "Quicksand",
