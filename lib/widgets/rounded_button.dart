@@ -50,7 +50,7 @@ class RoundedButton extends StatelessWidget {
           ),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          fixedSize: const Size(200, 48),
+          fixedSize: Size(displayWidth * 0.48, 48),
         ),
         onPressed: onTap,
         child: FittedBox(

@@ -148,8 +148,8 @@ class MyApp extends StatelessWidget {
                   child: child,
                 );
               },
-              transitionDuration: const Duration(milliseconds: 180),
-              reverseTransitionDuration: const Duration(milliseconds: 180));
+              transitionDuration: const Duration(milliseconds: 240),
+              reverseTransitionDuration: const Duration(milliseconds: 240));
         }
         return null;
       },

@@ -2,6 +2,8 @@
 - Brandtext for splashscreen
 - DrunkGuesser trink animation
 - RevenueCat for inapp purchases
+- anderes Schloss
+- musik icon und geschichts icon ändern
 - In RulesScreen: Do something if text does not fit into the expanded widget
 
 test
