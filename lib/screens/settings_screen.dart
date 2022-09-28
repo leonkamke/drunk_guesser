@@ -87,8 +87,9 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Bewerten",
                     borderRadius: 15,
-                    firstColor: AppColors.buttonHomeScreenBackground,
-                    secondColor: AppColors.buttonHomeScreenBackground,
+                    firstColor: AppColors.settingsButtonBackground,
+                    secondColor: AppColors.settingsButtonBackground,
+                    textColor: AppColors.settingsButtonText,
                     onTap: () async {
                       print("leave a comment for the app");
                       await DrunkGuesserDB.getLocalVersion();
@@ -100,8 +101,9 @@ class SettingsScreen extends StatelessWidget {
                   RoundedButton(
                     buttonText: "Teilen",
                     borderRadius: 15,
-                    firstColor: AppColors.buttonHomeScreenBackground,
-                    secondColor: AppColors.buttonHomeScreenBackground,
+                    firstColor: AppColors.settingsButtonBackground,
+                    secondColor: AppColors.settingsButtonBackground,
+                    textColor: AppColors.settingsButtonText,
                     onTap: () {
                       print("Share app");
                     },

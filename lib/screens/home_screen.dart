@@ -164,8 +164,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Start",
                       borderRadius: 15,
-                      firstColor: AppColors.buttonHomeScreenBackground,
-                      secondColor: AppColors.buttonHomeScreenBackground,
+                      firstColor: AppColors.startButtonBackground,
+                      secondColor: AppColors.startButtonBackground,
+                      textColor: AppColors.startButtonText,
                       onTap: () {
                         Navigator.of(context).pushNamed("/categories");
                       },
@@ -176,8 +177,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     RoundedButton(
                       buttonText: "Einstellungen",
                       borderRadius: 15,
-                      firstColor: AppColors.buttonHomeScreenBackground,
-                      secondColor: AppColors.buttonHomeScreenBackground,
+                      firstColor: AppColors.settingsButtonBackground,
+                      secondColor: AppColors.settingsButtonBackground,
+                      textColor: AppColors.settingsButtonText,
                       onTap: () {
                         Navigator.of(context).pushNamed("/settings");
                       },

@@ -114,12 +114,14 @@ class AppColors {
 //appbar
   static const Color appbarBackground = Color(0xff26282b);
 //Homescreen
-  static const Color buttonHomeScreenBackground = Color(0xffbd842e);
-  static const Color buttonHomeScreenSchrift = Color(0xffffffff);
   static const Color drunkguesserSchrift = Color(0xffffffff);
   static const Color homescreen_icons = Color(0xffffffff);
-  static const Color backgroundHomeScreen_1 = Color(0xff2e2f33);
-  static const Color backgroundHomeScreen_2 = Color(0xff2e2f33);
+  static const Color startButtonBackground = Color(0xffffff);
+  static const Color startButtonText = Color(0xffffff);
+  static const Color settingsButtonBackground = Color(0xffffff);
+  static const Color settingsButtonText = Color(0xffffff);
+  static const Color backgroundHomeScreen_1 = Color(0xff515259);
+  static const Color backgroundHomeScreen_2 = Color(0xff26272a);
 //schrift
   static const Color schriftFarbe_hell = Color(0xff90b8f8);
   static const Color schriftFarbe_dunkel = Color(0xff645caa);

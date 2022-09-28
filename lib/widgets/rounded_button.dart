@@ -7,6 +7,7 @@ class RoundedButton extends StatelessWidget {
   final Color firstColor;
   final Color secondColor;
   final double borderRadius;
+  final Color textColor;
   final void Function() onTap;
 
   /*
@@ -23,6 +24,7 @@ class RoundedButton extends StatelessWidget {
     required this.firstColor,
     required this.secondColor,
     required this.borderRadius,
+    required this.textColor,
     required this.onTap,
   });
 
@@ -54,11 +56,11 @@ class RoundedButton extends StatelessWidget {
         child: FittedBox(
           child: Text(
             buttonText,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: AppColors.buttonHomeScreenSchrift,
+              color: textColor,
             ),
           ),
         ),
