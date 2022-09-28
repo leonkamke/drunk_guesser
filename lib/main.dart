@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget {
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(0.0, 1.0);
                 const end = Offset.zero;
-                const curve = Curves.ease;
+                const curve = Curves.linear;
                 var tween = Tween(begin: begin, end: end)
                     .chain(CurveTween(curve: curve));
                 return SlideTransition(
@@ -101,8 +101,8 @@ class MyApp extends StatelessWidget {
                   child: child,
                 );
               },
-              transitionDuration: const Duration(milliseconds: 180),
-              reverseTransitionDuration: const Duration(milliseconds: 180));
+              transitionDuration: const Duration(milliseconds: 200),
+              reverseTransitionDuration: const Duration(milliseconds: 200));
         }
         return null;
       },
