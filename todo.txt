@@ -4,3 +4,5 @@
 - DrunkGuesser trink animation
 - RevenueCat for inapp purchases
 - In RulesScreen: Do something if text does not fit into the expanded widget
+
+test
