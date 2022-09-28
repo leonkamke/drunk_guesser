@@ -97,8 +97,8 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
                   separatorBuilder: (context, index) {
                     return Divider(
                       color: const Color(0xff292f38),
-                      thickness: 2,
-                      height: 16,
+                      thickness: 1.5,
+                      height: 23,
                       indent: displayWidth * 0.05,
                       endIndent: displayWidth * 0.05,
                     );

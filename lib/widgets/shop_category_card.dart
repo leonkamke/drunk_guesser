@@ -17,7 +17,7 @@ class ShopCategoryCard extends StatelessWidget {
       onTap: buyCategory,
       child: Container(
         padding:
-            EdgeInsets.symmetric(vertical: 3, horizontal: displayWidth * 0.03),
+            EdgeInsets.symmetric(vertical: 8, horizontal: displayWidth * 0.03),
         margin:
             EdgeInsets.symmetric(vertical: 3, horizontal: displayWidth * 0.03),
         decoration: BoxDecoration(
