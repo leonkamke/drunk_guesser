@@ -249,6 +249,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
       // TODO: Use RevenueCat for the transaction
     } else {                          // Bundles
       print("buy bundle");
+      Navigator.of(context).pushReplacementNamed("/shop_bundles");
     }
   }
 

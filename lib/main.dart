@@ -3,6 +3,7 @@ import 'package:drunk_guesser/screens/credits_screen.dart';
 import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/anleitung_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
+import 'package:drunk_guesser/screens/shop_bundles_screen.dart';
 import 'package:drunk_guesser/screens/shop_categories_screen.dart';
 import 'package:drunk_guesser/screens/shop_main_screen.dart';
 import 'package:flutter/material.dart';
@@ -110,6 +111,18 @@ class MyApp extends StatelessWidget {
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
                   ShopCategoriesScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              transitionDuration: const Duration(milliseconds: 55),
+              reverseTransitionDuration: const Duration(milliseconds: 55));
+        } else if (settings.name == "/shop_bundles") {
+          return PageRouteBuilder(
+              settings: settings,
+              // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  ShopBundlesScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 return FadeTransition(opacity: animation, child: child);
