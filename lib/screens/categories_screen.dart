@@ -37,25 +37,22 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     for (Category c in Categories.categoryList) {
       c.setPurchased();
     }
+    // Copy list of all categories
     categories = [...Categories.categoryList];
+    // Set selected value to false
+    categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
-    sortCategoryCards();
-  }
-
-  void sortCategoryCards() {
-    setState(() {
-      categories.sort(
-        (a, b) {
-          if (a.purchased == true && b.purchased == false) {
-            return -1;
-          } else if (a.purchased == false && b.purchased == true) {
-            return 1;
-          } else {
-            return 0;
-          }
-        },
-      );
-    });
+    categories.sort(
+          (a, b) {
+        if (a.purchased == true && b.purchased == false) {
+          return -1;
+        } else if (a.purchased == false && b.purchased == true) {
+          return 1;
+        } else {
+          return 0;
+        }
+      },
+    );
   }
 
   @override
