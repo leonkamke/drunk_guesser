@@ -19,7 +19,6 @@ class _CategoryCardState extends State<CategoryCard> {
    True if user wants to use this category in the game, else false.
    If true render checkmark in green, else render in transparent grey.
    */
-  bool selected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,6 @@ class _CategoryCardState extends State<CategoryCard> {
               vertical: 3, horizontal: displayWidth * 0.03),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.03),
-          height: displayHeight * 0.105,
           color: Colors.transparent,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,17 +74,13 @@ class _CategoryCardState extends State<CategoryCard> {
                         fontFamily: "Quicksand",
                       ),
                     ),
-                    Container(
-                      width: 100,
-                      height: 10,
-                      child: AutoSizeText(
-                        widget.category.description,
-                        style: const TextStyle(
-                          color: AppColors.schriftFarbeCards,
-                          fontSize: 11,
-                          // fontWeight: FontWeight.bold,
-                          fontFamily: "Quicksand",
-                        ),
+                    AutoSizeText(
+                      widget.category.description,
+                      style: const TextStyle(
+                        color: AppColors.schriftFarbeCards,
+                        fontSize: 9,
+                        // fontWeight: FontWeight.bold,
+                        fontFamily: "Quicksand",
                       ),
                     ),
                   ],
@@ -98,7 +92,7 @@ class _CategoryCardState extends State<CategoryCard> {
               Icon(
                 Icons.check_circle_outline_rounded,
                 size: 30,
-                color: selected
+                color: widget.category.selected
                     ? const Color(0xff1e9d00)
                     : const Color(0x1affffff),
               ),
@@ -119,7 +113,6 @@ class _CategoryCardState extends State<CategoryCard> {
                       vertical: 3, horizontal: displayWidth * 0.03),
                   margin: EdgeInsets.symmetric(
                       vertical: 3, horizontal: displayWidth * 0.03),
-                  height: displayHeight * 0.105,
                   color: Colors.transparent,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -258,7 +251,7 @@ class _CategoryCardState extends State<CategoryCard> {
     if (widget.category.purchased) {
       print("${widget.category.name} was tapped");
       setState(() {
-        selected = !selected;
+        widget.category.selected = !widget.category.selected;
       });
     } else {
       print("category ${widget.category.name} is not purchased");
