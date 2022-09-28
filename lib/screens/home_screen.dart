@@ -91,10 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   customIconButton.IconButton(
                     text: "Anleitung",
+                    textColor: AppColors.homescreen_icons,
                     icon: const Icon(
                       Icons.description_rounded,
                       size: 35,
-                      color: AppColors.anleitung_icon,
+                      color: AppColors.homescreen_icons,
                     ),
                     onTap: () {
                       print(displayHeight);
@@ -103,10 +104,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   customIconButton.IconButton(
                     text: "Credits",
+                    textColor: AppColors.homescreen_icons,
                     icon: const Icon(
                       Icons.info_rounded,
                       size: 35,
-                      color: AppColors.credits_icon,
+                      color: AppColors.homescreen_icons,
                     ),
                     onTap: () {
                       print(displayWidth);

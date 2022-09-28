@@ -7,12 +7,14 @@ class IconButton extends StatelessWidget {
   final Icon icon;
   final void Function() onTap;
   final double borderRadius = 15;
+  final Color textColor;
 
   const IconButton(
       {Key? key,
       required this.text,
       required this.icon,
-      required this.onTap})
+      required this.onTap,
+      required this.textColor})
       : super(key: key);
 
   @override
@@ -29,11 +31,11 @@ class IconButton extends StatelessWidget {
             icon,
             Text(
               text!,
-              style: const TextStyle(
+              style: TextStyle(
                   fontFamily: "Quicksand",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.buttonHomeScreenBackground,
+                  color: textColor,
                   /*shadows: [
                     Shadow(
                       offset: Offset(2.2, 3.2),
