@@ -55,7 +55,7 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
                 displayWidth * 0.1,
                 displayHeight * 0.06,
                 displayWidth * 0.1,
-                0,
+                displayHeight * 0.02,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
