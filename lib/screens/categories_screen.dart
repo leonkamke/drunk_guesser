@@ -155,7 +155,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               height: displayHeight * 0.09,
               child: Center(
                 child: StartButton(
-                  onTap: () => startGame(),
+                  onTap: () => startGame(context),
                 ),
               ),
             ),
@@ -165,11 +165,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 
-  void startGame() {
+  void startGame(BuildContext context) {
     print("start the game");
     // iterate over all categoryCards and check which are selected
     // -> load this categories for game
     // push GameScreen
-    DrunkGuesserDB.deleteDB();
+    Navigator.of(context).pushReplacementNamed("/game_start");
   }
 }

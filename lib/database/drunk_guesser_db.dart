@@ -20,7 +20,6 @@ class DrunkGuesserDB {
 
     // Check if the database exists
     var exists = await databaseExists(path);
-
     if (!exists) {
       // Should happen only the first time you launch your application
       print("Creating new copy from asset");
@@ -36,7 +35,7 @@ class DrunkGuesserDB {
       ByteData data = await rootBundle.load(join("database", dbName));
       List<int> bytes =
           data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-
+      
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
     } else if (exists && localVersion < assetVersion) {

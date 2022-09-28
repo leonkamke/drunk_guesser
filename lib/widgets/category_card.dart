@@ -76,14 +76,17 @@ class _CategoryCardState extends State<CategoryCard> {
                         fontFamily: "Quicksand",
                       ),
                     ),
-                    AutoSizeText(
-                      maxLines: 3,
-                      widget.category.description,
-                      style: const TextStyle(
-                        color: AppColors.schriftFarbeCards,
-                        fontSize: 11,
-                        // fontWeight: FontWeight.bold,
-                        fontFamily: "Quicksand",
+                    Container(
+                      width: 100,
+                      height: 10,
+                      child: AutoSizeText(
+                        widget.category.description,
+                        style: const TextStyle(
+                          color: AppColors.schriftFarbeCards,
+                          fontSize: 11,
+                          // fontWeight: FontWeight.bold,
+                          fontFamily: "Quicksand",
+                        ),
                       ),
                     ),
                   ],
