@@ -70,17 +70,32 @@ class ShopBundleCard extends StatelessWidget {
                         height: displayHeight * 0.06,
                       ),
                       Container(
-                        padding: EdgeInsets.fromLTRB(displayWidth*0.05, displayHeight*0.02, displayWidth*0.05, displayHeight*0.013),
+                        padding: EdgeInsets.fromLTRB(
+                            displayWidth * 0.05,
+                            displayHeight * 0.02,
+                            displayWidth * 0.05,
+                            displayHeight * 0.013),
                         decoration: BoxDecoration(
                           color: AppColors.shopPriceButtonBackground,
+                          border: Border.all(
+                            color: Color(0xff444e5a),
+                            width: displayWidth * 0.005,
+                          ),
                           borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: AppColors.shopPriceButtonShadow,
+                              spreadRadius: 2,
+                              blurRadius: 4,
+                              //blurStyle: BlurStyle.outer,
+                            )
+                          ],
                         ),
-
                         child: Text(
                           bundle.price,
                           style: const TextStyle(
                             color: AppColors.shopPriceButtonSchrift,
-                            fontSize: 30,
+                            fontSize: 25,
                             height: 0.9,
                             fontWeight: FontWeight.bold,
                           ),

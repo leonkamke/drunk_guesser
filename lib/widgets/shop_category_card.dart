@@ -71,16 +71,38 @@ class ShopCategoryCard extends StatelessWidget {
             SizedBox(
               width: displayWidth * 0.05,
             ),
-            const FittedBox(
+            Container(
+              padding: EdgeInsets.fromLTRB(
+                  displayWidth * 0.03,
+                  displayHeight * 0.019,
+                  displayWidth * 0.035,
+                  displayHeight * 0.013),
+              decoration: BoxDecoration(
+                color: AppColors.shopPriceButtonBackground,
+                border: Border.all(
+                  color: Color(0xff444e5a),
+                  width: displayWidth * 0.005,
+                ),
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: const [
+                  BoxShadow(
+                    color: AppColors.shopPriceButtonShadow,
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    //blurStyle: BlurStyle.outer,
+                  )
+                ],
+              ),
               child: Text(
                 "0.69€",
-                style: TextStyle(
-                  color: Color(0xfffff8c0),
+                style: const TextStyle(
+                  color: AppColors.shopPriceButtonSchrift,
+                  fontSize: 19,
+                  height: 0.9,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
