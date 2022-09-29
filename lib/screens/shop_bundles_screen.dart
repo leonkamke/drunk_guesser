@@ -1,7 +1,10 @@
+import 'package:drunk_guesser/models/bundle.dart';
 import 'package:flutter/material.dart';
 
+import '../models/bundles_data.dart';
 import '../models/category.dart';
 import '../models/category_data.dart';
+import '../widgets/shop_bundle_card.dart';
 
 class ShopBundlesScreen extends StatefulWidget {
   const ShopBundlesScreen({Key? key}) : super(key: key);
@@ -21,10 +24,19 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
         ],
       ));
 
+  late List<Bundle> bundles;
+
   @override
   void initState() {
     super.initState();
     // TODO: implement initState
+    for (Bundle b in Bundles.bundleList) {
+      b.setPurchased();
+    }
+    bundles = [...Bundles.bundleList];
+
+    // TODO: delete already purchased bundles
+    //categories.removeWhere((category) => category.purchased == true);
 
   }
 
@@ -75,6 +87,25 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
                   ),
                 ],
               ),
+            ),
+            Expanded(
+              child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return ShopBundleCard(
+                        bundle: bundles[index]);
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.transparent,
+                      thickness: 0,
+                      height: 23,
+
+                    );
+                    // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
+                  },
+                  itemCount: bundles.length),
             ),
           ],
         ),
