@@ -4,11 +4,8 @@ import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 
 class Bundle {
   final String categoryNames;
-  final List<String> iconPath;
-  final String dbName;
-  final List<Color> colors;
+  final String iconPath;
   final String price;
-  bool selected = false;
 
   /*
   If false then the card is grey, and has a lock in front of it.
@@ -18,10 +15,8 @@ class Bundle {
   Bundle({
     required this.categoryNames,
     required this.iconPath,
-    required this.dbName,
-    this.purchased = false,
-    required this.colors,
     required this.price,
+    this.purchased = false,
   }) {
   //  setPurchased();
   }
