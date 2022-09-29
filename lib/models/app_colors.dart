@@ -140,6 +140,11 @@ class AppColors {
   //Game
   static const Color gameCard = Color(0xff282f39);
 
+  //shop
+  static const Color shopPriceButtonBackground = Color(0xfffff8c0);
+  static const Color shopPriceButtonSchrift = Color(0xff282f39);
+
+
 
 
 

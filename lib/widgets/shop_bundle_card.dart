@@ -43,7 +43,7 @@ class ShopBundleCard extends StatelessWidget {
                   height: 70,
                   padding: const EdgeInsets.all(7),
                   child: Image.asset(
-                    bundle.iconPath[0],
+                    bundle.iconPath,
                     height: 10,
                     fit: BoxFit.contain,
                   ),
@@ -69,21 +69,22 @@ class ShopBundleCard extends StatelessWidget {
                       SizedBox(
                         height: displayHeight * 0.06,
                       ),
-                      Text(
-                        bundle.price,
-                        style: const TextStyle(
-                            color: Color(0xfffff8c0),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(displayWidth*0.05, displayHeight*0.02, displayWidth*0.05, displayHeight*0.013),
+                        decoration: BoxDecoration(
+                          color: AppColors.shopPriceButtonBackground,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+
+                        child: Text(
+                          bundle.price,
+                          style: const TextStyle(
+                            color: AppColors.shopPriceButtonSchrift,
                             fontSize: 30,
                             height: 0.9,
                             fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                            decorationStyle: TextDecorationStyle.double,
-                            shadows: [
-                              Shadow(
-                                color: Color(0xfffff8c0),
-                                offset: Offset(0, -10),
-                              )
-                            ]),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: displayHeight * 0.015,
