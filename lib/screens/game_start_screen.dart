@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
+import '../models/category.dart';
 
 class GameStartScreen extends StatelessWidget {
   GameStartScreen({Key? key}) : super(key: key);
@@ -16,8 +17,21 @@ class GameStartScreen extends StatelessWidget {
     ],
   ));
 
+
+  void initGame(BuildContext context) {
+    // Get selectedCategories
+    List<Category> selectedCategories =
+    ModalRoute.of(context)?.settings.arguments as List<Category>;
+    // Print selected categories
+    for (Category c in selectedCategories) {
+      print(c.name);
+    }
+    //TODO: Get questions via SQLite query
+  }
+
   @override
   Widget build(BuildContext context) {
+    initGame(context);
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(

@@ -43,7 +43,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
     categories.sort(
-          (a, b) {
+      (a, b) {
         if (a.purchased == true && b.purchased == false) {
           return -1;
         } else if (a.purchased == false && b.purchased == true) {
@@ -120,11 +120,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             ),
             Expanded(
               child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return CategoryCard(
-                        category: categories[index]);
+                    return CategoryCard(category: categories[index]);
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
@@ -162,10 +162,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   }
 
   void startGame(BuildContext context) {
-    print("start the game");
+    print("Game starts...");
     // iterate over all categoryCards and check which are selected
-    // -> load this categories for game
-    // push GameScreen
-    Navigator.of(context).pushReplacementNamed("/game_start");
+    List<Category> selectedCategories = categories
+        .where(
+            (element) => element.selected == true && element.purchased == true)
+        .toList();
+
+    // Load this categories for the game
+    Navigator.of(context).pushReplacementNamed("/game_start", arguments: selectedCategories);
   }
 }
