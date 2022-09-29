@@ -26,12 +26,12 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
     questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
     for (Question q in questions) {
       print(q.question);
     }
     text = questions[0].question;
+    super.didChangeDependencies();
   }
 
   late String text;

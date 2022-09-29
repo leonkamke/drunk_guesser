@@ -6,9 +6,14 @@ import '../models/app_colors.dart';
 import '../models/category.dart';
 import '../models/question.dart';
 
-class GameStartScreen extends StatelessWidget {
+class GameStartScreen extends StatefulWidget {
   GameStartScreen({Key? key}) : super(key: key);
 
+  @override
+  State<GameStartScreen> createState() => _GameStartScreenState();
+}
+
+class _GameStartScreenState extends State<GameStartScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -19,7 +24,6 @@ class GameStartScreen extends StatelessWidget {
     ],
   ));
 
-
   Future<void> initGame(BuildContext context) async {
     // Get selectedCategories
     List<Category> selectedCategories =
@@ -28,11 +32,16 @@ class GameStartScreen extends StatelessWidget {
     questions = await DrunkGuesserDB.getQuestions(selectedCategories);
   }
 
+  @override
+  void didChangeDependencies() {
+    initGame(context);
+    super.didChangeDependencies();
+  }
+
   late List<Question> questions;
 
   @override
   Widget build(BuildContext context) {
-    initGame(context);
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
