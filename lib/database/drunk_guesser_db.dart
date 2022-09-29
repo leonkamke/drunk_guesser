@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
@@ -7,6 +8,7 @@ import 'dart:io';
 
 import '../models/category.dart';
 import '../models/category_data.dart';
+import '../models/question.dart';
 
 class DrunkGuesserDB {
   static const String dbName = "drunk_guesser_db.db";
@@ -35,7 +37,7 @@ class DrunkGuesserDB {
       ByteData data = await rootBundle.load(join("database", dbName));
       List<int> bytes =
           data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-      
+
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
     } else if (exists && localVersion < assetVersion) {
@@ -87,7 +89,6 @@ class DrunkGuesserDB {
     await deleteDatabase(path);
   }
 
-
   static Future<void> purchaseCategory(Category category) async {
     await initDatabase();
     await db.rawQuery("UPDATE Purchased SET ${category.dbName} = 1");
@@ -102,8 +103,25 @@ class DrunkGuesserDB {
     return await db.getVersion();
   }
 
-  /*
-  To set user_version use the following query:
-    PRAGMA user_version = 1
-   */
+  static Future<List<Question>> getQuestions(
+      List<Category> selectedCategories) async {
+    List<Question> questions = [];
+    await initDatabase();
+    // One game contains 18 questions
+    var rand = Random();
+    // TODO: Get only questions where gelesen == 0, wenn alle gelesen (sql abfrage liefert leere liste -> gelesen spalte überall auf 0 setzen
+    for (int i = 0; i < 18; i++) {
+      int index = rand.nextInt(selectedCategories.length);
+      var q = await db.rawQuery("SELECT * FROM ${selectedCategories[index].dbName} ORDER BY RANDOM() LIMIT 1");
+      questions.add(
+        Question(
+          question: q.first["frage"] as String,
+          answer: q.first["antwort"] as String,
+          categoryDBName: selectedCategories[index].dbName,
+          id: q.first["id"] as int,
+        ),
+      );
+    }
+    return questions;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:drunk_guesser/screens/categories_screen.dart';
 import 'package:drunk_guesser/screens/credits_screen.dart';
+import 'package:drunk_guesser/screens/game_screen.dart';
 import 'package:drunk_guesser/screens/game_start_screen.dart';
 import 'package:drunk_guesser/screens/home_screen.dart';
 import 'package:drunk_guesser/screens/anleitung_screen.dart';
@@ -136,6 +137,26 @@ class MyApp extends StatelessWidget {
               // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
               pageBuilder: (context, animation, secondaryAnimation) =>
                   GameStartScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+              transitionDuration: const Duration(milliseconds: 240),
+              reverseTransitionDuration: const Duration(milliseconds: 240));
+        } else if (settings.name == "/game") {
+          return PageRouteBuilder(
+              settings: settings,
+              // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  GameScreen(),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 const begin = Offset(1.0, 0.0);

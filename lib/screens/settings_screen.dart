@@ -92,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
                     textColor: AppColors.appBarText,
                     onTap: () async {
                       print("leave a comment for the app");
-                      await DrunkGuesserDB.getLocalVersion();
+                      print(await DrunkGuesserDB.getLocalVersion());
                     },
                   ),
                   SizedBox(
@@ -106,6 +106,8 @@ class SettingsScreen extends StatelessWidget {
                     textColor: AppColors.appBarText,
                     onTap: () {
                       print("Share app");
+                      print("Delete local database");
+                      DrunkGuesserDB.deleteDB();
                     },
                   ),
                 ],

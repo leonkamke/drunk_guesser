@@ -1,14 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
-import '../models/category.dart';
 import '../models/question.dart';
 
-class GameStartScreen extends StatelessWidget {
-  GameStartScreen({Key? key}) : super(key: key);
+class GameScreen extends StatefulWidget {
+  GameScreen({Key? key}) : super(key: key);
 
+  @override
+  State<GameScreen> createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -19,26 +22,30 @@ class GameStartScreen extends StatelessWidget {
     ],
   ));
 
-
-  Future<void> initGame(BuildContext context) async {
-    // Get selectedCategories
-    List<Category> selectedCategories =
-    ModalRoute.of(context)?.settings.arguments as List<Category>;
-    // Print selected categories
-    questions = await DrunkGuesserDB.getQuestions(selectedCategories);
-  }
-
   late List<Question> questions;
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
+    for (Question q in questions) {
+      print(q.question);
+    }
+    text = questions[0].question;
+  }
+
+  late String text;
+  bool isQuestion = true;
+
+
+  @override
   Widget build(BuildContext context) {
-    initGame(context);
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
-        onTap: () => startGame(context),
+        onTap: () => gameHandler(),
         child: Container(
           width: displayWidth,
           height: displayHeight,
@@ -66,7 +73,7 @@ class GameStartScreen extends StatelessWidget {
                 width: displayWidth * 0.8,
                 height: displayHeight * 0.5,
                 child: AutoSizeText(
-                  startText,
+                  text,
                   style: const TextStyle(
                     color: AppColors.schriftFarbe_dunkel,
                     fontFamily: "Quicksand",
@@ -83,11 +90,21 @@ class GameStartScreen extends StatelessWidget {
     );
   }
 
-  void startGame(BuildContext context) {
-    // PushReplace GameScreen and give questions as argument
-    Navigator.of(context).pushReplacementNamed("/game", arguments: questions);
+  void gameHandler() {
+    setState(
+      () {
+       if (isQuestion) {
+         text = questions[0].answer;
+         questions.removeAt(0);
+         isQuestion = false;
+       } else if (questions.isNotEmpty) {
+         text = questions[0].question;
+         isQuestion = true;
+       } else {
+         // pushreplaced game_end_screen
+       }
+      },
+    );
   }
 
-  final String startText =
-      "Holt eure Notitzen auf dem Handy raus und es kann losgehen!\n\nWer am schlechtesten schätzt trinkt!\n\nViel Spaß!";
 }
