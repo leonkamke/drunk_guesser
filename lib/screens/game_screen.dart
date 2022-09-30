@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../models/app_colors.dart';
 import '../models/question.dart';
 import '../widgets/custom_dialog.dart';
+import '../widgets/custom_textfield.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({Key? key}) : super(key: key);
@@ -46,6 +47,7 @@ class _GameScreenState extends State<GameScreen> {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
       body: GestureDetector(
         onTap: () => gameHandler(),
@@ -93,35 +95,65 @@ class _GameScreenState extends State<GameScreen> {
                   ],
                 ),
               ),
-              Container(
-                width: displayWidth * 0.8,
-                height: displayHeight * 0.5,
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(
-                  horizontal: displayWidth * 0.05,
-                  vertical: displayWidth * 0.05,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black54,
-                        offset: Offset(3, 6),
-                        blurRadius: 6)
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: displayWidth * 0.8,
+                      height: displayHeight * 0.5,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: displayWidth * 0.05,
+                        vertical: displayWidth * 0.05,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black54,
+                              offset: Offset(3, 6),
+                              blurRadius: 6)
+                        ],
+                        color: AppColors.gameCard,
+                      ),
+                      child: AutoSizeText(
+                        text,
+                        style: const TextStyle(
+                          color: AppColors.schriftFarbe_dunkel,
+                          fontFamily: "Quicksand",
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ],
-                  color: AppColors.gameCard,
-                ),
-                child: AutoSizeText(
-                  text,
-                  style: const TextStyle(
-                    color: AppColors.schriftFarbe_dunkel,
-                    fontFamily: "Quicksand",
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
                 ),
               ),
+              Container(
+                margin: EdgeInsets.only(
+                    top: 10,
+                    bottom: 20,
+                    left: displayWidth * 0.1,
+                    right: displayWidth * 0.1),
+                child: CustomTextField(
+                  baseColor: AppColors.gameCard,
+                  borderColor: Colors.white,
+                ),
+              ),
+
+              /*const TextField(
+                    style: TextStyle(color: Colors.white, fontFamily: "Quicksand"),
+                    textAlign: TextAlign.center,
+                    cursorColor: Colors.white,
+                    autofocus: false,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      border: InputBorder.none,
+                      labelText: "Deine Antwort",
+                    ),
+                  )*/
             ],
           ),
         ),
@@ -153,15 +185,15 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _showAlertDialog(BuildContext context) {
-    showDialog(context: context,
-        builder: (BuildContext context){
-          return CustomDialogBox(
-            description: "Seid ihr sicher, dass ihr das Spiel verlassen wollt?",
-          );
-        },
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomDialogBox(
+          description: "Seid ihr sicher, dass ihr das Spiel verlassen wollt?",
+        );
+      },
       barrierColor: Color(0xA9000000),
     );
-
 
     /* showCupertinoDialog(
       context: context,
