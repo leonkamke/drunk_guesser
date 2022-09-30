@@ -117,7 +117,7 @@ class DrunkGuesserDB {
         Question(
           question: q.first["frage"] as String,
           answer: q.first["antwort"] as String,
-          categoryDBName: selectedCategories[index].dbName,
+          category: selectedCategories[index],
           id: q.first["id"] as int,
         ),
       );

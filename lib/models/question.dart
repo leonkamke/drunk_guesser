@@ -3,13 +3,13 @@ import 'category.dart';
 class Question {
   String question;
   String answer;
-  String categoryDBName;
+  Category category;
   int id;
 
   Question({
     required this.question,
     required this.answer,
-    required this.categoryDBName,
+    required this.category,
     required this.id,
   });
 
