@@ -52,10 +52,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         borderRadius: BorderRadius.circular(40),
         //border: Border.all(color: Colors.white70, width: 3)
       ),
-      child:const  Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
           style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: "Quicksand"),
           decoration: InputDecoration(
             hintStyle: TextStyle(

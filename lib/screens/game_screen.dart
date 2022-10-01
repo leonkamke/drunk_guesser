@@ -51,110 +51,94 @@ class _GameScreenState extends State<GameScreen> {
       backgroundColor: Colors.transparent,
       body: GestureDetector(
         onTap: () => gameHandler(),
-        child: Container(
-          width: displayWidth,
-          height: displayHeight,
-          decoration: backgroundDecoration,
-          child: Column(
-            children: [
-              Container(
-                color: Colors.transparent,
-                padding: EdgeInsets.fromLTRB(
-                  displayWidth * 0.1,
-                  displayHeight * 0.05,
-                  displayWidth * 0.1,
-                  displayHeight * 0.025,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: Text(
-                        categoryName,
-                        style: const TextStyle(
-                          fontSize: 30,
+        child: SingleChildScrollView(
+          child: Container(
+            width: displayWidth,
+            height: displayHeight,
+            decoration: backgroundDecoration,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  color: Colors.transparent,
+                  padding: EdgeInsets.fromLTRB(
+                    displayWidth * 0.1,
+                    displayHeight * 0.05,
+                    displayWidth * 0.1,
+                    displayHeight * 0.025,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          categoryName,
+                          style: const TextStyle(
+                            fontSize: 30,
+                            color: AppColors.appBarText,
+                            fontFamily: "Quicksand",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        child: const Icon(
+                          Icons.close_rounded,
+                          size: 36,
                           color: AppColors.appBarText,
-                          fontFamily: "Quicksand",
-                          fontWeight: FontWeight.bold,
                         ),
+                        onTap: () {
+                          // Navigator.of(context).pop();
+                          _showAlertDialog(context);
+                        },
                       ),
-                    ),
-                    GestureDetector(
-                      child: const Icon(
-                        Icons.close_rounded,
-                        size: 45,
-                        color: AppColors.appBarText,
-                      ),
-                      onTap: () {
-                        // Navigator.of(context).pop();
-                        _showAlertDialog(context);
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: displayWidth * 0.8,
-                      height: displayHeight * 0.5,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: displayWidth * 0.05,
-                        vertical: displayWidth * 0.05,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black54,
-                              offset: Offset(3, 6),
-                              blurRadius: 6)
-                        ],
-                        color: AppColors.gameCard,
-                      ),
-                      child: AutoSizeText(
-                        text,
-                        style: const TextStyle(
-                          color: AppColors.schriftFarbe_dunkel,
-                          fontFamily: "Quicksand",
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                Container(
+                  width: displayWidth * 0.8,
+                  height: displayHeight * 0.5,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: displayWidth * 0.05,
+                    vertical: displayWidth * 0.05,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(22),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(3, 6),
+                          blurRadius: 6)
+                    ],
+                    color: AppColors.gameCard,
+                  ),
+                  child: AutoSizeText(
+                    text,
+                    style: const TextStyle(
+                      color: AppColors.schriftFarbe_dunkel,
+                      fontFamily: "Quicksand",
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    top: 10,
-                    bottom: 20,
-                    left: displayWidth * 0.1,
-                    right: displayWidth * 0.1),
-                child: CustomTextField(
-                  baseColor: AppColors.gameCard,
-                  borderColor: Colors.white,
-                ),
-              ),
-
-              /*const TextField(
-                    style: TextStyle(color: Colors.white, fontFamily: "Quicksand"),
                     textAlign: TextAlign.center,
-                    cursorColor: Colors.white,
-                    autofocus: false,
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                      border: InputBorder.none,
-                      labelText: "Deine Antwort",
-                    ),
-                  )*/
-            ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      top: 10,
+                      bottom: 20,
+                      left: displayWidth * 0.1,
+                      right: displayWidth * 0.1),
+                  child: CustomTextField(
+                    baseColor: AppColors.gameCard,
+                    borderColor: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

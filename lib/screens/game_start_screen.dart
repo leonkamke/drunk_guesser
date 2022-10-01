@@ -38,7 +38,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
     super.didChangeDependencies();
   }
 
-  late List<Question> questions;
+  List<Question> questions = [];
 
   @override
   Widget build(BuildContext context) {
