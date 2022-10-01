@@ -52,6 +52,7 @@ class _GameScreenState extends State<GameScreen> {
       body: GestureDetector(
         onTap: () => gameHandler(),
         child: SingleChildScrollView(
+          physics: const ScrollPhysics(),
           child: Container(
             width: displayWidth,
             height: displayHeight,
