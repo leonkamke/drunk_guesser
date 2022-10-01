@@ -69,7 +69,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       ),
                       onPressed: () {
                         Navigator.of(context).pop();
-                        Navigator.of(context).pop();
+                        Navigator.of(context).pushReplacementNamed("/");
                       },
                       child: const AutoSizeText(
                         "Ja",
