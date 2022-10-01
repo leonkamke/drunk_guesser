@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,130 +16,142 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  var backgroundDecoration = const BoxDecoration(
-      gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [
-      AppColors.backgroundHomeScreen_1,
-      AppColors.backgroundHomeScreen_2,
-    ],
-  ));
 
   late List<Question> questions;
+  bool start = true;
 
   @override
   void didChangeDependencies() {
-    questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
-    for (Question q in questions) {
-      print(q.question);
+    if (start) {
+      questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
+      for (Question q in questions) {
+        print(q.question);
+      }
+      text = questions[0].question;
+      colors = questions[0].category.colors;
+      categoryName = questions[0].category.name;
+      start = false;
     }
-    text = questions[0].question;
-    categoryName = questions[0].category.name;
     super.didChangeDependencies();
+
   }
 
   late String text;
   late String categoryName;
   bool isQuestion = true;
+  late List<Color> colors;
+
+  CustomTextField customTextfield = CustomTextField(
+    baseColor: AppColors.gameCard,
+    borderColor: Colors.white,
+    enabled: true,
+  );
 
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.transparent,
-      body: GestureDetector(
-        onTap: () => gameHandler(),
-        child: SingleChildScrollView(
-          physics: const ScrollPhysics(),
-          child: Container(
-            width: displayWidth,
-            height: displayHeight,
-            decoration: backgroundDecoration,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  color: Colors.transparent,
-                  padding: EdgeInsets.fromLTRB(
-                    displayWidth * 0.1,
-                    displayHeight * 0.05,
-                    displayWidth * 0.1,
-                    displayHeight * 0.025,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          categoryName,
-                          style: const TextStyle(
-                            fontSize: 30,
-                            color: AppColors.appBarText,
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold,
+    return WillPopScope(
+      onWillPop: () => _showAlertDialog(context),
+      child: Scaffold(
+        // resizeToAvoidBottomInset: false,
+        backgroundColor: colors[1],
+        body: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: SingleChildScrollView(
+            physics: const ScrollPhysics(),
+            child: Container(
+              width: displayWidth,
+              height: displayHeight,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: colors,
+                  )),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    color: Colors.transparent,
+                    padding: EdgeInsets.fromLTRB(
+                      displayWidth * 0.1,
+                      displayHeight * 0.05,
+                      displayWidth * 0.1,
+                      displayHeight * 0.025,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            categoryName,
+                            style: const TextStyle(
+                              fontSize: 30,
+                              color: AppColors.appBarText,
+                              fontFamily: "Quicksand",
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      GestureDetector(
-                        child: const Icon(
-                          Icons.close_rounded,
-                          size: 36,
-                          color: AppColors.appBarText,
+                        GestureDetector(
+                          child: const Icon(
+                            Icons.close_rounded,
+                            size: 36,
+                            color: AppColors.appBarText,
+                          ),
+                          onTap: () {
+                            // Navigator.of(context).pop();
+                            _showAlertDialog(context);
+                          },
                         ),
-                        onTap: () {
-                          // Navigator.of(context).pop();
-                          _showAlertDialog(context);
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: displayWidth * 0.8,
-                  height: displayHeight * 0.5,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: displayWidth * 0.05,
-                    vertical: displayWidth * 0.05,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(3, 6),
-                          blurRadius: 6)
-                    ],
-                    color: AppColors.gameCard,
-                  ),
-                  child: AutoSizeText(
-                    text,
-                    style: const TextStyle(
-                      color: AppColors.schriftFarbe_dunkel,
-                      fontFamily: "Quicksand",
-                      fontSize: 21,
-                      fontWeight: FontWeight.bold,
+                      ],
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: 10,
-                      bottom: 20,
-                      left: displayWidth * 0.1,
-                      right: displayWidth * 0.1),
-                  child: CustomTextField(
-                    baseColor: AppColors.gameCard,
-                    borderColor: Colors.white,
+                  GestureDetector(
+                    onTap: () => gameHandler(),
+                    child: Container(
+                      width: displayWidth * 0.8,
+                      height: displayHeight * 0.5,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: displayWidth * 0.05,
+                        vertical: displayWidth * 0.05,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black54,
+                              offset: Offset(3, 6),
+                              blurRadius: 6)
+                        ],
+                        color: AppColors.gameCard,
+                      ),
+                      child: AutoSizeText(
+                        text,
+                        style: const TextStyle(
+                          color: AppColors.schriftFarbe_dunkel,
+                          fontFamily: "Quicksand",
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: 10,
+                        bottom: 20,
+                        left: displayWidth * 0.1,
+                        right: displayWidth * 0.1),
+                    child: customTextfield,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -157,6 +170,7 @@ class _GameScreenState extends State<GameScreen> {
         } else if (!isQuestion && questions.isNotEmpty) {
           // click on answer
           text = questions[0].question;
+          colors = questions[0].category.colors;
           categoryName = questions[0].category.name;
           isQuestion = true;
         }
@@ -169,7 +183,7 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
-  void _showAlertDialog(BuildContext context) {
+  Future<bool> _showAlertDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -179,46 +193,8 @@ class _GameScreenState extends State<GameScreen> {
       },
       barrierColor: Color(0xA9000000),
     );
-
-    /* showCupertinoDialog(
-      context: context,
-      builder: (context) {
-        return Theme(
-          data: ThemeData.dark(),
-          child: CupertinoAlertDialog(
-            content: const Text(
-              "Seid ihr sicher, dass ihr das Spiel verlassen wollt?",
-              style: TextStyle(color: Colors.white, fontSize: 19),
-            ),
-            actions: <CupertinoDialogAction>[
-              CupertinoDialogAction(
-                /// This parameter indicates this action is the default,
-                /// and turns the action's text to bold text.
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "Nein",
-                  style: TextStyle(color: Colors.white, fontSize: 19),
-                ),
-              ),
-              CupertinoDialogAction(
-                /// This parameter indicates the action would perform
-                /// a destructive action such as deletion, and turns
-                /// the action's text color to red.
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "Ja",
-                  style: TextStyle(color: Colors.white, fontSize: 19),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-     */
+    return Future<bool>(() {
+      return false;
+    });
   }
 }

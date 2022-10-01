@@ -31,14 +31,20 @@ class Categories {
     dbName: "geschichte",
     description: "Mischung aus 6 Kategorien",
     iconPath: "assets/categories_icons/history_icon.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xffe8c34e),
+      Color(0xffb49430),
+    ],
   );
   static Category technik = Category(
     name: "Technik",
     dbName: "technik",
     description: "Fragen die sich rund um die Natur drehen",
     iconPath: "assets/categories_icons/tech_icon.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xffb7b7b7),
+      Color(0xff7e7e7e),
+    ],
   );
   static Category preise = Category(
     name: "Preise",
