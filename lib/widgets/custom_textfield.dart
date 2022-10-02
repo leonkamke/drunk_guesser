@@ -2,23 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
+import '../provider/textfield_provider.dart';
 
-class CustomTextField extends StatefulWidget {
+class CustomTextField extends StatelessWidget {
   final Color baseColor;
   final Color borderColor;
-  bool enabled;
+  final TextEditingController controller = TextEditingController();
 
   CustomTextField({
     required this.baseColor,
     required this.borderColor,
-    required this.enabled,
   });
-
-  @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
-}
-
-class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +26,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          enabled: widget.enabled,
+          controller: controller,
+          enabled: context.watch<TextFieldProvider>().enabled,
           textAlign: TextAlign.left,
           style: const TextStyle(color: Colors.white, fontSize: 18, fontFamily: "Quicksand"),
           decoration: const InputDecoration(

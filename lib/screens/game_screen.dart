@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
 import '../models/question.dart';
@@ -44,7 +46,6 @@ class _GameScreenState extends State<GameScreen> {
   CustomTextField customTextfield = CustomTextField(
     baseColor: AppColors.gameCard,
     borderColor: Colors.white,
-    enabled: true,
   );
 
   @override
@@ -167,12 +168,18 @@ class _GameScreenState extends State<GameScreen> {
           text = questions[0].answer;
           questions.removeAt(0);
           isQuestion = false;
+          context.read<TextFieldProvider>().setEnabled(false);
+          if (customTextfield.controller.text == "") {
+            customTextfield.controller.text = " ";
+          }
         } else if (!isQuestion && questions.isNotEmpty) {
           // click on answer
           text = questions[0].question;
           colors = questions[0].category.colors;
           categoryName = questions[0].category.name;
           isQuestion = true;
+          context.read<TextFieldProvider>().setEnabled(true);
+          customTextfield.controller.text = "";
         }
       },
     );
