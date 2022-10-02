@@ -4,6 +4,7 @@ import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:show_up_animation/show_up_animation.dart';
 
 import '../models/app_colors.dart';
 import '../models/question.dart';
@@ -11,16 +12,37 @@ import '../widgets/custom_dialog.dart';
 import '../widgets/custom_textfield.dart';
 
 class GameScreen extends StatefulWidget {
-  GameScreen({Key? key}) : super(key: key);
+  GameScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> {
-
+class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin{
   late List<Question> questions;
   bool start = true;
+
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 700),
+      vsync: this,
+    )..forward();
+    _animation = Tween<Offset>(
+      begin: const Offset(0.5, 0.0),
+      end: const Offset(0.0, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.elasticOut,
+    ));
+  }
 
   @override
   void didChangeDependencies() {
@@ -35,7 +57,11 @@ class _GameScreenState extends State<GameScreen> {
       start = false;
     }
     super.didChangeDependencies();
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   late String text;
@@ -66,10 +92,10 @@ class _GameScreenState extends State<GameScreen> {
               height: displayHeight,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: colors,
-                  )),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: colors,
+              )),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -131,15 +157,19 @@ class _GameScreenState extends State<GameScreen> {
                         ],
                         color: AppColors.gameCard,
                       ),
-                      child: AutoSizeText(
-                        text,
-                        style: const TextStyle(
-                          color: AppColors.schriftFarbe_dunkel,
-                          fontFamily: "Quicksand",
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
+                      child: SlideTransition(
+                        position: _animation,
+                        child: AutoSizeText(
+                          text,
+                          key: ValueKey<String>(text),
+                          style: const TextStyle(
+                            color: AppColors.schriftFarbe_dunkel,
+                            fontFamily: "Quicksand",
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
@@ -160,7 +190,9 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  void gameHandler() {
+  Future<void> gameHandler() async {
+    _controller.reset();
+    _controller.forward();
     setState(
       () {
         if (isQuestion) {
