@@ -196,6 +196,18 @@ class MyApp extends StatelessWidget {
                 },
                 transitionDuration: const Duration(milliseconds: 240),
                 reverseTransitionDuration: const Duration(milliseconds: 240));
+          } else if (settings.name == "/") {
+            return PageRouteBuilder(
+                settings: settings,
+                // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    HomeScreen(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+                transitionDuration: const Duration(milliseconds: 55),
+                reverseTransitionDuration: const Duration(milliseconds: 55));
           }
           return null;
         },

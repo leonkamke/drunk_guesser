@@ -30,7 +30,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 450),
       vsync: this,
     )..forward();
     _animation = Tween<Offset>(
