@@ -1,10 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:show_up_animation/show_up_animation.dart';
 
 import '../models/app_colors.dart';
 import '../models/question.dart';
@@ -20,7 +18,7 @@ class GameScreen extends StatefulWidget {
   State<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin{
+class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   late List<Question> questions;
   bool start = true;
 
