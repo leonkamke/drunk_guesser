@@ -93,7 +93,7 @@ class _CategoryCardState extends State<CategoryCard> {
                 Icons.check_circle_outline_rounded,
                 size: 30,
                 color: widget.category.selected
-                    ? const Color(0xff1e9d00)
+                    ? AppColors.selected
                     : const Color(0x1affffff),
               ),
             ],

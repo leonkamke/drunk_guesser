@@ -76,121 +76,219 @@ class _HomeScreenState extends State<HomeScreen> {
         width: displayWidth,
         height: displayHeight,
         decoration: backgroundDecoration,
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-              padding: EdgeInsets.fromLTRB(
-                displayWidth * 0.066,
-                displayHeight * 0.06,
-                displayWidth * 0.066,
-                0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  customIconButton.IconButton(
-                    text: "Anleitung",
-                    textColor: AppColors.homescreen_icons,
-                    icon: const Icon(
-                      Icons.description_rounded,
-                      size: 35,
-                      color: AppColors.homescreen_icons,
-                    ),
-                    onTap: () {
-                      print(displayHeight);
-                      Navigator.of(context).pushNamed("/rules");
-                    },
+            ...getImages(context),
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(
+                    displayWidth * 0.066,
+                    displayHeight * 0.06,
+                    displayWidth * 0.066,
+                    0,
                   ),
-                  customIconButton.IconButton(
-                    text: "Credits",
-                    textColor: AppColors.homescreen_icons,
-                    icon: const Icon(
-                      Icons.info_rounded,
-                      size: 35,
-                      color: AppColors.homescreen_icons,
-                    ),
-                    onTap: () {
-                      print(displayWidth);
-                      // Navigate to CreditsScreen
-                      Navigator.pushNamed(context, "/credits");
-                    },
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: displayHeight * 0.07,
-            ),
-            const FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Text(
-                "DrunkGuesser",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Quicksand",
-                    color: AppColors.drunkguesserSchrift,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(2.2, 3.2),
-                        blurRadius: 9,
-                        color: Colors.black54,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      customIconButton.IconButton(
+                        text: "Anleitung",
+                        textColor: AppColors.homescreen_icons,
+                        icon: const Icon(
+                          Icons.description_rounded,
+                          size: 35,
+                          color: AppColors.homescreen_icons,
+                        ),
+                        onTap: () {
+                          print(displayHeight);
+                          Navigator.of(context).pushNamed("/rules");
+                        },
                       ),
-                    ]),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: displayWidth * 0.46,
-                    height: displayWidth * 0.46,
-                    child: const rive.RiveAnimation.asset(
-                      'assets/animations/drunkguesser2.2.riv',
-                      fit: BoxFit.contain,
+                      customIconButton.IconButton(
+                        text: "Credits",
+                        textColor: AppColors.homescreen_icons,
+                        icon: const Icon(
+                          Icons.info_rounded,
+                          size: 35,
+                          color: AppColors.homescreen_icons,
+                        ),
+                        onTap: () {
+                          print(displayWidth);
+                          // Navigate to CreditsScreen
+                          Navigator.pushNamed(context, "/credits");
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: displayHeight * 0.07,
+                ),
+                const FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    "DrunkGuesser",
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Quicksand",
+                        color: AppColors.drunkguesserSchrift,
+                        shadows: [
+                          Shadow(
+                            offset: Offset(2.2, 3.2),
+                            blurRadius: 9,
+                            color: Colors.black54,
+                          ),
+                        ]),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: displayWidth * 0.46,
+                        height: displayWidth * 0.46,
+                        child: const rive.RiveAnimation.asset(
+                          'assets/animations/drunkguesser2.2.riv',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RoundedButton(
+                          buttonText: "Start",
+                          borderRadius: 15,
+                          firstColor: AppColors.startButtonBackground,
+                          secondColor: AppColors.startButtonBackground,
+                          textColor: AppColors.startButtonText,
+                          onTap: () {
+                            Navigator.of(context).pushNamed("/categories");
+                          },
+                        ),
+                        SizedBox(
+                          height: displayHeight * 0.03,
+                        ),
+                        RoundedButton(
+                          buttonText: "Einstellungen",
+                          borderRadius: 15,
+                          firstColor: AppColors.settingsButtonBackground,
+                          secondColor: AppColors.settingsButtonBackground,
+                          textColor: AppColors.settingsButtonText,
+                          onTap: () {
+                            Navigator.of(context).pushNamed("/settings");
+                          },
+                        )
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    RoundedButton(
-                      buttonText: "Start",
-                      borderRadius: 15,
-                      firstColor: AppColors.startButtonBackground,
-                      secondColor: AppColors.startButtonBackground,
-                      textColor: AppColors.startButtonText,
-                      onTap: () {
-                        Navigator.of(context).pushNamed("/categories");
-                      },
-                    ),
-                    SizedBox(
-                      height: displayHeight * 0.03,
-                    ),
-                    RoundedButton(
-                      buttonText: "Einstellungen",
-                      borderRadius: 15,
-                      firstColor: AppColors.settingsButtonBackground,
-                      secondColor: AppColors.settingsButtonBackground,
-                      textColor: AppColors.settingsButtonText,
-                      onTap: () {
-                        Navigator.of(context).pushNamed("/settings");
-                      },
-                    )
-                  ],
                 ),
-              ),
+              ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  List<Widget> getImages(BuildContext context) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+    double iconHeight = displayWidth * 0.182;
+    Color iconColor = Color(0xB000000);
+    return [
+      Positioned(
+        top: displayHeight * 0.05,
+        left: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.09,
+        left: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.28,
+        left: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.32,
+        left: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+
+      // ----------------
+
+      Positioned(
+        bottom: displayHeight * 0.05,
+        right: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.09,
+        right: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.28,
+        right: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.32,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.02,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+    ];
   }
 }
