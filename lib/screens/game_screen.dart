@@ -76,46 +76,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.transparent,
-      body: GestureDetector(
-        onTap: () => gameHandler(),
-        child: SingleChildScrollView(
-          physics: const ScrollPhysics(),
-          child: Container(
-            width: displayWidth,
-            height: displayHeight,
-            decoration: backgroundDecoration,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  color: Colors.transparent,
-                  padding: EdgeInsets.fromLTRB(
-                    displayWidth * 0.1,
-                    displayHeight * 0.05,
-                    displayWidth * 0.1,
-                    displayHeight * 0.025,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          categoryName,
-                          style: const TextStyle(
-                            fontSize: 30,
-                            color: AppColors.appBarText,
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold,
-=======
-=======
->>>>>>> fe7ac70aa39f44d04dfce0754c7fc9cb254c5dad
     return WillPopScope(
       onWillPop: () => _showAlertDialog(context),
       child: Scaffold(
@@ -159,10 +119,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                               fontFamily: "Quicksand",
                               fontWeight: FontWeight.bold,
                             ),
-<<<<<<< HEAD
->>>>>>> fe7ac70aa39f44d04dfce0754c7fc9cb254c5dad
-=======
->>>>>>> fe7ac70aa39f44d04dfce0754c7fc9cb254c5dad
                           ),
                         ),
                         GestureDetector(
