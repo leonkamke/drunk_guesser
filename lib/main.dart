@@ -164,18 +164,10 @@ class MyApp extends StatelessWidget {
                     GameScreen(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  const begin = Offset(1.0, 0.0);
-                  const end = Offset.zero;
-                  const curve = Curves.ease;
-                  var tween = Tween(begin: begin, end: end)
-                      .chain(CurveTween(curve: curve));
-                  return SlideTransition(
-                    position: animation.drive(tween),
-                    child: child,
-                  );
+                  return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 240),
-                reverseTransitionDuration: const Duration(milliseconds: 240));
+                transitionDuration: const Duration(milliseconds: 5),
+                reverseTransitionDuration: const Duration(milliseconds: 5));
           } else if (settings.name == "/game_end") {
             return PageRouteBuilder(
                 settings: settings,

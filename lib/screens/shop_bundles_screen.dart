@@ -77,7 +77,7 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
                   ),
                   GestureDetector(
                     child: const Icon(
-                      Icons.close_rounded,
+                      Icons.undo_rounded,
                       size: 36,
                       color: Color(0xff292f38),
                     ),

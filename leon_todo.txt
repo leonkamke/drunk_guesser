@@ -1,5 +1,5 @@
-- Splashscreen for Android 12
-- App icon
+- Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
+- App icon (abgerundete Ecken)
 - DrunkGuesser Bild im Spiel
 - Karte von game_start und game bleibt bestehen, nur text kommt reingeflogen
 - Frage und Antwort als überschrift im Game

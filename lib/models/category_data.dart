@@ -82,7 +82,10 @@ class Categories {
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/images/drunk_guesser_img.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xfff0a099),
+      Color(0xffbb645d),
+    ],
   );
   static Category achtzehn_plus = Category(
     name: "18+",
@@ -90,7 +93,10 @@ class Categories {
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/18plus_icon.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xffe16c6c),
+      Color(0xffd03f3f),
+    ],
   );
   static Category geographie = Category(
     name: "Geographie",
@@ -98,7 +104,10 @@ class Categories {
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/geography_icon.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xff5dc569),
+      Color(0xff39a646),
+    ],
   );
   static Category mensch = Category(
     name: "Mensch",
@@ -114,7 +123,10 @@ class Categories {
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/music_icon.png",
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xffb668ef),
+      Color(0xff7629a6),
+    ],
   );
 
   static List<Category> categoryList = [
