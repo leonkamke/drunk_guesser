@@ -24,22 +24,40 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   late List<Question> questions;
   bool start = true;
 
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
+  late AnimationController _controllerCard;
+  late Animation<Offset> _animationCard;
+
+  late AnimationController _controllerText;
+  late Animation<Offset> _animationText;
+
 
   @override
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
+    _controllerCard = AnimationController(
       duration: const Duration(milliseconds: 810),
       vsync: this,
     )..forward();
-    _animation = Tween<Offset>(
+
+    _animationCard = Tween<Offset>(
       begin: const Offset(0.5, 0.0),
       end: const Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
-      parent: _controller,
+      parent: _controllerCard,
+      curve: Curves.elasticOut,
+    ));
+
+    _controllerText = AnimationController(
+      duration: const Duration(milliseconds: 810),
+      vsync: this,
+    )..forward();
+
+    _animationText = Tween<Offset>(
+      begin: const Offset(0.5, 0.0),
+      end: const Offset(0.0, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controllerText,
       curve: Curves.elasticOut,
     ));
   }
@@ -149,7 +167,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           //color: Colors.black38,
                           alignment: Alignment.center,
                           child: SlideTransition(
-                            position: _animation,
+                            position: _animationCard,
                             child: Container(
                               // color: Colors.black45,
                               height: displayHeight * 0.6,
@@ -189,16 +207,19 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         ],
                                         color: AppColors.gameCard,
                                       ),
-                                      child: AutoSizeText(
-                                        text,
-                                        key: ValueKey<String>(text),
-                                        style: const TextStyle(
-                                          color: AppColors.schriftFarbe_dunkel,
-                                          fontFamily: "Quicksand",
-                                          fontSize: 21,
-                                          fontWeight: FontWeight.bold,
+                                      child: SlideTransition(
+                                        position: _animationText,
+                                        child: AutoSizeText(
+                                          text,
+                                          key: ValueKey<String>(text),
+                                          style: const TextStyle(
+                                            color: AppColors.schriftFarbe_dunkel,
+                                            fontFamily: "Quicksand",
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
                                         ),
-                                        textAlign: TextAlign.center,
                                       ),
                                     ),
                                   ),
@@ -284,11 +305,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   }
 
   Future<void> gameHandler() async {
-    _controller.reset();
-    _controller.forward();
     setState(
       () {
         if (isQuestion) {
+          _controllerText.reset();
+          _controllerText.forward();
           // click on question
           text = questions[0].answer;
           questions.removeAt(0);
@@ -299,6 +320,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           }
         } else if (!isQuestion && questions.isNotEmpty) {
           // click on answer
+          _controllerCard.reset();
+          _controllerCard.forward();
           text = questions[0].question;
           colors = questions[0].category.colors;
           categoryName = questions[0].category.name;
