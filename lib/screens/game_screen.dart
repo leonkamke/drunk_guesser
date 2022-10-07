@@ -74,6 +74,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     borderColor: Colors.white,
   );
 
+  final containerKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
@@ -141,6 +143,70 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         ),
                       ),
                       Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 60),
+                          color: Colors.black38,
+                          alignment: Alignment.center,
+                          child: Container(
+                            color: Colors.black45,
+                            height: displayHeight * 0.62,
+                            child: Stack(
+                              alignment: Alignment.bottomCenter,
+                              children: [
+                                Positioned(
+                                  top: 0,
+                                  left: displayWidth * 0.23,
+                                  child: Container(
+                                    width: displayHeight * 0.22,
+                                    height: displayHeight * 0.22,
+                                    child: const rive.RiveAnimation.asset(
+                                      'assets/animations/drunkguesser2.2.riv',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () => gameHandler(),
+                                  child: SlideTransition(
+                                    position: _animation,
+                                    child: Container(
+                                      key: containerKey,
+                                      width: displayWidth * 0.8,
+                                      height: displayHeight * 0.5,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: displayWidth * 0.05,
+                                        vertical: displayWidth * 0.05,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(22),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              color: Colors.black54,
+                                              offset: Offset(3, 6),
+                                              blurRadius: 6)
+                                        ],
+                                        color: AppColors.gameCard,
+                                      ),
+                                      child: AutoSizeText(
+                                        text,
+                                        key: ValueKey<String>(text),
+                                        style: const TextStyle(
+                                          color: AppColors.schriftFarbe_dunkel,
+                                          fontFamily: "Quicksand",
+                                          fontSize: 21,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        /*
                         child: Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
@@ -148,32 +214,53 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                               top: displayHeight * 0.06,
                               left: displayWidth * 0.23,
                               child: Container(
-                                width: (displayWidth / displayHeight) * 300,
-                                height: (displayWidth / displayHeight) * 300,
+                                width: displayHeight * 0.22,
+                                height: displayHeight * 0.22,
                                 child: const rive.RiveAnimation.asset(
                                   'assets/animations/drunkguesser2.2.riv',
                                   fit: BoxFit.contain,
                                 ),
                               ),
                             ),
-                            Container(
-                              // color: Colors.black45,
-                              alignment: Alignment.center,
-                              height: displayHeight * 0.72,
-                              child: Stack(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => gameHandler(),
-                                    child: SlideTransition(
-                                      position: _animation,
-                                      child: GameCard(text: text),
-                                    ),
+                            GestureDetector(
+                              onTap: () => gameHandler(),
+                              child: SlideTransition(
+                                position: _animation,
+                                child: Container(
+                                  key: containerKey,
+                                  width: displayWidth * 0.8,
+                                  height: displayHeight * 0.5,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: displayWidth * 0.05,
+                                    vertical: displayWidth * 0.05,
                                   ),
-                                ],
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(22),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                          color: Colors.black54,
+                                          offset: Offset(3, 6),
+                                          blurRadius: 6)
+                                    ],
+                                    color: AppColors.gameCard,
+                                  ),
+                                  child: AutoSizeText(
+                                    text,
+                                    key: ValueKey<String>(text),
+                                    style: const TextStyle(
+                                      color: AppColors.schriftFarbe_dunkel,
+                                      fontFamily: "Quicksand",
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
                               ),
                             ),
                           ],
-                        ),
+                        ),*/
                       ),
                       Container(
                         alignment: Alignment.bottomCenter,
