@@ -69,6 +69,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _controllerText.dispose();
+    _controllerCard.dispose();
     super.dispose();
   }
 
@@ -179,7 +181,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                   GestureDetector(
                                     onTap: () => gameHandler(),
                                     child: Container(
-                                      key: containerKey,
                                       width: displayWidth * 0.8,
                                       height: displayHeight * 0.5,
                                       alignment: Alignment.center,
@@ -199,17 +200,41 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                       ),
                                       child: FadeTransition(
                                         opacity: _controllerText,
-                                        child: AutoSizeText(
-                                          text,
-                                          key: ValueKey<String>(text),
-                                          style: const TextStyle(
-                                            color:
-                                                AppColors.schriftFarbe_dunkel,
-                                            fontFamily: "Quicksand",
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                AutoSizeText(
+                                                  isQuestion ? "Frage" : "Antwort",
+                                                  style: const TextStyle(
+                                                    color: AppColors
+                                                        .schriftFarbe_dunkel,
+                                                    fontFamily: "Quicksand",
+                                                    fontSize: 39,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                child: AutoSizeText(
+                                                  text,
+                                                  key: ValueKey<String>(text),
+                                                  style: const TextStyle(
+                                                    color: AppColors
+                                                        .schriftFarbe_dunkel,
+                                                    fontFamily: "Quicksand",
+                                                    fontSize: 21,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -219,61 +244,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                             ),
                           ),
                         ),
-                        /*
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Positioned(
-                              top: displayHeight * 0.06,
-                              left: displayWidth * 0.23,
-                              child: Container(
-                                width: displayHeight * 0.22,
-                                height: displayHeight * 0.22,
-                                child: const rive.RiveAnimation.asset(
-                                  'assets/animations/drunkguesser2.2.riv',
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () => gameHandler(),
-                              child: SlideTransition(
-                                position: _animation,
-                                child: Container(
-                                  key: containerKey,
-                                  width: displayWidth * 0.8,
-                                  height: displayHeight * 0.5,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: displayWidth * 0.05,
-                                    vertical: displayWidth * 0.05,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(22),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                          color: Colors.black54,
-                                          offset: Offset(3, 6),
-                                          blurRadius: 6)
-                                    ],
-                                    color: AppColors.gameCard,
-                                  ),
-                                  child: AutoSizeText(
-                                    text,
-                                    key: ValueKey<String>(text),
-                                    style: const TextStyle(
-                                      color: AppColors.schriftFarbe_dunkel,
-                                      fontFamily: "Quicksand",
-                                      fontSize: 21,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),*/
                       ),
                       Container(
                         alignment: Alignment.bottomCenter,
@@ -296,6 +266,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   }
 
   Future<void> gameHandler() async {
+    // Check if no more questions
+    if (questions.isEmpty) {
+      // end of the round
+      Navigator.of(context).pushReplacementNamed("/game_end");
+    }
     setState(
       () {
         if (isQuestion) {
@@ -322,11 +297,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         }
       },
     );
-    // Check if no more questions
-    if (questions.isEmpty) {
-      // end of the round
-      Navigator.of(context).pushReplacementNamed("/game_end");
-    }
   }
 
   Future<bool> _showAlertDialog(BuildContext context) {

@@ -3,12 +3,11 @@
 - DrunkGuesser Bild im Spiel
 - Karte von game_start und game bleibt bestehen, nur text kommt reingeflogen
 - Frage und Antwort als überschrift im Game
-- Shop Weiter zu Auswählen verändern
-- Kategorienname und X bleiben wenn sich Keyboard öffnet
 - Appdialog Ja und Nein mit Linien trennen
+
 - Spielende
 - Von Spielende kommt man nach Klick wieder zu KategorienScreen
-- Im Shop bei bundles und einzelne Kategorien oben rechts zurück-Pfeil
+
 - wenn antwort von frage angezeigt wird, dann in datenbank schreiben, dass antwort gelesen
 - Wenn fragen geladen werden, dann zu erst, noch nicht gelesene Fragen
 - Wenn alle fragen bereits gelesen, dann alle wieder auf ungelesen und zufällig fragen laden
