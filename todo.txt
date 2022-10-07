@@ -4,3 +4,4 @@
 - Teilen button und bewerten button bei Einstellungen implementieren
 - RevenueCat for inapp purchases
 - flip card animation
+- Kategorieüberschrift reinfliegen im Game
