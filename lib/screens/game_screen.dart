@@ -28,8 +28,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   late Animation<Offset> _animationCard;
 
   late AnimationController _controllerText;
-  late Animation<Offset> _animationText;
-
 
   @override
   void initState() {
@@ -49,17 +47,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     ));
 
     _controllerText = AnimationController(
-      duration: const Duration(milliseconds: 810),
+      duration: const Duration(milliseconds: 200),
       vsync: this,
     )..forward();
-
-    _animationText = Tween<Offset>(
-      begin: const Offset(0.5, 0.0),
-      end: const Offset(0.0, 0.0),
-    ).animate(CurvedAnimation(
-      parent: _controllerText,
-      curve: Curves.elasticOut,
-    ));
   }
 
   @override
@@ -207,13 +197,14 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         ],
                                         color: AppColors.gameCard,
                                       ),
-                                      child: SlideTransition(
-                                        position: _animationText,
+                                      child: FadeTransition(
+                                        opacity: _controllerText,
                                         child: AutoSizeText(
                                           text,
                                           key: ValueKey<String>(text),
                                           style: const TextStyle(
-                                            color: AppColors.schriftFarbe_dunkel,
+                                            color:
+                                                AppColors.schriftFarbe_dunkel,
                                             fontFamily: "Quicksand",
                                             fontSize: 21,
                                             fontWeight: FontWeight.bold,
