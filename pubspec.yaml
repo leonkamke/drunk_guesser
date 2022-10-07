@@ -99,6 +99,7 @@ flutter:
     - assets/categories_icons/geography_icon.png
     - assets/categories_icons/music_icon.png
     - database/drunk_guesser_db.db
+    - assets/splash_screen/drunk_guesser_splash.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

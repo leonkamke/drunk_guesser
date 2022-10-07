@@ -176,14 +176,14 @@ class AppColors {
 */
 
 //Background
-  static const Color background_1 = Color(0xff80a5d7);
-  static const Color background_2 = Color(0xFF80A5D7);
+  static const Color background_1 = Color(0xff576b88);
+  static const Color background_2 = Color(0xFF576B88);
 //appbar
-  static const Color appbarBackground = Color(0xff292f38);
+  static const Color appbarBackground = Color(0xff80a5d7);
 //Homescreen
   static const Color drunkguesserSchrift = Color(0xffffffff);
   static const Color homescreen_icons = Color(0xffffffff);
-  static const Color startButtonBackground = Color(0xff292f38);
+  static const Color startButtonBackground = Color(0xff8ac747);
   static const Color startButtonText = Color(0xffffffff);
   static const Color settingsButtonBackground = Color(0xffffffff);
   static const Color settingsButtonText = Color(0xff000000);
@@ -195,8 +195,8 @@ class AppColors {
 //Categories
   static const Color schriftFarbeCards = Color(0xffffffff);
   static const Color appBarText = Color(0xffffffff);
-  static const Color iconBackground = Color(0xffe1e1e1);
-  static const Color categoryDivider = Color(0xff54546b);
+  static const Color iconBackground = Color(0xff3d4757);
+  static const Color categoryDivider = Color(0xffffffff);
   static const Color schriftFarbe_startbutton = Color(0xffffffff);
   static const Color schriftFarbeCardsTransparent = Color(0x5254546b);
   static const Color selected = Color(0xff83c739); //good green: Color(0xff1e9d00)

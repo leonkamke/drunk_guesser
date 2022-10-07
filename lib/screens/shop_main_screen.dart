@@ -98,7 +98,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                             setState(
                               () {
                                 selectedButton = 0;
-                                buttonText = "Weiter";
+                                buttonText = "Auswählen";
                                 text =
                                     "Kaufe dir eine einzelne Kategorie für 0,69€ + keine Werbung";
                               },
@@ -138,7 +138,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                             setState(
                               () {
                                 selectedButton = 2;
-                                buttonText = "Weiter";
+                                buttonText = "Auswählen";
                                 text =
                                     "Wähle das Bundle mit den Kategorien die dir am besten gefallen + keine Werbung";
                               },
@@ -243,13 +243,13 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
   void buy(BuildContext context) {
     if (selectedButton == 0) {        // Einzelne Kategorien
       print("buy single category");
-      Navigator.of(context).pushReplacementNamed("/shop_category");
+      Navigator.of(context).pushNamed("/shop_category");
     } else if (selectedButton == 1) { // Vollversion
       print("buy fullversion");
       // TODO: Use RevenueCat for the transaction
     } else {                          // Bundles
       print("buy bundle");
-      Navigator.of(context).pushReplacementNamed("/shop_bundles");
+      Navigator.of(context).pushNamed("/shop_bundles");
     }
   }
 

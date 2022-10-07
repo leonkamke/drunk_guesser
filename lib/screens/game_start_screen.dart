@@ -27,7 +27,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
   Future<void> initGame(BuildContext context) async {
     // Get selectedCategories
     List<Category> selectedCategories =
-    ModalRoute.of(context)?.settings.arguments as List<Category>;
+        ModalRoute.of(context)?.settings.arguments as List<Category>;
     // Print selected categories
     questions = await DrunkGuesserDB.getQuestions(selectedCategories);
   }
@@ -52,38 +52,45 @@ class _GameStartScreenState extends State<GameStartScreen> {
           width: displayWidth,
           height: displayHeight,
           decoration: backgroundDecoration,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          // alignment: Alignment.center,
+          child: Stack(
+            alignment: Alignment.center,
             children: [
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(
-                  horizontal: displayWidth * 0.05,
-                  vertical: displayWidth * 0.05,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black54,
-                        offset: Offset(3, 6),
-                        blurRadius: 6)
-                  ],
-                  color: AppColors.gameCard,
-                ),
-                width: displayWidth * 0.8,
-                height: displayHeight * 0.5,
-                child: AutoSizeText(
-                  startText,
-                  style: const TextStyle(
-                    color: AppColors.schriftFarbe_dunkel,
-                    fontFamily: "Quicksand",
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
+              ...getImages(context),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: displayWidth * 0.05,
+                      vertical: displayWidth * 0.05,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(3, 6),
+                            blurRadius: 6)
+                      ],
+                      color: AppColors.gameCard,
+                    ),
+                    width: displayWidth * 0.8,
+                    height: displayHeight * 0.5,
+                    child: AutoSizeText(
+                      startText,
+                      style: const TextStyle(
+                        color: AppColors.schriftFarbe_dunkel,
+                        fontFamily: "Quicksand",
+                        fontSize: 21,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                ),
+                ],
               ),
             ],
           ),
@@ -99,4 +106,97 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   final String startText =
       "Holt eure Notitzen auf dem Handy raus und es kann losgehen!\n\nWer am schlechtesten schätzt trinkt!\n\nViel Spaß!";
+
+  List<Widget> getImages(BuildContext context) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+    double iconHeight = displayWidth * 0.182;
+    Color iconColor = Color(0xB000000);
+    return [
+      Positioned(
+        top: displayHeight * 0.05,
+        left: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.09,
+        left: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.28,
+        left: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.32,
+        left: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+
+      // ----------------
+
+      Positioned(
+        bottom: displayHeight * 0.05,
+        right: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.09,
+        right: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.28,
+        right: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.32,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.02,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+    ];
+  }
 }

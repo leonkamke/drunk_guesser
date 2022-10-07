@@ -1,0 +1,10 @@
+- DrunkGuesser trink animation mit rive editor
+- anderes Schloss
+- geschichts icon ändern
+- Icon für Mensch-Kategorie
+- Shop Bundles icons erstellen
+- Drunkguesser im Game Animation, vielleicht über Karte, anderes Aussehen
+- Vielleicht Icons im Hintergrund vom Game, oder animierter Hintergrund
+- was ist wenn app update? (datenbank aktualisieren)
+- Privacy Policy und Datenschutzverordnung (was braucht man? woher bekommt man die Texte? Wer ist der Ansprechpartner?) (Nur das nötigste)
+- nicht zu viel Alkohol trinken Benachrichtigung (Beim Appstart?)

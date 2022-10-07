@@ -3,11 +3,13 @@ import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../models/question.dart';
 import '../widgets/custom_dialog.dart';
 import '../widgets/custom_textfield.dart';
+import '../widgets/game_card.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({
@@ -30,7 +32,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 450),
+      duration: const Duration(milliseconds: 810),
       vsync: this,
     )..forward();
     _animation = Tween<Offset>(
@@ -94,90 +96,95 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 end: Alignment.bottomRight,
                 colors: colors,
               )),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Stack(
                 children: [
-                  Container(
-                    color: Colors.transparent,
-                    padding: EdgeInsets.fromLTRB(
-                      displayWidth * 0.1,
-                      displayHeight * 0.05,
-                      displayWidth * 0.1,
-                      displayHeight * 0.025,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: Text(
-                            categoryName,
-                            style: const TextStyle(
-                              fontSize: 30,
-                              color: AppColors.appBarText,
-                              fontFamily: "Quicksand",
-                              fontWeight: FontWeight.bold,
+                  ...getImages(context),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        color: Colors.transparent,
+                        padding: EdgeInsets.fromLTRB(
+                          displayWidth * 0.1,
+                          displayHeight * 0.05, // ---
+                          displayWidth * 0.1,
+                          displayHeight * 0.01, // ---
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                categoryName,
+                                style: const TextStyle(
+                                  fontSize: 30,
+                                  color: AppColors.appBarText,
+                                  fontFamily: "Quicksand",
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        GestureDetector(
-                          child: const Icon(
-                            Icons.close_rounded,
-                            size: 36,
-                            color: AppColors.appBarText,
-                          ),
-                          onTap: () {
-                            // Navigator.of(context).pop();
-                            _showAlertDialog(context);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () => gameHandler(),
-                    child: Container(
-                      width: displayWidth * 0.8,
-                      height: displayHeight * 0.5,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: displayWidth * 0.05,
-                        vertical: displayWidth * 0.05,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black54,
-                              offset: Offset(3, 6),
-                              blurRadius: 6)
-                        ],
-                        color: AppColors.gameCard,
-                      ),
-                      child: SlideTransition(
-                        position: _animation,
-                        child: AutoSizeText(
-                          text,
-                          key: ValueKey<String>(text),
-                          style: const TextStyle(
-                            color: AppColors.schriftFarbe_dunkel,
-                            fontFamily: "Quicksand",
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
+                            GestureDetector(
+                              child: const Icon(
+                                Icons.close_rounded,
+                                size: 36, // --
+                                color: AppColors.appBarText,
+                              ),
+                              onTap: () {
+                                // Navigator.of(context).pop();
+                                _showAlertDialog(context);
+                              },
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: 10,
-                        bottom: 20,
-                        left: displayWidth * 0.1,
-                        right: displayWidth * 0.1),
-                    child: customTextfield,
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            Positioned(
+                              top: displayHeight * 0.06,
+                              left: displayWidth * 0.23,
+                              child: Container(
+                                width: (displayWidth / displayHeight) * 300,
+                                height: (displayWidth / displayHeight) * 300,
+                                child: const rive.RiveAnimation.asset(
+                                  'assets/animations/drunkguesser2.2.riv',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              // color: Colors.black45,
+                              alignment: Alignment.center,
+                              height: displayHeight * 0.72,
+                              child: Stack(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () => gameHandler(),
+                                    child: SlideTransition(
+                                      position: _animation,
+                                      child: GameCard(text: text),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.bottomCenter,
+                        margin: EdgeInsets.only(
+                            top: 0,
+                            bottom: 20,
+                            left: displayWidth * 0.1,
+                            right: displayWidth * 0.1),
+                        child: customTextfield,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -233,5 +240,98 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     return Future<bool>(() {
       return false;
     });
+  }
+
+  List<Widget> getImages(BuildContext context) {
+    final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
+    double iconHeight = displayWidth * 0.182;
+    Color iconColor = Color(0xB000000);
+    return [
+      Positioned(
+        top: displayHeight * 0.05,
+        left: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.09,
+        left: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.28,
+        left: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        top: displayHeight * 0.32,
+        left: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+
+      // ----------------
+
+      Positioned(
+        bottom: displayHeight * 0.05,
+        right: displayWidth * 0.1,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.09,
+        right: displayWidth * 0.5,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.28,
+        right: displayWidth * 0.04,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.32,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+      Positioned(
+        bottom: displayHeight * 0.02,
+        right: displayWidth * 0.8,
+        child: Icon(
+          Icons.sports_bar_outlined,
+          size: iconHeight,
+          color: iconColor,
+        ),
+      ),
+    ];
   }
 }

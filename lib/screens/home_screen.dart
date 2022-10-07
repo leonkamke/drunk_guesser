@@ -1,4 +1,3 @@
-import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:drunk_guesser/models/category_data.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
@@ -148,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        width: displayWidth * 0.46,
-                        height: displayWidth * 0.46,
+                        width: displayWidth * 0.53,
+                        height: displayWidth * 0.53,
                         child: const rive.RiveAnimation.asset(
                           'assets/animations/drunkguesser2.2.riv',
                           fit: BoxFit.contain,
