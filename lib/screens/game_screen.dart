@@ -144,31 +144,32 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                       ),
                       Expanded(
                         child: Container(
-                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 60),
-                          color: Colors.black38,
+                          padding: EdgeInsets.fromLTRB(
+                              0, 0, 0, displayHeight * 0.045),
+                          //color: Colors.black38,
                           alignment: Alignment.center,
-                          child: Container(
-                            color: Colors.black45,
-                            height: displayHeight * 0.6,
-                            child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Positioned(
-                                  top: 0,
-                                  left: displayWidth * 0.23,
-                                  child: Container(
-                                    width: displayHeight * 0.17,
-                                    height: displayHeight * 0.17,
-                                    child: const rive.RiveAnimation.asset(
-                                      'assets/animations/drunkguesser2.2.riv',
-                                      fit: BoxFit.contain,
+                          child: SlideTransition(
+                            position: _animation,
+                            child: Container(
+                              // color: Colors.black45,
+                              height: displayHeight * 0.6,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Positioned(
+                                    top: 0,
+                                    left: displayWidth * 0.23,
+                                    child: Container(
+                                      width: displayHeight * 0.17,
+                                      height: displayHeight * 0.17,
+                                      child: const rive.RiveAnimation.asset(
+                                        'assets/animations/drunkguesser2.2.riv',
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                GestureDetector(
-                                  onTap: () => gameHandler(),
-                                  child: SlideTransition(
-                                    position: _animation,
+                                  GestureDetector(
+                                    onTap: () => gameHandler(),
                                     child: Container(
                                       key: containerKey,
                                       width: displayWidth * 0.8,
@@ -201,8 +202,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
