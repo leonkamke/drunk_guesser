@@ -3,3 +3,5 @@
 - Am Ende des Spiels vielleicht Shop anzeigen, oder Werbung anzeigen, wie bei piccolo Bewerten popup, (vielleicht bei einer bewertung kostenlose Kategorie anbieten)
 - Teilen button und bewerten button bei Einstellungen implementieren
 - RevenueCat for inapp purchases
+
+- App Update approach
