@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +7,10 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
+import '../models/category.dart';
 import '../models/question.dart';
 import '../widgets/custom_dialog.dart';
 import '../widgets/custom_textfield.dart';
-import '../widgets/game_card.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({
@@ -52,9 +53,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     )..forward();
   }
 
+  late List<Category> selectedCategories;
+  late Question question;
+
   @override
   void didChangeDependencies() {
     if (start) {
+      /*
       questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
       for (Question q in questions) {
         print(q.question);
@@ -62,6 +67,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       text = questions[0].question;
       colors = questions[0].category.colors;
       categoryName = questions[0].category.name;
+      start = false;*/
+      Map arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+      selectedCategories = arguments["selectedCategories"] as List<Category>;
+      question = arguments["question"] as Question;
+      text = question.question;
+      colors = question.category.colors;
+      categoryName = question.category.name;
       start = false;
     }
     super.didChangeDependencies();
@@ -83,8 +95,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     baseColor: AppColors.gameCard,
     borderColor: Colors.white,
   );
-
-  final containerKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -265,35 +275,45 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     );
   }
 
+  int numberQuestions = 1;
+
   Future<void> gameHandler() async {
     // Check if no more questions
-    if (questions.isEmpty) {
+    if (numberQuestions >= 18) {
       // end of the round
       Navigator.of(context).pushReplacementNamed("/game_end");
+    }
+    if (isQuestion) {
+      // Mark question as read
+      await DrunkGuesserDB.markAsRead(question.category.dbName, question.id);
+    } else {
+      // Get next question
+      question = await DrunkGuesserDB.getQuestion(selectedCategories);
     }
     setState(
       () {
         if (isQuestion) {
+          // click on question
           _controllerText.reset();
           _controllerText.forward();
-          // click on question
-          text = questions[0].answer;
-          questions.removeAt(0);
-          isQuestion = false;
+          text = question.answer;
+          // questions.removeAt(0);
           context.read<TextFieldProvider>().setEnabled(false);
           if (customTextfield.controller.text == "") {
             customTextfield.controller.text = " ";
           }
-        } else if (!isQuestion && questions.isNotEmpty) {
+          isQuestion = false;
+        } else {
           // click on answer
+          numberQuestions++;
           _controllerCard.reset();
           _controllerCard.forward();
-          text = questions[0].question;
-          colors = questions[0].category.colors;
-          categoryName = questions[0].category.name;
-          isQuestion = true;
+          text = question.question;
+          colors = question.category.colors;
+          categoryName = question.category.name;
           context.read<TextFieldProvider>().setEnabled(true);
           customTextfield.controller.text = "";
+          isQuestion = true;
         }
       },
     );
