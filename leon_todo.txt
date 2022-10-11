@@ -1,5 +1,3 @@
 - Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
 
-- Appdialog Ja und Nein mit Linien trennen
-
 - SpielEnde Übergang

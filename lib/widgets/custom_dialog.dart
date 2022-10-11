@@ -52,7 +52,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
             children: <Widget>[
               AutoSizeText(
                 widget.description,
-                style: const TextStyle(fontSize: 16, color: Color(0x73000000)),
+                style: const TextStyle(fontSize: 16, color: Color(0x8C000000)),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
