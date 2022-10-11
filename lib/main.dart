@@ -189,7 +189,7 @@ class MyApp extends StatelessWidget {
                     GameEndScreen(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  const begin = Offset(-1.0, -1.0);
+                  const begin = Offset(0.0, -1.0);
                   const end = Offset.zero;
                   const curve = Curves.elasticOut;
                   var tween = Tween(begin: begin, end: end)
