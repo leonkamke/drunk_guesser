@@ -68,7 +68,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       colors = questions[0].category.colors;
       categoryName = questions[0].category.name;
       start = false;*/
-      Map arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+      Map arguments =
+          ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
       selectedCategories = arguments["selectedCategories"] as List<Category>;
       question = arguments["question"] as Question;
       text = question.question;
@@ -214,10 +215,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         child: Column(
                                           children: [
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 AutoSizeText(
-                                                  isQuestion ? "Frage" : "Antwort",
+                                                  isQuestion
+                                                      ? "Frage"
+                                                      : "Antwort",
                                                   style: const TextStyle(
                                                     color: AppColors
                                                         .schriftFarbe_dunkel,
@@ -292,7 +296,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         question = await DrunkGuesserDB.getQuestion(selectedCategories);
       }
       setState(
-            () {
+        () {
           if (isQuestion) {
             // click on question
             _controllerText.reset();
