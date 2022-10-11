@@ -169,6 +169,7 @@ class MyApp extends StatelessWidget {
                 transitionDuration: const Duration(milliseconds: 5),
                 reverseTransitionDuration: const Duration(milliseconds: 5));
           } else if (settings.name == "/game_end") {
+            /*
             return PageRouteBuilder(
                 settings: settings,
                 // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
@@ -179,8 +180,8 @@ class MyApp extends StatelessWidget {
                   return FadeTransition(opacity: animation, child: child);
                 },
                 transitionDuration: const Duration(milliseconds: 500),
-                reverseTransitionDuration: const Duration(milliseconds: 500));
-            /*
+                reverseTransitionDuration: const Duration(milliseconds: 500));*/
+
             return PageRouteBuilder(
                 settings: settings,
                 // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
@@ -188,9 +189,9 @@ class MyApp extends StatelessWidget {
                     GameEndScreen(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  const begin = Offset(1.0, 1.0);
+                  const begin = Offset(-1.0, -1.0);
                   const end = Offset.zero;
-                  const curve = Curves.ease;
+                  const curve = Curves.elasticOut;
                   var tween = Tween(begin: begin, end: end)
                       .chain(CurveTween(curve: curve));
                   return SlideTransition(
@@ -198,8 +199,8 @@ class MyApp extends StatelessWidget {
                     child: child,
                   );
                 },
-                transitionDuration: const Duration(milliseconds: 240),
-                reverseTransitionDuration: const Duration(milliseconds: 240));*/
+                transitionDuration: const Duration(milliseconds: 790),
+                reverseTransitionDuration: const Duration(milliseconds: 790));
           } else if (settings.name == "/") {
             return PageRouteBuilder(
                 settings: settings,
