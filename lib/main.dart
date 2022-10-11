@@ -191,7 +191,7 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   const begin = Offset(0.0, -1.0);
                   const end = Offset.zero;
-                  const curve = Curves.elasticOut;
+                  const curve = Curves.bounceOut;
                   var tween = Tween(begin: begin, end: end)
                       .chain(CurveTween(curve: curve));
                   return SlideTransition(
@@ -199,8 +199,8 @@ class MyApp extends StatelessWidget {
                     child: child,
                   );
                 },
-                transitionDuration: const Duration(milliseconds: 790),
-                reverseTransitionDuration: const Duration(milliseconds: 790));
+                transitionDuration: const Duration(milliseconds: 700),
+                reverseTransitionDuration: const Duration(milliseconds: 700));
           } else if (settings.name == "/") {
             return PageRouteBuilder(
                 settings: settings,
