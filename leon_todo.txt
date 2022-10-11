@@ -1,5 +1,3 @@
 - Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
 
-- SpielEnde Übergang
-
 - zufall auswählen (wenn eine kategorie ausgewählt wird, die schon in zufall ist)
