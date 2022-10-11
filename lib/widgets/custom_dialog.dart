@@ -34,7 +34,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
       children: <Widget>[
         Container(
           padding:
-              const EdgeInsets.only(left: 5, top: 20, bottom: 5, right: 5),
+              const EdgeInsets.only(left: 15, top: 20, bottom: 5, right: 15),
           margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
@@ -52,7 +52,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
             children: <Widget>[
               AutoSizeText(
                 widget.description,
-                style: const TextStyle(fontSize: 18, color: Colors.black),
+                style: const TextStyle(fontSize: 17, color: Colors.black),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
