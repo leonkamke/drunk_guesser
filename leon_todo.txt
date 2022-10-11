@@ -2,8 +2,4 @@
 
 - Appdialog Ja und Nein mit Linien trennen
 
-- Spielende
-
-- wenn antwort von frage angezeigt wird, dann in datenbank schreiben, dass antwort gelesen
-- Wenn fragen geladen werden, dann zu erst, noch nicht gelesene Fragen
-- Wenn alle fragen bereits gelesen, dann alle wieder auf ungelesen und zufällig fragen laden
+- SpielEnde Übergang
