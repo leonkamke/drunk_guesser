@@ -110,6 +110,7 @@ class DrunkGuesserDB {
 
   static Future<Question> getQuestion(List<Category> selectedCategories) async {
     await initDatabase();
+
     var rand = Random();
     int index = rand.nextInt(selectedCategories.length);
     var q = await db.rawQuery(

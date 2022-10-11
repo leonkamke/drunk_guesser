@@ -145,4 +145,11 @@ class Categories {
     preise,
     geschichte,
   ];
+
+  static List<Category> categoriesInZufall = [
+    geographie,
+    technik,
+    unnuetzes_wissen,
+    geschichte,
+  ];
 }

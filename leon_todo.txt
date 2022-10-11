@@ -2,5 +2,4 @@
 
 - SpielEnde Übergang
 
-- startknopf disablen
 - zufall auswählen (wenn eine kategorie ausgewählt wird, die schon in zufall ist)

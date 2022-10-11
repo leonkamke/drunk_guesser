@@ -167,12 +167,29 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   void startGame(BuildContext context) {
     print("Game starts...");
     // iterate over all categoryCards and check which are selected
-    List<Category> selectedCategories = categories
-        .where(
-            (element) => element.selected == true && element.purchased == true)
-        .toList();
 
+    List<Category> selectedCategories = [];
+    if (Categories.zufall.selected) {
+      // If Zufall is selected
+      // Add categories which are in zufall
+      selectedCategories.addAll(Categories.categoriesInZufall);
+      for (Category c in categories) {
+        if (c.selected && !selectedCategories.contains(c)) {
+          selectedCategories.add(c);
+        }
+      }
+      selectedCategories.remove(Categories.zufall);
+    } else {
+      selectedCategories = categories
+          .where((element) =>
+              element.selected == true && element.purchased == true)
+          .toList();
+    }
+    for (Category c in selectedCategories) {
+      print(c.dbName);
+    }
     // Load this categories for the game
-    Navigator.of(context).pushReplacementNamed("/game_start", arguments: selectedCategories);
+    Navigator.of(context)
+        .pushReplacementNamed("/game_start", arguments: selectedCategories);
   }
 }
