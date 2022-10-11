@@ -172,19 +172,19 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           child: SlideTransition(
                             position: _animationCard,
                             child: Container(
-                              // color: Colors.black45,
+                              color: Colors.black45,
                               height: displayHeight * 0.6,
                               child: Stack(
                                 alignment: Alignment.bottomCenter,
                                 children: [
                                   Positioned(
                                     top: 0,
-                                    left: displayWidth * 0.23,
+                                    left: displayWidth * 0.1,
                                     child: Container(
-                                      width: displayHeight * 0.17,
-                                      height: displayHeight * 0.17,
+                                      width: displayHeight * 0.35,
+                                      height: displayHeight * 0.35,
                                       child: const rive.RiveAnimation.asset(
-                                        'assets/animations/drunkguesser2.2.riv',
+                                        'assets/animations/drunkguesser_game_1.1.riv',
                                         fit: BoxFit.contain,
                                       ),
                                     ),
