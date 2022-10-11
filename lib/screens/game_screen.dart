@@ -3,6 +3,7 @@ import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
@@ -30,9 +31,31 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
   late AnimationController _controllerText;
 
+  // For drunkguesser animation above the card
+  rive.Artboard? _riveArtboard;
+  rive.StateMachineController? _controller;
+
   @override
   void initState() {
     super.initState();
+
+    rootBundle.load('assets/drunkguesser_game_1.1.riv').then(
+      (data) async {
+        // Load the RiveFile from the binary data.
+        final file = rive.RiveFile.import(data);
+
+        // The artboard is the root of the animation and gets drawn in the
+        // Rive widget.
+        final artboard = file.mainArtboard;
+        var controller =
+            rive.StateMachineController.fromArtboard(artboard, "DrunkGuesserSM");
+        if (controller != null) {
+          artboard.addController(controller);
+        }
+        setState(() => _riveArtboard = artboard);
+      },
+
+    );
 
     _controllerCard = AnimationController(
       duration: const Duration(milliseconds: 810),
@@ -183,7 +206,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                     child: Container(
                                       width: displayHeight * 0.35,
                                       height: displayHeight * 0.35,
-                                      child: const rive.RiveAnimation.asset(
+                                      child: rive.RiveAnimation.asset(
                                         'assets/animations/drunkguesser_game_1.1.riv',
                                         fit: BoxFit.contain,
                                       ),
@@ -201,15 +224,17 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         vertical: displayWidth * 0.05,
                                       ),
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(22),
-                                        boxShadow: const [
-                                          BoxShadow(
-                                              color: Colors.black54,
-                                              offset: Offset(3, 6),
-                                              blurRadius: 6)
-                                        ],
-                                        color: AppColors.gameCard,
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(22),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                color: Colors.black54,
+                                                offset: Offset(3, 6),
+                                                blurRadius: 6)
+                                          ],
+                                          color: Colors
+                                              .transparent // AppColors.gameCard,
+                                          ),
                                       child: FadeTransition(
                                         opacity: _controllerText,
                                         child: Column(
