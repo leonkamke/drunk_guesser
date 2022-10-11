@@ -279,45 +279,46 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   int numberQuestions = 1;
 
   Future<void> gameHandler() async {
-    // Check if no more questions
-    if (numberQuestions >= 18) {
+    // Change to GameEndScreen after 18 questions and click on answer
+    if (numberQuestions >= 5 && !isQuestion) {
       // end of the round
       Navigator.of(context).pushReplacementNamed("/game_end");
-    }
-    if (isQuestion) {
-      // Mark question as read
-      await DrunkGuesserDB.markAsRead(question.category.dbName, question.id);
     } else {
-      // Get next question
-      question = await DrunkGuesserDB.getQuestion(selectedCategories);
-    }
-    setState(
-      () {
-        if (isQuestion) {
-          // click on question
-          _controllerText.reset();
-          _controllerText.forward();
-          text = question.answer;
-          // questions.removeAt(0);
-          context.read<TextFieldProvider>().setEnabled(false);
-          if (customTextfield.controller.text == "") {
-            customTextfield.controller.text = " ";
+      if (isQuestion) {
+        // Mark question as read
+        await DrunkGuesserDB.markAsRead(question.category.dbName, question.id);
+      } else {
+        // Get next question
+        question = await DrunkGuesserDB.getQuestion(selectedCategories);
+      }
+      setState(
+            () {
+          if (isQuestion) {
+            // click on question
+            _controllerText.reset();
+            _controllerText.forward();
+            text = question.answer;
+            // questions.removeAt(0);
+            context.read<TextFieldProvider>().setEnabled(false);
+            if (customTextfield.controller.text == "") {
+              customTextfield.controller.text = " ";
+            }
+            isQuestion = false;
+          } else {
+            // click on answer
+            numberQuestions++;
+            _controllerCard.reset();
+            _controllerCard.forward();
+            text = question.question;
+            colors = question.category.colors;
+            categoryName = question.category.name;
+            context.read<TextFieldProvider>().setEnabled(true);
+            customTextfield.controller.text = "";
+            isQuestion = true;
           }
-          isQuestion = false;
-        } else {
-          // click on answer
-          numberQuestions++;
-          _controllerCard.reset();
-          _controllerCard.forward();
-          text = question.question;
-          colors = question.category.colors;
-          categoryName = question.category.name;
-          context.read<TextFieldProvider>().setEnabled(true);
-          customTextfield.controller.text = "";
-          isQuestion = true;
-        }
-      },
-    );
+        },
+      );
+    }
   }
 
   Future<bool> _showAlertDialog(BuildContext context) {

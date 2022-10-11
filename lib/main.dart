@@ -176,6 +176,18 @@ class MyApp extends StatelessWidget {
                     GameEndScreen(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+                transitionDuration: const Duration(milliseconds: 500),
+                reverseTransitionDuration: const Duration(milliseconds: 500));
+            /*
+            return PageRouteBuilder(
+                settings: settings,
+                // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    GameEndScreen(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
                   const begin = Offset(1.0, 1.0);
                   const end = Offset.zero;
                   const curve = Curves.ease;
@@ -187,7 +199,7 @@ class MyApp extends StatelessWidget {
                   );
                 },
                 transitionDuration: const Duration(milliseconds: 240),
-                reverseTransitionDuration: const Duration(milliseconds: 240));
+                reverseTransitionDuration: const Duration(milliseconds: 240));*/
           } else if (settings.name == "/") {
             return PageRouteBuilder(
                 settings: settings,
