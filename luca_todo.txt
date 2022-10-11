@@ -1,4 +1,3 @@
-- DrunkGuesser trink animation mit rive editor (In Game)
 - anderes Schloss
 - geschichts icon ändern
 - Icon für Mensch-Kategorie
