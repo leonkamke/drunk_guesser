@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/provider/categories_startbutton_provider.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/screens/categories_screen.dart';
 import 'package:drunk_guesser/screens/credits_screen.dart';
@@ -10,6 +11,7 @@ import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:drunk_guesser/screens/shop_bundles_screen.dart';
 import 'package:drunk_guesser/screens/shop_categories_screen.dart';
 import 'package:drunk_guesser/screens/shop_main_screen.dart';
+import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -33,7 +35,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => TextFieldProvider()),],
+      providers: [
+        ChangeNotifierProvider(create: (_) => TextFieldProvider()),
+        ChangeNotifierProvider(create: (_) => StartButtonProvider()),
+      ],
       child: MaterialApp(
         title: 'DrunkGuesser',
         home: HomeScreen(),

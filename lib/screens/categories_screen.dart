@@ -2,10 +2,12 @@ import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
 import '../models/category.dart';
 import '../models/category_data.dart';
+import '../provider/categories_startbutton_provider.dart';
 
 class CategoriesScreen extends StatefulWidget {
   CategoriesScreen({Key? key}) : super(key: key) {
@@ -34,6 +36,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   void initState() {
     super.initState();
     // TODO: implement initState
+    context.read<StartButtonProvider>().setEnabled(true);
     for (Category c in Categories.categoryList) {
       c.setPurchased();
     }

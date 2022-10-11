@@ -1,9 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
+import 'package:drunk_guesser/provider/categories_startbutton_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/category.dart';
 import '../database/drunk_guesser_db.dart';
+import '../models/category_data.dart';
 
 class CategoryCard extends StatefulWidget {
   final Category category;
@@ -265,10 +268,14 @@ class _CategoryCardState extends State<CategoryCard> {
       setState(() {
         widget.category.selected = !widget.category.selected;
       });
-    } else {
-      print("category ${widget.category.name} is not purchased");
-      // open shopScreen!
     }
+    bool value = true;
+    for (Category c in Categories.categoryList) {
+      if (c.selected) {
+        value =  false;
+      }
+    }
+    context.read<StartButtonProvider>().setEnabled(value);
   }
 
   void selectLock(BuildContext context) async {

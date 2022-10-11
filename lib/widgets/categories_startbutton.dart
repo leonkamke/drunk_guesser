@@ -1,4 +1,6 @@
+import 'package:drunk_guesser/provider/categories_startbutton_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
 
@@ -8,8 +10,6 @@ class StartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
 
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -23,7 +23,7 @@ class StartButton extends StatelessWidget {
           shadowColor: Colors.black,
           elevation: 7
         ),
-        onPressed: onTap,
+        onPressed: context.watch<StartButtonProvider>().disabled ? null : onTap,
         child: const FittedBox(
           child: Text(
             "Start",
