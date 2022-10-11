@@ -34,7 +34,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
       children: <Widget>[
         Container(
           padding:
-              const EdgeInsets.only(left: 15, top: 20, bottom: 5, right: 15),
+              const EdgeInsets.only(left: 25, top: 25, bottom: 5, right: 25),
           margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
@@ -52,7 +52,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
             children: <Widget>[
               AutoSizeText(
                 widget.description,
-                style: const TextStyle(fontSize: 17, color: Colors.black),
+                style: const TextStyle(fontSize: 16, color: Color(0x73000000)),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
@@ -73,7 +73,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       },
                       child: const AutoSizeText(
                         "Ja",
-                        style: TextStyle(fontSize: 18, color: AppColors.backgroundHomeScreen_1),
+                        style: TextStyle(fontSize: 20, color: AppColors.backgroundHomeScreen_1, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       },
                       child: const AutoSizeText(
                         "Nein",
-                        style: TextStyle(fontSize: 18, color: AppColors.backgroundHomeScreen_1),
+                        style: TextStyle(fontSize: 20, color: AppColors.backgroundHomeScreen_1, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
