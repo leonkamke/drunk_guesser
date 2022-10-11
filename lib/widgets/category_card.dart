@@ -89,13 +89,25 @@ class _CategoryCardState extends State<CategoryCard> {
               SizedBox(
                 width: displayWidth * 0.05,
               ),
+              widget.category.selected
+                  ? const Icon(
+                      Icons.check_circle_rounded,
+                      size: 30,
+                      color: AppColors.selected,
+                    )
+                  : const Icon(
+                      Icons.circle,
+                      size: 30,
+                      color: Color(0x45ffffff),
+                    ),
+              /*
               Icon(
                 Icons.check_circle_outline_rounded,
                 size: 30,
                 color: widget.category.selected
                     ? AppColors.selected
                     : const Color(0x1affffff),
-              ),
+              ),*/
             ],
           ),
         ),
