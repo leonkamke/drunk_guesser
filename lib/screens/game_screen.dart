@@ -190,6 +190,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                   ),
                                   GestureDetector(
                                     onTap: () => gameHandler(),
+                                    // GameCard
                                     child: Container(
                                       width: displayWidth * 0.8,
                                       height: displayHeight * 0.5,
