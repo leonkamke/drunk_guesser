@@ -24,12 +24,14 @@ class _GameStartScreenState extends State<GameStartScreen> {
     ],
   ));
 
-  Future<void> initGame(BuildContext context) async {
+  late List<Category> selectedCategories;
+
+  void initGame(BuildContext context) {
     // Get selectedCategories
-    List<Category> selectedCategories =
+    selectedCategories =
         ModalRoute.of(context)?.settings.arguments as List<Category>;
     // Print selected categories
-    questions = await DrunkGuesserDB.getQuestions(selectedCategories);
+    // questions = await DrunkGuesserDB.getQuestions(selectedCategories);
   }
 
   @override
@@ -99,9 +101,9 @@ class _GameStartScreenState extends State<GameStartScreen> {
     );
   }
 
-  void startGame(BuildContext context) {
-    // PushReplace GameScreen and give questions as argument
-    Navigator.of(context).pushReplacementNamed("/game", arguments: questions);
+  Future<void> startGame(BuildContext context) async {
+    Question question = await DrunkGuesserDB.getQuestion(selectedCategories);
+    Navigator.of(context).pushReplacementNamed("/game", arguments: {"selectedCategories": selectedCategories, "question": question});
   }
 
   final String startText =

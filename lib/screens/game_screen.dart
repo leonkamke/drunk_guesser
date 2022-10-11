@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +7,10 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
+import '../models/category.dart';
 import '../models/question.dart';
 import '../widgets/custom_dialog.dart';
 import '../widgets/custom_textfield.dart';
-import '../widgets/game_card.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({
@@ -52,9 +53,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     )..forward();
   }
 
+  late List<Category> selectedCategories;
+  late Question question;
+
   @override
   void didChangeDependencies() {
     if (start) {
+      /*
       questions = ModalRoute.of(context)?.settings.arguments as List<Question>;
       for (Question q in questions) {
         print(q.question);
@@ -62,6 +67,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       text = questions[0].question;
       colors = questions[0].category.colors;
       categoryName = questions[0].category.name;
+      start = false;*/
+      Map arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+      selectedCategories = arguments["selectedCategories"] as List<Category>;
+      question = arguments["question"] as Question;
+      text = question.question;
+      colors = question.category.colors;
+      categoryName = question.category.name;
       start = false;
     }
     super.didChangeDependencies();
@@ -69,6 +81,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _controllerText.dispose();
+    _controllerCard.dispose();
     super.dispose();
   }
 
@@ -81,8 +95,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     baseColor: AppColors.gameCard,
     borderColor: Colors.white,
   );
-
-  final containerKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +191,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                   GestureDetector(
                                     onTap: () => gameHandler(),
                                     child: Container(
-                                      key: containerKey,
                                       width: displayWidth * 0.8,
                                       height: displayHeight * 0.5,
                                       alignment: Alignment.center,
@@ -199,17 +210,41 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                       ),
                                       child: FadeTransition(
                                         opacity: _controllerText,
-                                        child: AutoSizeText(
-                                          text,
-                                          key: ValueKey<String>(text),
-                                          style: const TextStyle(
-                                            color:
-                                                AppColors.schriftFarbe_dunkel,
-                                            fontFamily: "Quicksand",
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                AutoSizeText(
+                                                  isQuestion ? "Frage" : "Antwort",
+                                                  style: const TextStyle(
+                                                    color: AppColors
+                                                        .schriftFarbe_dunkel,
+                                                    fontFamily: "Quicksand",
+                                                    fontSize: 39,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                child: AutoSizeText(
+                                                  text,
+                                                  key: ValueKey<String>(text),
+                                                  style: const TextStyle(
+                                                    color: AppColors
+                                                        .schriftFarbe_dunkel,
+                                                    fontFamily: "Quicksand",
+                                                    fontSize: 21,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -219,61 +254,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                             ),
                           ),
                         ),
-                        /*
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Positioned(
-                              top: displayHeight * 0.06,
-                              left: displayWidth * 0.23,
-                              child: Container(
-                                width: displayHeight * 0.22,
-                                height: displayHeight * 0.22,
-                                child: const rive.RiveAnimation.asset(
-                                  'assets/animations/drunkguesser2.2.riv',
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () => gameHandler(),
-                              child: SlideTransition(
-                                position: _animation,
-                                child: Container(
-                                  key: containerKey,
-                                  width: displayWidth * 0.8,
-                                  height: displayHeight * 0.5,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: displayWidth * 0.05,
-                                    vertical: displayWidth * 0.05,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(22),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                          color: Colors.black54,
-                                          offset: Offset(3, 6),
-                                          blurRadius: 6)
-                                    ],
-                                    color: AppColors.gameCard,
-                                  ),
-                                  child: AutoSizeText(
-                                    text,
-                                    key: ValueKey<String>(text),
-                                    style: const TextStyle(
-                                      color: AppColors.schriftFarbe_dunkel,
-                                      fontFamily: "Quicksand",
-                                      fontSize: 21,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),*/
                       ),
                       Container(
                         alignment: Alignment.bottomCenter,
@@ -295,38 +275,48 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     );
   }
 
+  int numberQuestions = 1;
+
   Future<void> gameHandler() async {
+    // Check if no more questions
+    if (numberQuestions >= 18) {
+      // end of the round
+      Navigator.of(context).pushReplacementNamed("/game_end");
+    }
+    if (isQuestion) {
+      // Mark question as read
+      await DrunkGuesserDB.markAsRead(question.category.dbName, question.id);
+    } else {
+      // Get next question
+      question = await DrunkGuesserDB.getQuestion(selectedCategories);
+    }
     setState(
       () {
         if (isQuestion) {
+          // click on question
           _controllerText.reset();
           _controllerText.forward();
-          // click on question
-          text = questions[0].answer;
-          questions.removeAt(0);
-          isQuestion = false;
+          text = question.answer;
+          // questions.removeAt(0);
           context.read<TextFieldProvider>().setEnabled(false);
           if (customTextfield.controller.text == "") {
             customTextfield.controller.text = " ";
           }
-        } else if (!isQuestion && questions.isNotEmpty) {
+          isQuestion = false;
+        } else {
           // click on answer
+          numberQuestions++;
           _controllerCard.reset();
           _controllerCard.forward();
-          text = questions[0].question;
-          colors = questions[0].category.colors;
-          categoryName = questions[0].category.name;
-          isQuestion = true;
+          text = question.question;
+          colors = question.category.colors;
+          categoryName = question.category.name;
           context.read<TextFieldProvider>().setEnabled(true);
           customTextfield.controller.text = "";
+          isQuestion = true;
         }
       },
     );
-    // Check if no more questions
-    if (questions.isEmpty) {
-      // end of the round
-      Navigator.of(context).pushReplacementNamed("/game_end");
-    }
   }
 
   Future<bool> _showAlertDialog(BuildContext context) {

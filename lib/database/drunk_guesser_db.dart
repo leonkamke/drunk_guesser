@@ -103,16 +103,66 @@ class DrunkGuesserDB {
     return await db.getVersion();
   }
 
+  static Future<void> markAsRead(String dbName, int id) async {
+    await initDatabase();
+    await db.rawQuery("UPDATE $dbName SET gelesen=1 WHERE id == $id");
+  }
+
+  static Future<Question> getQuestion(List<Category> selectedCategories) async {
+    await initDatabase();
+    var rand = Random();
+    int index = rand.nextInt(selectedCategories.length);
+    var q = await db.rawQuery(
+        "SELECT * FROM ${selectedCategories[index].dbName} WHERE gelesen == 0 ORDER BY RANDOM() LIMIT 1");
+
+    if (q.isEmpty) {
+      // All questions are already read (gelesen == 1 for every question)
+      // Set gelesen of all questions from 1 to 0 again
+      await db
+          .rawQuery("UPDATE ${selectedCategories[index].dbName} SET gelesen=0");
+      // Repeat query
+      q = await db.rawQuery(
+          "SELECT * FROM ${selectedCategories[index].dbName} WHERE gelesen == 0 ORDER BY RANDOM() LIMIT 1");
+      print("set gelesen back to 0");
+    }
+
+    return Question(
+      question: q.first["frage"] as String,
+      answer: q.first["antwort"] as String,
+      category: selectedCategories[index],
+      id: q.first["id"] as int,
+    );
+  }
+
   static Future<List<Question>> getQuestions(
       List<Category> selectedCategories) async {
     List<Question> questions = [];
     await initDatabase();
     // One game contains 18 questions
     var rand = Random();
-    // TODO: Get only questions where gelesen == 0, wenn alle gelesen (sql abfrage liefert leere liste -> gelesen spalte überall auf 0 setzen
+    List<String> conditionString = [];
+    for (int i = 0; i < selectedCategories.length; i++) {
+      conditionString.add("");
+    }
     for (int i = 0; i < 18; i++) {
       int index = rand.nextInt(selectedCategories.length);
-      var q = await db.rawQuery("SELECT * FROM ${selectedCategories[index].dbName} ORDER BY RANDOM() LIMIT 1");
+      var q = await db.rawQuery(
+          "SELECT * FROM ${selectedCategories[index].dbName} WHERE gelesen == 0 ${conditionString[index]}ORDER BY RANDOM() LIMIT 1");
+
+      if (q.isEmpty) {
+        // All questions are already read
+        // Set gelesen of all questions from 1 to 0 again
+        await db.rawQuery(
+            "UPDATE ${selectedCategories[index].dbName} SET gelesen=0");
+        // Repeat query
+        q = await db.rawQuery(
+            "SELECT * FROM ${selectedCategories[index].dbName} WHERE gelesen == 0 ORDER BY RANDOM() LIMIT 1");
+        print("set gelesen back to 0");
+      }
+
+      // Store in conditionString the ID of question q
+      conditionString[index] += "AND id != ${q.first["id"] as int} ";
+
       questions.add(
         Question(
           question: q.first["frage"] as String,
