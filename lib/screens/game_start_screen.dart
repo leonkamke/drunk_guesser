@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
+import '../models/background_icons.dart';
 import '../models/category.dart';
 import '../models/question.dart';
 
@@ -61,7 +62,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
         final artboard = file.mainArtboard;
         var controller = rive.StateMachineController.fromArtboard(
             artboard, "State Machine 1");
-        controller?.isActive = true;
+        controller?.isActive = false;
         _controller = controller;
         if (controller != null) {
           artboard.addController(controller);
@@ -87,7 +88,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              ...getImages(context),
+              ...BackgroundIcons.getImages(context),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -143,96 +144,4 @@ class _GameStartScreenState extends State<GameStartScreen> {
   final String startText =
       "Holt eure Notitzen auf dem Handy raus und es kann losgehen!\n\nWer am schlechtesten schätzt trinkt!\n\nViel Spaß!";
 
-  List<Widget> getImages(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-    double iconHeight = displayWidth * 0.182;
-    Color iconColor = Color(0xB000000);
-    return [
-      Positioned(
-        top: displayHeight * 0.05,
-        left: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.09,
-        left: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.28,
-        left: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.32,
-        left: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-
-      // ----------------
-
-      Positioned(
-        bottom: displayHeight * 0.05,
-        right: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.09,
-        right: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.28,
-        right: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.32,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.02,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-    ];
-  }
 }

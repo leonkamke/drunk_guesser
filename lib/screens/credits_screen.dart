@@ -1,4 +1,5 @@
 import 'package:drunk_guesser/models/app_colors.dart';
+import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -31,160 +32,166 @@ class _CreditsScreenState extends State<CreditsScreen> {
         width: displayWidth,
         height: displayHeight,
         decoration: backgroundDecoration,
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                    topLeft: Radius.circular(0),
-                    topRight: Radius.circular(0)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, 3),
-                      blurRadius: 6)
-                ],
-                color: AppColors.appbarBackground,
-              ),
-              padding: EdgeInsets.fromLTRB(
-                displayWidth * 0.1,
-                displayHeight * 0.05,
-                displayWidth * 0.1,
-                displayHeight * 0.025,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      "Credits",
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: AppColors.appBarText,
-                        fontFamily: "Quicksand",
-                        fontWeight: FontWeight.bold,
+            ...BackgroundIcons.getImages(context),
+            Column(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                        topLeft: Radius.circular(0),
+                        topRight: Radius.circular(0)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0, 3),
+                          blurRadius: 6)
+                    ],
+                    color: AppColors.appbarBackground,
+                  ),
+                  padding: EdgeInsets.fromLTRB(
+                    displayWidth * 0.1,
+                    displayHeight * 0.05,
+                    displayWidth * 0.1,
+                    displayHeight * 0.025,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Credits",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: AppColors.appBarText,
+                            fontFamily: "Quicksand",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  GestureDetector(
-                    child: const Icon(
-                      Icons.home_rounded,
-                      size: 45,
-                      color: AppColors.appBarText,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, displayHeight*0.04, 0, 0),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset(
-                      "assets/images/drunk_guesser_img.png",
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  SizedBox(
-                    height: displayHeight * 0.05,
-                  ),
-                  const FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      "Kontaktiere uns:",
-                      style: TextStyle(
-                        fontSize: 23,
-                        color: AppColors.schriftFarbeCards,
-                        fontFamily: "Quicksand",
-                        fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        child: const Icon(
+                          Icons.home_rounded,
+                          size: 45,
+                          color: AppColors.appBarText,
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
                       ),
-                    ),
+                    ],
                   ),
-                  SizedBox(
-                    height: displayHeight * 0.02,
-                  ),
-                  GestureDetector(
-                    child: Image.asset(
-                      "assets/icons/mail_icon_dark.png",
-                      height: 30,
-                    ),
-                    onTap: () {
-                      sendEmail();
-                    },
-                  ),
-                  SizedBox(
-                    height: displayHeight * 0.03,
-                  ),
-                  const FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      "Development:",
-                      style: TextStyle(
-                        fontSize: 23,
-                        color: AppColors.schriftFarbeCards,
-                        fontFamily: "Quicksand",
-                        fontWeight: FontWeight.bold,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin:
+                            EdgeInsets.fromLTRB(0, displayHeight * 0.04, 0, 0),
+                        width: 100,
+                        height: 100,
+                        child: Image.asset(
+                          "assets/images/drunk_guesser_img.png",
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                    ),
+                      SizedBox(
+                        height: displayHeight * 0.05,
+                      ),
+                      const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Kontaktiere uns:",
+                          style: TextStyle(
+                            fontSize: 23,
+                            color: AppColors.schriftFarbeCards,
+                            fontFamily: "Quicksand",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.02,
+                      ),
+                      GestureDetector(
+                        child: Image.asset(
+                          "assets/icons/mail_icon_dark.png",
+                          height: 30,
+                        ),
+                        onTap: () {
+                          sendEmail();
+                        },
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.03,
+                      ),
+                      const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Development:",
+                          style: TextStyle(
+                            fontSize: 23,
+                            color: AppColors.schriftFarbeCards,
+                            fontFamily: "Quicksand",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.02,
+                      ),
+                      const Text(
+                        "Luca Burg\nLeon Kamke",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 19,
+                          color: AppColors.schriftFarbeCards,
+                          fontFamily: "Quicksand",
+                        ),
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.1,
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: displayHeight * 0.02,
-                  ),
-                  const Text(
-                    "Luca Burg\nLeon Kamke",
-                    textAlign: TextAlign.center,
+                ),
+                GestureDetector(
+                  child: const Text(
+                    "Privacy Policy",
                     style: TextStyle(
-                      fontSize: 19,
+                      decoration: TextDecoration.underline,
+                      fontSize: 17,
                       color: AppColors.schriftFarbeCards,
                       fontFamily: "Quicksand",
                     ),
                   ),
-                  SizedBox(
-                    height: displayHeight * 0.1,
+                  onTap: () {
+                    print("Privacy Policy");
+                  },
+                ),
+                GestureDetector(
+                  child: const Text(
+                    "Datenschutzverordnung",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 17,
+                      color: AppColors.schriftFarbeCards,
+                      fontFamily: "Quicksand",
+                    ),
                   ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              child: const Text(
-                "Privacy Policy",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  fontSize: 17,
-                  color: AppColors.schriftFarbeCards,
-                  fontFamily: "Quicksand",
+                  onTap: () {
+                    print("Datenschutzverordnung");
+                  },
                 ),
-              ),
-              onTap: () {
-                print("Privacy Policy");
-              },
+                SizedBox(height: displayHeight * 0.05),
+              ],
             ),
-            GestureDetector(
-              child: const Text(
-                "Datenschutzverordnung",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  fontSize: 17,
-                  color: AppColors.schriftFarbeCards,
-                  fontFamily: "Quicksand",
-                ),
-              ),
-              onTap: () {
-                print("Datenschutzverordnung");
-              },
-            ),
-            SizedBox(height: displayHeight * 0.05),
           ],
         ),
       ),
@@ -192,8 +199,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
   }
 
   Future<void> sendEmail() async {
-    const String _emailScheme =
-        "mailto:l.kamke@web.de";
+    const String _emailScheme = "mailto:l.kamke@web.de";
     final Uri _url = Uri.parse(_emailScheme);
     if (!await launchUrl(_url)) {
       throw 'Could not launch $_url';

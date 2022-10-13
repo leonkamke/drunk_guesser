@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
           cursorColor: Color(0xFFFFFFFF),
           showCursor: true,
           cursorRadius: Radius.circular(15),
-          cursorWidth: 1.5,
+          cursorWidth: 1,
         ),
       ),
     );
