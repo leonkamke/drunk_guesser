@@ -135,171 +135,176 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       child: Scaffold(
         // resizeToAvoidBottomInset: false,
         backgroundColor: colors[1],
-        body: ScrollConfiguration(
-          behavior: MyBehavior(),
-          child: SingleChildScrollView(
-            physics: const ScrollPhysics(),
-            child: Container(
-              width: displayWidth,
-              height: displayHeight,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: colors,
-              )),
-              child: Stack(
+        body: Container(
+          width: displayWidth,
+          height: displayHeight,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: colors,
+          )),
+          child: Stack(
+            children: [
+              ...BackgroundIcons.getImages(context),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ...BackgroundIcons.getImages(context),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        color: Colors.transparent,
-                        padding: EdgeInsets.fromLTRB(
-                          displayWidth * 0.1,
-                          displayHeight * 0.05, // ---
-                          displayWidth * 0.1,
-                          displayHeight * 0.01, // ---
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
-                                categoryName,
-                                style: const TextStyle(
-                                  fontSize: 30,
-                                  color: AppColors.appBarText,
-                                  fontFamily: "Quicksand",
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            GestureDetector(
-                              child: const Icon(
-                                Icons.close_rounded,
-                                size: 36, // --
-                                color: AppColors.appBarText,
-                              ),
-                              onTap: () {
-                                // Navigator.of(context).pop();
-                                _showAlertDialog(context);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(
-                              0, 0, 0, displayHeight * 0.045),
-                          //color: Colors.black38,
-                          alignment: Alignment.center,
-                          child: SlideTransition(
-                            position: _animationCard,
-                            child: Container(
-                              // color: Colors.black45,
-                              height: displayHeight * 0.6,
-                              child: Stack(
-                                alignment: Alignment.bottomCenter,
-                                children: [
-                                  Positioned(
-                                    top: -displayHeight * 0.12,
-                                    child: Container(
-                                        width: displayHeight * 0.35,
-                                        height: displayHeight * 0.35,
-                                        child: rive.Rive(
-                                          artboard: _riveArtboard,
-                                        )),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () => gameHandler(),
-                                    // GameCard
-                                    child: Container(
-                                      width: displayWidth * 0.8,
-                                      height: displayHeight * 0.5,
-                                      alignment: Alignment.center,
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: displayWidth * 0.05,
-                                        vertical: displayWidth * 0.05,
-                                      ),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(22),
-                                          color: AppColors.gameCard,
-                                          ),
-                                      child: FadeTransition(
-                                        opacity: _controllerText,
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                AutoSizeText(
-                                                  isQuestion
-                                                      ? "Frage"
-                                                      : "Antwort",
-                                                  style: const TextStyle(
-                                                    color: AppColors
-                                                        .schriftFarbe_dunkel,
-                                                    fontFamily: "Quicksand",
-                                                    fontSize: 39,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            Expanded(
-                                              child: Container(
-                                                alignment: Alignment.center,
-                                                child: AutoSizeText(
-                                                  text,
-                                                  key: ValueKey<String>(text),
-                                                  style: const TextStyle(
-                                                    color: AppColors
-                                                        .schriftFarbe_dunkel,
-                                                    fontFamily: "Quicksand",
-                                                    fontSize: 21,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  Container(
+                    color: Colors.transparent,
+                    padding: EdgeInsets.fromLTRB(
+                      displayWidth * 0.1,
+                      displayHeight * 0.05, // ---
+                      displayWidth * 0.1,
+                      displayHeight * 0.01, // ---
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            categoryName,
+                            style: const TextStyle(
+                              fontSize: 30,
+                              color: AppColors.appBarText,
+                              fontFamily: "Quicksand",
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
+                        GestureDetector(
+                          child: const Icon(
+                            Icons.close_rounded,
+                            size: 36, // --
+                            color: AppColors.appBarText,
+                          ),
+                          onTap: () {
+                            // Navigator.of(context).pop();
+                            _showAlertDialog(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ScrollConfiguration(
+                      behavior: MyBehavior(),
+                      child: ListView(
+                        children: [
+                          Container(
+                            padding:
+                            EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
+                            //color: Colors.black38,
+                            alignment: Alignment.center,
+                            child: SlideTransition(
+                              position: _animationCard,
+                              child: Container(
+                                // color: Colors.black45,
+                                height: displayHeight * 0.6,
+                                child: Stack(
+                                  alignment: Alignment.bottomCenter,
+                                  children: [
+                                    Positioned(
+                                      top: -displayHeight * 0.12,
+                                      child: Container(
+                                          width: displayHeight * 0.35,
+                                          height: displayHeight * 0.35,
+                                          child: rive.Rive(
+                                            artboard: _riveArtboard,
+                                          )),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () => gameHandler(),
+                                      // GameCard
+                                      child: Container(
+                                        width: displayWidth * 0.8,
+                                        height: displayHeight * 0.5,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: displayWidth * 0.05,
+                                          vertical: displayWidth * 0.05,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(22),
+                                          color: AppColors.gameCard,
+                                        ),
+                                        child: FadeTransition(
+                                          opacity: _controllerText,
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                                children: [
+                                                  AutoSizeText(
+                                                    isQuestion ? "Frage" : "Antwort",
+                                                    style: const TextStyle(
+                                                      color:
+                                                      AppColors.schriftFarbe_dunkel,
+                                                      fontFamily: "Quicksand",
+                                                      fontSize: 39,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              Expanded(
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  child: AutoSizeText(
+                                                    text,
+                                                    key: ValueKey<String>(text),
+                                                    style: const TextStyle(
+                                                      color:
+                                                      AppColors.schriftFarbe_dunkel,
+                                                      fontFamily: "Quicksand",
+                                                      fontSize: 21,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: displayHeight * 0.11,),
+                          Container(
+                            alignment: Alignment.bottomCenter,
+                            margin: EdgeInsets.only(
+                                top: 0,
+                                bottom: 20,
+                                left: displayWidth * 0.1,
+                                right: displayWidth * 0.1),
+                            child: customTextfield,
+                          ),
+                        ],
                       ),
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        margin: EdgeInsets.only(
-                            top: 0,
-                            bottom: 20,
-                            left: displayWidth * 0.1,
-                            right: displayWidth * 0.1),
-                        child: customTextfield,
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-            ),
+            ],
           ),
         ),
       ),
     );
   }
+
+  /*
+        ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: SingleChildScrollView(
+   */
 
   int numberQuestions = 1;
 
@@ -363,5 +368,4 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       return false;
     });
   }
-
 }

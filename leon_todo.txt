@@ -1,1 +1,2 @@
 - Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
+- textfield in game cursor
