@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 import '../models/app_colors.dart';
+import '../models/background_icons.dart';
 
 class GameEndScreen extends StatefulWidget {
   GameEndScreen({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _GameEndScreenState extends State<GameEndScreen> with TickerProviderStateM
           child: Stack(
             alignment: Alignment.center,
             children: [
-              ...getImages(context),
+              ...BackgroundIcons.getImages(context),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -155,98 +155,5 @@ class _GameEndScreenState extends State<GameEndScreen> with TickerProviderStateM
   }
 
   String textGameEnd = "Zählt von 3 runter und zeigt alle gleichzeitig auf die Person die am schlechtesten gespielt hat.\n\nDiese Person ... (Auflösung folgt)";
-
-  List<Widget> getImages(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-    double iconHeight = displayWidth * 0.182;
-    Color iconColor = Color(0xB000000);
-    return [
-      Positioned(
-        top: displayHeight * 0.05,
-        left: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.09,
-        left: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.28,
-        left: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.32,
-        left: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-
-      // ----------------
-
-      Positioned(
-        bottom: displayHeight * 0.05,
-        right: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.09,
-        right: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.28,
-        right: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.32,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.02,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-    ];
-  }
 
 }

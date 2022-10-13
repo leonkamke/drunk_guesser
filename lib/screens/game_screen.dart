@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
+import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
@@ -149,7 +150,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               )),
               child: Stack(
                 children: [
-                  ...getImages(context),
+                  ...BackgroundIcons.getImages(context),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -339,10 +340,12 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             context.read<TextFieldProvider>().setEnabled(true);
             customTextfield.controller.text = "";
             isQuestion = true;
-            _controller?.init(rive.RuntimeArtboard());
           }
         },
       );
+      if (isQuestion) {
+        _controller?.init(rive.RuntimeArtboard());
+      }
     }
   }
 
@@ -361,96 +364,4 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     });
   }
 
-  List<Widget> getImages(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-    double iconHeight = displayWidth * 0.182;
-    Color iconColor = Color(0xB000000);
-    return [
-      Positioned(
-        top: displayHeight * 0.05,
-        left: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.09,
-        left: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.28,
-        left: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.32,
-        left: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-
-      // ----------------
-
-      Positioned(
-        bottom: displayHeight * 0.05,
-        right: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.09,
-        right: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.28,
-        right: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.32,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.02,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-    ];
-  }
 }

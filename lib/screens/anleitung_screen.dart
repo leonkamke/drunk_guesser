@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
+import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:flutter/material.dart';
 
 class RulesScreen extends StatefulWidget {
@@ -23,10 +24,6 @@ class _RulesScreenState extends State<RulesScreen> {
 
   double pageindex = 0.0;
 
-  void _updatePosition(double position) {
-    setState(() => pageindex = position);
-  }
-
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
@@ -38,99 +35,104 @@ class _RulesScreenState extends State<RulesScreen> {
         width: displayWidth,
         height: displayHeight,
         decoration: backgroundDecoration,
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                    topLeft: Radius.circular(0),
-                    topRight: Radius.circular(0)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, 3),
-                      blurRadius: 6)
-                ],
-                color: AppColors.appbarBackground,
-              ),
-              padding: EdgeInsets.fromLTRB(
-                displayWidth * 0.1,
-                displayHeight * 0.05,
-                displayWidth * 0.1,
-                displayHeight * 0.025,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      "Anleitung",
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: AppColors.appBarText,
-                        fontFamily: "Quicksand",
-                        fontWeight: FontWeight.bold,
+            ...BackgroundIcons.getImages(context),
+            Column(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                        topLeft: Radius.circular(0),
+                        topRight: Radius.circular(0)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0, 3),
+                          blurRadius: 6)
+                    ],
+                    color: AppColors.appbarBackground,
+                  ),
+                  padding: EdgeInsets.fromLTRB(
+                    displayWidth * 0.1,
+                    displayHeight * 0.05,
+                    displayWidth * 0.1,
+                    displayHeight * 0.025,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Anleitung",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: AppColors.appBarText,
+                            fontFamily: "Quicksand",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
+                      GestureDetector(
+                        child: const Icon(
+                          Icons.home_rounded,
+                          size: 45,
+                          color: AppColors.appBarText,
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
                   ),
-                  GestureDetector(
-                    child: const Icon(
-                      Icons.home_rounded,
-                      size: 45,
-                      color: AppColors.appBarText,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: CarouselSlider(
-                options: CarouselOptions(
-                    viewportFraction: 1.0,
-                    height: double.infinity,
-                    // autoPlay: false,
-                    onPageChanged: (index, _) {
-                      setState(() {
-                        pageindex = index.toDouble();
-                        print(pageindex);
-                      });
-                    }),
-                items: [
-                  oneSlider("Spielstart", spielStartText),
-                  oneSlider(
-                      "Spielablauf", spielAblaufText_1 + spielAblaufText_2),
-                ],
-              ),
-            ),
-            Container(
-              height: 40,
-              width: displayWidth,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, -3),
-                      blurRadius: 6)
-                ],
-                color: AppColors.appbarBackground,
-              ),
-              child: DotsIndicator(
-                dotsCount: 2,
-                position: pageindex,
-                decorator: const DotsDecorator(
-                  activeSize: Size(12, 12),
-                  size: Size(8, 8),
-                  color: AppColors.dotColor_Inactive, // Inactive color
-                  activeColor: AppColors.dotColor_Active,
                 ),
-              ),
+                Expanded(
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                        viewportFraction: 1.0,
+                        height: double.infinity,
+                        // autoPlay: false,
+                        onPageChanged: (index, _) {
+                          setState(() {
+                            pageindex = index.toDouble();
+                            print(pageindex);
+                          });
+                        }),
+                    items: [
+                      oneSlider("Spielstart", spielStartText),
+                      oneSlider(
+                          "Spielablauf", spielAblaufText_1 + spielAblaufText_2),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 40,
+                  width: displayWidth,
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0, -3),
+                          blurRadius: 6)
+                    ],
+                    color: AppColors.appbarBackground,
+                  ),
+                  child: DotsIndicator(
+                    dotsCount: 2,
+                    position: pageindex,
+                    decorator: const DotsDecorator(
+                      activeSize: Size(12, 12),
+                      size: Size(8, 8),
+                      color: AppColors.dotColor_Inactive, // Inactive color
+                      activeColor: AppColors.dotColor_Active,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
