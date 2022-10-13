@@ -32,14 +32,16 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   late AnimationController _controllerText;
 
   // For drunkguesser animation above the card
-  rive.Artboard? _riveArtboard;
+  late rive.Artboard _riveArtboard;
   rive.StateMachineController? _controller;
+  rive.SMITrigger? trigger;
 
   @override
   void initState() {
     super.initState();
 
-    rootBundle.load('assets/drunkguesser_game_1.1.riv').then(
+    /*
+    rootBundle.load('assets/animations/drunkguesser_game_1.3.riv').then(
       (data) async {
         // Load the RiveFile from the binary data.
         final file = rive.RiveFile.import(data);
@@ -52,10 +54,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         if (controller != null) {
           artboard.addController(controller);
         }
-        setState(() => _riveArtboard = artboard);
+        _riveArtboard = artboard;
       },
-
-    );
+    );*/
 
     _controllerCard = AnimationController(
       duration: const Duration(milliseconds: 810),
@@ -124,6 +125,12 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
+    Map arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    _riveArtboard = arguments["artboard"] as rive.Artboard;
+    _controller = arguments["controller"] as rive.StateMachineController;
+    _controller?.isActive = true;
+    trigger = arguments["trigger"] as rive.SMITrigger;
     return WillPopScope(
       onWillPop: () => _showAlertDialog(context),
       child: Scaffold(
@@ -195,22 +202,24 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           child: SlideTransition(
                             position: _animationCard,
                             child: Container(
-                              color: Colors.black45,
+                              // color: Colors.black45,
                               height: displayHeight * 0.6,
                               child: Stack(
                                 alignment: Alignment.bottomCenter,
                                 children: [
                                   Positioned(
-                                    top: 0,
+                                    top: -displayHeight * 0.12,
                                     left: displayWidth * 0.1,
                                     child: Container(
-                                      width: displayHeight * 0.35,
-                                      height: displayHeight * 0.35,
-                                      child: rive.RiveAnimation.asset(
-                                        'assets/animations/drunkguesser_game_1.1.riv',
+                                        width: displayHeight * 0.35,
+                                        height: displayHeight * 0.35,
+                                        /*rive.RiveAnimation.asset(
+                                        'assets/animations/drunkguesser_game_1.3.riv',
                                         fit: BoxFit.contain,
-                                      ),
-                                    ),
+                                      )*/
+                                        child: rive.Rive(
+                                          artboard: _riveArtboard,
+                                        )),
                                   ),
                                   GestureDetector(
                                     onTap: () => gameHandler(),
@@ -232,8 +241,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                                 offset: Offset(3, 6),
                                                 blurRadius: 6)
                                           ],
-                                          color: Colors
-                                              .transparent // AppColors.gameCard,
+                                          color: AppColors.gameCard,
                                           ),
                                       child: FadeTransition(
                                         opacity: _controllerText,
@@ -308,8 +316,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   int numberQuestions = 1;
 
   Future<void> gameHandler() async {
+
     // Change to GameEndScreen after 18 questions and click on answer
-    if (numberQuestions >= 5 && !isQuestion) {
+    if (numberQuestions >= 10 && !isQuestion) {
       // end of the round
       Navigator.of(context).pushReplacementNamed("/game_end");
     } else {
@@ -344,6 +353,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             context.read<TextFieldProvider>().setEnabled(true);
             customTextfield.controller.text = "";
             isQuestion = true;
+            if (numberQuestions % 3 == 0) {
+              _controller?.init(rive.RuntimeArtboard());
+            }
           }
         },
       );

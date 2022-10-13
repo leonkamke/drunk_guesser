@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../models/category.dart';
@@ -41,6 +43,37 @@ class _GameStartScreenState extends State<GameStartScreen> {
   }
 
   List<Question> questions = [];
+
+  rive.Artboard? _riveArtboard;
+  rive.StateMachineController? _controller;
+  rive.SMITrigger? trigger;
+
+  @override
+  void initState() {
+    super.initState();
+
+    rootBundle.load('assets/animations/drunkguesser_game_1.3.riv').then(
+      (data) async {
+        // Load the RiveFile from the binary data.
+        final file = rive.RiveFile.import(data);
+
+        // The artboard is the root of the animation and gets drawn in the
+        // Rive widget.
+        final artboard = file.mainArtboard;
+        var controller = rive.StateMachineController.fromArtboard(
+            artboard, "State Machine 1");
+        controller?.isActive = false;
+        _controller = controller;
+        print(_controller);
+        if (controller != null) {
+          artboard.addController(controller);
+          trigger = controller.findSMI('Trigger');
+          trigger = controller.inputs.first as rive.SMITrigger;
+        }
+        _riveArtboard = artboard;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +136,13 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   Future<void> startGame(BuildContext context) async {
     Question question = await DrunkGuesserDB.getQuestion(selectedCategories);
-    Navigator.of(context).pushReplacementNamed("/game", arguments: {"selectedCategories": selectedCategories, "question": question});
+    Navigator.of(context).pushReplacementNamed("/game", arguments: {
+      "selectedCategories": selectedCategories,
+      "question": question,
+      "artboard": _riveArtboard,
+      "controller": _controller,
+      "trigger": trigger,
+    });
   }
 
   final String startText =
