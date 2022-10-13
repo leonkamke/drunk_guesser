@@ -209,14 +209,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                 children: [
                                   Positioned(
                                     top: -displayHeight * 0.12,
-                                    left: displayWidth * 0.1,
                                     child: Container(
                                         width: displayHeight * 0.35,
                                         height: displayHeight * 0.35,
-                                        /*rive.RiveAnimation.asset(
-                                        'assets/animations/drunkguesser_game_1.3.riv',
-                                        fit: BoxFit.contain,
-                                      )*/
                                         child: rive.Rive(
                                           artboard: _riveArtboard,
                                         )),
