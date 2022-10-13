@@ -46,7 +46,6 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   rive.Artboard? _riveArtboard;
   rive.StateMachineController? _controller;
-  rive.SMITrigger? trigger;
 
   @override
   void initState() {
@@ -62,13 +61,10 @@ class _GameStartScreenState extends State<GameStartScreen> {
         final artboard = file.mainArtboard;
         var controller = rive.StateMachineController.fromArtboard(
             artboard, "State Machine 1");
-        controller?.isActive = false;
+        controller?.isActive = true;
         _controller = controller;
-        print(_controller);
         if (controller != null) {
           artboard.addController(controller);
-          trigger = controller.findSMI('Trigger');
-          trigger = controller.inputs.first as rive.SMITrigger;
         }
         _riveArtboard = artboard;
       },
@@ -141,7 +137,6 @@ class _GameStartScreenState extends State<GameStartScreen> {
       "question": question,
       "artboard": _riveArtboard,
       "controller": _controller,
-      "trigger": trigger,
     });
   }
 

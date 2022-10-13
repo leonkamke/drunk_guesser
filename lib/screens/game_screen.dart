@@ -130,7 +130,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     _riveArtboard = arguments["artboard"] as rive.Artboard;
     _controller = arguments["controller"] as rive.StateMachineController;
     _controller?.isActive = true;
-    trigger = arguments["trigger"] as rive.SMITrigger;
     return WillPopScope(
       onWillPop: () => _showAlertDialog(context),
       child: Scaffold(
@@ -305,7 +304,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   int numberQuestions = 1;
 
   Future<void> gameHandler() async {
-
     // Change to GameEndScreen after 18 questions and click on answer
     if (numberQuestions >= 10 && !isQuestion) {
       // end of the round
@@ -342,9 +340,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             context.read<TextFieldProvider>().setEnabled(true);
             customTextfield.controller.text = "";
             isQuestion = true;
-            if (numberQuestions % 3 == 0) {
-              _controller?.init(rive.RuntimeArtboard());
-            }
+            _controller?.init(rive.RuntimeArtboard());
           }
         },
       );
