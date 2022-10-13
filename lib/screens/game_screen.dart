@@ -230,12 +230,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(22),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                                color: Colors.black54,
-                                                offset: Offset(3, 6),
-                                                blurRadius: 6)
-                                          ],
                                           color: AppColors.gameCard,
                                           ),
                                       child: FadeTransition(
