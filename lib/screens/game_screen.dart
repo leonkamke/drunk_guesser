@@ -34,7 +34,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   // For drunkguesser animation above the card
   late rive.Artboard _riveArtboard;
   rive.StateMachineController? _controller;
-  rive.SMITrigger? trigger;
 
   @override
   void initState() {
