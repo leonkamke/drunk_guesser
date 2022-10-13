@@ -277,7 +277,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          SizedBox(height: displayHeight * 0.11,),
+                          SizedBox(height: displayHeight * 0.125,),
                           Container(
                             alignment: Alignment.bottomCenter,
                             margin: EdgeInsets.only(
