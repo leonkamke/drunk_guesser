@@ -120,9 +120,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                         height: displayHeight * 0.02,
                       ),
                       GestureDetector(
-                        child: Image.asset(
-                          "assets/icons/mail_icon_dark.png",
-                          height: 30,
+                        child: const Icon(
+                          Icons.mail_outline_rounded,
+                          size: 43,
+                          color: Colors.white,
                         ),
                         onTap: () {
                           sendEmail();
