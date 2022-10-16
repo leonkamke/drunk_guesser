@@ -4,7 +4,6 @@ import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
@@ -167,9 +166,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
+                            Expanded(
+                              child: AutoSizeText(
                                 categoryName,
                                 style: const TextStyle(
                                   fontSize: 30,
@@ -179,16 +177,19 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            GestureDetector(
-                              child: const Icon(
-                                Icons.close_rounded,
-                                size: 36, // --
-                                color: AppColors.appBarText,
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              child: GestureDetector(
+                                child: const Icon(
+                                  Icons.close_rounded,
+                                  size: 36, // --
+                                  color: AppColors.appBarText,
+                                ),
+                                onTap: () {
+                                  // Navigator.of(context).pop();
+                                  _showAlertDialog(context);
+                                },
                               ),
-                              onTap: () {
-                                // Navigator.of(context).pop();
-                                _showAlertDialog(context);
-                              },
                             ),
                           ],
                         ),

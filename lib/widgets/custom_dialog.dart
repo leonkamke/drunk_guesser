@@ -68,7 +68,8 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                         )),
                         child: CupertinoButton(
                           onPressed: () {
-                            Navigator.of(context).popUntil(ModalRoute.withName('/home'));
+                            Navigator.of(context).pop();
+                            Navigator.of(context).pop();
                           },
                           child: const AutoSizeText(
                             "Ja",
