@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:drunk_guesser/models/category_data.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
@@ -16,26 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  /*
 
-  Good colors for background:
-
-      Color(0xFFFF5858),
-      Color(0xFFB64A4A),
-
-      Color(0xFFFF5858),
-      Color(0xFFF87A54),
-
-      Color(0xFF3E5ED9),
-      Color(0xFF6EA6F1),
-
-      wie bier:
-      Color(0xFFEAA84A),
-      Color(0xFFCC700F),
-
-      good light blue: Color(0xFF63A4E1)
-
-   */
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -57,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // the splash screen is displayed.  Remove the following example because
     // delaying the user experience is a bad design practice!
     // ignore_for_file: avoid_print
+    await DrunkGuesserDB.initDatabase();
     for (Category category in Categories.categoryList) {
       category.setPurchased();
     }

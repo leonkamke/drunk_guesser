@@ -15,6 +15,7 @@ class DrunkGuesserDB {
   static late Database db;
 
   static Future<void> initDatabase() async {
+    print("initDatabase()");
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, dbName);
     var localVersion = 2;
@@ -71,16 +72,14 @@ class DrunkGuesserDB {
   Lookup in the local database whether the Category category is purchased
    */
   static Future<bool> categoryPurchased(Category category) async {
-    await initDatabase();
     // var x = await db.rawQuery("SELECT ${category.name} FROM Purchased");
     var output = await db.rawQuery("SELECT ${category.dbName} FROM Purchased");
-    print(output);
     // db.close();
-    bool purchased = false;
-    if (output[0][category.dbName.toString()] == 1) {
-      purchased = true;
+    if (output.first[category.dbName.toString()] == 1) {
+      print("$output is purchased");
+      return true;
     }
-    return purchased;
+    return false;
   }
 
   static void deleteDB() async {
