@@ -4,6 +4,7 @@ import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
@@ -287,7 +288,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                             bottom: 20,
                             left: displayWidth * 0.1,
                             right: displayWidth * 0.1),
-                        child: customTextfield,
+                        child: customTextfield
                       ),
                     ],
                   ),

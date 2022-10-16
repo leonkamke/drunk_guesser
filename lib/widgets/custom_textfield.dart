@@ -40,11 +40,10 @@ class CustomTextField extends StatelessWidget {
             hintText: "Deine Antwort",
           ),
           autofocus: false,
-          cursorHeight: 18,
-          cursorColor: Color(0xFFFFFFFF),
+          cursorColor: Color(0x93FFFFFF),
           showCursor: true,
           cursorRadius: Radius.circular(15),
-          cursorWidth: 1,
+          cursorWidth: 2,
         ),
       ),
     );
