@@ -251,11 +251,7 @@ class _CategoryCardState extends State<CategoryCard> {
           height: displayHeight * 0.105,
           width: displayWidth * 1,
           alignment: Alignment.center,
-          child: /*const Icon(
-            Icons.lock_outline_rounded,
-            size: 40,
-          ),*/
-          Container(
+          child: SizedBox(
             width: displayHeight * 0.07,
             height: displayHeight * 0.07,
             child: Image.asset(
