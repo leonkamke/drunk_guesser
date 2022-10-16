@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class StartButtonProvider with ChangeNotifier {
-  bool _disabled = true;
+  static bool buttonDisabled = true;
 
-  bool get disabled => _disabled;
+  bool get disabled => buttonDisabled;
 
   void setEnabled(bool value) {
-    _disabled = value;
+    buttonDisabled = value;
     notifyListeners();
   }
 

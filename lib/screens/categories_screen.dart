@@ -37,7 +37,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   void initState() {
     super.initState();
     // TODO: implement initState
-    context.read<StartButtonProvider>().setEnabled(true);
+    // context.read<StartButtonProvider>().setEnabled(true);
+    StartButtonProvider.buttonDisabled = true;
     for (Category c in Categories.categoryList) {
       c.setPurchased();
     }

@@ -26,6 +26,12 @@ class CustomTextField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
+          toolbarOptions: const ToolbarOptions(
+            copy: false,
+            cut: false,
+            paste: false,
+            selectAll: false,
+          ),
           controller: controller,
           enabled: context.watch<TextFieldProvider>().enabled,
           textAlign: TextAlign.left,
