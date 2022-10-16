@@ -4,7 +4,6 @@ import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
@@ -364,10 +363,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           description: "Seid ihr sicher, dass ihr das Spiel verlassen wollt?",
         );
       },
-      barrierColor: Color(0xA9000000),
+      barrierColor: const Color(0xA9000000),
     );
     return Future<bool>(() {
       return false;
     });
   }
+
 }

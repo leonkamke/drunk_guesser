@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: const [
               BoxShadow(
-                  color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+                  color: Colors.black54, offset: Offset(3, 6), blurRadius: 6),
             ],
           ),
           child: Column(
@@ -49,14 +48,20 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                     const EdgeInsets.symmetric(vertical: 25, horizontal: 17),
                 child: AutoSizeText(
                   widget.description,
-                  style:
-                      const TextStyle(fontSize: 16, color: Color(0x8C000000)),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Color(0xB3000000),
+                    fontFamily: "Quicksand",
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ),
               Container(
                 decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.black45)),
+                  border: Border(
+                    top: BorderSide(color: Colors.black45, width: 1.3),
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -64,7 +69,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       child: Container(
                         decoration: const BoxDecoration(
                             border: Border(
-                          right: BorderSide(color: Colors.black45),
+                          right: BorderSide(color: Colors.black45, width: 1.3),
                         )),
                         child: CupertinoButton(
                           onPressed: () {
@@ -82,18 +87,16 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                       ),
                     ),
                     Expanded(
-                      child: Container(
-                        child: CupertinoButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const AutoSizeText(
-                            "Nein",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: AppColors.backgroundHomeScreen_1,
-                                fontWeight: FontWeight.bold),
-                          ),
+                      child: CupertinoButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const AutoSizeText(
+                          "Nein",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.backgroundHomeScreen_1,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
