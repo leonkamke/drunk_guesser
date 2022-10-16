@@ -126,18 +126,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        width: displayWidth * 0.53,
-                        height: displayWidth * 0.53,
-                        child: const rive.RiveAnimation.asset(
-                          'assets/animations/drunkguesser2.2.riv',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ],
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(0, displayHeight * 0.03, 0, 0),
+                    alignment: Alignment.center,
+                    width: displayWidth * 0.45,
+                    height: displayWidth * 0.45,
+                    child: const rive.RiveAnimation.asset(
+                      'assets/animations/drunkguesser2.2.riv',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 Expanded(
