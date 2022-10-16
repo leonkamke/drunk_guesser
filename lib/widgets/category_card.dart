@@ -204,9 +204,6 @@ class _CategoryCardState extends State<CategoryCard> {
   }
 
   Widget setImageTransparent() {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-
     return ShaderMask(
       shaderCallback: (rect) {
         return LinearGradient(
@@ -220,7 +217,7 @@ class _CategoryCardState extends State<CategoryCard> {
             // <-- change this opacity
             // Colors.transparent // <-- you might need this if you want full transparency at the edge
           ],
-          stops: [
+          stops: const [
             0.0,
             0.5,
             0.55,
@@ -247,15 +244,24 @@ class _CategoryCardState extends State<CategoryCard> {
       return GestureDetector(
         onTap: () => selectLock(context),
         child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.07),
+          // padding: EdgeInsets.symmetric(
+             // vertical: 20, horizontal: displayWidth * 0.07),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.03),
           height: displayHeight * 0.105,
           width: displayWidth * 1,
-          child: const Icon(
+          alignment: Alignment.center,
+          child: /*const Icon(
             Icons.lock_outline_rounded,
             size: 40,
+          ),*/
+          Container(
+            width: displayHeight * 0.07,
+            height: displayHeight * 0.07,
+            child: Image.asset(
+              "assets/icons/lock_icon.png",
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       );
@@ -272,7 +278,7 @@ class _CategoryCardState extends State<CategoryCard> {
     bool value = true;
     for (Category c in Categories.categoryList) {
       if (c.selected) {
-        value =  false;
+        value = false;
       }
     }
     context.read<StartButtonProvider>().setEnabled(value);

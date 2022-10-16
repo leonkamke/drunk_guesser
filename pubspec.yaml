@@ -76,15 +76,6 @@ flutter:
     - assets/animations/drunkguesser2.1.riv
     - assets/animations/drunkguesser2.2.riv
     - assets/animations/blasen.riv
-    - assets/icons/rules_icon.png
-    - assets/icons/credits_icon.png
-    - assets/images/drunk_guesser_img.png
-    - assets/icons/mail_icon.png
-    - assets/icons/home_icon.png
-    - assets/icons/mail_icon_dark.png
-    - assets/icons/home_icon_dark.png
-    - assets/icons/rules_icon_dark.png
-    - assets/icons/credits_icon_dark.png
     - assets/categories_icons/random_icon.png
     - assets/categories_icons/google_icon.png
     - assets/categories_icons/nature_icon.png
@@ -101,6 +92,8 @@ flutter:
     - database/drunk_guesser_db.db
     - assets/splash_screen/drunk_guesser_splash.png
     - assets/animations/drunkguesser_game_1.3.riv
+    - assets/icons/lock_icon.png
+    - assets/images/drunk_guesser_img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
