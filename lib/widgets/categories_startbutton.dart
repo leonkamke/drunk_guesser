@@ -20,7 +20,7 @@ class StartButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           backgroundColor: AppColors.schriftFarbe_hell,
-          disabledBackgroundColor: Color(0x47000000),
+          disabledBackgroundColor: const Color(0x47000000),
           //shadowColor: Colors.black,
           // elevation: 7
       ),

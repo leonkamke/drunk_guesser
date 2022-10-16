@@ -49,7 +49,19 @@ class MyApp extends StatelessWidget {
           );
         },
         onGenerateRoute: (settings) {
-          if (settings.name == "/credits") {
+          if (settings.name == "/home") {
+            return PageRouteBuilder(
+                settings: settings,
+                // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    HomeScreen(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+                transitionDuration: const Duration(milliseconds: 55),
+                reverseTransitionDuration: const Duration(milliseconds: 55));
+          } else if (settings.name == "/credits") {
             return PageRouteBuilder(
                 settings: settings,
                 // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
