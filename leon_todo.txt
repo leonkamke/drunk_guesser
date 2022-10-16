@@ -1,2 +1,2 @@
 - Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
-- textfield in game cursor
+- Überschrift in game ohne Zeilenumbruch bei schmalen Handys
