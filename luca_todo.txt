@@ -1,4 +1,3 @@
-- anderes Schloss
 - geschichts icon ändern
 - Icon für Mensch-Kategorie
 - Shop Bundles icons erstellen
