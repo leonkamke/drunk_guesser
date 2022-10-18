@@ -137,89 +137,88 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         body: ScrollConfiguration(
           behavior: MyBehavior(),
           child: SingleChildScrollView(
-            child: Container(
-              width: displayWidth,
-              height: displayHeight,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: colors,
+            child: GestureDetector(
+              onTap: () => gameHandler(),
+              child: Container(
+                width: displayWidth,
+                height: displayHeight,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: colors,
+                  ),
                 ),
-              ),
-              child: Stack(
-                children: [
-                  ...BackgroundIcons.getImages(context),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        color: Colors.transparent,
-                        padding: EdgeInsets.fromLTRB(
-                          displayWidth * 0.1,
-                          displayHeight * 0.05, // ---
-                          displayWidth * 0.1,
-                          displayHeight * 0.01, // ---
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: AutoSizeText(
-                                categoryName,
-                                style: const TextStyle(
-                                  fontSize: 30,
-                                  color: AppColors.appBarText,
-                                  fontFamily: "Quicksand",
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: GestureDetector(
-                                child: const Icon(
-                                  Icons.close_rounded,
-                                  size: 36, // --
-                                  color: AppColors.appBarText,
-                                ),
-                                onTap: () {
-                                  // Navigator.of(context).pop();
-                                  _showAlertDialog(context);
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
+                child: Stack(
+                  children: [
+                    ...BackgroundIcons.getImages(context),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          color: Colors.transparent,
                           padding: EdgeInsets.fromLTRB(
-                              0, 0, 0, displayHeight * 0.045),
-                          //color: Colors.black38,
-                          alignment: Alignment.center,
-                          child: SlideTransition(
-                            position: _animationCard,
-                            child: Container(
-                              // color: Colors.black45,
-                              height: displayHeight * 0.6,
-                              child: Stack(
-                                alignment: Alignment.bottomCenter,
-                                children: [
-                                  Positioned(
-                                    top: -displayHeight * 0.12,
-                                    child: Container(
-                                        width: displayHeight * 0.35,
-                                        height: displayHeight * 0.35,
-                                        child: rive.Rive(
-                                          artboard: _riveArtboard,
-                                        )),
+                            displayWidth * 0.1,
+                            displayHeight * 0.05, // ---
+                            displayWidth * 0.1,
+                            displayHeight * 0.01, // ---
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                child: AutoSizeText(
+                                  categoryName,
+                                  style: const TextStyle(
+                                    fontSize: 30,
+                                    color: AppColors.appBarText,
+                                    fontFamily: "Quicksand",
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  GestureDetector(
-                                    onTap: () => gameHandler(),
-                                    // GameCard
-                                    child: Container(
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: GestureDetector(
+                                  child: const Icon(
+                                    Icons.close_rounded,
+                                    size: 36, // --
+                                    color: AppColors.appBarText,
+                                  ),
+                                  onTap: () {
+                                    // Navigator.of(context).pop();
+                                    _showAlertDialog(context);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(
+                                0, 0, 0, displayHeight * 0.045),
+                            //color: Colors.black38,
+                            alignment: Alignment.center,
+                            child: SlideTransition(
+                              position: _animationCard,
+                              child: Container(
+                                // color: Colors.black45,
+                                height: displayHeight * 0.6,
+                                child: Stack(
+                                  alignment: Alignment.bottomCenter,
+                                  children: [
+                                    Positioned(
+                                      top: -displayHeight * 0.12,
+                                      child: Container(
+                                          width: displayHeight * 0.35,
+                                          height: displayHeight * 0.35,
+                                          child: rive.Rive(
+                                            artboard: _riveArtboard,
+                                          )),
+                                    ),
+                                    Container(
                                       width: displayWidth * 0.8,
                                       height: displayHeight * 0.5,
                                       alignment: Alignment.center,
@@ -274,25 +273,25 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        margin: EdgeInsets.only(
-                            top: 0,
-                            bottom: 20,
-                            left: displayWidth * 0.1,
-                            right: displayWidth * 0.1),
-                        child: customTextfield
-                      ),
-                    ],
-                  ),
-                ],
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          margin: EdgeInsets.only(
+                              top: 0,
+                              bottom: 20,
+                              left: displayWidth * 0.1,
+                              right: displayWidth * 0.1),
+                          child: customTextfield
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
