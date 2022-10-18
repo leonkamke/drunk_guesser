@@ -2,6 +2,8 @@ import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:rive/rive.dart' as rive;
+
 
 class CreditsScreen extends StatefulWidget {
   CreditsScreen({Key? key}) : super(key: key);
@@ -94,10 +96,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       Container(
                         margin:
                             EdgeInsets.fromLTRB(0, displayHeight * 0.04, 0, 0),
-                        width: 100,
-                        height: 100,
-                        child: Image.asset(
-                          "assets/images/drunk_guesser_img.png",
+                        width: 120,
+                        height: 120,
+                        child: const rive.RiveAnimation.asset(
+                          'assets/animations/drunkguesser2.2.riv',
                           fit: BoxFit.contain,
                         ),
                       ),

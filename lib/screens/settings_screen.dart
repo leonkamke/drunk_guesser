@@ -1,5 +1,6 @@
 import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../database/drunk_guesser_db.dart';
@@ -120,8 +121,8 @@ class SettingsScreen extends StatelessWidget {
                 Container(
                   width: 150,
                   height: 150,
-                  child: Image.asset(
-                    "assets/images/drunk_guesser_img.png",
+                  child: const rive.RiveAnimation.asset(
+                    'assets/animations/drunkguesser2.2.riv',
                     fit: BoxFit.contain,
                   ),
                 ),
