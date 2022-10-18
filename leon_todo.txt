@@ -1,4 +1,2 @@
 - Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
 - Überschrift in game ohne Zeilenumbruch bei schmalen Handys
-- DrunkGuesser Animation in credits und in settings
-- DrunkGuesser in GamestartScreen und GameendScreen

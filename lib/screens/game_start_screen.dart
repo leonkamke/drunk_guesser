@@ -8,6 +8,7 @@ import '../models/app_colors.dart';
 import '../models/background_icons.dart';
 import '../models/category.dart';
 import '../models/question.dart';
+import '../widgets/custom_textfield.dart';
 
 class GameStartScreen extends StatefulWidget {
   GameStartScreen({Key? key}) : super(key: key);
@@ -72,6 +73,11 @@ class _GameStartScreenState extends State<GameStartScreen> {
     );
   }
 
+  CustomTextField customTextfield = CustomTextField(
+    baseColor: Colors.transparent,
+    borderColor: Colors.transparent,
+  );
+
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
@@ -84,43 +90,108 @@ class _GameStartScreenState extends State<GameStartScreen> {
           width: displayWidth,
           height: displayHeight,
           decoration: backgroundDecoration,
-          // alignment: Alignment.center,
           child: Stack(
-            alignment: Alignment.center,
             children: [
               ...BackgroundIcons.getImages(context),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: displayWidth * 0.05,
-                      vertical: displayWidth * 0.05,
+                    color: Colors.transparent,
+                    padding: EdgeInsets.fromLTRB(
+                      displayWidth * 0.1,
+                      displayHeight * 0.05, // ---
+                      displayWidth * 0.1,
+                      displayHeight * 0.01, // ---
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(22),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black54,
-                            offset: Offset(3, 6),
-                            blurRadius: 6)
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Expanded(
+                          child: Text(
+                            "a",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.transparent,
+                              fontFamily: "Quicksand",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          child: const Icon(
+                            Icons.close_rounded,
+                            size: 36, // --
+                            color: Colors.transparent,
+                          ),
+                        ),
                       ],
-                      color: AppColors.gameCard,
                     ),
-                    width: displayWidth * 0.8,
-                    height: displayHeight * 0.5,
-                    child: AutoSizeText(
-                      startText,
-                      style: const TextStyle(
-                        color: AppColors.schriftFarbe_dunkel,
-                        fontFamily: "Quicksand",
-                        fontSize: 21,
-                        fontWeight: FontWeight.bold,
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding:
+                          EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
+                      //color: Colors.black38,
+                      alignment: Alignment.center,
+                      child: Container(
+                        // color: Colors.black45,
+                        height: displayHeight * 0.6,
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            Positioned(
+                              top: 0,
+                              child: Container(
+                                width: displayHeight * 0.18,
+                                height: displayHeight * 0.18,
+                                child: const rive.RiveAnimation.asset(
+                                  'assets/animations/drunkguesser2.2.riv',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: displayWidth * 0.8,
+                              height: displayHeight * 0.5,
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: displayWidth * 0.05,
+                                vertical: displayWidth * 0.05,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(22),
+                                color: AppColors.gameCard,
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: AutoSizeText(
+                                        startText,
+                                        style: const TextStyle(
+                                          color: AppColors.schriftFarbe_dunkel,
+                                          fontFamily: "Quicksand",
+                                          fontSize: 21,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      textAlign: TextAlign.center,
                     ),
+                  ),
+                  SizedBox(
+                    height: displayHeight * 0.088,
                   ),
                 ],
               ),
@@ -143,5 +214,4 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   final String startText =
       "Holt eure Notitzen auf dem Handy raus und es kann losgehen!\n\nWer am schlechtesten schätzt trinkt!\n\nViel Spaß!";
-
 }
