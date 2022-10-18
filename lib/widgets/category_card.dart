@@ -252,8 +252,8 @@ class _CategoryCardState extends State<CategoryCard> {
           width: displayWidth * 1,
           alignment: Alignment.center,
           child: SizedBox(
-            width: displayHeight * 0.057,
-            height: displayHeight * 0.057,
+            width: displayHeight * 0.045,
+            height: displayHeight * 0.045,
             child: Image.asset(
               "assets/icons/lock_icon.png",
               fit: BoxFit.contain,
