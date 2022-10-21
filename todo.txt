@@ -5,3 +5,4 @@
 - RevenueCat for inapp purchases
 
 - App Update approach
+- natur -> natur und tierwelt
