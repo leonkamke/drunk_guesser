@@ -76,11 +76,11 @@ class _RoundedButtonState extends State<RoundedButton> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
-          foregroundColor: const Color(0xFF94BfFF),
+          foregroundColor: widget.firstColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: widget.firstColor,
           shadowColor: Colors.transparent,
           fixedSize: /* !_isPressed
               ? Size(displayWidth * 0.48, 48)

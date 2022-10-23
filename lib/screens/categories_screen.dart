@@ -2,6 +2,7 @@ import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
+import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -146,6 +147,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       itemCount: categories.length),
                 ),
                 Container(
+                  alignment: Alignment.center,
                   decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -157,10 +159,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   ),
                   width: displayWidth,
                   height: displayHeight * 0.09,
-                  child: Center(
-                    child: StartButton(
-                      onTap: () => startGame(context),
-                    ),
+                  child: StartButton(
+                    onTap: () => startGame(context),
+                    textColor: Colors.white,
+                    borderRadius: 10,
+                    buttonText: "Start",
+                    firstColor: AppColors.schriftFarbe_hell,
+                    secondColor: AppColors.schriftFarbe_hell,
                   ),
                 ),
               ],
