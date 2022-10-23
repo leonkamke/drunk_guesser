@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
 
-class RoundedButton extends StatelessWidget {
+class RoundedButton extends StatefulWidget {
   final String buttonText;
   final Color firstColor;
   final Color secondColor;
@@ -29,38 +29,74 @@ class RoundedButton extends StatelessWidget {
   });
 
   @override
+  State<RoundedButton> createState() => _RoundedButtonState();
+}
+
+class _RoundedButtonState extends State<RoundedButton> {
+  bool _isPressed = false;
+  Duration animationDuration = const Duration(milliseconds: 105);
+
+  void buttonPressed() async {
+    setState(() {
+      _isPressed = !_isPressed;
+    });
+    await Future.delayed(Duration(milliseconds: animationDuration.inMilliseconds * 2 - 20)).then((value) => widget.onTap());
+  }
+
+  void onEnd() {
+    setState(() {
+      _isPressed = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
+    // final displayHeight = MediaQuery.of(context).size.height;
 
-    return Container(
+    return AnimatedContainer(
+      curve: Curves.ease,
+      duration: animationDuration,
+      onEnd: onEnd,
       decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
-        ],
-        color: firstColor,
-        borderRadius: BorderRadius.circular(borderRadius),
+        boxShadow: !_isPressed
+            ? [
+                const BoxShadow(
+                    color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+              ]
+            : [
+                const BoxShadow(
+                    color: Colors.black54,
+                    offset: Offset(0.7, 2.1),
+                    blurRadius: 1.2)
+              ],
+        color: widget.firstColor,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
           foregroundColor: const Color(0xFF94BfFF),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          fixedSize: Size(displayWidth * 0.48, 48),
+          fixedSize: /* !_isPressed
+              ? Size(displayWidth * 0.48, 48)
+              : Size(displayWidth * 0.46, 46)*/Size(displayWidth * 0.48, 48),
         ),
-        onPressed: onTap,
+        onPressed: () {
+          buttonPressed();
+        },
         child: FittedBox(
           child: Text(
-            buttonText,
+            widget.buttonText,
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
-              color: textColor,
+              color: widget.textColor,
             ),
           ),
         ),

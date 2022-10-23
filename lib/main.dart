@@ -11,7 +11,6 @@ import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:drunk_guesser/screens/shop_bundles_screen.dart';
 import 'package:drunk_guesser/screens/shop_categories_screen.dart';
 import 'package:drunk_guesser/screens/shop_main_screen.dart';
-import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -57,10 +56,10 @@ class MyApp extends StatelessWidget {
                     HomeScreen(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  return FadeTransition(opacity: animation, child: child);
+                  return FadeTransition(opacity: animation, child: child,);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/credits") {
             return PageRouteBuilder(
                 settings: settings,
@@ -71,8 +70,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/rules") {
             return PageRouteBuilder(
                 settings: settings,
@@ -83,8 +82,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/categories") {
             return PageRouteBuilder(
                 settings: settings,
@@ -95,8 +94,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/settings") {
             return PageRouteBuilder(
                 settings: settings,
@@ -107,8 +106,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/shop_main") {
             return PageRouteBuilder(
                 settings: settings,
@@ -139,8 +138,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/shop_bundles") {
             return PageRouteBuilder(
                 settings: settings,
@@ -151,8 +150,8 @@ class MyApp extends StatelessWidget {
                     (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
-                transitionDuration: const Duration(milliseconds: 55),
-                reverseTransitionDuration: const Duration(milliseconds: 55));
+                transitionDuration: const Duration(milliseconds: 25),
+                reverseTransitionDuration: const Duration(milliseconds: 25));
           } else if (settings.name == "/game_start") {
             return PageRouteBuilder(
                 settings: settings,

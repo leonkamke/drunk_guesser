@@ -5,3 +5,5 @@
 - RevenueCat for inapp purchases
 
 - App Update approach
+- Implement google admob (good example on pub.dev page) with package "google_mobile_ads 2.1.0"
+-
