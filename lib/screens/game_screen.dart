@@ -138,7 +138,15 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           behavior: MyBehavior(),
           child: SingleChildScrollView(
             child: GestureDetector(
-              onTap: () => gameHandler(),
+              onHorizontalDragEnd: (details) {
+                // Note: Sensitivity is integer used when you don't want to mess up vertical drag
+                double? velocity = details.primaryVelocity?.toDouble();
+                if (velocity! < 10.0) {
+                  // Right Swipe
+                  gameHandler();
+                }
+              },
+              // onTap: () => gameHandler(),
               child: Container(
                 width: displayWidth,
                 height: displayHeight,
@@ -280,14 +288,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           ),
                         ),
                         Container(
-                          alignment: Alignment.bottomCenter,
-                          margin: EdgeInsets.only(
-                              top: 0,
-                              bottom: 20,
-                              left: displayWidth * 0.1,
-                              right: displayWidth * 0.1),
-                          child: customTextfield
-                        ),
+                            alignment: Alignment.bottomCenter,
+                            margin: EdgeInsets.only(
+                                top: 0,
+                                bottom: 20,
+                                left: displayWidth * 0.1,
+                                right: displayWidth * 0.1),
+                            child: customTextfield),
                       ],
                     ),
                   ],
@@ -368,5 +375,4 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       return false;
     });
   }
-
 }

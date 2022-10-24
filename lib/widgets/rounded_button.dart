@@ -35,7 +35,7 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton> {
   bool _isPressed = false;
-  Duration animationDuration = const Duration(milliseconds: 90);
+  Duration animationDuration = const Duration(milliseconds: 73);
 
   void buttonPressed() async {
     setState(() {
