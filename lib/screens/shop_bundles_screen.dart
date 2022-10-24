@@ -113,3 +113,20 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
     );
   }
 }
+
+/*
+
+Bundle 1
+    Technik, Geographie, Weltall, Google, Sport
+Bundle 2
+    Unnuetzes Wissen, Natur und Tierwelt, 18+, Musik
+Bundle 3
+    Medien und Unterhaltung, Preise, Mensch, Geschichte
+Bundle 4
+    Technik, Unnuetzes Wissen, Preise, Mensch, Sport
+Bundle 5
+    Medien und Unterhaltung, Geographie, 18+, Google
+Bundle 6
+    Natur und Tierwelt, Musik, Weltall, Geschichte
+
+ */
