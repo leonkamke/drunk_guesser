@@ -6,4 +6,4 @@
 
 - App Update approach
 - Implement google admob (good example on pub.dev page) with package "google_mobile_ads 2.1.0"
--
+- Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
