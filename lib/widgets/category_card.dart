@@ -121,80 +121,67 @@ class _CategoryCardState extends State<CategoryCard> {
         children: [
           GestureDetector(
             onTap: () => selectLock(context),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                      vertical: 3, horizontal: displayWidth * 0.045),
-                  margin: EdgeInsets.symmetric(
-                      vertical: 3, horizontal: displayWidth * 0.03),
-                  color: Colors.transparent,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 70,
-                        padding: const EdgeInsets.all(7),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.iconBackground,
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black54,
-                                offset: Offset(0, 3),
-                                blurRadius: 6)
-                          ],
-                        ),
-                        child: setImageTransparent(),
-                      ),
-                      SizedBox(
-                        width: displayWidth * 0.05,
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              widget.category.name,
-                              style: const TextStyle(
-                                color: AppColors.schriftFarbeCardsTransparent,
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Quicksand",
-                              ),
-                            ),
-                            AutoSizeText(
-                              maxLines: 3,
-                              widget.category.description,
-                              style: const TextStyle(
-                                color: AppColors.schriftFarbeCardsTransparent,
-                                fontSize: 11,
-                                // fontWeight: FontWeight.bold,
-                                fontFamily: "Quicksand",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: displayWidth * 0.05,
-                      ),
-                    ],
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  vertical: 3, horizontal: displayWidth * 0.045),
+              margin: EdgeInsets.symmetric(
+                  vertical: 3, horizontal: displayWidth * 0.03),
+              color: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 70,
+                    height: 70,
+                    padding: const EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColors.iconBackground,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(0, 3),
+                            blurRadius: 6)
+                      ],
+                    ),
+                    child: setImageTransparent(),
                   ),
-                ),
-                /*
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xd2292f38),
-                ),
-                height: 2,
-                width: displayWidth * 0.9,
-              ),*/
-              ],
+                  SizedBox(
+                    width: displayWidth * 0.05,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.category.name,
+                          style: const TextStyle(
+                            color: AppColors.schriftFarbeCardsTransparent,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Quicksand",
+                          ),
+                        ),
+                        AutoSizeText(
+                          maxLines: 3,
+                          widget.category.description,
+                          style: const TextStyle(
+                            color: AppColors.schriftFarbeCardsTransparent,
+                            fontSize: 11,
+                            // fontWeight: FontWeight.bold,
+                            fontFamily: "Quicksand",
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: displayWidth * 0.05,
+                  ),
+                ],
+              ),
             ),
           ),
           getLockContainer(),
@@ -245,12 +232,12 @@ class _CategoryCardState extends State<CategoryCard> {
         onTap: () => selectLock(context),
         child: Container(
           // padding: EdgeInsets.symmetric(
-             // vertical: 20, horizontal: displayWidth * 0.07),
+          // vertical: 20, horizontal: displayWidth * 0.07),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.053),
-          height: displayHeight * 0.105,
+          height: displayHeight * 0.07,
           width: displayWidth * 1,
-          alignment: Alignment.centerRight,
+          alignment: Alignment.bottomRight,
           child: SizedBox(
             width: displayHeight * 0.047,
             height: displayHeight * 0.047,
