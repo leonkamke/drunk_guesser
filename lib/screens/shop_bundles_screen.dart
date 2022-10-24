@@ -97,7 +97,7 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
                         bundle: bundles[index]);
                   },
                   separatorBuilder: (context, index) {
-                    return Divider(
+                    return const Divider(
                       color: Colors.transparent,
                       thickness: 0,
                       height: 23,

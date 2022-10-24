@@ -247,10 +247,10 @@ class _CategoryCardState extends State<CategoryCard> {
           // padding: EdgeInsets.symmetric(
              // vertical: 20, horizontal: displayWidth * 0.07),
           margin: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.03),
+              vertical: 3, horizontal: displayWidth * 0.053),
           height: displayHeight * 0.105,
           width: displayWidth * 1,
-          alignment: Alignment.center,
+          alignment: Alignment.centerRight,
           child: SizedBox(
             width: displayHeight * 0.047,
             height: displayHeight * 0.047,
