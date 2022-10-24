@@ -64,7 +64,12 @@ class _RoundedButtonState extends State<RoundedButton> {
         buttonPressed(),
         print(x.globalPosition.toString())
       },
-
+      onHorizontalDragEnd: (x) => {
+        onEnd()
+      },
+      onVerticalDragEnd: (x) => {
+        onEnd()
+      },
       onTapUp: (x) => {onEnd()},
       child: AnimatedContainer(
         curve: Curves.ease,
