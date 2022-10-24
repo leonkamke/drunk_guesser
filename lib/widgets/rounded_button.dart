@@ -1,5 +1,3 @@
-import 'package:drunk_guesser/models/app_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatefulWidget {
@@ -42,15 +40,17 @@ class _RoundedButtonState extends State<RoundedButton> {
     setState(() {
       _isPressed = !_isPressed;
     });
-    await Future.delayed(
-            Duration(milliseconds: animationDuration.inMilliseconds * 2))
-        .then((value) => widget.onTap());
   }
 
-  void onEnd() {
+  Future<void> onEnd() async {
     setState(() {
       _isPressed = false;
     });
+    await Future.delayed(animationDuration).then(
+      (value) {
+        widget.onTap();
+      },
+    );
   }
 
   @override
@@ -61,17 +61,21 @@ class _RoundedButtonState extends State<RoundedButton> {
     return GestureDetector(
       // onTap: buttonPressed,
       onTapDown: (x) => {
-        buttonPressed()
+        buttonPressed(),
+        print(x.globalPosition.toString())
       },
+
+      onTapUp: (x) => {onEnd()},
       child: AnimatedContainer(
         curve: Curves.ease,
         duration: animationDuration,
-        onEnd: onEnd,
         decoration: BoxDecoration(
           boxShadow: !_isPressed
               ? [
                   const BoxShadow(
-                      color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+                      color: Colors.black54,
+                      offset: Offset(3, 6),
+                      blurRadius: 6)
                 ]
               : [
                   const BoxShadow(
@@ -94,7 +98,8 @@ class _RoundedButtonState extends State<RoundedButton> {
             shadowColor: Colors.transparent,
             fixedSize: /* !_isPressed
                 ? Size(displayWidth * 0.48, 48)
-                : Size(displayWidth * 0.46, 46)*/Size(displayWidth * 0.48, 48),
+                : Size(displayWidth * 0.46, 46)*/
+                Size(displayWidth * 0.48, 48),
           ),
           onPressed: null,
           child: FittedBox(
@@ -109,24 +114,6 @@ class _RoundedButtonState extends State<RoundedButton> {
             ),
           ),
         ),
-        /*
-            CupertinoButton(
-          onPressed: () {
-            buttonPressed();
-          },
-              pressedOpacity: 1,
-          child: FittedBox(
-            child: Text(
-              widget.buttonText,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Quicksand",
-                color: widget.textColor,
-              ),
-            ),
-          ),
-        ),*/
       ),
     );
   }
