@@ -26,7 +26,6 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
     if (widget.category.purchased) {
       return GestureDetector(
         onTap: selectCategoryCard,
