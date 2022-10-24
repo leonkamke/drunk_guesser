@@ -32,7 +32,7 @@ class _CategoryCardState extends State<CategoryCard> {
         onTap: selectCategoryCard,
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.03),
+              vertical: 3, horizontal: displayWidth * 0.045),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.03),
           color: Colors.transparent,
