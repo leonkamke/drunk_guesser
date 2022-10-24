@@ -139,7 +139,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         return Divider(
                           color: AppColors.categoryDivider,
                           thickness: 1.5,
-                          height: 23,
+                          height: displayHeight*0.04,
                           indent: displayWidth * 0.05,
                           endIndent: displayWidth * 0.05,
                         );
