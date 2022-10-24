@@ -138,7 +138,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           behavior: MyBehavior(),
           child: SingleChildScrollView(
             child: GestureDetector(
-
               /*onHorizontalDragEnd: (details) {
                 // Note: Sensitivity is integer used when you don't want to mess up vertical drag
                 double? velocity = details.primaryVelocity?.toDouble();
@@ -289,13 +288,14 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           ),
                         ),
                         Container(
-                            alignment: Alignment.bottomCenter,
-                            margin: EdgeInsets.only(
-                                top: 0,
-                                bottom: 20,
-                                left: displayWidth * 0.1,
-                                right: displayWidth * 0.1),
-                            child: customTextfield),
+                          alignment: Alignment.bottomCenter,
+                          margin: EdgeInsets.only(
+                              top: 0,
+                              bottom: 20,
+                              left: displayWidth * 0.1,
+                              right: displayWidth * 0.1),
+                          child: customTextfield,
+                        ),
                       ],
                     ),
                   ],
