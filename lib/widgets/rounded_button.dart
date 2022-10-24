@@ -34,16 +34,19 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton> {
   bool _isPressed = false;
+  bool _nextScreen = false;
   Duration animationDuration = const Duration(milliseconds: 73);
 
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
-    Future.delayed(Duration(milliseconds: 800)).then(
+    _nextScreen = true;
+    Future.delayed(const Duration(milliseconds: 370)).then(
       (value) {
         setState(() {
           _isPressed = false;
+          _nextScreen = false;
         });
       },
     );
@@ -55,7 +58,9 @@ class _RoundedButtonState extends State<RoundedButton> {
     });
     await Future.delayed(animationDuration).then(
       (value) {
-        widget.onTap();
+        if (_nextScreen) {
+          widget.onTap();
+        }
       },
     );
   }
