@@ -141,7 +141,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               onHorizontalDragEnd: (details) {
                 // Note: Sensitivity is integer used when you don't want to mess up vertical drag
                 double? velocity = details.primaryVelocity?.toDouble();
-                if (velocity! < 10.0) {
+                if (velocity! < -10.0) {
                   // Right Swipe
                   gameHandler();
                 }
