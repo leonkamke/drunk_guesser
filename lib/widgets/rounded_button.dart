@@ -35,14 +35,14 @@ class RoundedButton extends StatefulWidget {
 class _RoundedButtonState extends State<RoundedButton> {
   bool _isPressed = false;
   bool _nextScreen = false;
-  Duration animationDuration = const Duration(milliseconds: 73);
+  Duration animationDuration = const Duration(milliseconds: 110);
 
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
     _nextScreen = true;
-    Future.delayed(const Duration(milliseconds: 370)).then(
+    Future.delayed(const Duration(milliseconds: 460)).then(
       (value) {
         setState(() {
           _isPressed = false;
