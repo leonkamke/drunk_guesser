@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -57,71 +58,76 @@ class _RoundedButtonState extends State<RoundedButton> {
     final displayWidth = MediaQuery.of(context).size.width;
     // final displayHeight = MediaQuery.of(context).size.height;
 
-    return AnimatedContainer(
-      curve: Curves.ease,
-      duration: animationDuration,
-      onEnd: onEnd,
-      decoration: BoxDecoration(
-        boxShadow: !_isPressed
-            ? [
-                const BoxShadow(
-                    color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
-              ]
-            : [
-                const BoxShadow(
-                    color: Colors.black54,
-                    offset: Offset(0.7, 2.1),
-                    blurRadius: 1.2)
-              ],
-        color: widget.firstColor,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          splashFactory: NoSplash.splashFactory,
-          foregroundColor: widget.onClickColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-          ),
-          backgroundColor: widget.firstColor,
-          shadowColor: Colors.transparent,
-          fixedSize: /* !_isPressed
-              ? Size(displayWidth * 0.48, 48)
-              : Size(displayWidth * 0.46, 46)*/Size(displayWidth * 0.48, 48),
+    return GestureDetector(
+      // onTap: buttonPressed,
+      onTapDown: (x) => {
+        buttonPressed()
+      },
+      child: AnimatedContainer(
+        curve: Curves.ease,
+        duration: animationDuration,
+        onEnd: onEnd,
+        decoration: BoxDecoration(
+          boxShadow: !_isPressed
+              ? [
+                  const BoxShadow(
+                      color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+                ]
+              : [
+                  const BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0.7, 2.1),
+                      blurRadius: 1.2)
+                ],
+          color: widget.firstColor,
+          borderRadius: BorderRadius.circular(widget.borderRadius),
         ),
-        onPressed: () {
-          buttonPressed();
-        },
-        child: FittedBox(
-          child: Text(
-            widget.buttonText,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Quicksand",
-              color: widget.textColor,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            disabledBackgroundColor: widget.firstColor,
+            splashFactory: NoSplash.splashFactory,
+            foregroundColor: widget.onClickColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(widget.borderRadius),
+            ),
+            backgroundColor: widget.firstColor,
+            shadowColor: Colors.transparent,
+            fixedSize: /* !_isPressed
+                ? Size(displayWidth * 0.48, 48)
+                : Size(displayWidth * 0.46, 46)*/Size(displayWidth * 0.48, 48),
+          ),
+          onPressed: null,
+          child: FittedBox(
+            child: Text(
+              widget.buttonText,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Quicksand",
+                color: widget.textColor,
+              ),
             ),
           ),
         ),
-      ),
-      /*
-          CupertinoButton(
-        onPressed: () {
-          buttonPressed();
-        },
-            pressedOpacity: 1,
-        child: FittedBox(
-          child: Text(
-            widget.buttonText,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Quicksand",
-              color: widget.textColor,
+        /*
+            CupertinoButton(
+          onPressed: () {
+            buttonPressed();
+          },
+              pressedOpacity: 1,
+          child: FittedBox(
+            child: Text(
+              widget.buttonText,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Quicksand",
+                color: widget.textColor,
+              ),
             ),
           ),
-        ),
-      ),*/
+        ),*/
+      ),
     );
   }
 }
