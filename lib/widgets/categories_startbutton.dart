@@ -36,7 +36,7 @@ class StartButton extends StatefulWidget {
 
 class _StartButtonState extends State<StartButton> {
   bool _isPressed = false;
-  Duration animationDuration = const Duration(milliseconds: 90);
+  Duration animationDuration = const Duration(milliseconds: 120);
 
   void buttonPressed() async {
     setState(() {
