@@ -3,5 +3,6 @@
 - Shop Bundles icons erstellen
 - Drunkguesser im Game Animation, vielleicht über Karte, anderes Aussehen
 - was ist wenn app update? (datenbank aktualisieren)
+
 - Privacy Policy und Datenschutzverordnung (was braucht man? woher bekommt man die Texte? Wer ist der Ansprechpartner?) (Nur das nötigste)
 - nicht zu viel Alkohol trinken Benachrichtigung (Beim Appstart?)

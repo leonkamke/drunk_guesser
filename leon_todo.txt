@@ -1,2 +1,1 @@
-- Splashscreen for Android 12 (nicht geschafft Bild einzufügen)
 - Überschrift in game ohne Zeilenumbruch bei schmalen Handys
