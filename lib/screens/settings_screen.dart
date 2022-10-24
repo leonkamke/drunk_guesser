@@ -95,6 +95,7 @@ class SettingsScreen extends StatelessWidget {
                         firstColor: AppColors.appbarBackground,
                         secondColor: AppColors.appbarBackground,
                         textColor: AppColors.appBarText,
+                        onClickColor: const Color(0x80000000),
                         onTap: () async {
                           print("leave a comment for the app");
                           print(await DrunkGuesserDB.getLocalVersion());
@@ -109,6 +110,7 @@ class SettingsScreen extends StatelessWidget {
                         firstColor: AppColors.appbarBackground,
                         secondColor: AppColors.appbarBackground,
                         textColor: AppColors.appBarText,
+                        onClickColor: const Color(0xFF000000),
                         onTap: () {
                           print("Share app");
                           print("Delete local database");

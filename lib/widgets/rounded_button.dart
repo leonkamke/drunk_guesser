@@ -1,11 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../models/app_colors.dart';
 
 class RoundedButton extends StatefulWidget {
   final String buttonText;
   final Color firstColor;
   final Color secondColor;
+  final Color onClickColor;
   final double borderRadius;
   final Color textColor;
   final void Function() onTap;
@@ -23,6 +23,7 @@ class RoundedButton extends StatefulWidget {
     required this.buttonText,
     required this.firstColor,
     required this.secondColor,
+    required this.onClickColor,
     required this.borderRadius,
     required this.textColor,
     required this.onTap,
@@ -34,13 +35,15 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton> {
   bool _isPressed = false;
-  Duration animationDuration = const Duration(milliseconds: 105);
+  Duration animationDuration = const Duration(milliseconds: 90);
 
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
-    await Future.delayed(Duration(milliseconds: animationDuration.inMilliseconds * 2 - 20)).then((value) => widget.onTap());
+    await Future.delayed(
+            Duration(milliseconds: animationDuration.inMilliseconds * 2))
+        .then((value) => widget.onTap());
   }
 
   void onEnd() {
@@ -76,7 +79,7 @@ class _RoundedButtonState extends State<RoundedButton> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
-          foregroundColor: widget.firstColor,
+          foregroundColor: widget.onClickColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
@@ -101,6 +104,24 @@ class _RoundedButtonState extends State<RoundedButton> {
           ),
         ),
       ),
+      /*
+          CupertinoButton(
+        onPressed: () {
+          buttonPressed();
+        },
+            pressedOpacity: 1,
+        child: FittedBox(
+          child: Text(
+            widget.buttonText,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Quicksand",
+              color: widget.textColor,
+            ),
+          ),
+        ),
+      ),*/
     );
   }
 }

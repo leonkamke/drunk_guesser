@@ -36,14 +36,14 @@ class StartButton extends StatefulWidget {
 
 class _StartButtonState extends State<StartButton> {
   bool _isPressed = false;
-  Duration animationDuration = const Duration(milliseconds: 125);
+  Duration animationDuration = const Duration(milliseconds: 90);
 
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
     await Future.delayed(
-            Duration(milliseconds: animationDuration.inMilliseconds * 2 - 20))
+            Duration(milliseconds: animationDuration.inMilliseconds * 2))
         .then((value) => widget.onTap());
   }
 

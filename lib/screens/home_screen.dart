@@ -149,6 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           firstColor: AppColors.startButtonBackground,
                           secondColor: AppColors.startButtonBackground,
                           textColor: AppColors.startButtonText,
+                          onClickColor: const Color(0xFF000000),
                           onTap: () {
                             Navigator.of(context).pushNamed("/categories");
                           },
@@ -162,6 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           firstColor: AppColors.settingsButtonBackground,
                           secondColor: AppColors.settingsButtonBackground,
                           textColor: AppColors.settingsButtonText,
+                          onClickColor: const Color(0xFF000000),
                           onTap: () {
                             Navigator.of(context).pushNamed("/settings");
                           },
