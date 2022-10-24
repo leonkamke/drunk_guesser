@@ -40,6 +40,13 @@ class _RoundedButtonState extends State<RoundedButton> {
     setState(() {
       _isPressed = !_isPressed;
     });
+    Future.delayed(Duration(milliseconds: 800)).then(
+      (value) {
+        setState(() {
+          _isPressed = false;
+        });
+      },
+    );
   }
 
   Future<void> onEnd() async {
@@ -60,16 +67,7 @@ class _RoundedButtonState extends State<RoundedButton> {
 
     return GestureDetector(
       // onTap: buttonPressed,
-      onTapDown: (x) => {
-        buttonPressed(),
-        print(x.globalPosition.toString())
-      },
-      onHorizontalDragEnd: (x) => {
-        onEnd()
-      },
-      onVerticalDragEnd: (x) => {
-        onEnd()
-      },
+      onTapDown: (x) => {buttonPressed(), print(x.globalPosition.toString())},
       onTapUp: (x) => {onEnd()},
       child: AnimatedContainer(
         curve: Curves.ease,
