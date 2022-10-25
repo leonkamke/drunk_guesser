@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/policy_dialog.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/shop_button.dart';
 
@@ -214,7 +215,15 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                     ),
                   ),
                   onTap: () {
-                    print("Privacy Policy");
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return PolicyDialog(
+                          mdFileName: "assets/legal/privacy_policy.md",
+                          radius: 10,
+                        );
+                      },
+                    );
                   },
                 ),
                 GestureDetector(
