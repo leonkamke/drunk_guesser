@@ -10,3 +10,5 @@
 - für welche android versionen hochladen? (default: min 16 latest 21(viedeo 367)
 
 Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)
+
+Für die Datenschutzerklärung: https://app-privacy-policy-generator.firebaseapp.com/
