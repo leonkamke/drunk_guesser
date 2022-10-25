@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rive/rive.dart' as rive;
 
+import '../widgets/policy_dialog.dart';
 
 class CreditsScreen extends StatefulWidget {
   CreditsScreen({Key? key}) : super(key: key);
@@ -175,7 +176,15 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     ),
                   ),
                   onTap: () {
-                    print("Privacy Policy");
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return PolicyDialog(
+                          mdFileName: "assets/legal/privacy_policy.md",
+                          radius: 10,
+                        );
+                      },
+                    );
                   },
                 ),
                 GestureDetector(
@@ -202,10 +211,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
   }
 
   Future<void> sendEmail() async {
-    const String _emailScheme = "mailto:l.kamke@web.de";
-    final Uri _url = Uri.parse(_emailScheme);
-    if (!await launchUrl(_url)) {
-      throw 'Could not launch $_url';
+    const String emailScheme = "mailto:noodle.apps.22@gmail.com";
+    final Uri url = Uri.parse(emailScheme);
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
     }
   }
 }

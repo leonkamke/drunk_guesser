@@ -45,6 +45,7 @@ dependencies:
   path: ^1.8.2
   provider: ^6.0.3
   show_up_animation: ^2.0.0
+  flutter_markdown: ^0.6.12
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +95,8 @@ flutter:
     - assets/animations/drunkguesser_game_1.3.riv
     - assets/icons/lock_icon.png
     - assets/images/drunk_guesser_img.png
+    - assets/legal/privacy_policy.md
+    - assets/legal/terms_and_conditions.md
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
