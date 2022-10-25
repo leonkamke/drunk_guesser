@@ -42,7 +42,7 @@ class _RoundedButtonState extends State<RoundedButton> {
       _isPressed = !_isPressed;
     });
     _nextScreen = true;
-    Future.delayed(const Duration(milliseconds: 460)).then(
+    Future.delayed(const Duration(milliseconds: 700)).then(
       (value) {
         setState(() {
           _isPressed = false;

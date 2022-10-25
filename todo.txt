@@ -1,4 +1,3 @@
-- Texte besprechen
 - Am Ende des Spiels vielleicht Shop anzeigen, oder Werbung anzeigen, wie bei piccolo Bewerten popup, (vielleicht bei einer bewertung kostenlose Kategorie anbieten)
 - Teilen button und bewerten button bei Einstellungen implementieren
 - RevenueCat for inapp purchases
@@ -7,5 +6,7 @@
 - Implement google admob (good example on pub.dev page) with package "google_mobile_ads 2.1.0"
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
 - namen für package überlegen (muss einduetig sein): Beispiel aus Kurs: com.academind.great_places
-- DrunkGuesser zusammen oder mit Leerzeichen schreiben?
 - email Adresse für die App
+- für welche android versionen hochladen? (default: min 16 latest 21(viedeo 367)
+
+Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)

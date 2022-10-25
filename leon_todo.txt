@@ -1,1 +1,2 @@
 - Überschrift in game ohne Zeilenumbruch bei schmalen Handys
+- google ad mob
