@@ -6,3 +6,5 @@
 - App Update approach
 - Implement google admob (good example on pub.dev page) with package "google_mobile_ads 2.1.0"
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
+- namen für package überlegen (muss einduetig sein): Beispiel aus Kurs: com.academind.great_places
+- DrunkGuesser zusammen oder mit Leerzeichen schreiben?
