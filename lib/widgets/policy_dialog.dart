@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +23,7 @@ class PolicyDialog extends StatelessWidget {
         children: [
           Expanded(
             child: FutureBuilder(
-              future: Future.delayed(Duration(milliseconds: 150))
+              future: Future.delayed(const Duration(milliseconds: 300))
                   .then((value) {
                     print("aaaaaaaa");
                 return rootBundle.loadString(mdFileName);
@@ -42,8 +43,8 @@ class PolicyDialog extends StatelessWidget {
             ),
           ),
           CupertinoButton(
-            padding: EdgeInsets.all(0),
-            color: Theme.of(context).buttonColor,
+            color: const Color(0xFFC7C7C7),
+            padding: const EdgeInsets.all(0),
             onPressed: () => Navigator.of(context).pop(),
             child: Container(
               decoration: BoxDecoration(
@@ -56,11 +57,12 @@ class PolicyDialog extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: const Text(
-                "CLOSE",
+                "Close",
                 style: TextStyle(
+                  fontFamily: "Quicksand",
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Colors.black,
                 ),
               ),
             ),
