@@ -177,7 +177,7 @@ class _CategoryCardState extends State<CategoryCard> {
                     ),
                   ),
                   SizedBox(
-                    width: displayWidth * 0.05,
+                    width: displayWidth * 0.1,
                   ),
                 ],
               ),
@@ -233,7 +233,7 @@ class _CategoryCardState extends State<CategoryCard> {
           // padding: EdgeInsets.symmetric(
           // vertical: 20, horizontal: displayWidth * 0.07),
           margin: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.053),
+              vertical: 3, horizontal: displayWidth * 0.061),
           height: displayHeight * 0.07,
           width: displayWidth * 1,
           alignment: Alignment.bottomRight,
