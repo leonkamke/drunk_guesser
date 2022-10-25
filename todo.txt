@@ -8,3 +8,4 @@
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
 - namen für package überlegen (muss einduetig sein): Beispiel aus Kurs: com.academind.great_places
 - DrunkGuesser zusammen oder mit Leerzeichen schreiben?
+- email Adresse für die App

@@ -8,4 +8,4 @@ flutter_icons:
   ios: true
   image_path_android: "assets/app_icon/app_icon.png"
   image_path_ios: "assets/app_icon/app_icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 16 # android min sdk min:16, default 21
