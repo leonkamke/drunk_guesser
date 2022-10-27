@@ -14,8 +14,10 @@ class AppColors {
   static const Color startButtonText = Color(0xffffffff);
   static const Color settingsButtonBackground = Color(0xffffffff);
   static const Color settingsButtonText = Color(0xff000000);
+
   static const Color backgroundHomeScreen_1 = Color(0xff80a5d7);
   static const Color backgroundHomeScreen_2 = Color(0xff80a5d7);
+
 //schrift
   static const Color schriftFarbe_hell = Color(0xff8ac747);
   static const Color schriftFarbe_dunkel = Color(0xffffffff);

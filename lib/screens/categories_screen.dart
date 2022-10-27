@@ -85,12 +85,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         topLeft: Radius.circular(0),
                         topRight: Radius.circular(0)),
                     boxShadow: [
-                      BoxShadow(
+                      /*BoxShadow(
                           color: Colors.black54,
                           offset: Offset(0, 3),
                           blurRadius: 6)
+
+                       */
                     ],
-                    color: AppColors.appbarBackground,
+                    color: Colors.transparent,//AppColors.appbarBackground,
                   ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.1,
@@ -108,7 +110,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           "Kategorien",
                           style: TextStyle(
                             fontSize: 30,
-                            color: AppColors.appBarText,
+                            color: AppColors.appbarBackground,//AppColors.appBarText,
                             fontFamily: "Quicksand",
                             fontWeight: FontWeight.bold,
                           ),
@@ -118,7 +120,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         child: const Icon(
                           Icons.home_rounded,
                           size: 45,
-                          color: AppColors.appBarText,
+                          color: AppColors.appbarBackground//AppColors.appBarText,
                         ),
                         onTap: () {
                           Navigator.of(context).pop();
@@ -137,9 +139,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       },
                       separatorBuilder: (context, index) {
                         return Divider(
-                          color: AppColors.categoryDivider,
+                          color: AppColors.gameCard, //AppColors.categoryDivider,
                           thickness: 1.5,
-                          height: 32,
+                          height: 23,//32,
                           indent: displayWidth * 0.05,
                           endIndent: displayWidth * 0.05,
                         );

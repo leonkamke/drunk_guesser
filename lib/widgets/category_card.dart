@@ -31,10 +31,13 @@ class _CategoryCardState extends State<CategoryCard> {
         onTap: selectCategoryCard,
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.045),
+              vertical: 8/*3*/, horizontal: displayWidth * 0.045),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.03),
-          color: Colors.transparent,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: AppColors.appbarBackground,//Colors.transparent,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,12 +48,15 @@ class _CategoryCardState extends State<CategoryCard> {
                 padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: AppColors.iconBackground,
+                  color: Colors.transparent,//AppColors.iconBackground,
                   boxShadow: const [
+                    /*
                     BoxShadow(
                         color: Colors.black54,
                         offset: Offset(0, 3),
                         blurRadius: 6)
+
+                     */
                   ],
                 ),
                 child: Image.asset(
@@ -100,7 +106,7 @@ class _CategoryCardState extends State<CategoryCard> {
                   : const Icon(
                       Icons.circle,
                       size: 30,
-                      color: Color(0x45ffffff),
+                      color: Color(0x20ffffff),
                     ),
               /*
               Icon(
@@ -122,10 +128,13 @@ class _CategoryCardState extends State<CategoryCard> {
             onTap: () => selectLock(context),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  vertical: 3, horizontal: displayWidth * 0.045),
+                  vertical: 8/*3*/, horizontal: displayWidth * 0.045),
               margin: EdgeInsets.symmetric(
                   vertical: 3, horizontal: displayWidth * 0.03),
-              color: Colors.transparent,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: AppColors.appbarBackground,//Colors.transparent,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,12 +145,15 @@ class _CategoryCardState extends State<CategoryCard> {
                     padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: AppColors.iconBackground,
+                      color: Colors.transparent,//AppColors.iconBackground,
                       boxShadow: const [
+                        /*
                         BoxShadow(
                             color: Colors.black54,
                             offset: Offset(0, 3),
                             blurRadius: 6)
+
+                         */
                       ],
                     ),
                     child: setImageTransparent(),
@@ -154,10 +166,10 @@ class _CategoryCardState extends State<CategoryCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        AutoSizeText(
                           widget.category.name,
                           style: const TextStyle(
-                            color: AppColors.schriftFarbeCardsTransparent,
+                            color: Color(0x51ffffff),//AppColors.schriftFarbeCardsTransparent,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -167,7 +179,7 @@ class _CategoryCardState extends State<CategoryCard> {
                           maxLines: 3,
                           widget.category.description,
                           style: const TextStyle(
-                            color: AppColors.schriftFarbeCardsTransparent,
+                            color: Color(0x51ffffff),//AppColors.schriftFarbeCardsTransparent,
                             fontSize: 11,
                             // fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
