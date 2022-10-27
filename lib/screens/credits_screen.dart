@@ -165,6 +165,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     ],
                   ),
                 ),
+                /*
                 GestureDetector(
                   child: const Text(
                     "Privacy Policy",
@@ -176,6 +177,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     ),
                   ),
                   onTap: () {
+                    /*
                     showDialog(
                       context: context,
                       builder: (context) {
@@ -185,8 +187,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                         );
                       },
                     );
+                     */
                   },
                 ),
+                */
                 GestureDetector(
                   child: const Text(
                     "Datenschutzverordnung",
@@ -198,7 +202,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     ),
                   ),
                   onTap: () {
-                    print("Datenschutzverordnung");
+                    openPrivacyPolicy();
                   },
                 ),
                 SizedBox(height: displayHeight * 0.05),
@@ -213,6 +217,14 @@ class _CreditsScreenState extends State<CreditsScreen> {
   Future<void> sendEmail() async {
     const String emailScheme = "mailto:noodle.apps.22@gmail.com";
     final Uri url = Uri.parse(emailScheme);
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Future<void> openPrivacyPolicy() async {
+    const String urlScheme = "https:www.google.de";
+    final Uri url = Uri.parse(urlScheme);
     if (!await launchUrl(url)) {
       throw 'Could not launch $url';
     }

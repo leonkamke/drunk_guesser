@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/policy_dialog.dart';
 import '../widgets/rounded_button.dart';
@@ -204,6 +205,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                 SizedBox(
                   height: displayHeight * 0.07,
                 ),
+                /*
                 GestureDetector(
                   child: const Text(
                     "Privacy Policy",
@@ -225,7 +227,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                       },
                     );
                   },
-                ),
+                ),*/
                 GestureDetector(
                   child: const Text(
                     "Datenschutzverordnung",
@@ -237,7 +239,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                     ),
                   ),
                   onTap: () {
-                    print("Datenschutzverordnung");
+                    openPrivacyPolicy();
                   },
                 ),
                 SizedBox(height: displayHeight * 0.03),
@@ -247,6 +249,14 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> openPrivacyPolicy() async {
+    const String urlScheme = "https:www.google.de";
+    final Uri url = Uri.parse(urlScheme);
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
   }
 
   void buy(BuildContext context) {

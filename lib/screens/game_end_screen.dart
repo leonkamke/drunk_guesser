@@ -10,20 +10,20 @@ class GameEndScreen extends StatefulWidget {
 
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          AppColors.backgroundHomeScreen_1,
-          AppColors.backgroundHomeScreen_2,
-        ],
-      ));
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      AppColors.backgroundHomeScreen_1,
+      AppColors.backgroundHomeScreen_2,
+    ],
+  ));
 
   @override
   State<GameEndScreen> createState() => _GameEndScreenState();
 }
 
-class _GameEndScreenState extends State<GameEndScreen> with TickerProviderStateMixin{
-
+class _GameEndScreenState extends State<GameEndScreen>
+    with TickerProviderStateMixin {
   late AnimationController _controllerText;
 
   bool isEnd = false;
@@ -38,96 +38,103 @@ class _GameEndScreenState extends State<GameEndScreen> with TickerProviderStateM
     )..forward();
   }
 
-
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: GestureDetector(
-        onTap: () => endGame(context),
-        child: Container(
-          width: displayWidth,
-          height: displayHeight,
-          decoration: widget.backgroundDecoration,
-          // alignment: Alignment.center,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              ...BackgroundIcons.getImages(context),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    color: Colors.transparent,
-                    padding: EdgeInsets.fromLTRB(
-                      displayWidth * 0.1,
-                      displayHeight * 0.05, // ---
-                      displayWidth * 0.1,
-                      displayHeight * 0.01, // ---
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: Text(
-                            "SpielEnde",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: AppColors.appBarText,
-                              fontFamily: "Quicksand",
-                              fontWeight: FontWeight.bold,
+    return WillPopScope(
+      onWillPop: () {
+        return Future<bool>(() {
+          return false;
+        });
+      },
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: GestureDetector(
+          onTap: () => endGame(context),
+          child: Container(
+            width: displayWidth,
+            height: displayHeight,
+            decoration: widget.backgroundDecoration,
+            // alignment: Alignment.center,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ...BackgroundIcons.getImages(context),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      color: Colors.transparent,
+                      padding: EdgeInsets.fromLTRB(
+                        displayWidth * 0.1,
+                        displayHeight * 0.05, // ---
+                        displayWidth * 0.1,
+                        displayHeight * 0.01, // ---
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: const [
+                          FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              "SpielEnde",
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: AppColors.appBarText,
+                                fontFamily: "Quicksand",
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
-                      alignment: Alignment.center,
+                    Expanded(
                       child: Container(
+                        padding:
+                            EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
                         alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: displayWidth * 0.05,
-                          vertical: displayWidth * 0.05,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(22),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black54,
-                                offset: Offset(3, 6),
-                                blurRadius: 6)
-                          ],
-                          color: AppColors.gameCard,
-                        ),
-                        width: displayWidth * 0.8,
-                        height: displayHeight * 0.5,
-                        child: FadeTransition(
-                          opacity: _controllerText,
-                          child: AutoSizeText(
-                            textGameEnd,
-                            style: const TextStyle(
-                              color: AppColors.schriftFarbe_dunkel,
-                              fontFamily: "Quicksand",
-                              fontSize: 21,
-                              fontWeight: FontWeight.bold,
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: displayWidth * 0.05,
+                            vertical: displayWidth * 0.05,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black54,
+                                  offset: Offset(3, 6),
+                                  blurRadius: 6)
+                            ],
+                            color: AppColors.gameCard,
+                          ),
+                          width: displayWidth * 0.8,
+                          height: displayHeight * 0.5,
+                          child: FadeTransition(
+                            opacity: _controllerText,
+                            child: AutoSizeText(
+                              textGameEnd,
+                              style: const TextStyle(
+                                color: AppColors.schriftFarbe_dunkel,
+                                fontFamily: "Quicksand",
+                                fontSize: 21,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -154,6 +161,6 @@ class _GameEndScreenState extends State<GameEndScreen> with TickerProviderStateM
     });
   }
 
-  String textGameEnd = "Zählt von 3 runter und zeigt alle gleichzeitig auf die Person die am schlechtesten gespielt hat.\n\nDiese Person ... (Auflösung folgt)";
-
+  String textGameEnd =
+      "Zählt von 3 runter und zeigt alle gleichzeitig auf die Person die am schlechtesten gespielt hat.\n\nDiese Person ... (Auflösung folgt)";
 }
