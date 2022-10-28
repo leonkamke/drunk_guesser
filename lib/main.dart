@@ -15,10 +15,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 
 void main() {
-  // Splashscreen
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // Google ads (Admob)
+  MobileAds.instance.initialize();
+  // Splashscreen
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   // Only portrait mode
   SystemChrome.setPreferredOrientations(

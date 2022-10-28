@@ -13,3 +13,5 @@
 Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)
 
 Für die Datenschutzerklärung: https://app-privacy-policy-generator.firebaseapp.com/
+
+Settet minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))

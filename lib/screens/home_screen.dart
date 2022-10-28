@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
     for (Category category in Categories.categoryList) {
       category.setPurchased();
     }
-    await Future.delayed(const Duration(milliseconds: 1400));
+    await Future.delayed(const Duration(milliseconds: 500));
     FlutterNativeSplash.remove();
   }
 
