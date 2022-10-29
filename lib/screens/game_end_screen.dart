@@ -229,7 +229,7 @@ class _GameEndScreenState extends State<GameEndScreen>
   Future<void> endGame(BuildContext context) async {
     if (isEnd) {
       // Add a delay so that the ad has time to load
-      await Future.delayed(const Duration(milliseconds: 500)).then((_) {
+      await Future.delayed(const Duration(milliseconds: 200)).then((_) {
         Navigator.of(context).pushReplacementNamed("/categories");
         _showInterstitialAd();
       });
