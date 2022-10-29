@@ -69,7 +69,7 @@ class _GameEndScreenState extends State<GameEndScreen>
   Future<void> _createInterstitialAd() async {
     await InterstitialAd.load(
         adUnitId: Platform.isAndroid
-            ? 'ca-app-pub-3940256099942544/1033173712'
+            ? "ca-app-pub-3940256099942544/8691691433"//'ca-app-pub-3940256099942544/1033173712'
             : 'ca-app-pub-3940256099942544/4411468910',
         request: request,
         adLoadCallback: InterstitialAdLoadCallback(
