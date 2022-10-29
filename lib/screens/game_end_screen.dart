@@ -31,12 +31,22 @@ class _GameEndScreenState extends State<GameEndScreen>
   InterstitialAd? _interstitialAd;
   int _numInterstitialLoadAttempts = 0;
 
+
+
   late AnimationController _controllerText;
 
   bool isEnd = false;
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // _createInterstitialAd();
+  }
+
+  @override
   void initState() {
+    _createInterstitialAd();
+
     super.initState();
 
     _controllerText = AnimationController(
@@ -45,7 +55,7 @@ class _GameEndScreenState extends State<GameEndScreen>
     )..forward();
 
     // Load ad
-    _createInterstitialAd();
+    //_createInterstitialAd();
   }
 
   static const AdRequest request = AdRequest(
@@ -56,8 +66,8 @@ class _GameEndScreenState extends State<GameEndScreen>
 
   static const int maxFailedLoadAttempts = 3;
 
-  void _createInterstitialAd() {
-    InterstitialAd.load(
+  Future<void> _createInterstitialAd() async {
+    await InterstitialAd.load(
         adUnitId: Platform.isAndroid
             ? 'ca-app-pub-3940256099942544/1033173712'
             : 'ca-app-pub-3940256099942544/4411468910',
@@ -77,8 +87,11 @@ class _GameEndScreenState extends State<GameEndScreen>
               _createInterstitialAd();
             }
           },
-        ));
+        ),
+    );
+    print("loaded ad");
   }
+
 
   void _showInterstitialAd() {
     if (_interstitialAd == null) {
@@ -105,6 +118,7 @@ class _GameEndScreenState extends State<GameEndScreen>
 
   @override
   Widget build(BuildContext context) {
+    // _createInterstitialAd();
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     return WillPopScope(
@@ -116,7 +130,7 @@ class _GameEndScreenState extends State<GameEndScreen>
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: GestureDetector(
-          onTap: () => endGame(context),
+          onTap: () async => await endGame(context),
           child: Container(
             width: displayWidth,
             height: displayHeight,
@@ -212,10 +226,13 @@ class _GameEndScreenState extends State<GameEndScreen>
     "darf 10 Schlücke verteilen!",
   ];
 
-  void endGame(BuildContext context) {
+  Future<void> endGame(BuildContext context) async {
     if (isEnd) {
-      _showInterstitialAd();
-      Navigator.of(context).pushReplacementNamed("/categories");
+      // Add a delay so that the ad has time to load
+      await Future.delayed(const Duration(milliseconds: 500)).then((_) {
+        Navigator.of(context).pushReplacementNamed("/categories");
+        _showInterstitialAd();
+      });
     }
     setState(() {
       if (!isEnd) {
