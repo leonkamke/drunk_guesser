@@ -11,7 +11,7 @@ class Categories {
     purchased: true,
     colors: const [Color(0xffffffff), Color(0xffffffff)],
   );
-  static Category natur = Category(
+  static Category natur_und_tierwelt = Category(
     name: "Natur",
     dbName: "natur",
     description: "Fragen die sich rund um die Natur drehen",
@@ -132,7 +132,7 @@ class Categories {
   static List<Category> categoryList = [
     zufall,
     technik,
-    natur,
+    natur_und_tierwelt,
     weltall,
     unnuetzes_wissen,
     achtzehn_plus,

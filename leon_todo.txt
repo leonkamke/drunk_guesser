@@ -1,3 +1,6 @@
 - Überschrift in game ohne Zeilenumbruch bei schmalen Handys
 - google ad mob
 - Drunkguesser im endscreen
+
+- in-app purchases tutorial: https://www.youtube.com/watch?v=h-jOMh2KXTA
+- create release tutorial: https://www.youtube.com/watch?v=g0GNuoCOtaQ

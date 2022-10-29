@@ -47,6 +47,8 @@ dependencies:
   show_up_animation: ^2.0.0
   flutter_markdown: ^0.6.12
   google_mobile_ads: ^2.1.0
+  purchases_flutter: ^4.3.1
+  rename: ^2.0.1
 
 dev_dependencies:
   flutter_test:

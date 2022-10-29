@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../models/app_colors.dart';
 import '../models/category.dart';
 import '../models/category_data.dart';
 import '../widgets/shop_category_card.dart';
@@ -112,3 +111,36 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
     );
   }
 }
+
+/*
+Bundle 1
+    Technik, Geographie, Weltall, Google, Sport
+Bundle 2
+    Unnuetzes Wissen, Natur und Tierwelt, 18+, Musik
+Bundle 3
+    Medien und Unterhaltung, Preise, Mensch, Geschichte
+Bundle 4
+    Technik, Unnuetzes Wissen, Preise, Mensch, Sport
+Bundle 5
+    Medien und Unterhaltung, Geographie, 18+, Google
+Bundle 6
+    Natur und Tierwelt, Musik, Weltall, Geschichte
+
+- all categories:
+technik
+gegraphie
+weltall
+google
+sport
+unnuetzes_wissen
+natur und tierwelt
+18+
+musik
+medien und unterhaltung
+mensch
+preise
+geschichte
+
+- in zufall:
+unnuetzes_wissen, medien und unterhaltung, geschichte, geographie, sport
+ */
