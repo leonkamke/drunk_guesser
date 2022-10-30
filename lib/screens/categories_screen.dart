@@ -51,7 +51,34 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
     categories.sort(
-      (a, b) {
+          (a, b) {
+        if (a.purchased == true && b.purchased == false) {
+          return -1;
+        } else if (a.purchased == false && b.purchased == true) {
+          return 1;
+        } else {
+          return 0;
+        }
+      },
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    for (Category c in Entitlements.categoryList) {
+      c.setPurchased();
+    }
+    // Check wether to show ads
+    Entitlements.setShowAds();
+    // Copy list of all categories
+    categories = [...Entitlements.categoryList];
+    // Set selected value to false
+    categories.forEach((element) => element.selected = false);
+    // sort CategoryList (purchased categories first)
+    categories.sort(
+          (a, b) {
         if (a.purchased == true && b.purchased == false) {
           return -1;
         } else if (a.purchased == false && b.purchased == true) {
