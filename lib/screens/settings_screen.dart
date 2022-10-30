@@ -1,3 +1,4 @@
+import 'package:drunk_guesser/api/purchase_api.dart';
 import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' as rive;
@@ -115,6 +116,21 @@ class SettingsScreen extends StatelessWidget {
                           print("Share app");
                           print("Delete local database");
                           DrunkGuesserDB.deleteDB();
+                        },
+                      ),
+                      SizedBox(
+                        height: displayHeight * 0.04,
+                      ),
+                      RoundedButton(
+                        buttonText: "Käufe wieder herstellen",
+                        borderRadius: 15,
+                        firstColor: AppColors.appbarBackground,
+                        secondColor: AppColors.appbarBackground,
+                        textColor: AppColors.appBarText,
+                        onClickColor: const Color(0xFF000000),
+                        onTap: () async {
+                          print("Restore products");
+                          await PurchaseApi.restoreProducts();
                         },
                       ),
                     ],

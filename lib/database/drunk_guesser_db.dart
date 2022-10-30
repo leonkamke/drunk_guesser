@@ -73,7 +73,8 @@ class DrunkGuesserDB {
    */
   static Future<bool> categoryPurchased(Category category) async {
     // var x = await db.rawQuery("SELECT ${category.name} FROM entitlements");
-    var output = await db.rawQuery("SELECT ${category.dbName} FROM entitlements");
+    var output =
+        await db.rawQuery("SELECT ${category.dbName} FROM entitlements");
     // db.close();
     if (output.first[category.dbName.toString()] == 1) {
       print("$output is purchased");
@@ -127,6 +128,23 @@ class DrunkGuesserDB {
           .where((element) => element.name == category.name)
           .first
           .purchased = true;
+    }
+  }
+
+  static Future<void> purchaseCategoriesFromNames(
+      List<String> entitlements) async {
+    await initDatabase();
+    for (String dbName in entitlements) {
+      if (dbName == "keine_werbung") {
+        await db.rawQuery("UPDATE entitlements SET zeigeWerbung = 0");
+        Entitlements.showAds = false;
+      } else {
+        await db.rawQuery("UPDATE entitlements SET $dbName = 1");
+        Entitlements.categoryList
+            .where((element) => element.dbName == dbName)
+            .first
+            .purchased = true;
+      }
     }
   }
 

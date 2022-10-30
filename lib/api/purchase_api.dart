@@ -44,4 +44,17 @@ class PurchaseApi {
       print(e.identifier);
     }
   }
+
+  static Future<void> restoreProducts() async {
+    try {
+      CustomerInfo customerInfo = await Purchases.restorePurchases();
+      // ... check restored purchaserInfo to see if entitlement is now active
+      List<String> purchasedEntitlements = customerInfo.entitlements.active.keys.toList();
+      if (purchasedEntitlements.isNotEmpty) {
+        await DrunkGuesserDB.purchaseCategoriesFromNames(purchasedEntitlements);
+      }
+    } on PlatformException catch (e) {
+      // Error restoring purchases
+    }
+  }
 }
