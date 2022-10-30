@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/api/purchase_api.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
@@ -27,11 +28,11 @@ class ShopBundleCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AutoSizeText(
-              "Enthält folgende Kategorien",
-              style: TextStyle(
+            AutoSizeText(
+              bundle.name,
+              style: const TextStyle(
                 color: Color(0xfffff8c0),
-                fontSize: 19,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
               ),
@@ -57,7 +58,7 @@ class ShopBundleCard extends StatelessWidget {
                         height: displayHeight * 0.03,
                       ),
                       AutoSizeText(
-                        bundle.categoryNames,
+                        "Enthält folgende Kategorien:\n${bundle.categoryNames}",
                         style: const TextStyle(
                           color: Color(0xfffff8c0),
                           fontSize: 13,
@@ -117,5 +118,6 @@ class ShopBundleCard extends StatelessWidget {
 
   void buyBundle() {
     print("Buy bundle ${bundle.categoryNames}");
+    PurchaseApi.purchaseProduct(bundle.product);
   }
 }

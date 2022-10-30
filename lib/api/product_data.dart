@@ -82,7 +82,7 @@ class Products {
     name: "Bundle 5",
     id: "drunkguesser_bundle5_1.99_lifetime",
   );
-  static Product bunlde6 = Product(
+  static Product bundle6 = Product(
     name: "Bundle 6",
     id: "drunkguesser_bundle6_1.99_lifetime",
   );

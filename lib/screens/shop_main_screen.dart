@@ -271,6 +271,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
       PurchaseApi.purchaseProduct(Products.fullversion);
     } else {                          // Bundles
       print("buy bundle");
+      PurchaseApi.getEntitlements();
       Navigator.of(context).pushNamed("/shop_bundles");
     }
   }

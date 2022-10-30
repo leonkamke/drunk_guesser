@@ -16,15 +16,14 @@ class ShopBundlesScreen extends StatefulWidget {
 class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color(0xFFFFFFFF),
-          Color(0xFFFFF6C6),
-        ],
-      ));
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFFFFFF),
+      Color(0xFFFFF6C6),
+    ],
+  ));
 
-  late List<Bundle> bundles;
 
   @override
   void initState() {
@@ -33,11 +32,9 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
     for (Bundle b in Bundles.bundleList) {
       b.setPurchased();
     }
-    bundles = [...Bundles.bundleList];
 
     // TODO: delete already purchased bundles
     //categories.removeWhere((category) => category.purchased == true);
-
   }
 
   @override
@@ -90,22 +87,23 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
             ),
             Expanded(
               child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ShopBundleCard(
-                        bundle: bundles[index]);
+                      bundle: Bundles.bundleList[index],
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return const Divider(
                       color: Colors.transparent,
                       thickness: 0,
                       height: 23,
-
                     );
                     // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
-                  itemCount: bundles.length),
+                  itemCount: Bundles.bundleList.length),
             ),
           ],
         ),
