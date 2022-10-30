@@ -128,7 +128,7 @@ Bundle 6
 
 - all categories:
 technik
-gegraphie
+geographie
 weltall
 google
 sport
@@ -142,5 +142,4 @@ preise
 geschichte
 
 - in zufall:
-unnuetzes_wissen, medien und unterhaltung, geschichte, geographie, sport
  */

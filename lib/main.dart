@@ -17,9 +17,13 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'api/purchase_api.dart';
 
-void main() {
+
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // RevenueCat-purchases
+  await PurchaseApi.init();
   // Google ads (Admob)
   MobileAds.instance.initialize();
   // Splashscreen

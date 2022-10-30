@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:drunk_guesser/api/product.dart';
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 
 class Category {
@@ -8,6 +9,7 @@ class Category {
   final String iconPath;
   final String dbName;
   final List<Color> colors;
+  final Product? product;
   bool selected = false;
 
   /*
@@ -22,6 +24,7 @@ class Category {
     required this.dbName,
     this.purchased = false,
     required this.colors,
+    required this.product
   }) {
     setPurchased();
   }

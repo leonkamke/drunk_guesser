@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../api/purchase_api.dart';
 import '../models/app_colors.dart';
 import '../models/category.dart';
 
@@ -93,9 +94,9 @@ class ShopCategoryCard extends StatelessWidget {
                   )
                 ],
               ),
-              child: Text(
+              child: const Text(
                 "0.69€",
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.shopPriceButtonSchrift,
                   fontSize: 19,
                   height: 0.9,
@@ -109,8 +110,8 @@ class ShopCategoryCard extends StatelessWidget {
     );
   }
 
-  void buyCategory() {
+  Future<void> buyCategory() async {
     print("Buy category ${category.name}");
+    await PurchaseApi.purchaseProduct(category.product!);
   }
-
 }

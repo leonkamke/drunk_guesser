@@ -1,6 +1,8 @@
+import 'package:drunk_guesser/api/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../api/purchase_api.dart';
 import '../widgets/policy_dialog.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/shop_button.dart';
@@ -265,7 +267,8 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
       Navigator.of(context).pushNamed("/shop_category");
     } else if (selectedButton == 1) { // Vollversion
       print("buy fullversion");
-      // TODO: Use RevenueCat for the transaction
+      // Buy fullversion with RevenueCat
+      PurchaseApi.purchaseProduct(Products.fullversion);
     } else {                          // Bundles
       print("buy bundle");
       Navigator.of(context).pushNamed("/shop_bundles");

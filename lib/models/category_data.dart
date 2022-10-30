@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:drunk_guesser/api/product.dart';
+
+import '../api/product_data.dart';
 import 'category.dart';
 
 class Categories {
@@ -10,6 +13,7 @@ class Categories {
     iconPath: "assets/categories_icons/random_icon.png",
     purchased: true,
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: null,
   );
   static Category natur_und_tierwelt = Category(
     name: "Natur",
@@ -17,6 +21,7 @@ class Categories {
     description: "Fragen die sich rund um die Natur drehen",
     iconPath: "assets/categories_icons/nature_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.natur_und_tierwelt,
   );
   static Category google = Category(
     name: "Google",
@@ -25,6 +30,7 @@ class Categories {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/google_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.google,
   );
   static Category geschichte = Category(
     name: "Geschichte",
@@ -35,6 +41,7 @@ class Categories {
       Color(0xffe8c34e),
       Color(0xffb49430),
     ],
+    product: Products.geschichte,
   );
   static Category technik = Category(
     name: "Technik",
@@ -45,6 +52,7 @@ class Categories {
       Color(0xffb7b7b7),
       Color(0xff7e7e7e),
     ],
+    product: Products.technik,
   );
   static Category preise = Category(
     name: "Preise",
@@ -53,13 +61,15 @@ class Categories {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/price_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.preise,
   );
-  static Category medien = Category(
+  static Category medien_und_unterhaltung = Category(
     name: "Medien & Unterhaltung",
     dbName: "medien",
     description: "Mischung aus 6 Kategorien",
     iconPath: "assets/categories_icons/media_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.medien_und_unterhaltung,
   );
   static Category weltall = Category(
     name: "Weltall",
@@ -67,6 +77,7 @@ class Categories {
     description: "Fragen die sich rund um die Natur drehen",
     iconPath: "assets/categories_icons/space_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.weltall,
   );
   static Category sport = Category(
     name: "Sport",
@@ -75,6 +86,7 @@ class Categories {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/sports_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.sport,
   );
   static Category unnuetzes_wissen = Category(
     name: "Unnützes Wissen",
@@ -86,6 +98,7 @@ class Categories {
       Color(0xfff0a099),
       Color(0xffbb645d),
     ],
+    product: Products.unnuetzes_wissen,
   );
   static Category achtzehn_plus = Category(
     name: "18+",
@@ -97,6 +110,7 @@ class Categories {
       Color(0xffe16c6c),
       Color(0xffd03f3f),
     ],
+    product: Products.achtzehn_plus,
   );
   static Category geographie = Category(
     name: "Geographie",
@@ -108,6 +122,7 @@ class Categories {
       Color(0xff5dc569),
       Color(0xff39a646),
     ],
+    product: Products.geographie,
   );
   static Category mensch = Category(
     name: "Mensch",
@@ -116,6 +131,7 @@ class Categories {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/geography_icon.png",
     colors: const [Color(0xffffffff), Color(0xffffffff)],
+    product: Products.mensch,
   );
   static Category musik = Category(
     name: "Musik",
@@ -127,6 +143,7 @@ class Categories {
       Color(0xffb668ef),
       Color(0xff7629a6),
     ],
+    product: Products.musik,
   );
 
   static List<Category> categoryList = [
@@ -139,7 +156,7 @@ class Categories {
     geographie,
     google,
     sport,
-    medien,
+    medien_und_unterhaltung,
     musik,
     mensch,
     preise,
