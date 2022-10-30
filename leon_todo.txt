@@ -4,3 +4,5 @@
 
 - in-app purchases tutorial: https://www.youtube.com/watch?v=h-jOMh2KXTA
 - create release tutorial: https://www.youtube.com/watch?v=g0GNuoCOtaQ
+
+- restore products
