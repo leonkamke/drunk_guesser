@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../api/product.dart';
 import '../models/category.dart';
-import '../models/category_data.dart';
+import '../models/entitlements.dart';
 import '../widgets/shop_category_card.dart';
 
 class ShopCategoriesScreen extends StatefulWidget {
@@ -22,19 +23,19 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
     ],
   ));
 
-  late List<Category> categories;
+  late Map<Category, Product> category_product_map;
 
   @override
   void initState() {
     super.initState();
     // TODO: implement initState
-    for (Category c in Categories.categoryList) {
+    for (Category c in Entitlements.categoryList) {
       c.setPurchased();
     }
-    categories = [...Categories.categoryList];
+    category_product_map = {...Entitlements.category_product_map};
 
     // delete already purchased categories
-    categories.removeWhere((category) => category.purchased == true);
+    // category_product_map.removeWhere((key, value) => key.purchased == true);
   }
 
   @override
@@ -87,11 +88,14 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
             ),
             Expanded(
               child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ShopCategoryCard(
-                        category: categories[index]);
+                      product: category_product_map.values.elementAt(index),
+                      category: category_product_map.keys.elementAt(index),
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
@@ -103,7 +107,7 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
                     );
                     // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
                   },
-                  itemCount: categories.length),
+                  itemCount: category_product_map.length),
             ),
           ],
         ),

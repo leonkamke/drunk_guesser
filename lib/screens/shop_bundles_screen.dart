@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/bundles_data.dart';
 import '../models/category.dart';
-import '../models/category_data.dart';
+import '../models/entitlements.dart';
 import '../widgets/shop_bundle_card.dart';
 
 class ShopBundlesScreen extends StatefulWidget {

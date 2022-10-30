@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:io';
 
 import '../models/category.dart';
-import '../models/category_data.dart';
+import '../models/entitlements.dart';
 import '../models/question.dart';
 
 class DrunkGuesserDB {
@@ -72,13 +72,28 @@ class DrunkGuesserDB {
   Lookup in the local database whether the Category category is purchased
    */
   static Future<bool> categoryPurchased(Category category) async {
-    // var x = await db.rawQuery("SELECT ${category.name} FROM Purchased");
-    var output = await db.rawQuery("SELECT ${category.dbName} FROM Purchased");
+    // var x = await db.rawQuery("SELECT ${category.name} FROM entitlements");
+    var output = await db.rawQuery("SELECT ${category.dbName} FROM entitlements");
     // db.close();
     if (output.first[category.dbName.toString()] == 1) {
       print("$output is purchased");
       return true;
     }
+    return false;
+  }
+
+  /*
+  Lookup in the local database whether to show ads
+   */
+  static Future<bool> getShowAds() async {
+    // var x = await db.rawQuery("SELECT ${category.name} FROM entitlements");
+    var output = await db.rawQuery("SELECT zeigeWerbung FROM entitlements");
+    // db.close();
+    if (output.first["zeigeWerbung"] == 1) {
+      print("show ads");
+      return true;
+    }
+    print("dont show ads");
     return false;
   }
 
@@ -90,11 +105,29 @@ class DrunkGuesserDB {
 
   static Future<void> purchaseCategory(Category category) async {
     await initDatabase();
-    await db.rawQuery("UPDATE Purchased SET ${category.dbName} = 1");
-    Categories.categoryList
+    // Set showAds to false
+    await db.rawQuery("UPDATE entitlements SET zeigeWerbung = 0");
+    Entitlements.showAds = false;
+    // Set category to purchased
+    await db.rawQuery("UPDATE entitlements SET ${category.dbName} = 1");
+    Entitlements.categoryList
         .where((element) => element.name == category.name)
         .first
         .purchased = true;
+  }
+
+  static Future<void> purchaseCategories(List<Category> categories) async {
+    await initDatabase();
+    // Set showAds to false
+    await db.rawQuery("UPDATE entitlements SET zeigeWerbung = 0");
+    Entitlements.showAds = false;
+    for (Category category in categories) {
+      await db.rawQuery("UPDATE entitlements SET ${category.dbName} = 1");
+      Entitlements.categoryList
+          .where((element) => element.name == category.name)
+          .first
+          .purchased = true;
+    }
   }
 
   static Future<int> getLocalVersion() async {

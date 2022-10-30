@@ -9,7 +9,6 @@ class Category {
   final String iconPath;
   final String dbName;
   final List<Color> colors;
-  final Product? product;
   bool selected = false;
 
   /*
@@ -24,7 +23,6 @@ class Category {
     required this.dbName,
     this.purchased = false,
     required this.colors,
-    required this.product
   }) {
     setPurchased();
   }

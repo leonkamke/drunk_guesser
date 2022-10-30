@@ -1,6 +1,6 @@
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
-import 'package:drunk_guesser/models/category_data.dart';
+import 'package:drunk_guesser/models/entitlements.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
 import 'package:flutter/material.dart';
@@ -40,9 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
     // delaying the user experience is a bad design practice!
     // ignore_for_file: avoid_print
     await DrunkGuesserDB.initDatabase();
-    for (Category category in Categories.categoryList) {
+    for (Category category in Entitlements.categoryList) {
       category.setPurchased();
     }
+    // Check wether to show ads
+    Entitlements.setShowAds();
     await Future.delayed(const Duration(milliseconds: 500));
     FlutterNativeSplash.remove();
   }

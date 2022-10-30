@@ -1,14 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../api/product.dart';
 import '../api/purchase_api.dart';
 import '../models/app_colors.dart';
 import '../models/category.dart';
 
 class ShopCategoryCard extends StatelessWidget {
-  ShopCategoryCard({Key? key, required this.category}) : super(key: key);
+  ShopCategoryCard({
+    Key? key,
+    required this.category,
+    required this.product,
+  }) : super(key: key);
 
   final Category category;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +118,6 @@ class ShopCategoryCard extends StatelessWidget {
 
   Future<void> buyCategory() async {
     print("Buy category ${category.name}");
-    await PurchaseApi.purchaseProduct(category.product!);
+    await PurchaseApi.purchaseProduct(product);
   }
 }

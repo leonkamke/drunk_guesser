@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../models/category.dart';
 import '../database/drunk_guesser_db.dart';
-import '../models/category_data.dart';
+import '../models/entitlements.dart';
 
 class CategoryCard extends StatefulWidget {
   final Category category;
@@ -270,7 +270,7 @@ class _CategoryCardState extends State<CategoryCard> {
       });
     }
     bool value = true;
-    for (Category c in Categories.categoryList) {
+    for (Category c in Entitlements.categoryList) {
       if (c.selected) {
         value = false;
       }

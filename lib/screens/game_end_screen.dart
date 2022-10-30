@@ -6,6 +6,7 @@ import 'dart:io' show Platform;
 
 import '../models/app_colors.dart';
 import '../models/background_icons.dart';
+import '../models/entitlements.dart';
 
 class GameEndScreen extends StatefulWidget {
   GameEndScreen({Key? key}) : super(key: key);
@@ -45,7 +46,9 @@ class _GameEndScreenState extends State<GameEndScreen>
 
   @override
   void initState() {
-    _createInterstitialAd();
+    if (Entitlements.showAds) {
+      _createInterstitialAd();
+    }
 
     super.initState();
 
@@ -53,9 +56,6 @@ class _GameEndScreenState extends State<GameEndScreen>
       duration: const Duration(milliseconds: 200),
       vsync: this,
     )..forward();
-
-    // Load ad
-    //_createInterstitialAd();
   }
 
   static const AdRequest request = AdRequest(
@@ -228,11 +228,15 @@ class _GameEndScreenState extends State<GameEndScreen>
 
   Future<void> endGame(BuildContext context) async {
     if (isEnd) {
-      // Add a delay so that the ad has time to load
-      await Future.delayed(const Duration(milliseconds: 1000)).then((_) {
+      if (Entitlements.showAds) {
+        // Add a delay so that the ad has time to load
+        await Future.delayed(const Duration(milliseconds: 1000)).then((_) {
+          Navigator.of(context).pushReplacementNamed("/categories");
+          _showInterstitialAd();
+        });
+      } else {
         Navigator.of(context).pushReplacementNamed("/categories");
-        _showInterstitialAd();
-      });
+      }
     }
     setState(() {
       if (!isEnd) {

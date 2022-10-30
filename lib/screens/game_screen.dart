@@ -154,6 +154,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                        height: 90,
                         color: Colors.transparent,
                         padding: EdgeInsets.fromLTRB(
                           displayWidth * 0.1,
@@ -163,21 +164,25 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: AutoSizeText(
-                                categoryName,
-                                style: const TextStyle(
-                                  fontSize: 30,
-                                  color: AppColors.appBarText,
-                                  fontFamily: "Quicksand",
-                                  fontWeight: FontWeight.bold,
+                              child: FittedBox(
+                                alignment: Alignment.topLeft,
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  categoryName,
+                                  style: const TextStyle(
+                                    fontSize: 30,
+                                    color: AppColors.appBarText,
+                                    fontFamily: "Quicksand",
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                               child: GestureDetector(
                                 child: const Icon(
                                   Icons.close_rounded,

@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
 import '../models/category.dart';
-import '../models/category_data.dart';
+import '../models/entitlements.dart';
 import '../provider/categories_startbutton_provider.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -40,11 +40,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     // TODO: implement initState
     // context.read<StartButtonProvider>().setEnabled(true);
     StartButtonProvider.buttonDisabled = true;
-    for (Category c in Categories.categoryList) {
+    for (Category c in Entitlements.categoryList) {
       c.setPurchased();
     }
+    // Check wether to show ads
+    Entitlements.setShowAds();
     // Copy list of all categories
-    categories = [...Categories.categoryList];
+    categories = [...Entitlements.categoryList];
     // Set selected value to false
     categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
@@ -183,16 +185,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     // iterate over all categoryCards and check which are selected
 
     List<Category> selectedCategories = [];
-    if (Categories.zufall.selected) {
+    if (Entitlements.zufall.selected) {
       // If Zufall is selected
       // Add categories which are in zufall
-      selectedCategories.addAll(Categories.categoriesInZufall);
+      selectedCategories.addAll(Entitlements.categoriesInZufall);
       for (Category c in categories) {
         if (c.selected && !selectedCategories.contains(c)) {
           selectedCategories.add(c);
         }
       }
-      selectedCategories.remove(Categories.zufall);
+      selectedCategories.remove(Entitlements.zufall);
     } else {
       selectedCategories = categories
           .where((element) =>
