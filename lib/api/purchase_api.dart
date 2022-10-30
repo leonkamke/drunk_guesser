@@ -39,7 +39,6 @@ class PurchaseApi {
     CustomerInfo customerInfo = await Purchases.getCustomerInfo();
     Iterable<EntitlementInfo> list = customerInfo.entitlements.all.values
         .where((element) => element.isActive);
-    print("---------------------------");
     for (EntitlementInfo e in list) {
       print(e.identifier);
     }

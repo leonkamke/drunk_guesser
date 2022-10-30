@@ -75,8 +75,8 @@ class Entitlements {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/price_icon.png",
     colors: const [
-      Color(0xffffffff),
-      Color(0xffffffff),
+      Color(0xff90c55c),
+      Color(0xff4f732a),
     ],
     purchased: false,
   );
