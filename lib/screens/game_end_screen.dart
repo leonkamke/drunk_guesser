@@ -27,12 +27,9 @@ class GameEndScreen extends StatefulWidget {
 
 class _GameEndScreenState extends State<GameEndScreen>
     with TickerProviderStateMixin {
-
   // Google ads(AdMob)
   InterstitialAd? _interstitialAd;
   int _numInterstitialLoadAttempts = 0;
-
-
 
   late AnimationController _controllerText;
 
@@ -68,30 +65,29 @@ class _GameEndScreenState extends State<GameEndScreen>
 
   Future<void> _createInterstitialAd() async {
     await InterstitialAd.load(
-        adUnitId: Platform.isAndroid
-            ? "ca-app-pub-5412590295261837/8371484117"//own id from admob account:'ca-app-pub-5412590295261837/8371484117' , "test id: ca-app-pub-3940256099942544/8691691433"
-            : 'ca-app-pub-3940256099942544/4411468910',
-        request: request,
-        adLoadCallback: InterstitialAdLoadCallback(
-          onAdLoaded: (InterstitialAd ad) {
-            print('$ad loaded');
-            _interstitialAd = ad;
-            _numInterstitialLoadAttempts = 0;
-            _interstitialAd!.setImmersiveMode(true);
-          },
-          onAdFailedToLoad: (LoadAdError error) {
-            print('InterstitialAd failed to load: $error.');
-            _numInterstitialLoadAttempts += 1;
-            _interstitialAd = null;
-            if (_numInterstitialLoadAttempts < maxFailedLoadAttempts) {
-              _createInterstitialAd();
-            }
-          },
-        ),
+      adUnitId: Platform.isAndroid
+          ? "test id: ca-app-pub-3940256099942544/8691691433" //own id from admob account:'ca-app-pub-5412590295261837/8371484117' , "test id: ca-app-pub-3940256099942544/8691691433"
+          : 'ca-app-pub-3940256099942544/4411468910',
+      request: request,
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (InterstitialAd ad) {
+          print('$ad loaded');
+          _interstitialAd = ad;
+          _numInterstitialLoadAttempts = 0;
+          _interstitialAd!.setImmersiveMode(true);
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          print('InterstitialAd failed to load: $error.');
+          _numInterstitialLoadAttempts += 1;
+          _interstitialAd = null;
+          if (_numInterstitialLoadAttempts < maxFailedLoadAttempts) {
+            _createInterstitialAd();
+          }
+        },
+      ),
     );
     print("loaded ad");
   }
-
 
   void _showInterstitialAd() {
     if (_interstitialAd == null) {
