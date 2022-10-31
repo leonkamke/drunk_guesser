@@ -195,7 +195,7 @@ class Entitlements {
   static Map<Category, Product> category_product_map = {
     technik: Products.technik,
     natur_und_tierwelt: Products.natur_und_tierwelt,
-    weltall: Products.natur_und_tierwelt,
+    weltall: Products.weltall,
     unnuetzes_wissen: Products.unnuetzes_wissen,
     achtzehn_plus: Products.achtzehn_plus,
     geographie: Products.geographie,

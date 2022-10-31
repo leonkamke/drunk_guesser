@@ -87,7 +87,7 @@ class ShopCategoryCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.shopPriceButtonBackground,
                 border: Border.all(
-                  color: Color(0xff444e5a),
+                  color: const Color(0xff444e5a),
                   width: displayWidth * 0.005,
                 ),
                 borderRadius: BorderRadius.circular(15),

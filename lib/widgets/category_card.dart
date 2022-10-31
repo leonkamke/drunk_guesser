@@ -105,7 +105,7 @@ class _CategoryCardState extends State<CategoryCard> {
                   : const Icon(
                       Icons.circle,
                       size: 30,
-                      color: Color(0x20ffffff),
+                      color: Color(0x4A656565),
                     ),
               /*
               Icon(
