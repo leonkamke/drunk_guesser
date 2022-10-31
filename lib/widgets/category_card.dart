@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/category.dart';
-import '../database/drunk_guesser_db.dart';
 import '../models/entitlements.dart';
 
 class CategoryCard extends StatefulWidget {
@@ -36,7 +35,7 @@ class _CategoryCardState extends State<CategoryCard> {
               vertical: 3, horizontal: displayWidth * 0.03),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: AppColors.appbarBackground,//Colors.transparent,
+            color: Colors.transparent,//AppColors.appbarBackground,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +132,7 @@ class _CategoryCardState extends State<CategoryCard> {
                   vertical: 3, horizontal: displayWidth * 0.03),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: AppColors.appbarBackground,//Colors.transparent,
+                color: Colors.transparent,//AppColors.appbarBackground,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,7 +168,7 @@ class _CategoryCardState extends State<CategoryCard> {
                         AutoSizeText(
                           widget.category.name,
                           style: const TextStyle(
-                            color: Color(0x51ffffff),//AppColors.schriftFarbeCardsTransparent,
+                            color: AppColors.schriftFarbeCardsTransparent,//Color(0x71FFFFFF),
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -179,7 +178,7 @@ class _CategoryCardState extends State<CategoryCard> {
                           maxLines: 3,
                           widget.category.description,
                           style: const TextStyle(
-                            color: Color(0x51ffffff),//AppColors.schriftFarbeCardsTransparent,
+                            color: AppColors.schriftFarbeCardsTransparent,//Color(0x51ffffff),
                             fontSize: 11,
                             // fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -208,10 +207,10 @@ class _CategoryCardState extends State<CategoryCard> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: <Color>[
-            Colors.black.withOpacity(0.09),
-            Colors.black.withOpacity(0.15),
-            Colors.black.withOpacity(0.15),
-            Colors.black.withOpacity(0.09),
+            Colors.black.withOpacity(0.20),
+            Colors.black.withOpacity(0.20),
+            Colors.black.withOpacity(0.20),
+            Colors.black.withOpacity(0.20),
             // <-- change this opacity
             // Colors.transparent // <-- you might need this if you want full transparency at the edge
           ],
