@@ -16,15 +16,12 @@ import '../models/question.dart';
 class DrunkGuesserDB {
   static const String dbName = "drunk_guesser_db.db";
   static late Database db;
-  static String assetsVersion = "1.0.1";
+  static String assetsVersion = "1.0.0";
 
   static Future<void> initDatabase() async {
     print("initDatabase()");
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, dbName);
-    var localVersion = 2;
-    var assetVersion = 2;
-
     // Check if the database exists
     var exists = await databaseExists(path);
     if (!exists) {
@@ -45,14 +42,9 @@ class DrunkGuesserDB {
 
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
-    } else if (exists && localVersion < assetVersion) {
-      // app was updated
-      print(
-          "copy old information into new database and then replace the db on the divice");
     } else {
       print("Opening existing database");
     }
-
     // open the database
     db = await openDatabase(path);
   }
@@ -65,30 +57,41 @@ class DrunkGuesserDB {
     // get Database version of Database ON DEVICE
     var output = await db.rawQuery("SELECT version FROM database_version");
     String localVersion = output.first["version"] as String;
-    print("-------- localVersion: " + localVersion);
-    print("-------- assetsVersion: " + assetsVersion);
     if (localVersion != assetsVersion) {
+      print("----- update database!");
       // do a update
       // get information from local database (all except database_version)
       Map<String, List> readQuestions = {};
       for (Category category in Entitlements.categoryList) {
-        if (category.dbName == "zufall")  continue;
-        var output = await db.rawQuery("SELECT id FROM ${category.dbName} WHERE gelesen == 1");
+        if (category.dbName == "zufall") continue;
+        var output = await db
+            .rawQuery("SELECT id FROM ${category.dbName} WHERE gelesen == 1");
         readQuestions[category.dbName] = output;
       }
-      print(readQuestions);
       var entitlements = await db.rawQuery("SELECT * FROM entitlements");
-      print(entitlements);
       // deleteDatabase
-      deleteDB();
+      await deleteDB();
       // initDatabase (will copy assetDB to local device storage
-      initDatabase();
+      await initDatabase();
       // copy entitlement information to local database
       for (String entitlement in entitlements.first.keys) {
-        await db.rawQuery("UPDATE entitlements SET $entitlement = ${entitlements.first[entitlement].toString()}");
+        await db.rawQuery(
+            "UPDATE entitlements SET $entitlement = ${entitlements.first[entitlement].toString()}");
       }
       // copy readQuestion information to local database
-
+      for (Category category in Entitlements.categoryList) {
+        if (category.dbName == "zufall" ||
+            readQuestions[category.dbName]!.isEmpty) continue;
+        // create query
+        String query = "UPDATE ${category.dbName} SET gelesen = 1 WHERE";
+        for (Map map in readQuestions[category.dbName]!) {
+          query += " id == ${map["id"]} OR";
+        }
+        // remove last or
+        query = query.substring(0, query.length - 2);
+        // Apply query
+        await db.rawQuery(query);
+      }
     }
   }
 
@@ -137,7 +140,7 @@ class DrunkGuesserDB {
     return false;
   }
 
-  static void deleteDB() async {
+  static Future<void> deleteDB() async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, dbName);
     await deleteDatabase(path);
