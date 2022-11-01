@@ -1,17 +1,14 @@
-- Am Ende des Spiels vielleicht Shop anzeigen, oder Werbung anzeigen, wie bei piccolo Bewerten popup, (vielleicht bei einer bewertung kostenlose Kategorie anbieten)
 - Teilen button und bewerten button bei Einstellungen implementieren
-- RevenueCat for inapp purchases
 - endscreen letzter Satz, welche Möglichkeiten
 
 - App Update approach
-- Implement google admob (good example on pub.dev page) with package "google_mobile_ads 2.1.0"
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
 - Für Datenschutzerklärung: https://www.iubenda.com/de/
-- namen für package überlegen (muss einduetig sein): Beispiel aus Kurs: com.academind.great_places
-- für welche android versionen hochladen? (default: min 16 latest 21(viedeo 367)
 
 Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)
 
 Für die Datenschutzerklärung: https://app-privacy-policy-generator.firebaseapp.com/
 
 Settet minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
+
+alle auswählen im Kategorienscreen

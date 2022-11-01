@@ -1,6 +1,9 @@
 import 'dart:typed_data';
 import 'dart:math';
-
+import 'package:flutter/services.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart' as path;
+import 'dart:io' as io;
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -13,6 +16,7 @@ import '../models/question.dart';
 class DrunkGuesserDB {
   static const String dbName = "drunk_guesser_db.db";
   static late Database db;
+  static String assetsVersion = "1.0.1";
 
   static Future<void> initDatabase() async {
     print("initDatabase()");
@@ -51,6 +55,41 @@ class DrunkGuesserDB {
 
     // open the database
     db = await openDatabase(path);
+  }
+
+  /*
+  Method for updating the database. Will be triggered if database version in
+  code is greater than database version in database
+   */
+  static Future<void> updateDatabase() async {
+    // get Database version of Database ON DEVICE
+    var output = await db.rawQuery("SELECT version FROM database_version");
+    String localVersion = output.first["version"] as String;
+    print("-------- localVersion: " + localVersion);
+    print("-------- assetsVersion: " + assetsVersion);
+    if (localVersion != assetsVersion) {
+      // do a update
+      // get information from local database (all except database_version)
+      Map<String, List> readQuestions = {};
+      for (Category category in Entitlements.categoryList) {
+        if (category.dbName == "zufall")  continue;
+        var output = await db.rawQuery("SELECT id FROM ${category.dbName} WHERE gelesen == 1");
+        readQuestions[category.dbName] = output;
+      }
+      print(readQuestions);
+      var entitlements = await db.rawQuery("SELECT * FROM entitlements");
+      print(entitlements);
+      // deleteDatabase
+      deleteDB();
+      // initDatabase (will copy assetDB to local device storage
+      initDatabase();
+      // copy entitlement information to local database
+      for (String entitlement in entitlements.first.keys) {
+        await db.rawQuery("UPDATE entitlements SET $entitlement = ${entitlements.first[entitlement].toString()}");
+      }
+      // copy readQuestion information to local database
+
+    }
   }
 
   /*

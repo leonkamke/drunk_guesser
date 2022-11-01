@@ -39,12 +39,17 @@ class _HomeScreenState extends State<HomeScreen> {
     // the splash screen is displayed.  Remove the following example because
     // delaying the user experience is a bad design practice!
     // ignore_for_file: avoid_print
-    await DrunkGuesserDB.initDatabase();
-    for (Category category in Entitlements.categoryList) {
-      category.setPurchased();
+    try {
+      await DrunkGuesserDB.initDatabase();
+      await DrunkGuesserDB.updateDatabase();
+      for (Category category in Entitlements.categoryList) {
+        category.setPurchased();
+      }
+      // Check wether to show ads
+      Entitlements.setShowAds();
+    } catch(e) {
+      print(e);
     }
-    // Check wether to show ads
-    Entitlements.setShowAds();
     await Future.delayed(const Duration(milliseconds: 500));
     FlutterNativeSplash.remove();
   }
