@@ -121,18 +121,6 @@ class SettingsScreen extends StatelessWidget {
                       SizedBox(
                         height: displayHeight * 0.04,
                       ),
-                      RoundedButton(
-                        buttonText: "Käufe wieder herstellen",
-                        borderRadius: 15,
-                        firstColor: AppColors.appbarBackground,
-                        secondColor: AppColors.appbarBackground,
-                        textColor: AppColors.appBarText,
-                        onClickColor: const Color(0xFF000000),
-                        onTap: () async {
-                          print("Restore products");
-                          await PurchaseApi.restoreProducts();
-                        },
-                      ),
                     ],
                   ),
                 ),
@@ -143,6 +131,22 @@ class SettingsScreen extends StatelessWidget {
                     'assets/animations/drunkguesser2.2.riv',
                     fit: BoxFit.contain,
                   ),
+                ),
+                SizedBox(height: 10),
+                GestureDetector(
+                  child: const Text(
+                    "Käufe wiederherstellen",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 17,
+                      color: AppColors.schriftFarbeCards,
+                      fontFamily: "Quicksand",
+                    ),
+                  ),
+                  onTap: () async {
+                    print("Restore products");
+                    await PurchaseApi.restoreProducts();
+                  },
                 ),
                 SizedBox(
                   height: displayHeight * 0.05,
