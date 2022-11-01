@@ -297,7 +297,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         alignment: Alignment.bottomCenter,
                         margin: EdgeInsets.only(
                             top: 0,
-                            bottom: 20,
+                            bottom: 40,
                             left: displayWidth * 0.1,
                             right: displayWidth * 0.1),
                         child: customTextfield,

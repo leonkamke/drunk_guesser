@@ -124,15 +124,15 @@ class SettingsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
+                const SizedBox(
                   width: 150,
                   height: 150,
-                  child: const rive.RiveAnimation.asset(
+                  child: rive.RiveAnimation.asset(
                     'assets/animations/drunkguesser2.2.riv',
                     fit: BoxFit.contain,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 GestureDetector(
                   child: const Text(
                     "Käufe wiederherstellen",

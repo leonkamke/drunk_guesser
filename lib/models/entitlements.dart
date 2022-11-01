@@ -21,7 +21,10 @@ class Entitlements {
         "Zufällige Fragen aus den Kategorien Unnützes Wissen, Medien und Unterhaltung, Sport, Geographie und Google.",
     iconPath: "assets/categories_icons/random_icon.png",
     purchased: true,
-    colors: const [Color(0xffffffff), Color(0xffffffff)],
+    colors: const [
+      Color(0xffffffff),
+      Color(0xffffffff),
+    ],
   );
   static Category natur_und_tierwelt = Category(
     name: "Natur",
