@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         RoundedButton(
                           buttonText: "Start",
-                          borderRadius: 15,
+                          borderRadius: 20,
                           firstColor: AppColors.startButtonBackground,
                           secondColor: AppColors.startButtonBackground,
                           textColor: AppColors.startButtonText,
@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         RoundedButton(
                           buttonText: "Einstellungen",
-                          borderRadius: 15,
+                          borderRadius: 20,
                           firstColor: AppColors.settingsButtonBackground,
                           secondColor: AppColors.settingsButtonBackground,
                           textColor: AppColors.settingsButtonText,

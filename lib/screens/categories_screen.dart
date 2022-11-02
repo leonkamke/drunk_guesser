@@ -48,7 +48,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
     categories.sort(
-          (a, b) {
+      (a, b) {
         if (a.purchased == true && b.purchased == false) {
           return -1;
         } else if (a.purchased == false && b.purchased == true) {
@@ -72,7 +72,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     categories.forEach((element) => element.selected = false);
     // sort CategoryList (purchased categories first)
     categories.sort(
-          (a, b) {
+      (a, b) {
         if (a.purchased == true && b.purchased == false) {
           return -1;
         } else if (a.purchased == false && b.purchased == true) {
@@ -115,7 +115,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
                        */
                     ],
-                    color: Colors.transparent,//AppColors.appbarBackground,
+                    color: Colors.transparent, //AppColors.appbarBackground,
                   ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.1,
@@ -133,7 +133,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           "Kategorien",
                           style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white,//AppColors.appbarBackground,//AppColors.appBarText,
+                            color: Colors.white,
+                            //AppColors.appbarBackground,//AppColors.appBarText,
                             fontFamily: "Quicksand",
                             fontWeight: FontWeight.bold,
                           ),
@@ -143,7 +144,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         child: const Icon(
                           Icons.home_rounded,
                           size: 45,
-                          color: Colors.white,//AppColors.appbarBackground//AppColors.appBarText,
+                          color: Colors
+                              .white, //AppColors.appbarBackground//AppColors.appBarText,
                         ),
                         onTap: () {
                           Navigator.of(context).pop();
@@ -162,9 +164,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       },
                       separatorBuilder: (context, index) {
                         return Divider(
-                          color: AppColors.gameCard, //AppColors.categoryDivider,
+                          color: AppColors.gameCard,
+                          //AppColors.categoryDivider,
                           thickness: 1.5,
-                          height: 23,//32,
+                          height: 23,
+                          //32,
                           indent: displayWidth * 0.05,
                           endIndent: displayWidth * 0.05,
                         );
@@ -174,12 +178,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 Container(
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
+                    /*
                     boxShadow: [
+
                       BoxShadow(
                           color: Colors.black54,
                           offset: Offset(0, -3),
-                          blurRadius: 6)
-                    ],
+                          blurRadius: 4)
+                    ],*/
                     color: AppColors.appbarBackground,
                   ),
                   width: displayWidth,

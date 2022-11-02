@@ -36,7 +36,7 @@ class StartButton extends StatefulWidget {
 
 class _StartButtonState extends State<StartButton> {
   bool _isPressed = false;
-  Duration animationDuration = const Duration(milliseconds: 120);
+  Duration animationDuration = const Duration(milliseconds: 50);
 
   void buttonPressed() async {
     setState(() {
@@ -67,7 +67,7 @@ class _StartButtonState extends State<StartButton> {
       decoration: BoxDecoration(
         boxShadow: getBoxShadow(context),
         color: context.watch<StartButtonProvider>().disabled
-            ? const Color(0xFF446222)
+            ? const Color(0xFF303A44)
             : widget.firstColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
@@ -112,12 +112,12 @@ class _StartButtonState extends State<StartButton> {
       if (!_isPressed) {
         return [
           const BoxShadow(
-              color: Color(0x96000000), offset: Offset(3, 6), blurRadius: 6)
+              color: Color(0x96000000), offset: Offset(2, 4), blurRadius: 3)
         ];
       } else {
         return [
           const BoxShadow(
-              color: Color(0x96000000), offset: Offset(0.7, 2.1), blurRadius: 1.2)
+              color: Color(0x96000000), offset: Offset(0.2, 1.0), blurRadius: 0.5)
         ];
       }
     }

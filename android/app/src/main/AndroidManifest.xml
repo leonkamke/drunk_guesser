@@ -2,7 +2,9 @@
     package="com.example.drunk_guesser">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="com.android.vending.BILLING" />
-   <application
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
         android:label="Drunk Guesser"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
