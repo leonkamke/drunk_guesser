@@ -23,7 +23,11 @@ import 'api/purchase_api.dart';
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // RevenueCat-purchases
-  await PurchaseApi.init();
+  try {
+    await PurchaseApi.init();
+  } catch(e) {
+
+  }
   // Google ads (Admob)
   MobileAds.instance.initialize();
   // Splashscreen

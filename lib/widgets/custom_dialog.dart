@@ -73,6 +73,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                         )),
                         child: CupertinoButton(
                           onPressed: () {
+                            FocusManager.instance.primaryFocus?.unfocus();
                             Navigator.of(context).pop();
                             Navigator.of(context).pop();
                           },

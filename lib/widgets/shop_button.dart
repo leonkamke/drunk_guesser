@@ -39,29 +39,22 @@ class _ShopButtonState extends State<ShopButton> {
     final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
     if (widget.selected) {
-      return Container(
-        decoration: BoxDecoration(
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
-          ],
-          border: Border.all(color: const Color(0xfffff8b9), width: 3.5),
-          color: const Color(0xFF444E5A),
-          borderRadius: widget.borderRadius,
-        ),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            splashFactory: NoSplash.splashFactory,
-            foregroundColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: widget.borderRadius,
-            ),
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            fixedSize: Size(displayWidth * 0.66, displayHeight * 0.092),
+      return GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          width: displayWidth * 0.66,
+          height: displayHeight * 0.092,
+          decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black54, offset: Offset(3, 6), blurRadius: 6)
+            ],
+            border: Border.all(color: const Color(0xfffff8b9), width: 3.5),
+            color: const Color(0xFF444E5A),
+            borderRadius: widget.borderRadius,
           ),
-          onPressed: widget.onTap,
           child: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
               widget.buttonText,
               style: const TextStyle(
@@ -75,25 +68,18 @@ class _ShopButtonState extends State<ShopButton> {
         ),
       );
     } else {
-      return Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.transparent, width: 3.5),
-          color: const Color(0x89444E5A),
-          borderRadius: widget.borderRadius,
-        ),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            splashFactory: NoSplash.splashFactory,
-            foregroundColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: widget.borderRadius,
-            ),
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            fixedSize: Size(displayWidth * 0.66, displayHeight * 0.092),
+      return GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          width: displayWidth * 0.66,
+          height: displayHeight * 0.092,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.transparent, width: 3.5),
+            color: const Color(0x89444E5A),
+            borderRadius: widget.borderRadius,
           ),
-          onPressed: widget.onTap,
           child: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
               widget.buttonText,
               style: const TextStyle(

@@ -43,7 +43,7 @@ class _RoundedButtonState extends State<RoundedButton> {
       _isPressed = false;
     });
     await Future.delayed(animationDuration).then(
-          (value) {
+      (value) {
         if (_nextScreen) {
           widget.onTap();
         }
@@ -58,7 +58,7 @@ class _RoundedButtonState extends State<RoundedButton> {
 
     return GestureDetector(
       // onTap: buttonPressed,
-      onTapDown: (x) => {buttonPressed(), print(x.globalPosition.toString())},
+      onTapDown: (x) => {buttonPressed()},
       onTapUp: (x) => {onEnd()},
       onTapCancel: () {
         setState(() {
@@ -72,17 +72,17 @@ class _RoundedButtonState extends State<RoundedButton> {
         decoration: BoxDecoration(
           boxShadow: !_isPressed
               ? [
-            const BoxShadow(
-                color: Colors.black54,
-                offset: Offset(2, 4),
-                blurRadius: 4)
-          ]
+                  const BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(2, 4),
+                      blurRadius: 4)
+                ]
               : [
-            const BoxShadow(
-                color: Colors.black54,
-                offset: Offset(0.4, 1.7),
-                blurRadius: 0.9)
-          ],
+                  const BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0.4, 1.7),
+                      blurRadius: 0.9)
+                ],
           color: widget.firstColor,
           borderRadius: BorderRadius.circular(widget.borderRadius),
         ),
@@ -99,14 +99,14 @@ class _RoundedButtonState extends State<RoundedButton> {
             fixedSize: /* !_isPressed
                 ? Size(displayWidth * 0.48, 48)
                 : Size(displayWidth * 0.46, 46)*/
-            Size(displayWidth * 0.48, 48),
+                Size(displayWidth * 0.48, 48),
           ),
           onPressed: null,
           child: FittedBox(
             child: Text(
               widget.buttonText,
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
                 color: widget.textColor,

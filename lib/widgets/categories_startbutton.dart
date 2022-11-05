@@ -2,8 +2,6 @@ import 'package:drunk_guesser/provider/categories_startbutton_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/app_colors.dart';
-
 class StartButton extends StatefulWidget {
   final String buttonText;
   final Color firstColor;
@@ -36,61 +34,72 @@ class StartButton extends StatefulWidget {
 
 class _StartButtonState extends State<StartButton> {
   bool _isPressed = false;
+  bool _nextScreen = false;
   Duration animationDuration = const Duration(milliseconds: 50);
 
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
-    await Future.delayed(
-            Duration(milliseconds: animationDuration.inMilliseconds * 2))
-        .then((value) => widget.onTap());
+    _nextScreen = true;
   }
 
-  void onEnd() {
+  Future<void> onEnd() async {
     setState(() {
       _isPressed = false;
     });
+    await Future.delayed(animationDuration).then(
+      (value) {
+        if (_nextScreen) {
+          widget.onTap();
+        }
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
     final displayHeight = MediaQuery.of(context).size.height;
 
-    return AnimatedContainer(
-      width: 120,
-      height: displayHeight * 0.06,
-      curve: Curves.ease,
-      duration: animationDuration,
-      onEnd: onEnd,
-      decoration: BoxDecoration(
-        boxShadow: getBoxShadow(context),
-        color: context.watch<StartButtonProvider>().disabled
-            ? const Color(0xFF303A44)
-            : widget.firstColor,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          disabledBackgroundColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-          foregroundColor: const Color(0xFF94BfFF),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-          ),
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          fixedSize: Size(displayWidth * 0.48, 50),
+    return GestureDetector(
+      onTapDown: (x) => {buttonPressed()},
+      onTapUp: (x) => {onEnd()},
+      onTapCancel: () {
+        setState(() {
+          _isPressed = false;
+          _nextScreen = false;
+        });
+      },
+      child: AnimatedContainer(
+        width: 120,
+        height: displayHeight * 0.06,
+        curve: Curves.ease,
+        duration: animationDuration,
+        decoration: BoxDecoration(
+          boxShadow: !context.watch<StartButtonProvider>().disabled
+              ? [
+                  const BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(2, 4),
+                      blurRadius: 4)
+                ]
+              : [
+                  const BoxShadow(
+                      color: Colors.black54,
+                      offset: Offset(0.4, 1.7),
+                      blurRadius: 0.9)
+                ],
+          color: context.watch<StartButtonProvider>().disabled
+              ? const Color(0xFF303A44)
+              : widget.firstColor,
+          borderRadius: BorderRadius.circular(widget.borderRadius),
         ),
-        onPressed: context.watch<StartButtonProvider>().disabled
-            ? null
-            : buttonPressed,
         child: FittedBox(
+          fit: BoxFit.scaleDown,
           child: Text(
             widget.buttonText,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
               fontFamily: "Quicksand",
               color: widget.textColor,
@@ -103,11 +112,10 @@ class _StartButtonState extends State<StartButton> {
 
   List<BoxShadow> getBoxShadow(BuildContext context) {
     if (context.watch<StartButtonProvider>().disabled) {
-      return [const BoxShadow(
-          color: Color(0x2C000000),
-          offset: Offset(1, 3),
-          blurRadius: 2)
-    ];
+      return [
+        const BoxShadow(
+            color: Color(0x2C000000), offset: Offset(1, 3), blurRadius: 2)
+      ];
     } else {
       if (!_isPressed) {
         return [
@@ -117,7 +125,9 @@ class _StartButtonState extends State<StartButton> {
       } else {
         return [
           const BoxShadow(
-              color: Color(0x96000000), offset: Offset(0.2, 1.0), blurRadius: 0.5)
+              color: Color(0x96000000),
+              offset: Offset(0.2, 1.0),
+              blurRadius: 0.5)
         ];
       }
     }
