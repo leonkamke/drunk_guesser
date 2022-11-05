@@ -96,8 +96,8 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     children: [
                       Container(
                         margin:
-                            EdgeInsets.fromLTRB(0, displayHeight * 0.04, 0, 0),
-                        width: 120,
+                            EdgeInsets.fromLTRB(0, displayHeight * 0.02, 0, 0),
+                        width: displayHeight * 0.2,
                         height: 120,
                         child: const rive.RiveAnimation.asset(
                           'assets/animations/drunkguesser2.2.riv',
@@ -159,38 +159,10 @@ class _CreditsScreenState extends State<CreditsScreen> {
                           fontFamily: "Quicksand",
                         ),
                       ),
-                      SizedBox(
-                        height: displayHeight * 0.1,
-                      ),
+
                     ],
                   ),
                 ),
-                /*
-                GestureDetector(
-                  child: const Text(
-                    "Privacy Policy",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 17,
-                      color: AppColors.schriftFarbeCards,
-                      fontFamily: "Quicksand",
-                    ),
-                  ),
-                  onTap: () {
-                    /*
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return PolicyDialog(
-                          mdFileName: "assets/legal/privacy_policy.md",
-                          radius: 10,
-                        );
-                      },
-                    );
-                     */
-                  },
-                ),
-                */
                 GestureDetector(
                   child: const Text(
                     "Datenschutzverordnung",
