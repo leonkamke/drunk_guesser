@@ -144,7 +144,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
                           children: [
                             Positioned(
                               top: 0,
-                              child: Container(
+                              child: SizedBox(
                                 width: displayHeight * 0.18,
                                 height: displayHeight * 0.18,
                                 child: const rive.RiveAnimation.asset(

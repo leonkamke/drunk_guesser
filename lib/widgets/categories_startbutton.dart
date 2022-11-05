@@ -60,10 +60,13 @@ class _StartButtonState extends State<StartButton> {
   @override
   Widget build(BuildContext context) {
     final displayHeight = MediaQuery.of(context).size.height;
-
     return GestureDetector(
-      onTapDown: (x) => {buttonPressed()},
-      onTapUp: (x) => {onEnd()},
+      onTapDown: (x) {
+        buttonPressed();
+      },
+      onTapUp: (x) {
+        onEnd();
+      },
       onTapCancel: () {
         setState(() {
           _isPressed = false;
