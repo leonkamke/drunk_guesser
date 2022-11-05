@@ -53,7 +53,7 @@ flutter_native_splash:
     # image: assets/splash_screen/drunk_guesser_splash.png
 
   # Splash screen background color.
-    color: "#80A5D7"
+    # color: "#80A5D7"
 
   # App icon background color.
   #icon_background_color: "#111111"
