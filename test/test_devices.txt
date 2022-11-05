@@ -1,0 +1,14 @@
+Smartphones:
+- 8`` Fold-out
+- 6.7`` Horizontal Fold
+- Pixel 4
+- 4.7 WXGA
+- Nexus S
+- 2.7 QVGA
+
+
+Tablets:
+- 13.5 Freeform
+- Nexus 9
+- 7`` WSVGA
+
