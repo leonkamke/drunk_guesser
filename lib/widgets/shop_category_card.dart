@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +9,7 @@ import '../api/purchase_api.dart';
 import '../models/app_colors.dart';
 import '../models/category.dart';
 
-class ShopCategoryCard extends StatelessWidget {
+class ShopCategoryCard extends StatefulWidget {
   ShopCategoryCard({
     Key? key,
     required this.category,
@@ -15,6 +18,45 @@ class ShopCategoryCard extends StatelessWidget {
 
   final Category category;
   final Product product;
+
+  @override
+  State<ShopCategoryCard> createState() => _ShopCategoryCardState();
+}
+
+class _ShopCategoryCardState extends State<ShopCategoryCard> {
+  bool active = false;
+  bool blur = true;
+  Duration animationDuration = const Duration(milliseconds: 1000);
+  double spreadRadius = 2;
+  double blurRadius = 4;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(
+      animationDuration,
+      (timer) {
+        setState(() {
+          if (blur) {
+            spreadRadius = 0;
+            blurRadius = 0;
+            blur = false;
+          } else {
+            spreadRadius = 3;
+            blurRadius = 4;
+            blur = true;
+          }
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +82,7 @@ class ShopCategoryCard extends StatelessWidget {
               height: 70,
               padding: const EdgeInsets.all(7),
               child: Image.asset(
-                category.iconPath,
+                widget.category.iconPath,
                 height: 10,
                 fit: BoxFit.contain,
               ),
@@ -54,7 +96,7 @@ class ShopCategoryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    category.name,
+                    widget.category.name,
                     style: const TextStyle(
                       color: Color(0xfffff8c0),
                       fontSize: 17,
@@ -64,7 +106,7 @@ class ShopCategoryCard extends StatelessWidget {
                   ),
                   AutoSizeText(
                     maxLines: 3,
-                    category.description,
+                    widget.category.description,
                     style: const TextStyle(
                       color: Color(0xfffff8c0),
                       fontSize: 11,
@@ -78,24 +120,33 @@ class ShopCategoryCard extends StatelessWidget {
             SizedBox(
               width: displayWidth * 0.05,
             ),
-            Container(
+            AnimatedContainer(
+              duration: animationDuration,
+              curve: Curves.fastOutSlowIn,
               padding: EdgeInsets.fromLTRB(
                   displayWidth * 0.03,
                   displayHeight * 0.019,
                   displayWidth * 0.035,
                   displayHeight * 0.013),
               decoration: BoxDecoration(
-                color: AppColors.shopPriceButtonBackground,
+                // color: Color(0xffffdb27),//AppColors.shopPriceButtonBackground,
+                gradient: const LinearGradient(
+                    begin: Alignment.bottomRight,
+                    end: Alignment.topLeft,
+                    colors: [
+                      Color(0xffffcc00),
+                      Color(0xfffff5b6),
+                    ]),
                 border: Border.all(
                   color: const Color(0xff444e5a),
                   width: displayWidth * 0.005,
                 ),
                 borderRadius: BorderRadius.circular(15),
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                    color: AppColors.shopPriceButtonShadow,
-                    spreadRadius: 2,
-                    blurRadius: 4,
+                    color: Color(0xffffe45b), //AppColors.shopPriceButtonShadow,
+                    spreadRadius: spreadRadius,
+                    blurRadius: blurRadius,
                     //blurStyle: BlurStyle.outer,
                   )
                 ],
@@ -117,7 +168,7 @@ class ShopCategoryCard extends StatelessWidget {
   }
 
   Future<void> buyCategory() async {
-    print("Buy category ${category.name}");
-    await PurchaseApi.purchaseProduct(product);
+    print("Buy category ${widget.category.name}");
+    await PurchaseApi.purchaseProduct(widget.product);
   }
 }
