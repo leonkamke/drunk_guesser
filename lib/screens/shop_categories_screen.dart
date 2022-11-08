@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../api/product.dart';
@@ -8,11 +10,43 @@ import '../widgets/shop_category_card.dart';
 class ShopCategoriesScreen extends StatefulWidget {
   ShopCategoriesScreen({Key? key}) : super(key: key);
 
+  static double spreadRadius = 0;
+  static double blurRadius = 2;
+  static bool blur = false;
+
   @override
   State<ShopCategoriesScreen> createState() => _ShopCategoriesScreenState();
 }
 
 class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
+  static Duration animationDuration = const Duration(milliseconds: 700);
+  static Timer? timer;
+
+  _ShopCategoriesScreenState() {
+    timer = Timer.periodic(
+      animationDuration,
+      (timer) {
+        setState(() {
+          if (ShopCategoriesScreen.blur) {
+            ShopCategoriesScreen.spreadRadius = 0;
+            ShopCategoriesScreen.blurRadius = 2;
+            ShopCategoriesScreen.blur = false;
+          } else {
+            ShopCategoriesScreen.spreadRadius = 3;
+            ShopCategoriesScreen.blurRadius = 4;
+            ShopCategoriesScreen.blur = true;
+          }
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -88,26 +122,27 @@ class _ShopCategoriesScreenState extends State<ShopCategoriesScreen> {
             ),
             Expanded(
               child: ListView.separated(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return ShopCategoryCard(
-                      product: category_product_map.values.elementAt(index),
-                      category: category_product_map.keys.elementAt(index),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return Divider(
-                      color: const Color(0xff292f38),
-                      thickness: 1.5,
-                      height: 23,
-                      indent: displayWidth * 0.05,
-                      endIndent: displayWidth * 0.05,
-                    );
-                    // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
-                  },
-                  itemCount: category_product_map.length),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return ShopCategoryCard(
+                    product: category_product_map.values.elementAt(index),
+                    category: category_product_map.keys.elementAt(index),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return Divider(
+                    color: const Color(0xff292f38),
+                    thickness: 1.5,
+                    height: 23,
+                    indent: displayWidth * 0.05,
+                    endIndent: displayWidth * 0.05,
+                  );
+                  // return Container(width: 66, height: 2, color: const Color(0xBB292F38));
+                },
+                itemCount: category_product_map.length,
+              ),
             ),
           ],
         ),

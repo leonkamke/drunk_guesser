@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:drunk_guesser/screens/shop_categories_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../api/product.dart';
@@ -24,30 +25,7 @@ class ShopCategoryCard extends StatefulWidget {
 }
 
 class _ShopCategoryCardState extends State<ShopCategoryCard> {
-  bool blur = false;
-  Duration animationDuration = const Duration(milliseconds: 1000);
-  double spreadRadius = 0;
-  double blurRadius = 2;
-  late Timer _timer;
-
-  _ShopCategoryCardState() {
-    _timer = Timer.periodic(
-      animationDuration,
-          (timer) {
-        setState(() {
-          if (blur) {
-            spreadRadius = 0;
-            blurRadius = 2;
-            blur = false;
-          } else {
-            spreadRadius = 3;
-            blurRadius = 4;
-            blur = true;
-          }
-        });
-      },
-    );
-  }
+  Duration animationDuration = const Duration(milliseconds: 700);
 
   @override
   void initState() {
@@ -56,7 +34,6 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
 
   @override
   void dispose() {
-    _timer.cancel();
     super.dispose();
   }
 
@@ -147,8 +124,8 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xffffe45b), //AppColors.shopPriceButtonShadow,
-                    spreadRadius: spreadRadius,
-                    blurRadius: blurRadius,
+                    spreadRadius: ShopCategoriesScreen.spreadRadius,
+                    blurRadius: ShopCategoriesScreen.blurRadius,
                     //blurStyle: BlurStyle.outer,
                   )
                 ],

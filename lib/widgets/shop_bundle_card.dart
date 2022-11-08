@@ -4,11 +4,19 @@ import 'package:flutter/material.dart';
 
 import '../models/app_colors.dart';
 import '../models/bundle.dart';
+import '../screens/shop_bundles_screen.dart';
 
-class ShopBundleCard extends StatelessWidget {
+class ShopBundleCard extends StatefulWidget {
   ShopBundleCard({Key? key, required this.bundle}) : super(key: key);
 
   final Bundle bundle;
+
+  @override
+  State<ShopBundleCard> createState() => _ShopBundleCardState();
+}
+
+class _ShopBundleCardState extends State<ShopBundleCard> {
+  Duration animationDuration = const Duration(milliseconds: 700);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +37,7 @@ class ShopBundleCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AutoSizeText(
-              bundle.name,
+              widget.bundle.name,
               style: const TextStyle(
                 color: Color(0xfffff8c0),
                 fontSize: 20,
@@ -44,7 +52,7 @@ class ShopBundleCard extends StatelessWidget {
                   height: 70,
                   padding: const EdgeInsets.all(7),
                   child: Image.asset(
-                    bundle.iconPath,
+                    widget.bundle.iconPath,
                     height: 10,
                     fit: BoxFit.contain,
                   ),
@@ -58,7 +66,7 @@ class ShopBundleCard extends StatelessWidget {
                         height: displayHeight * 0.03,
                       ),
                       AutoSizeText(
-                        "Enthält folgende Kategorien:\n${bundle.categoryNames}",
+                        "Enthält folgende Kategorien:\n${widget.bundle.categoryNames}",
                         style: const TextStyle(
                           color: Color(0xfffff8c0),
                           fontSize: 13,
@@ -70,33 +78,42 @@ class ShopBundleCard extends StatelessWidget {
                       SizedBox(
                         height: displayHeight * 0.06,
                       ),
-                      Container(
+                      AnimatedContainer(
+                        duration: animationDuration,
+                        curve: Curves.fastOutSlowIn,
                         padding: EdgeInsets.fromLTRB(
-                            displayWidth * 0.05,
-                            displayHeight * 0.02,
-                            displayWidth * 0.05,
+                            displayWidth * 0.03,
+                            displayHeight * 0.019,
+                            displayWidth * 0.035,
                             displayHeight * 0.013),
                         decoration: BoxDecoration(
-                          color: AppColors.shopPriceButtonBackground,
+                          // color: Color(0xffffdb27),//AppColors.shopPriceButtonBackground,
+                          gradient: const LinearGradient(
+                              begin: Alignment.bottomRight,
+                              end: Alignment.topLeft,
+                              colors: [
+                                Color(0xffffcc00),
+                                Color(0xfffff5b6),
+                              ]),
                           border: Border.all(
-                            color: Color(0xff444e5a),
+                            color: const Color(0xff444e5a),
                             width: displayWidth * 0.005,
                           ),
                           borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
-                              color: AppColors.shopPriceButtonShadow,
-                              spreadRadius: 2,
-                              blurRadius: 4,
+                              color: Color(0xffffe45b), //AppColors.shopPriceButtonShadow,
+                              spreadRadius: ShopBundlesScreen.spreadRadius,
+                              blurRadius: ShopBundlesScreen.blurRadius,
                               //blurStyle: BlurStyle.outer,
                             )
                           ],
                         ),
                         child: Text(
-                          bundle.price,
+                          widget.bundle.price,
                           style: const TextStyle(
                             color: AppColors.shopPriceButtonSchrift,
-                            fontSize: 25,
+                            fontSize: 19,
                             height: 0.9,
                             fontWeight: FontWeight.bold,
                           ),
@@ -117,7 +134,7 @@ class ShopBundleCard extends StatelessWidget {
   }
 
   void buyBundle() {
-    print("Buy bundle ${bundle.categoryNames}");
-    PurchaseApi.purchaseProduct(bundle.product);
+    print("Buy bundle ${widget.bundle.categoryNames}");
+    PurchaseApi.purchaseProduct(widget.bundle.product);
   }
 }

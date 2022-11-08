@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:drunk_guesser/models/bundle.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +11,37 @@ import '../widgets/shop_bundle_card.dart';
 class ShopBundlesScreen extends StatefulWidget {
   const ShopBundlesScreen({Key? key}) : super(key: key);
 
+  static double spreadRadius = 0;
+  static double blurRadius = 2;
+  static bool blur = false;
+
   @override
   State<ShopBundlesScreen> createState() => _ShopBundlesScreenState();
 }
 
 class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
+  static Duration animationDuration = const Duration(milliseconds: 700);
+  static Timer? timer;
+
+  _ShopBundlesScreenState() {
+    timer = Timer.periodic(
+      animationDuration,
+          (timer) {
+        setState(() {
+          if (ShopBundlesScreen.blur) {
+            ShopBundlesScreen.spreadRadius = 0;
+            ShopBundlesScreen.blurRadius = 2;
+            ShopBundlesScreen.blur = false;
+          } else {
+            ShopBundlesScreen.spreadRadius = 3;
+            ShopBundlesScreen.blurRadius = 4;
+            ShopBundlesScreen.blur = true;
+          }
+        });
+      },
+    );
+  }
+
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -35,6 +63,12 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
 
     // TODO: delete already purchased bundles
     //categories.removeWhere((category) => category.purchased == true);
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
