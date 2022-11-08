@@ -24,23 +24,20 @@ class ShopCategoryCard extends StatefulWidget {
 }
 
 class _ShopCategoryCardState extends State<ShopCategoryCard> {
-  bool active = false;
-  bool blur = true;
+  bool blur = false;
   Duration animationDuration = const Duration(milliseconds: 1000);
-  double spreadRadius = 2;
-  double blurRadius = 4;
+  double spreadRadius = 0;
+  double blurRadius = 2;
   late Timer _timer;
 
-  @override
-  void initState() {
-    super.initState();
+  _ShopCategoryCardState() {
     _timer = Timer.periodic(
       animationDuration,
-      (timer) {
+          (timer) {
         setState(() {
           if (blur) {
             spreadRadius = 0;
-            blurRadius = 0;
+            blurRadius = 2;
             blur = false;
           } else {
             spreadRadius = 3;
@@ -50,6 +47,11 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
         });
       },
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
