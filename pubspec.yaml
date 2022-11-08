@@ -91,7 +91,7 @@ flutter:
     - assets/categories_icons/sports_icon.png
     - assets/categories_icons/18plus_icon.png
     - assets/categories_icons/geography_icon.png
-    - assets/categories_icons/geography_icon.png
+    - assets/categories_icons/mensch_icon.png
     - assets/categories_icons/music_icon.png
     - database/drunk_guesser_db.db
     - assets/splash_screen/drunk_guesser_splash.png
