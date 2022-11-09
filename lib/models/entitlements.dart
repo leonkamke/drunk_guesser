@@ -158,7 +158,7 @@ class Entitlements {
     dbName: "mensch",
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
-    iconPath: "assets/categories_icons/mensch_icon.png",
+    iconPath: "assets/categories_icons/human_icon.png",
     colors: const [
       Color(0xffefbf9d),
       Color(0xfff39f62),
