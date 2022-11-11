@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,6 +32,10 @@ class _RoundedButtonState extends State<RoundedButton> {
   bool _nextScreen = false;
   Duration animationDuration = const Duration(milliseconds: 50);
 
+
+
+  static AudioCache player = AudioCache(prefix: "assets/");
+
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
@@ -38,14 +43,17 @@ class _RoundedButtonState extends State<RoundedButton> {
     _nextScreen = true;
   }
 
+  final String path = "sounds/button_click_sound.mp3";
+
   Future<void> onEnd() async {
     setState(() {
       _isPressed = false;
     });
     await Future.delayed(animationDuration).then(
-      (value) {
+      (value) async {
         if (_nextScreen) {
           widget.onTap();
+
         }
       },
     );
