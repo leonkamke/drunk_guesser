@@ -2,12 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../models/background_icons.dart';
 import '../models/category.dart';
 import '../models/question.dart';
+import '../provider/textfield_provider.dart';
 import '../widgets/custom_textfield.dart';
 
 class GameStartScreen extends StatefulWidget {
@@ -205,6 +207,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   Future<void> startGame(BuildContext context) async {
     Question question = await DrunkGuesserDB.getQuestion(selectedCategories);
+    context.read<TextFieldProvider>().setEnabled(true);
     Navigator.of(context).pushReplacementNamed("/game", arguments: {
       "selectedCategories": selectedCategories,
       "question": question,
