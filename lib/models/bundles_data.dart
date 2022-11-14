@@ -4,7 +4,7 @@ import 'bundle.dart';
 class Bundles {
   static Bundle bundle1 = Bundle(
     name: "Bundle 1",
-    categoryNames: "Technik, Geographie, Weltall, Google, Sport",
+    categoryNames: "Technik, Geographie, Weltall, Sport und Ernährung, Google",
     iconPath: "assets/bundles_icons/bundle_1_icons.png",
     purchased: false,
     price: "1.99€",
@@ -12,7 +12,7 @@ class Bundles {
   );
   static Bundle bundle2 = Bundle(
     name: "Bundle 2",
-    categoryNames: "Unnützes Wissen, Natur und Tierwelt, 18+, Musik",
+    categoryNames: "Unnützes Wissen, Musik, Natur und Tierwelt, 18+",
     iconPath: "assets/bundles_icons/bundle_2_icons.png",
     purchased: false,
     price: "1.99€",
@@ -20,7 +20,7 @@ class Bundles {
   );
   static Bundle bundle3 = Bundle(
     name: "Bundle 3",
-    categoryNames: "Medien und Unterhaltung, Preise, Mensch, Geschichte",
+    categoryNames: "Medien und Unterhaltung, Preise, Mensch, Geschichte und Kultur",
     iconPath: "assets/bundles_icons/bundle_3_icons.png",
     purchased: false,
     price: "1.99€",
@@ -28,7 +28,7 @@ class Bundles {
   );
   static Bundle bundle4 = Bundle(
     name: "Bundle 4",
-    categoryNames: "Technik, Unnuetzes Wissen, Preise, Mensch, Sport",
+    categoryNames: "Technik, Mensch, Unnuetzes Wissen, Sport und Ernährung, Preise",
     iconPath: "assets/bundles_icons/bundle_4_icons.png",
     purchased: false,
     price: "1.99€",
@@ -36,7 +36,7 @@ class Bundles {
   );
   static Bundle bundle5 = Bundle(
     name: "Bundle 5",
-    categoryNames: "Medien und Unterhaltung, Geographie, 18+, Google",
+    categoryNames: "Medien und Unterhaltung, Google,  Geographie, 18+",
     iconPath: "assets/bundles_icons/bundle_5_icons.png",
     purchased: false,
     price: "1.99€",
@@ -44,7 +44,7 @@ class Bundles {
   );
   static Bundle bundle6 = Bundle(
     name: "Bundle 6",
-    categoryNames: "Natur und Tierwelt, Musik, Weltall, Geschichte",
+    categoryNames: "Weltall, Musik, Natur und Tierwelt, Geschichte und Kultur",
     iconPath: "assets/bundles_icons/bundle_6_icons.png",
     purchased: false,
     price: "1.99€",

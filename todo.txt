@@ -1,7 +1,6 @@
 - Teilen button und bewerten button bei Einstellungen implementieren
 - endscreen letzter Satz, welche Möglichkeiten
 
-- App Update approach
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
 - Für Datenschutzerklärung: https://www.iubenda.com/de/
 
@@ -9,7 +8,7 @@ Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)
 
 Für die Datenschutzerklärung: https://app-privacy-policy-generator.firebaseapp.com/
 
-Settet minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
+Setted minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
 
 alle auswählen im Kategorienscreen
 

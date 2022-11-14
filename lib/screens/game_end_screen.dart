@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:math';
 import 'dart:io' show Platform;
+import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../models/background_icons.dart';
@@ -141,12 +142,13 @@ class _GameEndScreenState extends State<GameEndScreen>
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
+                      height: 90,
                       color: Colors.transparent,
                       padding: EdgeInsets.fromLTRB(
                         displayWidth * 0.1,
-                        displayHeight * 0.05, // ---
+                        displayHeight * 0.05,
                         displayWidth * 0.1,
-                        displayHeight * 0.01, // ---
+                        displayHeight * 0.01,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -155,7 +157,7 @@ class _GameEndScreenState extends State<GameEndScreen>
                           FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(
-                              "SpielEnde",
+                              "Spielende",
                               style: TextStyle(
                                 fontSize: 30,
                                 color: AppColors.appBarText,
@@ -170,41 +172,65 @@ class _GameEndScreenState extends State<GameEndScreen>
                     Expanded(
                       child: Container(
                         padding:
-                            EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
+                        EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
+                        //color: Colors.black38,
                         alignment: Alignment.center,
                         child: Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: displayWidth * 0.05,
-                            vertical: displayWidth * 0.05,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(22),
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.black54,
-                                  offset: Offset(3, 6),
-                                  blurRadius: 6)
-                            ],
-                            color: AppColors.gameCard,
-                          ),
-                          width: displayWidth * 0.8,
-                          height: displayHeight * 0.5,
-                          child: FadeTransition(
-                            opacity: _controllerText,
-                            child: AutoSizeText(
-                              textGameEnd,
-                              style: const TextStyle(
-                                color: AppColors.schriftFarbe_dunkel,
-                                fontFamily: "Quicksand",
-                                fontSize: 21,
-                                fontWeight: FontWeight.bold,
+                          // color: Colors.black45,
+                          height: displayHeight * 0.6,
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              Positioned(
+                                top: 0,
+                                child: SizedBox(
+                                  width: displayHeight * 0.18,
+                                  height: displayHeight * 0.18,
+                                  child: const rive.RiveAnimation.asset(
+                                    'assets/animations/drunkguesser2.2.riv',
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
                               ),
-                              textAlign: TextAlign.center,
-                            ),
+                              Container(
+                                width: displayWidth * 0.8,
+                                height: displayHeight * 0.5,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: displayWidth * 0.05,
+                                  vertical: displayWidth * 0.05,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(22),
+                                  color: AppColors.gameCard,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        child: AutoSizeText(
+                                          textGameEnd,
+                                          style: const TextStyle(
+                                            color: AppColors.schriftFarbe_dunkel,
+                                            fontFamily: "Quicksand",
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: displayHeight * 0.088,
                     ),
                   ],
                 ),

@@ -158,9 +158,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         color: Colors.transparent,
                         padding: EdgeInsets.fromLTRB(
                           displayWidth * 0.1,
-                          displayHeight * 0.05, // ---
+                          displayHeight * 0.05,
                           displayWidth * 0.1,
-                          displayHeight * 0.01, // ---
+                          displayHeight * 0.01,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -26,7 +26,7 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
       onTap: buyBundle,
       child: Container(
         padding: EdgeInsets.symmetric(
-            vertical: displayHeight * 0.015, horizontal: displayWidth * 0.04),
+            vertical: displayHeight * 0.01, horizontal: displayWidth * 0.04),
         margin:
             EdgeInsets.symmetric(vertical: 3, horizontal: displayWidth * 0.03),
         decoration: BoxDecoration(
@@ -34,24 +34,21 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AutoSizeText(
               widget.bundle.name,
               style: const TextStyle(
                 color: Color(0xfffff8c0),
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Quicksand",
               ),
             ),
             Row(
               children: [
-                Container(
-                  //color: Colors.black,
-                  width: 125,
-                  height: 165,
-                  //padding: const EdgeInsets.all(2),
+                SizedBox(
+                  width: 145,
                   child: Image.asset(
                     widget.bundle.iconPath,
                     //height: 10,
@@ -66,12 +63,25 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
                       SizedBox(
                         height: displayHeight * 0.03,
                       ),
+                      const AutoSizeText(
+                        "Kategorien:",
+                        style: TextStyle(
+                          color: Color(0xfffff8c0),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Quicksand",
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       AutoSizeText(
-                        "Enthält folgende Kategorien:\n${widget.bundle.categoryNames}",
+                        widget.bundle.categoryNames,
                         style: const TextStyle(
                           color: Color(0xfffff8c0),
                           fontSize: 13,
-                          fontWeight: FontWeight.bold,
+                          //fontWeight: FontWeight.bold,
                           fontFamily: "Quicksand",
                         ),
                         textAlign: TextAlign.center,

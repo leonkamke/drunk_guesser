@@ -42,6 +42,7 @@ class _ShopButtonState extends State<ShopButton> {
       return GestureDetector(
         onTap: widget.onTap,
         child: Container(
+          padding: const EdgeInsets.all(10),
           width: displayWidth * 0.66,
           height: displayHeight * 0.092,
           decoration: BoxDecoration(
@@ -71,6 +72,7 @@ class _ShopButtonState extends State<ShopButton> {
       return GestureDetector(
         onTap: widget.onTap,
         child: Container(
+          padding: const EdgeInsets.all(10),
           width: displayWidth * 0.66,
           height: displayHeight * 0.092,
           decoration: BoxDecoration(

@@ -1,22 +1,8 @@
-- Überschrift in game ohne Zeilenumbruch bei schmalen Handys
-- google ad mob
-- Drunkguesser im endscreen
+- In Einstellung teilen und Bewerten
 
+Tutorials:
 - in-app purchases tutorial: https://www.youtube.com/watch?v=h-jOMh2KXTA
 - create release tutorial: https://www.youtube.com/watch?v=g0GNuoCOtaQ
 
-- restore products
-
-- kaufbuttons größer und kleiner Animation
-- zeilenumbruch nach enthält folgende kategorien
-- bundlekarten höhe kleiner machen
-- Kategoriennamen in richtige Reihenfolge machen
-- Startbutton disablen
-- DrunkGuesser bei Spielende
-- Spielende E klein
-- In Einstellung teilen und Bewerten
-- Sport -> Sport und Ernährung
-- Geschichte -> Geschichte und Kultur
-
-
-Ein europäischer Laubbaum trägt durchschnittlich 30.000 Blätter,
+Ideen:
+- Ein europäischer Laubbaum trägt durchschnittlich 30.000 Blätter,

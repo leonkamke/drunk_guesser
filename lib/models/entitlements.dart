@@ -50,7 +50,7 @@ class Entitlements {
     purchased: false,
   );
   static Category geschichte = Category(
-    name: "Geschichte",
+    name: "Geschichte und Kultur",
     dbName: "geschichte",
     description: "Mischung aus 6 Kategorien",
     iconPath: "assets/categories_icons/history_icon.png",
@@ -106,7 +106,7 @@ class Entitlements {
     purchased: false,
   );
   static Category sport = Category(
-    name: "Sport",
+    name: "Sport und Ernährung",
     dbName: "sport",
     description:
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",

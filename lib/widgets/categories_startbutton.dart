@@ -61,18 +61,24 @@ class _StartButtonState extends State<StartButton> {
   Widget build(BuildContext context) {
     final displayHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
-      onTapDown: (x) {
-        buttonPressed();
-      },
-      onTapUp: (x) {
-        onEnd();
-      },
-      onTapCancel: () {
-        setState(() {
-          _isPressed = false;
-          _nextScreen = false;
-        });
-      },
+      onTapDown: !context.watch<StartButtonProvider>().disabled
+          ? (x) {
+              buttonPressed();
+            }
+          : null,
+      onTapUp: !context.watch<StartButtonProvider>().disabled
+          ? (x) {
+              onEnd();
+            }
+          : null,
+      onTapCancel: !context.watch<StartButtonProvider>().disabled
+          ? () {
+              setState(() {
+                _isPressed = false;
+                _nextScreen = false;
+              });
+            }
+          : null,
       child: AnimatedContainer(
         width: 120,
         height: displayHeight * 0.06,

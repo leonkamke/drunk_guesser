@@ -95,14 +95,15 @@ class _GameStartScreenState extends State<GameStartScreen> {
               ...BackgroundIcons.getImages(context),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     color: Colors.transparent,
                     padding: EdgeInsets.fromLTRB(
                       displayWidth * 0.1,
-                      displayHeight * 0.05, // ---
+                      displayHeight * 0.05,
                       displayWidth * 0.1,
-                      displayHeight * 0.01, // ---
+                      displayHeight * 0.01,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,7 +137,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
                           EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.045),
                       //color: Colors.black38,
                       alignment: Alignment.center,
-                      child: Container(
+                      child: SizedBox(
                         // color: Colors.black45,
                         height: displayHeight * 0.6,
                         child: Stack(
