@@ -48,13 +48,14 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
             Row(
               children: [
                 Container(
-                  width: 70,
-                  height: 70,
-                  padding: const EdgeInsets.all(7),
+                  //color: Colors.black,
+                  width: 125,
+                  height: 165,
+                  //padding: const EdgeInsets.all(2),
                   child: Image.asset(
                     widget.bundle.iconPath,
-                    height: 10,
-                    fit: BoxFit.contain,
+                    //height: 10,
+                    //fit: BoxFit.contain,
                   ),
                 ),
                 Expanded(

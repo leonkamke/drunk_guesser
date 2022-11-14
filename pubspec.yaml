@@ -102,6 +102,12 @@ flutter:
     - assets/legal/privacy_policy.md
     - assets/legal/terms_and_conditions.md
     - assets/sounds/button_click_sound.mp3
+    - assets/bundles_icons/bundle_1_icons.png
+    - assets/bundles_icons/bundle_2_icons.png
+    - assets/bundles_icons/bundle_3_icons.png
+    - assets/bundles_icons/bundle_4_icons.png
+    - assets/bundles_icons/bundle_5_icons.png
+    - assets/bundles_icons/bundle_6_icons.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

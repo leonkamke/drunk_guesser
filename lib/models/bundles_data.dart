@@ -5,7 +5,7 @@ class Bundles {
   static Bundle bundle1 = Bundle(
     name: "Bundle 1",
     categoryNames: "Technik, Geographie, Weltall, Google, Sport",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_1_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle1,
@@ -13,7 +13,7 @@ class Bundles {
   static Bundle bundle2 = Bundle(
     name: "Bundle 2",
     categoryNames: "Unnützes Wissen, Natur und Tierwelt, 18+, Musik",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_2_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle2,
@@ -21,7 +21,7 @@ class Bundles {
   static Bundle bundle3 = Bundle(
     name: "Bundle 3",
     categoryNames: "Medien und Unterhaltung, Preise, Mensch, Geschichte",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_3_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle3,
@@ -29,7 +29,7 @@ class Bundles {
   static Bundle bundle4 = Bundle(
     name: "Bundle 4",
     categoryNames: "Technik, Unnuetzes Wissen, Preise, Mensch, Sport",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_4_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle4,
@@ -37,7 +37,7 @@ class Bundles {
   static Bundle bundle5 = Bundle(
     name: "Bundle 5",
     categoryNames: "Medien und Unterhaltung, Geographie, 18+, Google",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_5_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle5,
@@ -45,7 +45,7 @@ class Bundles {
   static Bundle bundle6 = Bundle(
     name: "Bundle 6",
     categoryNames: "Natur und Tierwelt, Musik, Weltall, Geschichte",
-    iconPath: "assets/categories_icons/random_icon.png",
+    iconPath: "assets/bundles_icons/bundle_6_icons.png",
     purchased: false,
     price: "1.99€",
     product: Products.bundle6,
