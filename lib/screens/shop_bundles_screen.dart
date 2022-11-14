@@ -1,11 +1,8 @@
 import 'dart:async';
-
 import 'package:drunk_guesser/models/bundle.dart';
 import 'package:flutter/material.dart';
 
 import '../models/bundles_data.dart';
-import '../models/category.dart';
-import '../models/entitlements.dart';
 import '../widgets/shop_bundle_card.dart';
 
 class ShopBundlesScreen extends StatefulWidget {
@@ -51,7 +48,6 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
       Color(0xFFFFF6C6),
     ],
   ));
-
 
   @override
   void initState() {

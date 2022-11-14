@@ -100,8 +100,8 @@ class Entitlements {
     description: "Fragen die sich rund um die Natur drehen",
     iconPath: "assets/categories_icons/space_icon.png",
     colors: const [
-      Color(0xffb668ef),
-      Color(0xff7629a6),
+      Color(0xff270c33),
+      Color(0xff000000),
     ],
     purchased: false,
   );
@@ -112,8 +112,8 @@ class Entitlements {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/sports_icon.png",
     colors: const [
-      Color(0xffe8583f),
-      Color(0xffc94832),
+      Color(0xff2181ef),
+      Color(0xff155493),
     ],
     purchased: false,
   );
@@ -136,8 +136,8 @@ class Entitlements {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/18plus_icon.png",
     colors: const [
-      Color(0xffee5555),
-      Color(0xffd73b3b),
+      Color(0xfffc4545),
+      Color(0xffc52d2d),
     ],
     purchased: false,
   );
@@ -148,8 +148,8 @@ class Entitlements {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/geography_icon.png",
     colors: const [
-      Color(0xff4d79da),
-      Color(0xff1f49a4),
+      Color(0xff10b2be),
+      Color(0xff0e858f),
     ],
     purchased: false,
   );
@@ -172,8 +172,8 @@ class Entitlements {
         "Schätze die Anzahl von Google-Suchergebnissen für bestimmte Google Suchanfragen",
     iconPath: "assets/categories_icons/music_icon.png",
     colors: const [
-      Color(0xffb668ef),
-      Color(0xff7629a6),
+      Color(0xff9a35d9),
+      Color(0xff65228f),
     ],
     purchased: false,
   );

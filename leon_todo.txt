@@ -6,3 +6,12 @@
 - create release tutorial: https://www.youtube.com/watch?v=g0GNuoCOtaQ
 
 - restore products
+
+- kaufbuttons größer und kleiner Animation
+- zeilenumbruch nach enthält folgende kategorien
+- bundlekarten höhe kleiner machen
+- Kategoriennamen in richtige Reihenfolge machen
+- Startbutton disablen
+- DrunkGuesser bei Spielende
+- Spielende E klein
+- In Einstellung teilen und Bewerten
