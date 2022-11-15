@@ -13,3 +13,5 @@ Setted minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
 alle auswählen im Kategorienscreen
 
 padding für die 3 shop buttons
+
+- App soll auch auf Nexus S gut aussehen

@@ -34,7 +34,7 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AutoSizeText(
               widget.bundle.name,
