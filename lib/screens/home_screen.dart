@@ -17,7 +17,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -47,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       // Check wether to show ads
       Entitlements.setShowAds();
-    } catch(e) {
+    } catch (e) {
       print(e);
     }
     await Future.delayed(const Duration(milliseconds: 500));
@@ -86,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         textColor: AppColors.homescreen_icons,
                         icon: const Icon(
                           Icons.description_rounded,
-                          size: 35,
+                          size: 32,
                           color: AppColors.homescreen_icons,
                         ),
                         onTap: () {
@@ -99,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         textColor: AppColors.homescreen_icons,
                         icon: const Icon(
                           Icons.info_rounded,
-                          size: 35,
+                          size: 32,
                           color: AppColors.homescreen_icons,
                         ),
                         onTap: () {
@@ -119,13 +118,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     "DrunkGuesser",
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 40bv,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Quicksand",
                         color: AppColors.drunkguesserSchrift,
                         shadows: [
                           Shadow(
-                            offset: Offset(2.2, 3.2),
+                            offset: Offset(1.15, 1.5),
                             blurRadius: 9,
                             color: Colors.black54,
                           ),
@@ -135,6 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: Container(
                     padding: EdgeInsets.fromLTRB(0, displayHeight * 0.03, 0, 0),
+                    margin: EdgeInsets.fromLTRB(
+                        0, displayHeight * 0.04, 0, displayHeight * 0.04),
                     alignment: Alignment.center,
                     width: displayWidth * 0.45,
                     height: displayWidth * 0.45,
@@ -146,9 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   child: Container(
+                    alignment: Alignment.center,
                     padding: EdgeInsets.fromLTRB(0, 0, 0, displayHeight * 0.09),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         RoundedButton(
                           buttonText: "Start",

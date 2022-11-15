@@ -41,6 +41,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
             Column(
               children: [
                 Container(
+                  height: displayHeight * 0.15,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -56,17 +57,17 @@ class _CreditsScreenState extends State<CreditsScreen> {
                     color: AppColors.appbarBackground,
                   ),
                   padding: EdgeInsets.fromLTRB(
-                    displayWidth * 0.1,
+                    displayWidth * 0.075,
                     displayHeight * 0.05,
-                    displayWidth * 0.1,
-                    displayHeight * 0.025,
+                    displayWidth * 0.075,
+                    displayHeight * 0.02,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const FittedBox(
-                        fit: BoxFit.fitWidth,
+                        fit: BoxFit.scaleDown,
                         child: Text(
                           "Credits",
                           style: TextStyle(
@@ -80,7 +81,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                       GestureDetector(
                         child: const Icon(
                           Icons.home_rounded,
-                          size: 45,
+                          size: 40,
                           color: AppColors.appBarText,
                         ),
                         onTap: () {

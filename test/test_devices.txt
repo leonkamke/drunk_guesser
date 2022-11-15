@@ -1,11 +1,11 @@
 Smartphones:
-- 8`` Fold-out              X
+- 8`` Fold-out
 - 6.7`` Horizontal Fold
 - Pixel 4
 - 4.7 WXGA
 - Nexus S
 - 2.7 QVGA
-- Pixel 3 API 30            X
+- Pixel 3 API 30
 
 
 Tablets:

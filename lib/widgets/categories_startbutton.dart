@@ -60,6 +60,7 @@ class _StartButtonState extends State<StartButton> {
   @override
   Widget build(BuildContext context) {
     final displayHeight = MediaQuery.of(context).size.height;
+    final displayWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTapDown: !context.watch<StartButtonProvider>().disabled
           ? (x) {
@@ -80,7 +81,8 @@ class _StartButtonState extends State<StartButton> {
             }
           : null,
       child: AnimatedContainer(
-        width: 120,
+        padding: const EdgeInsets.all(3),
+        width: displayWidth * 0.3,
         height: displayHeight * 0.06,
         curve: Curves.ease,
         duration: animationDuration,

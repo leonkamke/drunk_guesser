@@ -119,9 +119,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     color: Colors.transparent, //AppColors.appbarBackground,
                   ),
                   padding: EdgeInsets.fromLTRB(
-                    displayWidth * 0.1,
+                    displayWidth * 0.065,
                     displayHeight * 0.05,
-                    displayWidth * 0.1,
+                    displayWidth * 0.065,
                     displayHeight * 0.025,
                   ),
                   child: Row(
@@ -144,7 +144,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       GestureDetector(
                         child: const Icon(
                           Icons.home_rounded,
-                          size: 45,
+                          size: 40,
                           color: Colors
                               .white, //AppColors.appbarBackground//AppColors.appBarText,
                         ),

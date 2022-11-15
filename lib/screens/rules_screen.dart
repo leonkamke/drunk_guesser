@@ -41,6 +41,7 @@ class _RulesScreenState extends State<RulesScreen> {
             Column(
               children: [
                 Container(
+                  height: displayHeight * 0.15,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -56,10 +57,10 @@ class _RulesScreenState extends State<RulesScreen> {
                     color: AppColors.appbarBackground,
                   ),
                   padding: EdgeInsets.fromLTRB(
-                    displayWidth * 0.1,
+                    displayWidth * 0.075,
                     displayHeight * 0.05,
-                    displayWidth * 0.1,
-                    displayHeight * 0.025,
+                    displayWidth * 0.075,
+                    displayHeight * 0.02,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,7 +81,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       GestureDetector(
                         child: const Icon(
                           Icons.home_rounded,
-                          size: 45,
+                          size: 40,
                           color: AppColors.appBarText,
                         ),
                         onTap: () {
@@ -110,7 +111,7 @@ class _RulesScreenState extends State<RulesScreen> {
                   ),
                 ),
                 Container(
-                  height: 40,
+                  height: displayHeight * 0.06,
                   width: displayWidth,
                   decoration: const BoxDecoration(
                     boxShadow: [

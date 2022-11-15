@@ -32,18 +32,12 @@ class _RoundedButtonState extends State<RoundedButton> {
   bool _nextScreen = false;
   Duration animationDuration = const Duration(milliseconds: 50);
 
-
-
-  static AudioCache player = AudioCache(prefix: "assets/");
-
   void buttonPressed() async {
     setState(() {
       _isPressed = !_isPressed;
     });
     _nextScreen = true;
   }
-
-  final String path = "sounds/button_click_sound.mp3";
 
   Future<void> onEnd() async {
     setState(() {
@@ -53,7 +47,6 @@ class _RoundedButtonState extends State<RoundedButton> {
       (value) async {
         if (_nextScreen) {
           widget.onTap();
-
         }
       },
     );
@@ -62,7 +55,7 @@ class _RoundedButtonState extends State<RoundedButton> {
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
-    // final displayHeight = MediaQuery.of(context).size.height;
+    final displayHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       // onTap: buttonPressed,
@@ -104,13 +97,11 @@ class _RoundedButtonState extends State<RoundedButton> {
             ),
             backgroundColor: widget.firstColor,
             shadowColor: Colors.transparent,
-            fixedSize: /* !_isPressed
-                ? Size(displayWidth * 0.48, 48)
-                : Size(displayWidth * 0.46, 46)*/
-                Size(displayWidth * 0.48, 48),
+            fixedSize: Size(displayWidth * 0.48, 30),
           ),
           onPressed: null,
           child: FittedBox(
+            fit: BoxFit.fill,
             child: Text(
               widget.buttonText,
               style: TextStyle(

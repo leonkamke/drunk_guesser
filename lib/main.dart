@@ -6,7 +6,7 @@ import 'package:drunk_guesser/screens/game_end_screen.dart';
 import 'package:drunk_guesser/screens/game_screen.dart';
 import 'package:drunk_guesser/screens/game_start_screen.dart';
 import 'package:drunk_guesser/screens/home_screen.dart';
-import 'package:drunk_guesser/screens/anleitung_screen.dart';
+import 'package:drunk_guesser/screens/rules_screen.dart';
 import 'package:drunk_guesser/screens/settings_screen.dart';
 import 'package:drunk_guesser/screens/shop_bundles_screen.dart';
 import 'package:drunk_guesser/screens/shop_categories_screen.dart';

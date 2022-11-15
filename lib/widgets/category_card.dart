@@ -42,8 +42,8 @@ class _CategoryCardState extends State<CategoryCard> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 70,
-                height: 70,
+                width: displayWidth * 0.175,
+                height: displayWidth * 0.175,
                 padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -99,12 +99,12 @@ class _CategoryCardState extends State<CategoryCard> {
               widget.category.selected
                   ? const Icon(
                       Icons.check_circle_rounded,
-                      size: 30,
+                      size: 26,
                       color: AppColors.selected,
                     )
                   : const Icon(
                       Icons.circle,
-                      size: 30,
+                      size: 26,
                       color: Color(0x4A656565),
                     ),
               /*
@@ -139,8 +139,8 @@ class _CategoryCardState extends State<CategoryCard> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: 70,
-                    height: 70,
+                    width: displayWidth * 0.175,
+                    height: displayWidth * 0.175,
                     padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -244,7 +244,7 @@ class _CategoryCardState extends State<CategoryCard> {
           // padding: EdgeInsets.symmetric(
           // vertical: 20, horizontal: displayWidth * 0.07),
           margin: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.061),
+              vertical: 3, horizontal: displayWidth * 0.071),
           height: displayHeight * 0.07,
           width: displayWidth * 1,
           alignment: Alignment.bottomRight,
