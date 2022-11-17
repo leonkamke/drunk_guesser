@@ -111,14 +111,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: displayHeight * 0.07,
+                  height: displayHeight * 0.058,
                 ),
                 const FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
                     "DrunkGuesser",
                     style: TextStyle(
-                        fontSize: 37,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Quicksand",
                         color: AppColors.drunkguesserSchrift,
@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         ),
                         SizedBox(
-                          height: displayHeight * 0.03,
+                          height: displayHeight * 0.035,
                         ),
                         RoundedButton(
                           buttonText: "Einstellungen",

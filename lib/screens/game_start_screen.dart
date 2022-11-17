@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
+import 'package:drunk_guesser/models/admob_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 import '../models/app_colors.dart';
 import '../models/background_icons.dart';
 import '../models/category.dart';
+import '../models/entitlements.dart';
 import '../models/question.dart';
 import '../provider/textfield_provider.dart';
 import '../widgets/custom_textfield.dart';
@@ -32,7 +37,10 @@ class _GameStartScreenState extends State<GameStartScreen> {
 
   late List<Category> selectedCategories;
 
-  void initGame(BuildContext context) {
+  Future<void> initGame(BuildContext context) async {
+    if (Entitlements.showAds) {
+      await AdMobProvider.createInterstitialAd();
+    }
     // Get selectedCategories
     selectedCategories =
         ModalRoute.of(context)?.settings.arguments as List<Category>;

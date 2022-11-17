@@ -96,7 +96,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                           "Nein",
                           style: TextStyle(
                               fontSize: 18,
-                              color: Color(0xFF4292EE),
+                              color: Color(0xFF096FE3),
                               fontWeight: FontWeight.bold,
                           ),
                         ),

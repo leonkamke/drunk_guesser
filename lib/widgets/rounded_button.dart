@@ -69,8 +69,8 @@ class _RoundedButtonState extends State<RoundedButton> {
       },
       child: FittedBox(
         child: AnimatedContainer(
-          width: 160,
-          height: 40,
+          width: displayWidth * 0.48,
+          height: 45,
           curve: Curves.ease,
           duration: animationDuration,
           decoration: BoxDecoration(

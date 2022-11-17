@@ -25,6 +25,7 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     final displayWidth = MediaQuery.of(context).size.width;
+    final displayHeight = MediaQuery.of(context).size.height;
     if (widget.category.purchased) {
       return GestureDetector(
         onTap: selectCategoryCard,
@@ -99,12 +100,12 @@ class _CategoryCardState extends State<CategoryCard> {
               widget.category.selected
                   ? const Icon(
                       Icons.check_circle_rounded,
-                      size: 26,
+                      size: 27,
                       color: AppColors.selected,
                     )
                   : const Icon(
                       Icons.circle,
-                      size: 26,
+                      size: 27,
                       color: Color(0x4A656565),
                     ),
               /*
@@ -190,11 +191,22 @@ class _CategoryCardState extends State<CategoryCard> {
                   SizedBox(
                     width: displayWidth * 0.1,
                   ),
+                  SizedBox(
+                    /*
+                    width: displayHeight * 0.047,
+                    height: displayHeight * 0.047,*/
+                    width: 27,
+                    height: 27,
+                    child: Image.asset(
+                      "assets/icons/lock_icon.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-          getLockContainer(),
+          // getLockContainer(),
         ],
       );
     }
@@ -229,36 +241,6 @@ class _CategoryCardState extends State<CategoryCard> {
         fit: BoxFit.contain,
       ),
     );
-  }
-
-  Widget getLockContainer() {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-
-    if (widget.category.purchased) {
-      return Container();
-    } else {
-      return GestureDetector(
-        onTap: () => selectLock(context),
-        child: Container(
-          // padding: EdgeInsets.symmetric(
-          // vertical: 20, horizontal: displayWidth * 0.07),
-          margin: EdgeInsets.symmetric(
-              vertical: 3, horizontal: displayWidth * 0.071),
-          height: displayHeight * 0.07,
-          width: displayWidth * 1,
-          alignment: Alignment.bottomRight,
-          child: SizedBox(
-            width: displayHeight * 0.047,
-            height: displayHeight * 0.047,
-            child: Image.asset(
-              "assets/icons/lock_icon.png",
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      );
-    }
   }
 
   void selectCategoryCard() {
