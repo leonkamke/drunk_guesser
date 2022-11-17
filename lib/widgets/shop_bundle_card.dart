@@ -45,33 +45,34 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
                 fontFamily: "Quicksand",
               ),
             ),
+            const SizedBox(height: 5),
             Row(
               children: [
                 SizedBox(
-                  width: 145,
+                  width: 135,
                   child: Image.asset(
                     widget.bundle.iconPath,
                     //height: 10,
                     //fit: BoxFit.contain,
                   ),
                 ),
+                const SizedBox(width: 6),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: displayHeight * 0.03,
-                      ),
-                      const AutoSizeText(
-                        "Kategorien:",
-                        style: TextStyle(
-                          color: Color(0xfffff8c0),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Quicksand",
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: const AutoSizeText(
+                          "Kategorien:",
+                          style: TextStyle(
+                            color: Color(0xfffff8c0),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Quicksand",
+                          ),
+                          textAlign: TextAlign.left,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                       const SizedBox(
                         height: 5,
@@ -81,13 +82,12 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
                         style: const TextStyle(
                           color: Color(0xfffff8c0),
                           fontSize: 13,
-                          //fontWeight: FontWeight.bold,
                           fontFamily: "Quicksand",
                         ),
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.left,
                       ),
                       SizedBox(
-                        height: displayHeight * 0.06,
+                        height: displayHeight * 0.05,
                       ),
                       AnimatedContainer(
                         duration: animationDuration,
@@ -113,7 +113,8 @@ class _ShopBundleCardState extends State<ShopBundleCard> {
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xffffe45b), //AppColors.shopPriceButtonShadow,
+                              color: Color(0xffffe45b),
+                              //AppColors.shopPriceButtonShadow,
                               spreadRadius: ShopBundlesScreen.spreadRadius,
                               blurRadius: ShopBundlesScreen.blurRadius,
                               //blurStyle: BlurStyle.outer,

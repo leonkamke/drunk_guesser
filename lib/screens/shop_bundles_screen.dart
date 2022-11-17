@@ -105,7 +105,7 @@ class _ShopBundlesScreenState extends State<ShopBundlesScreen> {
                   GestureDetector(
                     child: const Icon(
                       Icons.undo_rounded,
-                      size: 36,
+                      size: 33,
                       color: Color(0xff292f38),
                     ),
                     onTap: () {

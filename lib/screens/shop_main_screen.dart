@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drunk_guesser/api/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -76,7 +77,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                       GestureDetector(
                         child: const Icon(
                           Icons.close_rounded,
-                          size: 36,
+                          size: 33,
                           color: Color(0xff292f38),
                         ),
                         onTap: () {
@@ -108,7 +109,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                               },
                             );
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       ShopButton(
@@ -128,7 +129,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                               },
                             );
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       ShopButton(
@@ -153,16 +154,16 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                 ),
                 Expanded(
                   child: Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    alignment: Alignment.center,
                     width: displayWidth * 0.8,
-                    child: Center(
-                      child: Text(
-                        text,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: "Quicksand",
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    child: AutoSizeText(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontFamily: "Quicksand",
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -175,8 +176,8 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                           offset: Offset(3, 6),
                           blurRadius: 6)
                     ],
-                    border: Border.all(color: Color(0xfffff8b9), width: 3.5),
-                    color: Color(0xFF444E5A),
+                    border: Border.all(color: const Color(0xfffff8b9), width: 3.5),
+                    color: const Color(0xFF444E5A),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ElevatedButton(
@@ -186,16 +187,16 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor: Color(0xFF444E5A),
+                      backgroundColor: const Color(0xFF444E5A),
                       shadowColor: Colors.transparent,
-                      fixedSize: Size(displayWidth * 0.66, displayHeight * 0.098),
+                      fixedSize: Size(displayWidth * 0.66, displayHeight * 0.09),
                     ),
                     onPressed: () => buy(context),
                     child: FittedBox(
                       child: Text(
                         buttonText,
                         style: const TextStyle(
-                          fontSize: 28,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Quicksand",
                           color: Color(0xfffff8b9),
@@ -207,29 +208,6 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                 SizedBox(
                   height: displayHeight * 0.07,
                 ),
-                /*
-                GestureDetector(
-                  child: const Text(
-                    "Privacy Policy",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 17,
-                      color: Color(0xFF292F38),
-                      fontFamily: "Quicksand",
-                    ),
-                  ),
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return PolicyDialog(
-                          mdFileName: "assets/legal/privacy_policy.md",
-                          radius: 10,
-                        );
-                      },
-                    );
-                  },
-                ),*/
                 GestureDetector(
                   child: const Text(
                     "Datenschutzverordnung",

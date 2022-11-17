@@ -18,11 +18,12 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
+      height: 45,
       decoration: BoxDecoration(
         color: AppColors.gameCard,
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(40),
-        //border: Border.all(color: Colors.white70, width: 3)
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),

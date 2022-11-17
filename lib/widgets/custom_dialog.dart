@@ -81,7 +81,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                             "Ja",
                             style: TextStyle(
                                 fontSize: 18,
-                                color: AppColors.backgroundHomeScreen_1,
+                                color: Color(0xFF096FE3),
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -96,8 +96,9 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                           "Nein",
                           style: TextStyle(
                               fontSize: 18,
-                              color: AppColors.backgroundHomeScreen_1,
-                              fontWeight: FontWeight.bold),
+                              color: Color(0xFF4292EE),
+                              fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

@@ -182,11 +182,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                               child: GestureDetector(
                                 child: const Icon(
                                   Icons.close_rounded,
-                                  size: 36, // --
+                                  size: 33, // --
                                   color: AppColors.appBarText,
                                 ),
                                 onTap: () {
@@ -206,7 +206,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                           alignment: Alignment.center,
                           child: SlideTransition(
                             position: _animationCard,
-                            child: Container(
+                            child: SizedBox(
                               // color: Colors.black45,
                               height: displayHeight * 0.6,
                               child: Stack(
@@ -222,14 +222,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         )),
                                   ),
                                   GestureDetector(
-                                    /*onHorizontalDragEnd: (details) {
-                // Note: Sensitivity is integer used when you don't want to mess up vertical drag
-                double? velocity = details.primaryVelocity?.toDouble();
-                if (velocity! < -10.0) {
-                  // Right Swipe
-                  gameHandler();
-                }
-              },*/
                                     onTap: () => gameHandler(),
                                     child: Container(
                                       width: displayWidth * 0.8,
@@ -247,30 +239,26 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                                         opacity: _controllerText,
                                         child: Column(
                                           children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                AutoSizeText(
-                                                  isQuestion
-                                                      ? "Frage"
-                                                      : "Antwort",
-                                                  style: const TextStyle(
-                                                    color: AppColors
-                                                        .schriftFarbe_dunkel,
-                                                    fontFamily: "Quicksand",
-                                                    fontSize: 39,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                )
-                                              ],
+                                            Container(
+                                              height: displayHeight * 0.09,
+                                              child: AutoSizeText(
+                                                isQuestion
+                                                    ? "Frage"
+                                                    : "Antwort",
+                                                style: const TextStyle(
+                                                  color: AppColors
+                                                      .schriftFarbe_dunkel,
+                                                  fontFamily: "Quicksand",
+                                                  fontSize: 39,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
                                             ),
                                             Expanded(
                                               child: Container(
                                                 alignment: Alignment.center,
                                                 child: AutoSizeText(
                                                   text,
-                                                  key: ValueKey<String>(text),
                                                   style: const TextStyle(
                                                     color: AppColors
                                                         .schriftFarbe_dunkel,
@@ -297,7 +285,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         alignment: Alignment.bottomCenter,
                         margin: EdgeInsets.only(
                             top: 0,
-                            bottom: 40,
+                            bottom: displayHeight * 0.057,
                             left: displayWidth * 0.1,
                             right: displayWidth * 0.1),
                         child: customTextfield,

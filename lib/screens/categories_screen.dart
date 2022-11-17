@@ -113,7 +113,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           color: Colors.black54,
                           offset: Offset(0, 3),
                           blurRadius: 6)
-
                        */
                     ],
                     color: Colors.transparent, //AppColors.appbarBackground,

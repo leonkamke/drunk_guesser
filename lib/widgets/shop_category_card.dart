@@ -44,6 +44,7 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
     return GestureDetector(
       onTap: buyCategory,
       child: Container(
+        // height: 90,
         padding:
             EdgeInsets.symmetric(vertical: 8, horizontal: displayWidth * 0.03),
         margin:
@@ -57,8 +58,8 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 70,
-              height: 70,
+              width: displayWidth * 0.175,
+              height: displayWidth * 0.175,
               padding: const EdgeInsets.all(7),
               child: Image.asset(
                 widget.category.iconPath,
@@ -74,7 +75,8 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  AutoSizeText(
+                    maxLines: 2,
                     widget.category.name,
                     style: const TextStyle(
                       color: Color(0xfffff8c0),
@@ -84,7 +86,6 @@ class _ShopCategoryCardState extends State<ShopCategoryCard> {
                     ),
                   ),
                   AutoSizeText(
-                    maxLines: 3,
                     widget.category.description,
                     style: const TextStyle(
                       color: Color(0xfffff8c0),

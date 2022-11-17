@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     "DrunkGuesser",
                     style: TextStyle(
-                        fontSize: 40bv,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Quicksand",
                         color: AppColors.drunkguesserSchrift,
