@@ -145,13 +145,13 @@ class _GameEndScreenState extends State<GameEndScreen>
                       height: 90,
                       color: Colors.transparent,
                       padding: EdgeInsets.fromLTRB(
-                        displayWidth * 0.1,
+                        displayWidth * 0.06,
                         displayHeight * 0.05,
-                        displayWidth * 0.1,
+                        displayWidth * 0.06,
                         displayHeight * 0.01,
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: const [
                           FittedBox(

@@ -102,9 +102,9 @@ class _GameStartScreenState extends State<GameStartScreen> {
                   Container(
                     color: Colors.transparent,
                     padding: EdgeInsets.fromLTRB(
-                      displayWidth * 0.1,
+                      displayWidth * 0.06,
                       displayHeight * 0.05,
-                      displayWidth * 0.1,
+                      displayWidth * 0.06,
                       displayHeight * 0.01,
                     ),
                     child: Row(

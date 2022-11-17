@@ -14,4 +14,4 @@ alle auswählen im Kategorienscreen
 
 padding für die 3 shop buttons
 
-- App soll auch auf Nexus S gut aussehen
+- load ads in gamestart screen

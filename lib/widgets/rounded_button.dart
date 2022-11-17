@@ -67,48 +67,51 @@ class _RoundedButtonState extends State<RoundedButton> {
           _nextScreen = false;
         });
       },
-      child: AnimatedContainer(
-        curve: Curves.ease,
-        duration: animationDuration,
-        decoration: BoxDecoration(
-          boxShadow: !_isPressed
-              ? [
-                  const BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(2, 4),
-                      blurRadius: 4)
-                ]
-              : [
-                  const BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0.4, 1.7),
-                      blurRadius: 0.9)
-                ],
-          color: widget.firstColor,
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-        ),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            disabledBackgroundColor: widget.firstColor,
-            splashFactory: NoSplash.splashFactory,
-            foregroundColor: widget.onClickColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(widget.borderRadius),
-            ),
-            backgroundColor: widget.firstColor,
-            shadowColor: Colors.transparent,
-            fixedSize: Size(displayWidth * 0.48, 30),
+      child: FittedBox(
+        child: AnimatedContainer(
+          width: 160,
+          height: 40,
+          curve: Curves.ease,
+          duration: animationDuration,
+          decoration: BoxDecoration(
+            boxShadow: !_isPressed
+                ? [
+                    const BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(2, 4),
+                        blurRadius: 4)
+                  ]
+                : [
+                    const BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(0.4, 1.7),
+                        blurRadius: 0.9)
+                  ],
+            color: widget.firstColor,
+            borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
-          onPressed: null,
-          child: FittedBox(
-            fit: BoxFit.fill,
-            child: Text(
-              widget.buttonText,
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Quicksand",
-                color: widget.textColor,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              disabledBackgroundColor: widget.firstColor,
+              splashFactory: NoSplash.splashFactory,
+              foregroundColor: widget.onClickColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(widget.borderRadius),
+              ),
+              backgroundColor: widget.firstColor,
+              shadowColor: Colors.transparent,
+            ),
+            onPressed: null,
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: Text(
+                widget.buttonText,
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Quicksand",
+                  color: widget.textColor,
+                ),
               ),
             ),
           ),
