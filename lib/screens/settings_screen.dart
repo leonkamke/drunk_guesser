@@ -37,7 +37,6 @@ class SettingsScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: displayHeight * 0.15,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -54,7 +53,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.05,
+                    displayHeight * 0.053,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),

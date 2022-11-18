@@ -41,7 +41,6 @@ class _RulesScreenState extends State<RulesScreen> {
             Column(
               children: [
                 Container(
-                  height: displayHeight * 0.15,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -58,7 +57,7 @@ class _RulesScreenState extends State<RulesScreen> {
                   ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.05,
+                    displayHeight * 0.053,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),
