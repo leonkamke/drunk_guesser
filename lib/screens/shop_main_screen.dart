@@ -28,7 +28,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
 
   int selectedButton = 1;
 
-  String text = "Kaufe dir die Vollversion (alle Kategorien) für 4,99€";
+  String text = "Kaufe dir die Vollversion für 4,99€. Diese enthält alle Kategorien und keine Werbung!\n\nDamit sparst du mehr als 44%!";
 
   @override
   Widget build(BuildContext context) {
