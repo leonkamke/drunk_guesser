@@ -183,9 +183,9 @@ class _RulesScreenState extends State<RulesScreen> {
   }
 
   final String spielStartText =
-      "Das Spiel kann mit beliebig vielen Spielern gespielt werden.\nUm ein Spiel zu starten, werden eine oder mehrere Kategorien ausgewählt, mit denen gespielt werden soll.\nDanach wird auf \"Start\" geklickt, um das Spiel zu starten.\nDie Kategorie \"Zufall\" kann auch mit anderen Kategorien verknüpft werden.";
+      "Das Spiel kann mit beliebig vielen Spielern gespielt werden.\n\nUm ein Spiel zu starten, werden eine oder mehrere Kategorien ausgewählt, mit denen gespielt werden soll.\n\nDanach wird auf \"Start\" geklickt, um das Spiel zu starten.\n\nDie Kategorie \"Zufall\" kann auch mit anderen Kategorien verknüpft werden.";
 
   final String spielAblaufText =
-      "Wählt einen Fragesteller. Dieser Spieler ließt die Fragen vor.\n\nNachdem das Spiel gestartet wurde, erscheint eine Frage auf dem Bildschirm, die vorgelesen wird.\nDann schreibt jeder Spieler seine Schätzung auf.\nWenn alle fertig sind, wird durch ein Klicken auf die Fragekarte die Antwort angezeigt.\nDerjenige, der am schlechtesten geschätzt hat, muss trinken!\n\nEntscheidet vor dem Spiel selbst, wie viele Schlücke getrunken werden müssen.\n\nDurch ein weiteres Klicken auf die Karte wird die nächste Frage angezeigt und der Ablauf beginnt von vorne.\n\nEin Spiel besteht aus 18 zufälligen Fragen, der ausgewählten Kategorien.\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\nAlles klar? Dann viel Spaß beim Schätzen!";
+      "Wählt einen Fragesteller. Dieser Spieler ließt die Fragen vor.\n\nNachdem das Spiel gestartet wurde, erscheint eine Frage auf dem Bildschirm, die vorgelesen wird.\n\nDann schreibt jeder Spieler seine Schätzung auf.\n\nWenn alle fertig sind, wird durch ein Klicken auf die Fragekarte die Antwort angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, muss trinken!\n\nEntscheidet vor dem Spiel selbst, wie viele Schlücke getrunken werden müssen.\n\nDurch ein weiteres Klicken auf die Karte wird die nächste Frage angezeigt und der Ablauf beginnt von vorne.\n\nEin Spiel besteht aus 18 zufälligen Fragen, der ausgewählten Kategorien und endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\nAlles klar? Dann viel Spaß beim Schätzen!";
 
 }
