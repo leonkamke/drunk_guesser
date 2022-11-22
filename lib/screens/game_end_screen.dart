@@ -204,5 +204,5 @@ class _GameEndScreenState extends State<GameEndScreen>
   }
 
   String textGameEnd =
-      "Zählt von 3 runter und zeigt alle gleichzeitig auf die Person die am schlechtesten gespielt hat.\n\nDiese Person ... (Auflösung folgt)";
+      "Zählt von drei runter und zeigt alle gleichzeitig auf die Person, die am schlechtesten gespielt hat.\n\nDiese Person...\n(Auflösung folgt)";
 }
