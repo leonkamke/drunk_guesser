@@ -119,7 +119,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                                 selectedButton = 1;
                                 buttonText = "Kaufen";
                                 text =
-                                    "Kaufe dir die Vollversion für 4,99€. Diese enthält alle Kategorien und keine Werbung!\nDamit sparst du mehr als 44%!";
+                                    "Kaufe dir die Vollversion für 4,99€. Diese enthält alle Kategorien und keine Werbung!\n\nDamit sparst du mehr als 44%!";
                               },
                             );
                           }),
@@ -139,7 +139,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                                 selectedButton = 2;
                                 buttonText = "Auswählen";
                                 text =
-                                    "Kaufe das Bundle für 1,99€ mit den Kategorien, die dir am besten gefallen und verzichte auf Werbung!\nDamit sparst du über 25%";
+                                    "Kaufe das Bundle für 1,99€ mit den Kategorien, die dir am besten gefallen und verzichte auf Werbung!\n\nDamit sparst du über 25%!";
                               },
                             );
                           }),
