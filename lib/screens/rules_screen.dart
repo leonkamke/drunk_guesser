@@ -105,7 +105,7 @@ class _RulesScreenState extends State<RulesScreen> {
                     items: [
                       oneSlider("Spielstart", spielStartText),
                       oneSlider(
-                          "Spielablauf", spielAblaufText_1 + spielAblaufText_2),
+                          "Spielablauf", spielAblaufText),
                     ],
                   ),
                 ),
@@ -183,20 +183,10 @@ class _RulesScreenState extends State<RulesScreen> {
   }
 
   final String spielStartText =
-      "Um ein Spiel zu starten, wählt ihr zu Beginn die Kategorien aus mit denen ihr spielen wollt (manche kostenpflichtig).\n\nDanach klickt ihr Start um das Spiel zu starten.";
+      "Das Spiel kann mit beliebig vielen Spielern gespielt werden. Um ein Spiel zu starten, werden eine oder mehrere Kategorien ausgewählt, mit denen gespielt werden soll. Danach wird auf \"Start\" geklickt, um das Spiel zu starten. Die Kategorie \"Zufall\" kann auch mit anderen Kategorien verknüpft werden.";
 
-  final String spielAblaufText_1 =
-      "Das Spiel kann mit beliebig vielen Leuten gespielt werden.\n\nEs werden nacheinander die Fragen auf dem Bildschirm angezeigt, die der Fragensteller vorließt.\n\nJeder Spieler schreibt seine Antwort auf (zum Beispiel in eine Notiz-App).";
+  final String spielAblaufText =
+      "Wählt einen Fragesteller. Dieser Spieler ließt die Fragen vor. Nachdem das Spiel gestartet wurde, erscheint eine Frage auf dem Bildschirm, die vorgelesen wird. Dann schreibt jeder Spieler seine Schätzung auf. Wenn alle fertig sind, wird durch ein Klicken auf die Fragekarte die Antwort angezeigt. Derjenige, der am schlechtesten geschätzt hat, muss trinken! Entscheidet vor dem Spiel selbst, wie viele Schlücke getrunken werden müssen. Durch ein weiteres Klicken auf die Karte wird die nächste Frage angezeigt und der Ablauf beginnt von vorne. Ein Spiel besteht aus 18 zufälligen Fragen, der ausgewählten Kategorien. Das Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat. Alles klar? Dann viel Spaß beim Schätzen!";
 
-  final String spielAblaufText_2 =
-      "Durch ein Klicken auf den Bildschirm, wird die Lösung angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, trinkt!\n\nDurch ein weiters Klicken wird die nächste Frage angezeigt usw.\n\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\n Viel Spaß beim Spielen!";
 
-  final Map<String, String> items = {
-    "Spielstart":
-        "Um ein Spiel zu starten, wählt ihr zu Beginn die Kategorien aus mit denen ihr spielen wollt (manche kostenpflichtig).\n\nDanach klickt ihr Start um das Spiel zu starten.",
-    "Spielablauf":
-        "Das Spiel kann mit beliebig vielen Leuten gespielt werden.\n\nEs werden nacheinander die Fragen auf dem Bildschirm angezeigt, die der Fragensteller vorließt.\n\nJeder Spieler schreibt seine Antwort auf (zum Beispiel in eine Notiz-App). Durch ein Klicken auf den Bildschirm, wird die Lösung angezeigt.\n\nDerjenige, der am schlechtesten geschätzt hat, trinkt!\n\nDurch ein weiters Klicken wird die nächste Frage angezeigt usw.\n\nDas Spiel endet mit der Frage, welcher Spieler am schlechteste gespielt hat.\n\n Viel Spaß beim Spielen!"
-  };
-
-  final List<String> items_ueberschrift = ["Spielstart", "Spielablauf"];
 }

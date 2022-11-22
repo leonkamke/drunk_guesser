@@ -4,7 +4,6 @@ import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/provider/textfield_provider.dart';
 import 'package:drunk_guesser/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart' as rive;
 
@@ -56,7 +55,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         }
         _riveArtboard = artboard;
       },
-    );*/
+    );
+    */
 
     _controllerCard = AnimationController(
       duration: const Duration(milliseconds: 810),
