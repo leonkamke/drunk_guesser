@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../api/purchase_api.dart';
-import '../widgets/policy_dialog.dart';
-import '../widgets/rounded_button.dart';
 import '../widgets/shop_button.dart';
 
 class ShopMainScreen extends StatefulWidget {
@@ -28,10 +26,6 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
 
   String buttonText = "Kaufen";
 
-  /*
-  Stores which button is selected
-  (0 == "Einzelne Kategorien", 1 == "Vollversion", 2 == "Bundles")
-   */
   int selectedButton = 1;
 
   String text = "Kaufe dir die Vollversion (alle Kategorien) für 4,99€";
@@ -105,7 +99,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                                 selectedButton = 0;
                                 buttonText = "Auswählen";
                                 text =
-                                    "Kaufe dir eine einzelne Kategorie für 0,69€ + keine Werbung";
+                                    "Kaufe dir eine einzelne Kategorie für 0,69€ und verzichte auf Werbung!";
                               },
                             );
                           }),
@@ -125,7 +119,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                                 selectedButton = 1;
                                 buttonText = "Kaufen";
                                 text =
-                                    "Kaufe dir die Vollversion (alle Kategorien) für 4,99€ + keine Werbung";
+                                    "Kaufe dir die Vollversion für 4,99€. Diese enthält alle Kategorien und keine Werbung!\nDamit sparst du mehr als 44%!";
                               },
                             );
                           }),
@@ -145,7 +139,7 @@ class _ShopMainScreenState extends State<ShopMainScreen> {
                                 selectedButton = 2;
                                 buttonText = "Auswählen";
                                 text =
-                                    "Wähle das Bundle mit den Kategorien die dir am besten gefallen + keine Werbung";
+                                    "Kaufe das Bundle für 1,99€ mit den Kategorien, die dir am besten gefallen und verzichte auf Werbung!\nDamit sparst du über 25%";
                               },
                             );
                           }),

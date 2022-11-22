@@ -147,8 +147,8 @@ class _GameEndScreenState extends State<GameEndScreen>
                                         child: AutoSizeText(
                                           textGameEnd,
                                           style: const TextStyle(
-                                            color:
-                                                AppColors.schriftFarbe_dunkel,
+                                            color: AppColors
+                                                .schriftFarbe_dunkel,
                                             fontFamily: "Quicksand",
                                             fontSize: 21,
                                             fontWeight: FontWeight.bold,
@@ -179,9 +179,20 @@ class _GameEndScreenState extends State<GameEndScreen>
   }
 
   final List<String> endExercise = [
-    "muss 5 Schlücke trinken!",
-    "muss 8 Schlücke trinken!",
-    "darf 10 Schlücke verteilen!",
+    "... muss 3 Schlücke trinken!",
+    "... muss 4 Schlücke trinken!",
+    "... muss 5 Schlücke trinken!",
+    "... muss 6 Schlücke trinken!",
+
+    "... darf 3 Schlücke verteilen!",
+    "... darf 4 Schlücke verteilen!",
+    "... darf 5 Schlücke verteilen!",
+    "... darf 6 Schlücke verteilen!",
+
+    "... sucht seinem rechten Nachbar einen Shot aus, den er trinken muss\n(Verlierer zahlt)",
+    "... bekommt von seinem rechten Nachbar einen Shot\n(Nachbar zahlt)",
+    "... sucht seinem linken Nachbar einen Shot aus, den er trinken muss\n(Verlierer zahlt)",
+    "... bekommt von seinem linken Nachbar einen Shot\n(Nachbar zahlt)"
   ];
 
   Future<void> endGame(BuildContext context) async {
@@ -204,5 +215,5 @@ class _GameEndScreenState extends State<GameEndScreen>
   }
 
   String textGameEnd =
-      "Zählt von drei runter und zeigt alle gleichzeitig auf die Person, die am schlechtesten gespielt hat.\n\nDiese Person...\n(Auflösung folgt)";
+      "Zählt von drei runter und zeigt alle gleichzeitig auf die Person, die am schlechtesten gespielt hat.\n\n\nDiese Person...\n(Auflösung folgt)";
 }
