@@ -18,7 +18,7 @@ class Entitlements {
     name: "Zufall (kostenlos)",
     dbName: "zufall",
     description:
-        "Zufällige Fragen aus den Kategorien Unnützes Wissen, Medien und Unterhaltung, Sport, Geographie und Google.",
+        "Zufällige Fragen aus den Kategorien Unnützes Wissen, Medien und Unterhaltung, Sport und Ernährung, Geographie und Google.",
     iconPath: "assets/categories_icons/random_icon.png",
     purchased: true,
     colors: const [

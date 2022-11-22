@@ -225,5 +225,5 @@ class _GameStartScreenState extends State<GameStartScreen> {
   }
 
   final String startText =
-      "Holt eure Notitzen auf dem Handy raus und es kann losgehen!\n\nWer am schlechtesten schätzt trinkt!\n\nViel Spaß!";
+      "Holt eure Handynotizen raus und los geht’s!\n\nDurch Klicken auf diese Karte beginnt das Spiel.\n\nWer am schlechtesten schätzt, trinkt!\n\n\nViel Spaß!";
 }
