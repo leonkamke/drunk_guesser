@@ -22,7 +22,7 @@ class _RulesScreenState extends State<RulesScreen> {
     ],
   ));
 
-  double pageindex = 0.0;
+  int pageindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -98,8 +98,8 @@ class _RulesScreenState extends State<RulesScreen> {
                         // autoPlay: false,
                         onPageChanged: (index, _) {
                           setState(() {
-                            pageindex = index.toDouble();
-                            print(pageindex);
+                            pageindex = index;
+                            // print(pageindex);
                           });
                         }),
                     items: [
