@@ -2,6 +2,8 @@ import 'package:drunk_guesser/provider/categories_startbutton_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/app_colors.dart';
+
 class StartButton extends StatefulWidget {
   final String buttonText;
   final Color firstColor;
@@ -9,14 +11,6 @@ class StartButton extends StatefulWidget {
   final double borderRadius;
   final Color textColor;
   final void Function() onTap;
-
-  /*
-  Good colors:
-
-  Color(0xE0FFA34B),
-  Color(0xFFCC700F),
-
-   */
 
   const StartButton({
     super.key,
@@ -57,6 +51,35 @@ class _StartButtonState extends State<StartButton> {
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return FilledButton(
+        onPressed: !context.watch<StartButtonProvider>().disabled
+            ? () {
+                widget.onTap();
+              }
+            : null,
+        style: ButtonStyle(
+            elevation: const MaterialStatePropertyAll(4.3),
+            fixedSize: const MaterialStatePropertyAll(Size(140, 43)),
+            backgroundColor: !context.watch<StartButtonProvider>().disabled
+                ? const MaterialStatePropertyAll<Color>(
+                    AppColors.startButtonBackground)
+                : const MaterialStatePropertyAll<Color>(Colors.grey),
+            side: MaterialStatePropertyAll<BorderSide>(
+                BorderSide(width: 2.4, color: Colors.black))),
+        child: const Text(
+          "Start",
+          style: TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Quicksand",
+            color: AppColors.drunkguesserSchrift,
+          ),
+        ));
+  }
+
+/*
   @override
   Widget build(BuildContext context) {
     final displayHeight = MediaQuery.of(context).size.height;
@@ -142,5 +165,5 @@ class _StartButtonState extends State<StartButton> {
         ];
       }
     }
-  }
+  }*/
 }

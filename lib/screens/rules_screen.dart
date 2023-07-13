@@ -41,6 +41,7 @@ class _RulesScreenState extends State<RulesScreen> {
             Column(
               children: [
                 Container(
+                  /*
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -54,10 +55,10 @@ class _RulesScreenState extends State<RulesScreen> {
                           blurRadius: 6)
                     ],
                     color: AppColors.appbarBackground,
-                  ),
+                  ),*/
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.053,
+                    displayHeight * 0.06,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),
@@ -112,6 +113,7 @@ class _RulesScreenState extends State<RulesScreen> {
                 Container(
                   height: displayHeight * 0.06,
                   width: displayWidth,
+                  /*
                   decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -120,7 +122,7 @@ class _RulesScreenState extends State<RulesScreen> {
                           blurRadius: 6)
                     ],
                     color: AppColors.appbarBackground,
-                  ),
+                  ),*/
                   child: DotsIndicator(
                     dotsCount: 2,
                     position: pageindex,

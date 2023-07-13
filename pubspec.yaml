@@ -148,3 +148,11 @@ flutter:
         - asset: assets/fonts/Roboto/Roboto-Bold.ttf
         - asset: assets/fonts/Roboto/Roboto-Light.ttf
         - asset: assets/fonts/Roboto/Roboto-Medium.ttf
+
+    - family: Rock Salt
+      fonts:
+        - asset: assets/fonts/Rock Salt/RockSalt-Regular.ttf
+
+    - family: Gloria Hallelujah
+      fonts:
+        - asset: assets/fonts/Gloria Hallelujah/GloriaHallelujah-Regular.ttf

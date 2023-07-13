@@ -37,6 +37,7 @@ class SettingsScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  /*
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -50,10 +51,10 @@ class SettingsScreen extends StatelessWidget {
                           blurRadius: 6)
                     ],
                     color: AppColors.appbarBackground,
-                  ),
+                  ),*/
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.053,
+                    displayHeight * 0.06,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),
@@ -90,34 +91,56 @@ class SettingsScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      RoundedButton(
-                        buttonText: "Bewerten",
-                        borderRadius: 15,
-                        firstColor: AppColors.appbarBackground,
-                        secondColor: AppColors.appbarBackground,
-                        textColor: AppColors.appBarText,
-                        onClickColor: const Color(0x80000000),
-                        onTap: () async {
-                          print("leave a comment for the app");
-                          print(await DrunkGuesserDB.getLocalVersion());
-                        },
-                      ),
+                      FilledButton(
+                          onPressed: () async {
+                            print("leave a comment for the app");
+                            print(await DrunkGuesserDB.getLocalVersion());
+                          },
+                          style: const ButtonStyle(
+                              elevation: MaterialStatePropertyAll(4.3),
+                              fixedSize:
+                              MaterialStatePropertyAll(Size(180, 50)),
+                              backgroundColor:
+                              MaterialStatePropertyAll<Color>(
+                                  AppColors.settingsButtonBackground),
+                              side: MaterialStatePropertyAll<BorderSide>(
+                                  BorderSide(width: 2.4, color: Colors.black))),
+                          child: const Text(
+                            "Bewerten",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Quicksand",
+                              color: AppColors.drunkguesserSchrift,
+                            ),
+                          )),
                       SizedBox(
                         height: displayHeight * 0.04,
                       ),
-                      RoundedButton(
-                        buttonText: "Teilen",
-                        borderRadius: 15,
-                        firstColor: AppColors.appbarBackground,
-                        secondColor: AppColors.appbarBackground,
-                        textColor: AppColors.appBarText,
-                        onClickColor: const Color(0xFF000000),
-                        onTap: () {
-                          print("Share app");
-                          print("Delete local database");
-                          DrunkGuesserDB.deleteDB();
-                        },
-                      ),
+                      FilledButton(
+                          onPressed: () {
+                            print("Share app");
+                            print("Delete local database");
+                            DrunkGuesserDB.deleteDB();
+                          },
+                          style: const ButtonStyle(
+                              elevation: MaterialStatePropertyAll(4.3),
+                              fixedSize:
+                              MaterialStatePropertyAll(Size(180, 50)),
+                              backgroundColor:
+                              MaterialStatePropertyAll<Color>(
+                                  AppColors.settingsButtonBackground),
+                              side: MaterialStatePropertyAll<BorderSide>(
+                                  BorderSide(width: 2.4, color: Colors.black))),
+                          child: const Text(
+                            "Teilen",
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Quicksand",
+                              color: AppColors.drunkguesserSchrift,
+                            ),
+                          )),
                       SizedBox(
                         height: displayHeight * 0.04,
                       ),

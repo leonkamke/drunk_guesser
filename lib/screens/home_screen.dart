@@ -6,6 +6,7 @@ import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rive/rive.dart' as rive;
+import 'package:drunk_guesser/models/background_icons.dart';
 
 import '../models/category.dart';
 
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: backgroundDecoration,
         child: Stack(
           children: [
-            ...getImages(context),
+            ...BackgroundIcons.getImages(context),
             Column(
               children: [
                 Container(
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "Quicksand",
+                        fontFamily: "Gloria Hallelujah",
                         color: AppColors.drunkguesserSchrift,
                         shadows: [
                           Shadow(
@@ -153,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        /*
                         RoundedButton(
                           buttonText: "Start",
                           borderRadius: 20,
@@ -163,21 +165,77 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () {
                             Navigator.of(context).pushNamed("/categories");
                           },
-                        ),
+                        ),*/
+                        FilledButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/categories");
+                            },
+                            style: const ButtonStyle(
+                                elevation: MaterialStatePropertyAll(4.3),
+                                fixedSize:
+                                    MaterialStatePropertyAll(Size(180, 50)),
+                                backgroundColor:
+                                    MaterialStatePropertyAll<Color>(
+                                        AppColors.startButtonBackground),
+                                side: MaterialStatePropertyAll<BorderSide>(
+                                    BorderSide(width: 2.4, color: Colors.black))),
+                            child: const Text(
+                              "Start",
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Quicksand",
+                                color: AppColors.drunkguesserSchrift,
+                              ),
+                            )),
                         SizedBox(
                           height: displayHeight * 0.035,
                         ),
-                        RoundedButton(
-                          buttonText: "Einstellungen",
-                          borderRadius: 20,
-                          firstColor: AppColors.settingsButtonBackground,
-                          secondColor: AppColors.settingsButtonBackground,
-                          textColor: AppColors.settingsButtonText,
-                          onClickColor: const Color(0xFF000000),
-                          onTap: () {
-                            Navigator.of(context).pushNamed("/settings");
-                          },
-                        )
+                        FilledButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/settings");
+                            },
+                            style: const ButtonStyle(
+                                elevation: MaterialStatePropertyAll(4.3),
+                                fixedSize:
+                                    MaterialStatePropertyAll(Size(180, 50)),
+                                backgroundColor:
+                                    MaterialStatePropertyAll<Color>(
+                                        AppColors.settingsButtonBackground),
+                                side: MaterialStatePropertyAll<BorderSide>(
+                                    BorderSide(width: 2.4, color: Colors.black))),
+                            child: const Text(
+                              "Settings",
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Quicksand",
+                                color: AppColors.drunkguesserSchrift,
+                              ),
+                            )),
+                        SizedBox(height: displayHeight * 0.05,),
+                        FilledButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/shop_main");
+                            },
+                            style: const ButtonStyle(
+                                elevation: MaterialStatePropertyAll(4.3),
+                                fixedSize:
+                                MaterialStatePropertyAll(Size(150, 50)),
+                                backgroundColor:
+                                MaterialStatePropertyAll<Color>(
+                                    AppColors.shopButtonHomescreenBackground),
+                                side: MaterialStatePropertyAll<BorderSide>(
+                                    BorderSide(width: 2.4, color: Colors.black))),
+                            child: const Text(
+                              "Shop",
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Quicksand",
+                                color: AppColors.drunkguesserSchrift,
+                              ),
+                            )),
                       ],
                     ),
                   ),
@@ -188,98 +246,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  List<Widget> getImages(BuildContext context) {
-    final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
-    double iconHeight = displayWidth * 0.182;
-    Color iconColor = Color(0xB000000);
-    return [
-      Positioned(
-        top: displayHeight * 0.05,
-        left: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.09,
-        left: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.28,
-        left: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        top: displayHeight * 0.32,
-        left: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-
-      // ----------------
-
-      Positioned(
-        bottom: displayHeight * 0.05,
-        right: displayWidth * 0.1,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.09,
-        right: displayWidth * 0.5,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.28,
-        right: displayWidth * 0.04,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.32,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-      Positioned(
-        bottom: displayHeight * 0.02,
-        right: displayWidth * 0.8,
-        child: Icon(
-          Icons.sports_bar_outlined,
-          size: iconHeight,
-          color: iconColor,
-        ),
-      ),
-    ];
   }
 }

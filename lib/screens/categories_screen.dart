@@ -133,7 +133,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           "Kategorien",
                           style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white,
+                            color: AppColors.shopPriceButtonSchrift,
                             //AppColors.appbarBackground,//AppColors.appBarText,
                             fontFamily: "Quicksand",
                             fontWeight: FontWeight.bold,

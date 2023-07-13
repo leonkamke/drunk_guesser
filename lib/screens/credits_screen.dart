@@ -41,23 +41,9 @@ class _CreditsScreenState extends State<CreditsScreen> {
             Column(
               children: [
                 Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
-                        topLeft: Radius.circular(0),
-                        topRight: Radius.circular(0)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(0, 3),
-                          blurRadius: 6)
-                    ],
-                    color: AppColors.appbarBackground,
-                  ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.053,
+                    displayHeight * 0.06,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),
