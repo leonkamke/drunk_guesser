@@ -93,7 +93,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       categoryName = questions[0].category.name;
       start = false;*/
       Map arguments =
-      ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+          ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
       selectedCategories = arguments["selectedCategories"] as List<Category>;
       question = arguments["question"] as Question;
       text = question.question;
@@ -127,10 +127,12 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
 
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
+    final displayHeight = MediaQuery.of(context).size.height -
+        safeAreaPadding.top -
+        safeAreaPadding.bottom;
 
     Map arguments =
-    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     _riveArtboard = arguments["artboard"] as rive.Artboard;
     _controller = arguments["controller"] as rive.StateMachineController;
     _controller?.isActive = true;
@@ -329,7 +331,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         question = await DrunkGuesserDB.getQuestion(selectedCategories);
       }
       setState(
-            () {
+        () {
           if (isQuestion) {
             // click on question
             _controllerText.reset();
@@ -371,16 +373,39 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         );*/
 
         return AlertDialog(
-          title: const Text('AlertDialog Title'),
-          content: const Text('Seid ihr sicher, dass ihr das Spiel verlassen wollt?'),
+          // title: const Text('AlertDialog Title'),
+          content: const Text(
+            'Seid ihr sicher, dass ihr das Spiel verlassen wollt?',
+            style: TextStyle(
+                fontSize: 18,
+                fontFamily: "Quicksand",
+                fontWeight: FontWeight.bold),
+          ),
           actions: <Widget>[
             TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Ja'),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Ja',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Quicksand",
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('Nein'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Nein',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Quicksand",
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         );
