@@ -374,6 +374,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
         return AlertDialog(
           // title: const Text('AlertDialog Title'),
+          backgroundColor: const Color(0xFFF5F5F5),
+          contentPadding: const EdgeInsets.fromLTRB(25, 30, 25, 30),
           content: const Text(
             'Seid ihr sicher, dass ihr das Spiel verlassen wollt?',
             style: TextStyle(
