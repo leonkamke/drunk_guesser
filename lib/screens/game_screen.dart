@@ -365,8 +365,24 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        /*
         return CustomDialogBox(
           description: "Seid ihr sicher, dass ihr das Spiel verlassen wollt?",
+        );*/
+
+        return AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: const Text('Seid ihr sicher, dass ihr das Spiel verlassen wollt?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Ja'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('Nein'),
+            ),
+          ],
         );
       },
       barrierColor: const Color(0xA9000000),
