@@ -377,6 +377,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           content: const Text(
             'Seid ihr sicher, dass ihr das Spiel verlassen wollt?',
             style: TextStyle(
+                color: AppColors.appBarText,
                 fontSize: 18,
                 fontFamily: "Quicksand",
                 fontWeight: FontWeight.bold),
