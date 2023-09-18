@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 class BackgroundIcons {
   static List<Widget> getImages(BuildContext context) {
+    // Get the padding of the safe area
+    EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
+
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
+    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
+
     double iconHeight = displayWidth * 0.182;
     Color iconColor = Color(0xB000000);
     return [
       Positioned(
-        top: displayHeight * 0.05,
+        top: displayHeight * 0.02,
         left: displayWidth * 0.1,
         child: Icon(
           Icons.sports_bar_outlined,

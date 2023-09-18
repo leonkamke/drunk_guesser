@@ -45,6 +45,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // To hide the notification bar and make the app fullscreen: SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TextFieldProvider()),
@@ -54,9 +56,11 @@ class MyApp extends StatelessWidget {
         title: 'DrunkGuesser',
         home: HomeScreen(),
         builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-            child: child!,
+          return SafeArea(
+            child: MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: child!,
+            )
           );
         },
         onGenerateRoute: (settings) {

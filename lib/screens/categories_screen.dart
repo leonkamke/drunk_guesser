@@ -87,8 +87,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Get the padding of the safe area
+    EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
+
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
+    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -119,7 +122,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   ),
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.065,
-                    displayHeight * 0.05,
+                    displayHeight * 0.02,
                     displayWidth * 0.065,
                     displayHeight * 0.025,
                   ),

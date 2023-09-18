@@ -22,8 +22,11 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the padding of the safe area
+    EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
+
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
+    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -54,7 +57,7 @@ class SettingsScreen extends StatelessWidget {
                   ),*/
                   padding: EdgeInsets.fromLTRB(
                     displayWidth * 0.075,
-                    displayHeight * 0.06,
+                    displayHeight * 0.02,
                     displayWidth * 0.075,
                     displayHeight * 0.02,
                   ),

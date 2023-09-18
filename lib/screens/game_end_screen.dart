@@ -51,8 +51,12 @@ class _GameEndScreenState extends State<GameEndScreen>
   @override
   Widget build(BuildContext context) {
     // _createInterstitialAd();
+    // Get the padding of the safe area
+    EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
+
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height;
+    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
+
     return WillPopScope(
       onWillPop: () {
         return Future<bool>(() {
@@ -81,14 +85,14 @@ class _GameEndScreenState extends State<GameEndScreen>
                       color: Colors.transparent,
                       padding: EdgeInsets.fromLTRB(
                         displayWidth * 0.06,
-                        displayHeight * 0.05,
+                        displayHeight * 0.02,
                         displayWidth * 0.06,
                         displayHeight * 0.01,
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: const [
+                        children: [
                           FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(
