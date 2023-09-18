@@ -50,6 +50,7 @@ dependencies:
   purchases_flutter: ^5.3.0
   rename: ^2.0.1
   audioplayers: ^4.1.0
+  avoid_keyboard: ^0.3.0
 
 dev_dependencies:
   flutter_test:

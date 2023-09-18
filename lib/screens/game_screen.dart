@@ -93,7 +93,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       categoryName = questions[0].category.name;
       start = false;*/
       Map arguments =
-          ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+      ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
       selectedCategories = arguments["selectedCategories"] as List<Category>;
       question = arguments["question"] as Question;
       text = question.question;
@@ -130,7 +130,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
 
     Map arguments =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     _riveArtboard = arguments["artboard"] as rive.Artboard;
     _controller = arguments["controller"] as rive.StateMachineController;
     _controller?.isActive = true;
@@ -142,6 +142,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         body: ScrollConfiguration(
           behavior: MyBehavior(),
           child: SingleChildScrollView(
+            reverse: true,
             child: Container(
               width: displayWidth,
               height: displayHeight,
@@ -328,7 +329,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         question = await DrunkGuesserDB.getQuestion(selectedCategories);
       }
       setState(
-        () {
+            () {
           if (isQuestion) {
             // click on question
             _controllerText.reset();
