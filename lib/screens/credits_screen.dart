@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rive/rive.dart' as rive;
 
-import '../widgets/policy_dialog.dart';
+// import '../widgets/policy_dialog.dart';
 
 class CreditsScreen extends StatefulWidget {
   CreditsScreen({Key? key}) : super(key: key);
@@ -112,7 +112,7 @@ class _CreditsScreenState extends State<CreditsScreen> {
                         child: const Icon(
                           Icons.mail_outline_rounded,
                           size: 43,
-                          color: Colors.white,
+                          color: AppColors.schriftFarbeCards,
                         ),
                         onTap: () {
                           sendEmail();
