@@ -4,22 +4,18 @@
 - Shop-Einzelne Kategorien: Nach überschrift sagen wie viele Fragen die Kategorie enthält
 - Für Datenschutzerklärung: https://www.iubenda.com/de/
 
+- Wenn jemand Bewertet, dann eine Kategorie freischalten
+
 Am Ende: https://docs.flutter.dev/deployment/obfuscate (Code verschlüsseln)
 
 Für die Datenschutzerklärung: https://app-privacy-policy-generator.firebaseapp.com/
 
 Setted minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
 
-alle auswählen im Kategorienscreen
-
-Splashscreen und Icon Hintergrundfarbe von blau auf gelb ändern
+Lelo: Splashscreen und Icon Hintergrundfarbe von blau auf gelb ändern
 
 Animation wie bei Clash-Royal (Preis wackelt)
 
-Homebutton im Kategorien-Screen schwarz-blau
-
 Schloss im Kategorien-Screen gleiche Wackelanimation wie Preise oder Schloss geht auf und zu Animation
 
-
-
-
+Ein paar Kategorien direkt freigeschaltet, weil es sieht sonst zu gesperrt aus + Bundles deshalb überdenken + in einzelne Kategorien rausnehmen
