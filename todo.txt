@@ -12,5 +12,14 @@ Setted minApi(android) to API level 21 (Android 5.0 Lollipop (December 2014))
 
 alle auswählen im Kategorienscreen
 
+Splashscreen und Icon Hintergrundfarbe von blau auf gelb ändern
+
+Animation wie bei Clash-Royal (Preis wackelt)
+
+Homebutton im Kategorien-Screen schwarz-blau
+
+Schloss im Kategorien-Screen gleiche Wackelanimation wie Preise oder Schloss geht auf und zu Animation
+
+
 
 

@@ -147,8 +147,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         child: const Icon(
                           Icons.home_rounded,
                           size: 40,
-                          color: Colors
-                              .white, //AppColors.appbarBackground//AppColors.appBarText,
+                          color: AppColors.appBarText
                         ),
                         onTap: () {
                           Navigator.of(context).pop();
