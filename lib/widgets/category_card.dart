@@ -8,11 +8,14 @@ import '../models/category.dart';
 import '../models/entitlements.dart';
 import 'package:rive/rive.dart' as rive;
 
-
 class CategoryCard extends StatefulWidget {
   final Category category;
+  final rive.RiveAnimationController animationController;
 
-  const CategoryCard({super.key, required this.category});
+  const CategoryCard(
+      {super.key,
+      required this.category,
+      required this.animationController});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -33,12 +36,12 @@ class _CategoryCardState extends State<CategoryCard> {
         onTap: selectCategoryCard,
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 8/*3*/, horizontal: displayWidth * 0.045),
+              vertical: 8 /*3*/, horizontal: displayWidth * 0.045),
           margin: EdgeInsets.symmetric(
               vertical: 3, horizontal: displayWidth * 0.03),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Colors.transparent,//AppColors.appbarBackground,
+            color: Colors.transparent, //AppColors.appbarBackground,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,7 +53,7 @@ class _CategoryCardState extends State<CategoryCard> {
                 padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.transparent,//AppColors.iconBackground,
+                  color: Colors.transparent, //AppColors.iconBackground,
                   boxShadow: const [
                     /*
                     BoxShadow(
@@ -130,12 +133,12 @@ class _CategoryCardState extends State<CategoryCard> {
             onTap: () => selectLock(context),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  vertical: 8/*3*/, horizontal: displayWidth * 0.045),
+                  vertical: 8 /*3*/, horizontal: displayWidth * 0.045),
               margin: EdgeInsets.symmetric(
                   vertical: 3, horizontal: displayWidth * 0.03),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.transparent,//AppColors.appbarBackground,
+                color: Colors.transparent, //AppColors.appbarBackground,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,7 +150,7 @@ class _CategoryCardState extends State<CategoryCard> {
                     padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.transparent,//AppColors.iconBackground,
+                      color: Colors.transparent, //AppColors.iconBackground,
                       boxShadow: const [
                         /*
                         BoxShadow(
@@ -171,7 +174,8 @@ class _CategoryCardState extends State<CategoryCard> {
                         AutoSizeText(
                           widget.category.name,
                           style: const TextStyle(
-                            color: AppColors.schriftFarbeCardsTransparent,//Color(0x71FFFFFF),
+                            color: AppColors.schriftFarbeCardsTransparent,
+                            //Color(0x71FFFFFF),
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -181,7 +185,8 @@ class _CategoryCardState extends State<CategoryCard> {
                           maxLines: 3,
                           widget.category.description,
                           style: const TextStyle(
-                            color: AppColors.schriftFarbeCardsTransparent,//Color(0x51ffffff),
+                            color: AppColors.schriftFarbeCardsTransparent,
+                            //Color(0x51ffffff),
                             fontSize: 11,
                             // fontWeight: FontWeight.bold,
                             fontFamily: "Quicksand",
@@ -193,22 +198,24 @@ class _CategoryCardState extends State<CategoryCard> {
                   SizedBox(
                     width: displayWidth * 0.1,
                   ),
-                  const SizedBox(
-                    /*
+                  SizedBox(
+                      /*
                     width: displayHeight * 0.047,
                     height: displayHeight * 0.047,*/
-                    width: 60,
-                    height: 60,
-                    child: rive.RiveAnimation.asset(
+                      width: 45,
+                      height: 45,
+                      child: rive.RiveAnimation.asset(
                       'assets/animations/lock_icon.riv',
                       fit: BoxFit.contain,
+                      controllers: [widget.animationController],
+                      animations: const ["Timeline 1"],
                     ),
 
-                    /*Image.asset(
+                      /*Image.asset(
                       "assets/icons/lock_icon.png",
                       fit: BoxFit.contain,
                     ),*/
-                  ),
+                      ),
                 ],
               ),
             ),

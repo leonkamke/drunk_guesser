@@ -1,13 +1,14 @@
 import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
-import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../models/app_colors.dart';
 import '../models/category.dart';
 import '../models/entitlements.dart';
 import '../provider/categories_startbutton_provider.dart';
+import 'package:rive/rive.dart' as rive;
 
 class CategoriesScreen extends StatefulWidget {
   CategoriesScreen({Key? key}) : super(key: key) {
@@ -32,9 +33,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   late List<Category> categories;
 
+  late rive.RiveAnimationController _animationController;
+
+
   @override
   void initState() {
     super.initState();
+    _animationController = rive.SimpleAnimation("Timeline 1");
+
     // TODO: implement initState
     // context.read<StartButtonProvider>().setEnabled(true);
     StartButtonProvider.buttonDisabled = true;
@@ -60,6 +66,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       },
     );
   }
+
 
   @override
   void didChangeDependencies() {
@@ -162,7 +169,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           horizontal: 0, vertical: 15),
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
-                        return CategoryCard(category: categories[index]);
+                        return CategoryCard(category: categories[index], animationController: _animationController);
                       },
                       separatorBuilder: (context, index) {
                         return Divider(
