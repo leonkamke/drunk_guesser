@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../models/category.dart';
 import '../models/entitlements.dart';
+import 'package:rive/rive.dart' as rive;
+
 
 class CategoryCard extends StatefulWidget {
   final Category category;
@@ -191,16 +193,21 @@ class _CategoryCardState extends State<CategoryCard> {
                   SizedBox(
                     width: displayWidth * 0.1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     /*
                     width: displayHeight * 0.047,
                     height: displayHeight * 0.047,*/
-                    width: 27,
-                    height: 27,
-                    child: Image.asset(
-                      "assets/icons/lock_icon.png",
+                    width: 60,
+                    height: 60,
+                    child: rive.RiveAnimation.asset(
+                      'assets/animations/lock_icon.riv',
                       fit: BoxFit.contain,
                     ),
+
+                    /*Image.asset(
+                      "assets/icons/lock_icon.png",
+                      fit: BoxFit.contain,
+                    ),*/
                   ),
                 ],
               ),
