@@ -1,6 +1,7 @@
 import 'package:drunk_guesser/database/drunk_guesser_db.dart';
 import 'package:drunk_guesser/models/app_colors.dart';
 import 'package:drunk_guesser/models/entitlements.dart';
+import 'package:drunk_guesser/widgets/ScalableButton.dart';
 import 'package:drunk_guesser/widgets/rounded_button.dart';
 import 'package:drunk_guesser/widgets/icon_button.dart' as customIconButton;
 import 'package:flutter/material.dart';
@@ -60,7 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
     EdgeInsets safeAreaPadding = MediaQuery.of(context).padding;
 
     final displayWidth = MediaQuery.of(context).size.width;
-    final displayHeight = MediaQuery.of(context).size.height - safeAreaPadding.top - safeAreaPadding.bottom;
+    final displayHeight = MediaQuery.of(context).size.height -
+        safeAreaPadding.top -
+        safeAreaPadding.bottom;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -169,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.of(context).pushNamed("/categories");
                           },
                         ),*/
-                        FilledButton(
+                        /*FilledButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/categories");
                             },
@@ -182,6 +185,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                         AppColors.startButtonBackground),
                                 side: MaterialStatePropertyAll<BorderSide>(
                                     BorderSide(width: 2.4, color: Colors.black))),
+                            child: const Text(
+                              "Start",
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Quicksand",
+                                color: AppColors.drunkguesserSchrift,
+                              ),
+                            )),*/
+                        ScalableButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/categories");
+                            },
                             child: const Text(
                               "Start",
                               style: TextStyle(
@@ -206,7 +222,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     MaterialStatePropertyAll<Color>(
                                         AppColors.settingsButtonBackground),
                                 side: MaterialStatePropertyAll<BorderSide>(
-                                    BorderSide(width: 2.4, color: Colors.black))),
+                                    BorderSide(
+                                        width: 2.4, color: Colors.black))),
                             child: const Text(
                               "Settings",
                               style: TextStyle(
@@ -216,7 +233,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: AppColors.drunkguesserSchrift,
                               ),
                             )),
-                        SizedBox(height: displayHeight * 0.05,),
+                        SizedBox(
+                          height: displayHeight * 0.05,
+                        ),
                         FilledButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/shop_main");
@@ -224,12 +243,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: const ButtonStyle(
                                 elevation: MaterialStatePropertyAll(4.3),
                                 fixedSize:
-                                MaterialStatePropertyAll(Size(150, 50)),
+                                    MaterialStatePropertyAll(Size(150, 50)),
                                 backgroundColor:
-                                MaterialStatePropertyAll<Color>(
-                                    AppColors.shopButtonHomescreenBackground),
+                                    MaterialStatePropertyAll<Color>(AppColors
+                                        .shopButtonHomescreenBackground),
                                 side: MaterialStatePropertyAll<BorderSide>(
-                                    BorderSide(width: 2.4, color: Colors.black))),
+                                    BorderSide(
+                                        width: 2.4, color: Colors.black))),
                             child: const Text(
                               "Shop",
                               style: TextStyle(

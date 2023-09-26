@@ -18,4 +18,8 @@ Animation wie bei Clash-Royal (Preis wackelt)
 
 Schloss im Kategorien-Screen gleiche Wackelanimation wie Preise oder Schloss geht auf und zu Animation
 
+Glänzender, edler Hintegrund hinter Schloss
+
+Vielleicht ganzen screen touchbar machen um nächste Karte zu bekommen
+
 Ein paar Kategorien direkt freigeschaltet, weil es sieht sonst zu gesperrt aus + Bundles deshalb überdenken + in einzelne Kategorien rausnehmen

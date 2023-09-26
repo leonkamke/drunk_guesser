@@ -51,6 +51,7 @@ dependencies:
   rename: ^2.0.1
   audioplayers: ^4.1.0
   avoid_keyboard: ^0.3.0
+  lottie: ^2.6.0
 
 dev_dependencies:
   flutter_test:
@@ -110,6 +111,7 @@ flutter:
     - assets/bundles_icons/bundle_5_icons.png
     - assets/bundles_icons/bundle_6_icons.png
     - assets/animations/lock_icon.riv
+    - assets/animations/lottie_lock.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

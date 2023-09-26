@@ -7,15 +7,18 @@ import 'package:provider/provider.dart';
 import '../models/category.dart';
 import '../models/entitlements.dart';
 import 'package:rive/rive.dart' as rive;
+import 'package:lottie/lottie.dart';
 
 class CategoryCard extends StatefulWidget {
   final Category category;
   final rive.RiveAnimationController animationController;
+  final AnimationController lottieController;
 
   const CategoryCard(
       {super.key,
       required this.category,
-      required this.animationController});
+      required this.animationController,
+      required this.lottieController});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -204,12 +207,7 @@ class _CategoryCardState extends State<CategoryCard> {
                     height: displayHeight * 0.047,*/
                       width: 45,
                       height: 45,
-                      child: rive.RiveAnimation.asset(
-                      'assets/animations/lock_icon.riv',
-                      fit: BoxFit.contain,
-                      controllers: [widget.animationController],
-                      animations: const ["Timeline 1"],
-                    ),
+                      child: rive.RiveAnimation.asset('assets/animations/lock_icon.riv', controllers: [widget.animationController],),
 
                       /*Image.asset(
                       "assets/icons/lock_icon.png",

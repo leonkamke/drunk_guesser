@@ -2,7 +2,6 @@ import 'package:drunk_guesser/models/background_icons.dart';
 import 'package:drunk_guesser/widgets/category_card.dart';
 import 'package:drunk_guesser/widgets/categories_startbutton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../models/app_colors.dart';
 import '../models/category.dart';
@@ -11,16 +10,18 @@ import '../provider/categories_startbutton_provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 class CategoriesScreen extends StatefulWidget {
+
   CategoriesScreen({Key? key}) : super(key: key) {
     // load purchased from device sqlite database
     // sort category_cards
   }
 
+
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
-class _CategoriesScreenState extends State<CategoriesScreen> {
+class _CategoriesScreenState extends State<CategoriesScreen> with TickerProviderStateMixin {
   var backgroundDecoration = const BoxDecoration(
       gradient: LinearGradient(
     begin: Alignment.topLeft,
@@ -34,12 +35,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   late List<Category> categories;
 
   late rive.RiveAnimationController _animationController;
+  late final AnimationController lottieController;
+  // late rive.RiveFile riveFile;
 
 
   @override
   void initState() {
     super.initState();
     _animationController = rive.SimpleAnimation("Timeline 1");
+    lottieController = AnimationController(vsync: this, duration: Duration(seconds: 30));
+
+    lottieController.addStatusListener((status) {
+    if (status == AnimationStatus.completed) {
+    // When the animation reaches the end, restart it
+      lottieController.reset();
+      lottieController.forward();
+    }
+    });
+    // _loadRiveFile();
 
     // TODO: implement initState
     // context.read<StartButtonProvider>().setEnabled(true);
@@ -169,7 +182,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           horizontal: 0, vertical: 15),
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
-                        return CategoryCard(category: categories[index], animationController: _animationController);
+                        return CategoryCard(category: categories[index], animationController: _animationController, lottieController: lottieController,);
                       },
                       separatorBuilder: (context, index) {
                         return Divider(
