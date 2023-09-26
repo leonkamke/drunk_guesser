@@ -203,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: displayHeight * 0.035,
                         ),
-                        FilledButton(
+                        /*FilledButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/settings");
                             },
@@ -225,33 +225,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontFamily: "Quicksand",
                                 color: AppColors.drunkguesserSchrift,
                               ),
-                            )),
+                            )),*/
+                        ScalableButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/settings");
+                            },
+                            color: AppColors.settingsButtonBackground,
+                            text: "Einstellungen"),
                         SizedBox(
                           height: displayHeight * 0.05,
                         ),
-                        FilledButton(
+                        ScalableButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/shop_main");
                             },
-                            style: const ButtonStyle(
-                                elevation: MaterialStatePropertyAll(4.3),
-                                fixedSize:
-                                    MaterialStatePropertyAll(Size(150, 50)),
-                                backgroundColor:
-                                    MaterialStatePropertyAll<Color>(AppColors
-                                        .shopButtonHomescreenBackground),
-                                side: MaterialStatePropertyAll<BorderSide>(
-                                    BorderSide(
-                                        width: 2.4, color: Colors.black))),
-                            child: const Text(
-                              "Shop",
-                              style: TextStyle(
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Quicksand",
-                                color: AppColors.drunkguesserSchrift,
-                              ),
-                            )),
+                            color: AppColors.shopButtonHomescreenBackground,
+                            text: "Shop"),
                       ],
                     ),
                   ),

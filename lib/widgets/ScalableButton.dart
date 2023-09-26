@@ -19,29 +19,29 @@ class ScalableButton extends StatefulWidget {
 }
 
 class ScalableButtonState extends State<ScalableButton> {
-  bool isPressed = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          isPressed = true;
+          _isPressed = true;
         });
       },
       onTapUp: (_) {
         setState(() {
-          isPressed = false;
+          _isPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          isPressed = false;
+          _isPressed = false;
         });
       },
       child: Transform.scale(
-        scale: isPressed ? 0.95 : 1.0, // Adjust the scale factor as needed
+        scale: _isPressed ? 0.95 : 1.0,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -54,15 +54,19 @@ class ScalableButtonState extends State<ScalableButton> {
           ),
           width: 180,
           height: 50,
-          child: Center(child: Text(
-            widget.text,
-            style: const TextStyle(
-              fontSize: 23,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Quicksand",
-              color: AppColors.drunkguesserSchrift,
+          // duration: const Duration(milliseconds: 500),
+          child: Center(
+            child: Text(
+              widget.text,
+              style: const TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Quicksand",
+                color: AppColors.drunkguesserSchrift,
+              ),
             ),
-          )),),
+          ),
+        ),
       ),
     );
   }
