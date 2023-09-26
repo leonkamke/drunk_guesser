@@ -198,6 +198,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             onPressed: () {
                               Navigator.of(context).pushNamed("/categories");
                             },
+                            color: AppColors.startButtonBackground,
+
                             child: const Text(
                               "Start",
                               style: TextStyle(
