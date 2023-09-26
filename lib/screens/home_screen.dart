@@ -199,16 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.of(context).pushNamed("/categories");
                             },
                             color: AppColors.startButtonBackground,
-
-                            child: const Text(
-                              "Start",
-                              style: TextStyle(
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Quicksand",
-                                color: AppColors.drunkguesserSchrift,
-                              ),
-                            )),
+                            text: "Start"),
                         SizedBox(
                           height: displayHeight * 0.035,
                         ),
